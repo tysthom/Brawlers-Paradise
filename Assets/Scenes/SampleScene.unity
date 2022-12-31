@@ -2695,6 +2695,36 @@ Transform:
   m_Father: {fileID: 1920495492}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &404023286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 404023287}
+  m_Layer: 7
+  m_Name: Bearhugged Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &404023287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404023286}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0.34}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 835227106}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &407955301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3439,7 +3469,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502112829}
-  m_LocalRotation: {x: 0.13162142, y: 0.000000019069953, z: -0.0000000025320432, w: 0.99130005}
+  m_LocalRotation: {x: 0.13162142, y: -0.00000001906995, z: 0.0000000025320428, w: 0.99130005}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5343,6 +5373,10 @@ MonoBehaviour:
   isGroundIdle: 0
   isGroundAttacking: 0
   isComboing: 0
+  isEyePoking: 0
+  isBearhugGrabbing: 0
+  isBearhugging: 0
+  bearhugBreakOutCount: 0
 --- !u!114 &835227093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5412,11 +5446,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 835227105}
   divePosition: {fileID: 776271722}
+  bearhuggedPosition: {fileID: 0}
   fightStyleManager: {fileID: 0}
   isReacting: 0
   isFlinching: 0
   isFlinchBuffering: 0
   isDove: 0
+  isBearhugged: 0
   isKnockedBack: 0
   isKnockedDown: 0
   isStunned: 0
@@ -5449,12 +5485,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   souvenirDisplay: {fileID: 2053905095}
   souvenirFill: {fileID: 963180704}
+  souvenirIcon: {fileID: 0}
   canUseSouvenir: 1
   onCooldown: 0
   hasShield: 0
   hasSpeedBoost: 0
   hasPoison: 0
   hasDamageBoost: 0
+  hasLifeSteal: 0
+  hasDamageReduction: 0
   souvenir: 1
 --- !u!114 &835227099
 MonoBehaviour:
@@ -5581,6 +5620,7 @@ Transform:
   - {fileID: 1694688399}
   - {fileID: 776271723}
   - {fileID: 1221004100}
+  - {fileID: 404023287}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6174,6 +6214,12 @@ MonoBehaviour:
   tDamageMultiplier: 1.4
   tDuration: 10
   tequilaCooldownTime: 20
+  vipcHealthRecoveryAmount: 20
+  vipcDuration: 10
+  vipcCooldownTime: 25
+  fDamageReductionPercentage: 0.5
+  fDuration: 10
+  fCooldownTime: 15
   medicineUsage: 5
   sunscreenUsage: 5
   coffeeUsage: 3
@@ -6181,6 +6227,17 @@ MonoBehaviour:
   lifeJacketUsage: 8
   ratPoisonUsage: 5
   tequilaUsage: 3
+  vipCardUsage: 0
+  floatyUsage: 0
+  medicineImage: {fileID: 0}
+  sunscreenImage: {fileID: 0}
+  coffeeImage: {fileID: 0}
+  briefcaseImage: {fileID: 0}
+  lifeJacketImage: {fileID: 0}
+  ratPoisonImage: {fileID: 0}
+  tequilaImage: {fileID: 0}
+  vipCardImage: {fileID: 0}
+  floatyImage: {fileID: 0}
 --- !u!1 &954911099
 GameObject:
   m_ObjectHideFlags: 0
@@ -13076,12 +13133,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   souvenirDisplay: {fileID: 107955088}
   souvenirFill: {fileID: 0}
+  souvenirIcon: {fileID: 0}
   canUseSouvenir: 1
   onCooldown: 0
   hasShield: 0
   hasSpeedBoost: 0
   hasPoison: 0
   hasDamageBoost: 0
+  hasLifeSteal: 0
+  hasDamageReduction: 0
   souvenir: 6
 --- !u!114 &1760875130
 MonoBehaviour:
@@ -13097,11 +13157,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   divePosition: {fileID: 0}
+  bearhuggedPosition: {fileID: 0}
   fightStyleManager: {fileID: 0}
   isReacting: 0
   isFlinching: 0
   isFlinchBuffering: 0
   isDove: 0
+  isBearhugged: 0
   isKnockedBack: 0
   isKnockedDown: 0
   isStunned: 0
@@ -13209,6 +13271,10 @@ MonoBehaviour:
   isGroundIdle: 0
   isGroundAttacking: 0
   isComboing: 0
+  isEyePoking: 0
+  isBearhugGrabbing: 0
+  isBearhugging: 0
+  bearhugBreakOutCount: 0
 --- !u!114 &1760875135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14329,6 +14395,8 @@ MonoBehaviour:
   boxingStatsRefrence: {fileID: 1365660889}
   mmaStatsRefrence: {fileID: 1365660890}
   tkdStatsRefrence: {fileID: 1365660891}
+  kungFuStatsRefrence: {fileID: 0}
+  proWrestlingStatsRefrence: {fileID: 0}
   brawler1AttackDamage: 50
   brawler1FirstAttackTime: 1.12
   brawler1FirstAttackDistance: 9
@@ -14370,6 +14438,7 @@ MonoBehaviour:
   parryBufferTime: 0.5
   counterAttackTime: 0.25
   throwableDamage: 55
+  randomFightStyle: 0
   aiDefendFrequency: 4
   aiParryDodgeFrequency: 5
   aiContinuedAttackFrequency: 9
