@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &342297486038239339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1120205619410883281}
+  - component: {fileID: 4045391926737689972}
+  - component: {fileID: 2288085689335425470}
+  - component: {fileID: 8442737587885743508}
+  m_Layer: 0
+  m_Name: Vending_Machine_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1120205619410883281
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342297486038239339}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: -15.2, y: -0.031335708, z: 11.9}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90, y: 180, z: 0}
+--- !u!33 &4045391926737689972
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342297486038239339}
+  m_Mesh: {fileID: 1666537692303292346, guid: d620cb35dd14a6c48868a9886fa33fc6, type: 3}
+--- !u!23 &2288085689335425470
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342297486038239339}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 257
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 58cdc241fb1406647a2282e6cdfebe5d, type: 2}
+  - {fileID: 2100000, guid: f4f82f824247dae4ea06dd3fafb1c469, type: 2}
+  - {fileID: 2100000, guid: 29ee8b50b0b97c142bb9ce3f017c43aa, type: 2}
+  - {fileID: 2100000, guid: 40585e0b091f8ba40b2957162f9bfc51, type: 2}
+  - {fileID: 2100000, guid: 3fc7bc44b9a9832418c28bf1638f84d8, type: 2}
+  - {fileID: 2100000, guid: ad9d269976a619f4399e1f1b543f9bb4, type: 2}
+  - {fileID: 2100000, guid: 68374d1e57f9d2e449df47c2838737a7, type: 2}
+  - {fileID: 2100000, guid: 2e3f5c5a36222114d9ea76073297e57e, type: 2}
+  - {fileID: 2100000, guid: c81a7e3360d4a4c48897b01a799eaf59, type: 2}
+  - {fileID: 2100000, guid: 114546fb93c62624e927ee88cc47413f, type: 2}
+  - {fileID: 2100000, guid: c1bfb28314e6fe24d9a220ae62df30a3, type: 2}
+  - {fileID: 2100000, guid: 58a626d9ec39f3342953d905a7b8b130, type: 2}
+  - {fileID: 2100000, guid: 0de2a1834f9dc694ea0559b816f0342b, type: 2}
+  - {fileID: 2100000, guid: b1b731a09a8d5d849b21db78e18eb421, type: 2}
+  - {fileID: 2100000, guid: be5f8291cfebaa34399ddcca2727a13d, type: 2}
+  - {fileID: 2100000, guid: 764f3dcde8b92d64180b5fc4d04f78c1, type: 2}
+  - {fileID: 2100000, guid: b52445d6c01ed4949ba4412aaf21feb6, type: 2}
+  - {fileID: 2100000, guid: f36572da98102b749b213b0c501d1cac, type: 2}
+  - {fileID: 2100000, guid: 55db3c834003022418b62f49cb23c177, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8442737587885743508
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342297486038239339}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.019069664, y: 0.014476151, z: 0.036932595}
+  m_Center: {x: 0, y: -0.00041423138, z: 0.018466296}
