@@ -124,7 +124,7 @@ public class AiBehavior : MonoBehaviour
             agent.isStopped = true;
         }
 
-        if (!GetComponent<Combat>().isAttacking) //Makes Ai preform main sequence
+        if (!GetComponent<Combat>().inCombat) //Makes Ai preform main sequence
         {
             if (GetComponent<Souvenirs>().hasSpeedBoost)
             {
@@ -149,7 +149,7 @@ public class AiBehavior : MonoBehaviour
 
             if (isWaitingToAttack && !wTACalled && !GetComponent<Combat>().inCombat) //Called once to initaiate attack wait time ONCE
             {
-                AssignIdle();
+                //AssignIdle();
                 waitToAttack = StartCoroutine(WaitToAttack());
             }
 
@@ -203,7 +203,7 @@ public class AiBehavior : MonoBehaviour
             }
             else
             {
-                //AssignIdle();
+                AssignIdle();
                 if (destination.tag != "Throwable")
                 {
                     agent.isStopped = true;
@@ -217,9 +217,11 @@ public class AiBehavior : MonoBehaviour
             }
         }
     }
-
+     
     public IEnumerator WaitToAttack() //The time it takes the Ai to wait from a distance & charge towards player/throable
     {
+        GetComponent<CoroutineManager>().CancelCoroutines(waitToAttack);
+
         if (!GetComponent<Flinch>().isReacting && !GetComponent<Dodge>().isDodging)
         {
             #region Souvenirs

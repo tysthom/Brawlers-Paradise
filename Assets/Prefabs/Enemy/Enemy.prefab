@@ -3316,6 +3316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   souvenirDisplay: {fileID: 0}
   souvenirFill: {fileID: 0}
+  souvenirIcon: {fileID: 0}
   canUseSouvenir: 1
   onCooldown: 0
   hasShield: 0
@@ -3324,7 +3325,7 @@ MonoBehaviour:
   hasDamageBoost: 0
   hasLifeSteal: 0
   hasDamageReduction: 0
-  souvenir: 3
+  souvenir: 9
 --- !u!114 &7911793694284746384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3545,7 +3546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 1
+  fightStyle: 2
 --- !u!65 &7087000783357512420
 BoxCollider:
   m_ObjectHideFlags: 0

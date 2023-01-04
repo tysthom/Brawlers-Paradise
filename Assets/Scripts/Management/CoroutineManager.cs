@@ -32,12 +32,14 @@ public class CoroutineManager : MonoBehaviour
         {
             StopCoroutine(GetComponent<Combat>().diveAttack);
             GetComponent<Combat>().isDiving = false;
+            GetComponent<Combat>().invinsible = false;
         }
         if (GetComponent<Combat>().groundAttack != null && ignore != (GetComponent<Combat>().groundAttack))
         {
             StopCoroutine(GetComponent<Combat>().groundAttack);
             GetComponent<Combat>().isGroundAttacking = false;
             GetComponent<Combat>().isGroundIdle = false;
+            GetComponent<Combat>().invinsible = false;
         }
         if (GetComponent<Combat>().combo != null && ignore != (GetComponent<Combat>().combo)){
             StopCoroutine(GetComponent<Combat>().combo);

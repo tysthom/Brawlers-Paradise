@@ -599,14 +599,14 @@ public class Combat : MonoBehaviour
 
     public IEnumerator DiveAttack()
     {
+        GetComponent<CoroutineManager>().CancelCoroutines(diveAttack);
+
         faceEnemy = true;
         anim.SetInteger("State", 11);
         anim.SetBool("canTransition", false);
         canUseTechnique = false;
         isDiving = true;
         invinsible = true;
-
-        GetComponent<CoroutineManager>().CancelCoroutines(diveAttack);
 
         if (tag == "Enemy")
         {
@@ -642,11 +642,11 @@ public class Combat : MonoBehaviour
 
     public IEnumerator GroundAttack()
     {
+        GetComponent<CoroutineManager>().CancelCoroutines(groundAttack);
+
         canAttack = false;
         isGroundIdle = false;
         isGroundAttacking = true;
-
-        GetComponent<CoroutineManager>().CancelCoroutines(groundAttack);
 
         int i = Random.Range(1, 3);
         GetComponent<Stamina>().SubtractStamina(fightStyleManager.GetComponent<MMAStats>().mmaGroundAttackStaminaCost);
@@ -1105,6 +1105,10 @@ public class Combat : MonoBehaviour
                     }
                     //Player's parry is on 'Flinch' script
                 }
+            }
+            else
+            {
+                Debug.Log("Fail");
             }
         }
     }

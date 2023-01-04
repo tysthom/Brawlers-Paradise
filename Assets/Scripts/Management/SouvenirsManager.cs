@@ -107,8 +107,9 @@ public class SouvenirsManager : MonoBehaviour
 
     public void AssignSouvenirIcon(GameObject brawler)
     {
-        if (idManagerInstance.brawler1.GetComponent<Souvenirs>().souvenir == Souvenirs.souvenirs.none)
+        if (brawler == idManagerInstance.brawler1 && idManagerInstance.brawler1.GetComponent<Souvenirs>().souvenir != Souvenirs.souvenirs.none)
         {
+            
             if (idManagerInstance.brawler1.GetComponent<Souvenirs>().souvenir == Souvenirs.souvenirs.medicine)
             {
                 idManagerInstance.brawler1.GetComponent<Souvenirs>().souvenirIcon.GetComponent<Image>().sprite = medicineImage;
@@ -146,8 +147,8 @@ public class SouvenirsManager : MonoBehaviour
                 idManagerInstance.brawler1.GetComponent<Souvenirs>().souvenirIcon.GetComponent<Image>().sprite = floatyImage;
             }
         }
-
-        if (idManagerInstance.brawler2.GetComponent<Souvenirs>().souvenir == Souvenirs.souvenirs.none)
+        else 
+        if (brawler == idManagerInstance.brawler2 && idManagerInstance.brawler2.GetComponent<Souvenirs>().souvenir != Souvenirs.souvenirs.none)
         {
             if (idManagerInstance.brawler2.GetComponent<Souvenirs>().souvenir == Souvenirs.souvenirs.medicine)
             {

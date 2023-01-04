@@ -58,7 +58,7 @@ public class Souvenirs : MonoBehaviour
                     {
                         souvenirDisplay = child;
                     }
-                    if (child.gameObject.name == "Souvenir Icon")
+                    if (child.gameObject.name == "Brawler1 Souvenir Icon")
                     {
                         souvenirIcon = child;
                     }
@@ -69,7 +69,7 @@ public class Souvenirs : MonoBehaviour
                     {
                         souvenirDisplay = child;
                     }
-                    if (child.gameObject.name == "Souvenir Icon")
+                    if (child.gameObject.name == "Brawler2 Souvenir Icon")
                     {
                         souvenirIcon = child;
                     }
@@ -84,6 +84,7 @@ public class Souvenirs : MonoBehaviour
                         souvenirFill = subchild;
                     }
                 }
+            souvenirsManagerInstance.AssignSouvenirIcon(gameObject);
         } 
         else if (hudManagerInstance.hudType == HUDManager.hud.minimalist)
         {
@@ -94,9 +95,18 @@ public class Souvenirs : MonoBehaviour
                 {
                     souvenirFill = child;
                 }
-                if (child.gameObject.name == "Souvenir Icon")
+                if (idManagerInstance.brawler1 == gameObject)
                 {
-                    souvenirIcon = child;
+                    if (child.gameObject.name == "Brawler1 Souvenir Icon")
+                    {
+                        souvenirIcon = child;
+                    }
+                } else if (idManagerInstance.brawler2 == gameObject)
+                {
+                    if (child.gameObject.name == "Brawler2 Souvenir Icon")
+                    {
+                        souvenirIcon = child;
+                    }
                 }
             }
             souvenirsManagerInstance.AssignSouvenirIcon(gameObject);
@@ -125,40 +135,40 @@ public class Souvenirs : MonoBehaviour
         canUseSouvenir = false;
         if(souvenirFill != null)
         souvenirFill.fillAmount = 0;
-        if(souvenir == souvenirs.medicine)
+        if(souvenir == souvenirs.medicine) //Health Boost
         {
             HealthBoost();
         }
-        if(souvenir == souvenirs.sunscreen)
+        if(souvenir == souvenirs.sunscreen) //Flinch Shield
         {
             Shield();
         }
-        if (souvenir == souvenirs.coffee)
+        if (souvenir == souvenirs.coffee) //Movement Speed Boost
         {
             StartCoroutine(Coffee());
         }
-        if (souvenir == souvenirs.briefcase)
+        if (souvenir == souvenirs.briefcase) //Throwable
         {
             Briefcase();
         }
-        if (souvenir == souvenirs.ratPoison)
+        if (souvenir == souvenirs.ratPoison) //Poison
         {
             hasPoison = true;
            //StartCoroutine(RatPoison());
         }
-        if (souvenir == souvenirs.lifeJacket)
+        if (souvenir == souvenirs.lifeJacket) //Unkillable
         {
             StartCoroutine(LifeJacket());
         }
-        if (souvenir == souvenirs.tequila)
+        if (souvenir == souvenirs.tequila) //Damage Boost
         {
             StartCoroutine(Tequila());
         }
-        if(souvenir == souvenirs.vipCard)
+        if(souvenir == souvenirs.vipCard) //Life Steal
         {
             StartCoroutine(VIPCard());
         }
-        if(souvenir == souvenirs.floaty)
+        if(souvenir == souvenirs.floaty) //Damage Reduction
         {
             StartCoroutine(Floaty());
         }
