@@ -45,6 +45,12 @@ ModelImporter:
   - first:
       74: 6802525475707319758
     second: Kung Fu Eye Poke
+  - first:
+      74: 8649518592450581384
+    second: Armature|Kung Fu Eye Poke
+  - first:
+      74: 2519919151138548553
+    second: Kung Fu Counter Attack
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -60,7 +66,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
       in configuration does not match rotation in animation file:\n\t'Elbow.L' :
-      rotation error = 3.050197 deg\n\t'Elbow.R' : rotation error = 50.255100 deg\n"
+      rotation error = 38.535130 deg\n\t'Elbow.R' : rotation error = 14.378795 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Armature|Guardbreaker' has import animation
       warnings that might lower retargeting quality:\nNote: Activate translation
@@ -138,8 +144,8 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|Boxing Counter Attack
-      takeName: Armature|Boxing Counter Attack
+      name: Kung Fu Counter Attack
+      takeName: Armature|Kung Fu Counter Attack
       internalID: 0
       firstFrame: 0
       lastFrame: 1
@@ -693,6 +699,35 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Kung Fu Eye Poke
+      takeName: Armature|Kung Fu Eye Poke
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

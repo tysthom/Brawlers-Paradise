@@ -81,6 +81,12 @@ ModelImporter:
   - first:
       74: 3982125481814356862
     second: Wrestling Grab
+  - first:
+      74: -1426656525514630436
+    second: Wrestling Block
+  - first:
+      74: 3443741406238660085
+    second: Wrestling Counter Attack
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -96,7 +102,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
       in configuration does not match rotation in animation file:\n\t'Elbow.L' :
-      rotation error = 47.642094 deg\n\t'Elbow.R' : rotation error = 45.545006 deg\n"
+      rotation error = 40.943394 deg\n\t'Elbow.R' : rotation error = 40.295197 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Armature|MMA Dive' has import animation warnings
       that might lower retargeting quality:\nNote: Activate translation DOF on avatar
@@ -666,6 +672,64 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Wrestling Block
+      takeName: Armature|Wrestling Block
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Wrestling Counter Attack
+      takeName: Armature|Wrestling Counter Attack
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

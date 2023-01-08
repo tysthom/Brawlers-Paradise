@@ -716,7 +716,7 @@ AnimatorStateMachine:
     m_Position: {x: 960, y: -150, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 907220482879218478}
-    m_Position: {x: 880, y: 200, z: 0}
+    m_Position: {x: 900, y: 230, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7763036662053771237}
     m_Position: {x: 800, y: 380, z: 0}
@@ -2237,7 +2237,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Boxing Parry
+  m_Name: Kung Fu Parry
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -2257,7 +2257,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -6343518637586545039, guid: f4d749954e3116342b7ea856b42f2144, type: 3}
+  m_Motion: {fileID: -3623645753586518629, guid: a23d91c2a5decad47963a18430c26614, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -3901,7 +3901,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Boxing Counter Attack
+  m_Name: Kung Fu Counter Attack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -3916,7 +3916,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -703543852543504114, guid: f4d749954e3116342b7ea856b42f2144, type: 3}
+  m_Motion: {fileID: 2519919151138548553, guid: a23d91c2a5decad47963a18430c26614, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

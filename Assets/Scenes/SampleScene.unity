@@ -5410,7 +5410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 1
+  fightStyle: 5
 --- !u!114 &835227091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14670,7 +14670,7 @@ MonoBehaviour:
   guardBreakerDistance: 12
   guardBreakerTime: 1.5
   guardBreakerBufferTime: 0.25
-  parryTime: 0.15
+  parryTime: 0.2
   parryBufferTime: 0.5
   counterAttackTime: 0.25
   throwableDamage: 55

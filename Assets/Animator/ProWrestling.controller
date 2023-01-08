@@ -521,6 +521,31 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1101 &-6733449058238751512
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 6
+    m_ConditionEvent: State
+    m_EventTreshold: 115
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 991563244301632761}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1101 &-6624524791603774872
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -760,7 +785,7 @@ AnimatorStateMachine:
     m_Position: {x: 1290, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 991563244301632761}
-    m_Position: {x: 1430, y: -10, z: 0}
+    m_Position: {x: 1580, y: -10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5966692863726282060}
     m_Position: {x: 1460, y: -150, z: 0}
@@ -1982,6 +2007,7 @@ AnimatorStateMachine:
   - {fileID: -6622709311414347617}
   - {fileID: 8626201253361823549}
   - {fileID: -8391801262892432462}
+  - {fileID: -6733449058238751512}
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
@@ -2262,7 +2288,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Boxing Parry
+  m_Name: Wrestling Parry
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -2281,7 +2307,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -6343518637586545039, guid: f4d749954e3116342b7ea856b42f2144, type: 3}
+  m_Motion: {fileID: -1426656525514630436, guid: 66f8d122872ff0240a7a03f3006085ec, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -4028,7 +4054,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Boxing Counter Attack
+  m_Name: Wrestling Counter Attack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -4043,7 +4069,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -703543852543504114, guid: f4d749954e3116342b7ea856b42f2144, type: 3}
+  m_Motion: {fileID: 3443741406238660085, guid: 66f8d122872ff0240a7a03f3006085ec, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
