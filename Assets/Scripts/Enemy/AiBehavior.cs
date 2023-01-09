@@ -26,6 +26,7 @@ public class AiBehavior : MonoBehaviour
     public float glideAmount = 1; //How far Ai can glide when attacking;
     public float pickUpRange = 5; //Range where Ai will be able to pick up a throwable
     public float throwableSearchrange = 500; //Range where Ai can search for a throwable
+    int baseDefense = 0;
 
     [Header("Status")]   
     public bool isPunchingBag; //Idle
@@ -68,6 +69,7 @@ public class AiBehavior : MonoBehaviour
         fightStyleManager = GameObject.Find("Fight Style Manager");
         agent = GetComponent<NavMeshAgent>();
         baseSpeed = agent.speed;
+        baseDefense = combatManagear.GetComponent<CombatStats>().aiDefendFrequency;
     }
     void Start()
     {
@@ -408,6 +410,18 @@ public class AiBehavior : MonoBehaviour
         else
         {
             Debug.Log("Can't Attack!");
+        }
+    }
+
+    public IEnumerator IncreaseDefenseFrequency()
+    {
+        if (combatManagear.GetComponent<CombatStats>().aiDefendFrequency < 10)
+        {
+            combatManagear.GetComponent<CombatStats>().aiDefendFrequency++;
+
+            yield return new WaitForSeconds(4);
+
+            combatManagear.GetComponent<CombatStats>().aiDefendFrequency--;
         }
     }
 

@@ -38,12 +38,20 @@ public class Health : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(CallFunctions());
+    }
+
+    IEnumerator CallFunctions()
+    {
+        yield return new WaitForSeconds(1);
+
         if (idManagerInstance.brawler1 == gameObject)
         {
             healthBar = hudManagerInstance.brawler1HealthFill;
             healthRegenBar = hudManagerInstance.brawler1HealthRegen;
             shieldBar = hudManagerInstance.brawler1ShieldFill;
-        } else if (idManagerInstance.brawler2 == gameObject)
+        }
+        else if (idManagerInstance.brawler2 == gameObject)
         {
             healthBar = hudManagerInstance.brawler2HealthFill;
             healthRegenBar = hudManagerInstance.brawler2HealthRegen;
@@ -58,9 +66,13 @@ public class Health : MonoBehaviour
 
         if (hudManagerInstance.hudType == HUDManager.hud.none || tag == "Tourist")
         {
-            return;
+            //return;
         }
-        healthBar.GetComponent<Image>().color = barColorInstance.healthColor;
+        else
+        {
+            healthBar.GetComponent<Image>().color = barColorInstance.healthColor;
+        }
+        
     }
 
     // Update is called once per frame

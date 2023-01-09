@@ -113,7 +113,6 @@ public class CharacterManager : MonoBehaviour
         if (hairTypes[brawler1HairSelection] != null)
         {
             currentbrawler1HairType = Instantiate(hairTypes[brawler1HairSelection], brawler1HairHolder.transform);
-            Debug.Log("Hair");
         }
         if (hairTypes[brawler2HairSelection] != null)
         {

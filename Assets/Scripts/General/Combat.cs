@@ -995,6 +995,7 @@ public class Combat : MonoBehaviour
                         {
                             enemy.GetComponent<Combat>().isParrying = true;
                             enemy.GetComponent<Combat>().secondary = 1;
+                            StartCoroutine(enemy.GetComponent<AiBehavior>().IncreaseDefenseFrequency());
                             StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.2f, .5f));
                             
                             enemy.GetComponent<Flinch>().ReactionInitiation(a, 0); //Deal 0 damage when parrying
@@ -1075,6 +1076,7 @@ public class Combat : MonoBehaviour
                                     enemy.GetComponent<Combat>().isParrying = true;
                                     enemy.GetComponent<Combat>().secondary = 1;
                                     enemy.GetComponent<Flinch>().ReactionInitiation(a, 0); //Deal 0 damage when parrying
+
                                 }
                                 return;
                             }
