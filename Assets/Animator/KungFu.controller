@@ -396,7 +396,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Stunned
+  m_Name: Kung Fu Stunned
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -411,7 +411,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1982136495307655951, guid: 85249f106e982964a96428bb5def0c80, type: 3}
+  m_Motion: {fileID: -3776578853692839594, guid: a23d91c2a5decad47963a18430c26614, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

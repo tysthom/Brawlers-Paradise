@@ -88,7 +88,6 @@ public class BrawlerStats : MonoBehaviour
         else if (brawler == idManagerInstance.brawler2)
         {
             amount = (1 + (.12f * (b2Health - 3)));
-            Debug.Log(amount);
             return amount;
         }
         return 0;

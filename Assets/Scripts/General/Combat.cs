@@ -746,7 +746,7 @@ public class Combat : MonoBehaviour
     {
         if (!inCombat && !GetComponent<Flinch>().isReacting && !enemy.GetComponent<Flinch>().isParried)
         {
-            invulnerable = true;
+            //invulnerable = true;
 
             GetComponent<CoroutineManager>().CancelCoroutines(bearhugGrab);
 
@@ -788,7 +788,7 @@ public class Combat : MonoBehaviour
     public IEnumerator Bearhugging()
     {
         GetComponent<CoroutineManager>().CancelCoroutines(bearhugging);
-        invulnerable = true;
+        //invulnerable = true;
 
         isBearhugging = true;
         anim.SetInteger("State", 11);
@@ -1218,7 +1218,15 @@ public class Combat : MonoBehaviour
                 if (anim.GetInteger("State") == 3) //Leads to V1 & V2 of next attack
                 {
                     variedAttack = Random.Range(4, 6);
-                    basicAttack = StartCoroutine(Attack(variedAttack, combatStatsInstance.brawler2SecondAAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
+                    if (variedAttack == 4)
+                    {
+                        basicAttack = StartCoroutine(Attack(variedAttack, combatStatsInstance.brawler2SecondAAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
+                    }
+                    else
+                    {
+                    basicAttack = StartCoroutine(Attack(variedAttack, combatStatsInstance.brawler2SecondBAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
+                    }
+
                 }
                 else if(anim.GetInteger("State") == 4)
                 {

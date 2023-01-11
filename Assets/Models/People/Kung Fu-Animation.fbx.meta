@@ -51,6 +51,9 @@ ModelImporter:
   - first:
       74: 2519919151138548553
     second: Kung Fu Counter Attack
+  - first:
+      74: -3776578853692839594
+    second: Kung Fu Stunned
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -66,7 +69,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
       in configuration does not match rotation in animation file:\n\t'Elbow.L' :
-      rotation error = 38.535130 deg\n\t'Elbow.R' : rotation error = 14.378795 deg\n"
+      rotation error = 15.748203 deg\n\t'Elbow.R' : rotation error = 53.073338 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Armature|Guardbreaker' has import animation
       warnings that might lower retargeting quality:\nNote: Activate translation
@@ -130,7 +133,11 @@ ModelImporter:
       quality.\n\t'Elbow.L' is inbetween humanoid transforms and has rotation animation
       that will be discarded.\n\t'Shoulder.R' has translation animation that will
       be discarded.\n\t'Elbow.R' is inbetween humanoid transforms and has rotation
-      animation that will be discarded.\n"
+      animation that will be discarded.\n\nClip 'Armature|Kung Fu Stunned' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'Elbow.L' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'Elbow.R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -716,6 +723,35 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Kung Fu Stunned
+      takeName: Armature|Kung Fu Stunned
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

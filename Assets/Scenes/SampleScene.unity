@@ -3591,7 +3591,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502112829}
-  m_LocalRotation: {x: 0.13162142, y: -0.00000001906995, z: 0.0000000025320428, w: 0.99130005}
+  m_LocalRotation: {x: 0.13162142, y: 0.000000019069953, z: -0.0000000025320432, w: 0.99130005}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5410,7 +5410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 3
+  fightStyle: 0
 --- !u!114 &835227091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9072,7 +9072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7e8d4680bf41ab4c83118273ec5f827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vibrateOn: 1
+  vibrateOn: 0
   vibrating: 0
   vIntensity: 0
 --- !u!114 &1209302669
@@ -10090,9 +10090,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstAttackTime: 0.9
   firstAttackDistance: 3
-  secondAAttackTime: 1
+  secondAAttackTime: 1.2
   secondAAttackDistance: 8.4
-  secondBAttackTime: 1
+  secondBAttackTime: 1.2
   secondBAttackDistance: 8.4
   thirdAttackTime: 1
   thirdAttackV1Distance: 2.4
@@ -10117,7 +10117,7 @@ MonoBehaviour:
   firstAttackDistance: 3
   secondAAttackTime: 1.12
   secondAAttackDistance: 7
-  secondBAttackTime: 1.12
+  secondBAttackTime: 1.25
   secondBAttackDistance: 7
   thirdAttackTime: 1.12
   thirdAttackV1Distance: 7
@@ -10176,7 +10176,7 @@ MonoBehaviour:
   firstAttackDistance: 5
   secondAAttackTime: 1
   secondAAttackDistance: 7
-  secondBAttackTime: 1
+  secondBAttackTime: 1.2
   secondBAttackDistance: 7
   thirdAttackTime: 1
   thirdAttackV1Distance: 7
@@ -10186,7 +10186,7 @@ MonoBehaviour:
   bearhugGrabTime: 2
   bearhugDamagePerTick: 6
   clotheslineKnockdownTime: 1
-  aiBearhugFrequency: 3
+  aiBearhugFrequency: 0
   proWrestlingFightTypeStats: 0200000005000000030000000300000005000000
 --- !u!114 &1365660893
 MonoBehaviour:
@@ -14592,10 +14592,10 @@ MonoBehaviour:
   parryBufferTime: 0.5
   counterAttackTime: 0.25
   throwableDamage: 55
-  randomFightStyle: 1
+  randomFightStyle: 0
   aiDefendFrequency: 5
   aiParryDodgeFrequency: 3
-  aiContinuedAttackFrequency: 9
+  aiContinuedAttackFrequency: 7
   aiThrowableFrequency: 0
 --- !u!4 &1891941794
 Transform:
