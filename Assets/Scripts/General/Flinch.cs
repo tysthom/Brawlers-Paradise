@@ -98,6 +98,7 @@ public class Flinch : MonoBehaviour
         isStunned = false;
         if (tag == "Player") { GetComponent<CharacterController>().enabled = false; }
         if (tag == "Enemy") { GetComponent<AiBehavior>().canGlideToEnemy = false; }
+
         //Handles player's parry
         if (GetComponent<Combat>().isParrying && damage != combatManagear.GetComponent<CombatStats>().throwableDamage
             && damage != fightStyleManager.GetComponent<MMAStats>().mmaDiveInitialDamage) //PARRY
