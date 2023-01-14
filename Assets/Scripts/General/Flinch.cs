@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Flinch : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class Flinch : MonoBehaviour
     public GameObject divePosition;
     public GameObject bearhuggedPosition;
     public GameObject fightStyleManager;
+    public GameObject hudManager;
+    public GameObject surrenderCanvas;
 
     public bool isReacting;
     public bool isFlinching; //True if flinching (moving backwards & not animation flinching)
@@ -25,6 +28,7 @@ public class Flinch : MonoBehaviour
     public bool isParried; //True if parried
     public bool isParryBuffering; //Prevents player from attacking while also allowing them to move around
     public bool isPoisoned; //True if poisoned
+    public bool isSurrendering;
 
     [Header("Coroutine")]
     public Coroutine reactionTime;
@@ -34,6 +38,7 @@ public class Flinch : MonoBehaviour
     public Coroutine groundFlinch;
     public Coroutine bearHugged;
     public Coroutine parried;
+    public Coroutine surrender;
 
     private void Awake()
     {
@@ -44,12 +49,17 @@ public class Flinch : MonoBehaviour
         resultStatsInstance = gameManager.GetComponent<ResultStats>();
         brawlerStatsInstance = combatManagear.GetComponent<BrawlerStats>();
         fightStyleManager = GameObject.Find("Fight Style Manager");
+        hudManager = GameObject.Find("HUD Manager");
+    }
 
+    private void Start()
+    {
+        hudManager.GetComponent<HUDManager>().finisherText.text = "";
     }
 
     private void Update()
     {
-        if (isFlinching || isFlinchBuffering || isParried || isParryBuffering || isStunned || isKnockedBack || isKnockedDown || isDove || isBearhugged)
+        if (isFlinching || isFlinchBuffering || isParried || isParryBuffering || isStunned || isKnockedBack || isKnockedDown || isDove || isBearhugged || isSurrendering)
         {
             isReacting = true;
             if(tag == "Enemy") { GetComponent<AiBehavior>().canGlideToEnemy = false; }
@@ -89,6 +99,15 @@ public class Flinch : MonoBehaviour
                 GetComponent<AiBehavior>().isChargingEnemy = false;
                 GetComponent<AiBehavior>().isChasingEnemy = false;
                 GetComponent<AiBehavior>().canGlideToEnemy = false;
+            }
+
+            if (isSurrendering && GetComponent<Combat>().enemy.GetComponent<Combat>().canFinish)
+            {
+                surrenderCanvas.SetActive(true);
+            }
+            else
+            {
+                surrenderCanvas.SetActive(false);
             }
         }
     }
@@ -241,11 +260,6 @@ public class Flinch : MonoBehaviour
             else
             {
                 anim.SetInteger("State", 40);
-            }
-            if (GetComponent<Health>().health < 1)
-            {
-                GetComponent<Death>().Die();
-                yield return null;
             }
 
             yield return new WaitForSeconds(.15f); //Stun time after flinching
@@ -477,5 +491,30 @@ public class Flinch : MonoBehaviour
     public void Knockback()
     {
         ReactionInitiation(110, GetComponent<Combat>().CalculateDamage());
+    }
+
+    public IEnumerator Surrender()
+    {
+        GetComponent<CoroutineManager>().CancelCoroutines(surrender);
+        isSurrendering = true;
+
+        if (tag == "Enemy" && surrenderCanvas == null)
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                if (transform.GetChild(i).gameObject.name == "Canvas")
+                {
+                    surrenderCanvas = transform.GetChild(i).gameObject;
+                    surrenderCanvas.SetActive(true);
+                    surrenderCanvas.GetComponent<Billboard>().cam = GetComponent<Combat>().enemy.GetComponent<Movement>().cam;
+                    i = transform.childCount;
+
+                }
+            } 
+        }
+        hudManager.GetComponent<HUDManager>().finisherText.text = "FINISH HIM!";
+
+        anim.SetInteger("State", 125);
+        yield return new WaitForSeconds(6);
     }
 }

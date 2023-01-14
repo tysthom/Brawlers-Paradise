@@ -18,22 +18,25 @@ public class Billboard : MonoBehaviour
 
     private void Start()
     {
-        if(hudManagerInstance.hudType != HUDManager.hud.minimalist)
+        if (gameObject.name != "Finisher Prompt")
         {
-            gameObject.SetActive(false);
-            return;
-        }
+            if (hudManagerInstance.hudType != HUDManager.hud.minimalist)
+            {
+                gameObject.SetActive(false);
+                return;
+            }
 
-        gameManager = GameObject.Find("Game Manager");
-        idManagerInstance = gameManager.GetComponent<IdManagear>();
+            gameManager = GameObject.Find("Game Manager");
+            idManagerInstance = gameManager.GetComponent<IdManagear>();
 
-        if(idManagerInstance.gameMode == IdManagear.mode.playerVsAi || idManagerInstance.gameMode == IdManagear.mode.training)
-        {
-            cam = GameObject.Find("Player Camera").transform;
-        }
-        else if(idManagerInstance.gameMode == IdManagear.mode.AiVsAi)
-        {
-            cam = idManagerInstance.spectatorCamera.transform;
+            if (idManagerInstance.gameMode == IdManagear.mode.playerVsAi || idManagerInstance.gameMode == IdManagear.mode.training)
+            {
+                cam = GameObject.Find("Player Camera").transform;
+            }
+            else if (idManagerInstance.gameMode == IdManagear.mode.AiVsAi)
+            {
+                cam = idManagerInstance.spectatorCamera.transform;
+            }
         }
     }
 

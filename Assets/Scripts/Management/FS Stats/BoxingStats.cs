@@ -23,7 +23,7 @@ public class BoxingStats : MonoBehaviour
     public int[] boxingFightTypeStats = new int[5];
 
     #region Animation
-    /* 0 - Boxing Combat Idle
+    /* 0 - Combat Idle
      * 2 - Run
      * 3 - Boxing Basic Attack 1
      * 4 - Boxing Basic Attack 2V1
@@ -32,8 +32,6 @@ public class BoxingStats : MonoBehaviour
      * 6V2 - Boxing Basic Attack 3V2
      * 7V1 - Boxing Basic Attack 3V3
      * 7V2 - Boxing Basic Attack 3V4
-     * 
-     * 10 - Boxing Guarbreaker
      * 
      * 15 - Boxing Counter Attack
      * 
@@ -50,9 +48,9 @@ public class BoxingStats : MonoBehaviour
      * 100 - Flinch 1
      * 101 - Flinch 2
      * 
-     * 105 - Stunned
+     * 105 - Boxing Stunned
      * 
-     * 107 - Ground Flinch 1
+     * 109 - Bearhugged
      * 
      * 110 - Knockback
      * 

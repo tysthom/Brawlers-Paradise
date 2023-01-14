@@ -54,6 +54,9 @@ ModelImporter:
   - first:
       74: -2165885152316911652
     second: Bearhugged
+  - first:
+      74: -6458030958534195499
+    second: Surrender
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -69,8 +72,8 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
       does not match position in animation file:\n\t'Index1.L' : position error =
-      7.879127 mm\n\t'Middle1.L' : position error = 2.849743 mm\n\t'Index1.R' : position
-      error = 7.879159 mm\n\t'Middle1.R' : position error = 2.849734 mm\n"
+      7.879084 mm\n\t'Middle1.L' : position error = 2.849746 mm\n\t'Index1.R' : position
+      error = 7.879118 mm\n\t'Middle1.R' : position error = 2.849694 mm\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Armature|Backwards Dodge' has import animation
       warnings that might lower retargeting quality:\nNote: Activate translation
@@ -477,6 +480,35 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Surrender
+      takeName: Armature|Surrender
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

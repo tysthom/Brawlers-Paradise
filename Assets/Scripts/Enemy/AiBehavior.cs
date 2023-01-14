@@ -93,7 +93,9 @@ public class AiBehavior : MonoBehaviour
             agent.stoppingDistance = attackRange;
             isChargingEnemy = true;
         }
+
         
+
     }
 
     void Update()

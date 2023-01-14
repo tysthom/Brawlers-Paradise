@@ -28,21 +28,19 @@ public class ProWrestlingStats : MonoBehaviour
     public int[] proWrestlingFightTypeStats = new int[5];
 
     #region Animation
-    /* 0 - Boxing Combat Idle
+    /* 0 - Combat Idle
      * 2 - Run
-     * 3 - Boxing Basic Attack 1
-     * 4 - Boxing Basic Attack 2V1
-     * 5 - Boxing Basic Attack 2V2
-     * 6V1 - Boxing Basic Attack 3V1
-     * 6V2 - Boxing Basic Attack 3V2
-     * 7V1 - Boxing Basic Attack 3V3
-     * 7V2 - Boxing Basic Attack 3V4
+     * 3 - Wrestling Basic Attack 1
+     * 4 - Wrestling Basic Attack 2V1
+     * 5 - Wrestling Basic Attack 2V2
+     * 6V1 - Wrestling Basic Attack 3V1
+     * 6V2 - Wrestling Basic Attack 3V2
+     * 7V1 - Wrestling Basic Attack 3V3
+     * 7V2 - Wrestling Basic Attack 3V4
      * 
-     * 10 - Pro Wrestling Bearhug
+     * 15 - Wrestling Counter Attack
      * 
-     * 15 - Boxing Counter Attack
-     * 
-     * 20 - Boxing Parry
+     * 20 - Wrestling Parry
      * 
      * 25 - Backwards Dodge
      * 26 - Forward Dodge
@@ -55,9 +53,7 @@ public class ProWrestlingStats : MonoBehaviour
      * 100 - Flinch 1
      * 101 - Flinch 2
      * 
-     * 105 - Stunned
-     * 
-     * 107 - Ground Flinch 1
+     * 105 - Wrestling Stunned
      * 
      * 109 - Bearhugged
      * 

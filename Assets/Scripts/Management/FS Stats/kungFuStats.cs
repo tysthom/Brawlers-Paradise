@@ -27,21 +27,19 @@ public class kungFuStats : MonoBehaviour
     [Range(0, 10)] public int aiEyePokeFrequency;
 
     #region Animation
-    /* 0 - Boxing Combat Idle
+    /* 0 - Combat Idle
      * 2 - Run
-     * 3 - Boxing Basic Attack 1
-     * 4 - Boxing Basic Attack 2V1
-     * 5 - Boxing Basic Attack 2V2
-     * 6V1 - Boxing Basic Attack 3V1
-     * 6V2 - Boxing Basic Attack 3V2
-     * 7V1 - Boxing Basic Attack 3V3
-     * 7V2 - Boxing Basic Attack 3V4
+     * 3 - Kung Fu Basic Attack 1
+     * 4 - Kung Fu Basic Attack 2V1
+     * 5 - Kung Fu Basic Attack 2V2
+     * 6V1 - Kung Fu Basic Attack 3V1
+     * 6V2 - Kung Fu Basic Attack 3V2
+     * 7V1 - Kung Fu Basic Attack 3V3
+     * 7V2 - Kung Fu Basic Attack 3V4
      * 
-     * 10 - Kung Fu Eye Poke
+     * 15 - Kung Fu Counter Attack
      * 
-     * 15 - Boxing Counter Attack
-     * 
-     * 20 - Boxing Parry
+     * 20 - Kung Fu Parry
      * 
      * 25 - Backwards Dodge
      * 26 - Forward Dodge
@@ -54,9 +52,9 @@ public class kungFuStats : MonoBehaviour
      * 100 - Flinch 1
      * 101 - Flinch 2
      * 
-     * 105 - Stunned
+     * 105 - Kung Fu Stunned
      * 
-     * 107 - Ground Flinch 1
+     * 109 - Bearhugged
      * 
      * 110 - Knockback
      * 

@@ -212,11 +212,7 @@ public class Souvenirs : MonoBehaviour
         for (int i = 0; i < souvenirsManagerInstance.rpDuration; i++)
         {
             GetComponent<Combat>().enemy.GetComponent<Health>().SubtractHealth(souvenirsManagerInstance.rpDamageAmount);
-            if (GetComponent<Combat>().enemy.GetComponent<Health>().health < 1)
-            {
-                GetComponent<Combat>().enemy.GetComponent<Death>().Die();
-                yield return null;
-            }
+
             yield return new WaitForSeconds(1);
         }
         GetComponent<Combat>().enemy.GetComponent<Flinch>().isPoisoned = false;

@@ -28,7 +28,7 @@ public class TkdStats : MonoBehaviour
 
 
     #region Animation
-    /* 0 - Boxing Combat Idle
+    /* 0 - Combat Idle
      * 2 - Run
      * 3 - TKD Basic Attack 1
      * 4 - TKD Basic Attack 2V1
@@ -37,8 +37,6 @@ public class TkdStats : MonoBehaviour
      * 6V2 - TKD Basic Attack 3V2
      * 7V1 - TKD Basic Attack 3V3
      * 7V2 - TKD Basic Attack 3V4
-     * 
-     * 10 - TKD Combo
      * 
      * 15 - TKD Counter Attack
      * 
@@ -55,9 +53,9 @@ public class TkdStats : MonoBehaviour
      * 100 - Flinch 1
      * 101 - Flinch 2
      * 
-     * 105 - Stunned
+     * 105 - TKD Stunned
      * 
-     * 107 - Ground Flinch 1
+     * 109 - Bearhugged
      * 
      * 110 - Knockback
      * 

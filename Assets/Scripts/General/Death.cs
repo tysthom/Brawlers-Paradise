@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Death : MonoBehaviour
 {
@@ -23,9 +24,14 @@ public class Death : MonoBehaviour
     {
         if(GetComponent<Health>().health <= 0)
         {
-            Die();
+            //Die();
+            
+            if(GetComponent<Flinch>().surrender == null)
+            GetComponent<Flinch>().surrender = StartCoroutine(GetComponent<Flinch>().Surrender());
         }
     }
+
+    
 
     public void Die()
     {

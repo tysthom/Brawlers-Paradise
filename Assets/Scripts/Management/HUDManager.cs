@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HUDManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class HUDManager : MonoBehaviour
 
     public Image brawler1Health, brawler1HealthFill, brawler1HealthRegen, brawler1ShieldFill, brawler1Stamina, brawler1StaminaFill,
         brawler2Health, brawler2HealthFill, brawler2HealthRegen, brawler2ShieldFill, brawler2Stamina, brawler2StaminaFill;
+
+    public TMP_Text finisherText;
 
     private void Awake()
     {

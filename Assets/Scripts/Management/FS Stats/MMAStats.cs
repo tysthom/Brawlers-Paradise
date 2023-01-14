@@ -43,14 +43,9 @@ public class MMAStats : MonoBehaviour
      * 7V1 - MMA Basic Attack 3V3
      * 7V2 - MMA Basic Attack 3V4
      * 
-     * 11 - MMA Dive
-     * 12 - MMA Ground Idle
-     * 13V1 - MMA Ground Attack 1
-     * 13V2 - MMA Ground Attack 2
+     * 15 - MMA Counter Attack
      * 
-     * 15 - Counter Attack
-     * 
-     * 20 - Boxing Parry
+     * 20 - MMA Parry
      * 
      * 25 - Backwards Dodge
      * 26 - Forward Dodge
@@ -63,9 +58,9 @@ public class MMAStats : MonoBehaviour
      * 100 - Flinch 1
      * 101 - Flinch 2
      * 
-     * 105 - Stunned
+     * 105 - MMA Stunned
      * 
-     * 107 - Ground Flinch 1
+     * 109 - Bearhugged
      * 
      * 110 - Knockback
      * 

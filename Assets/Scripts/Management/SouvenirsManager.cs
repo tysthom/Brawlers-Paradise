@@ -102,7 +102,6 @@ public class SouvenirsManager : MonoBehaviour
     {
         int i = Random.Range(0, System.Enum.GetValues(typeof(Souvenirs.souvenirs)).Length - 1);
         brawler.GetComponent<Souvenirs>().souvenir = (Souvenirs.souvenirs)i;
-        Debug.Log(brawler.name + " has " + brawler.GetComponent<Souvenirs>().souvenir);
     }
 
     public void AssignSouvenirIcon(GameObject brawler)

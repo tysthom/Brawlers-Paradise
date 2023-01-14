@@ -33,8 +33,9 @@ public class KarateStats : MonoBehaviour
     public int[] karateFightTypeStats = new int[5];
 
     #region Animation
-    /* 0V1 - Combat Idle - Attack
-     * 0V1 - Combat Idle - Passive
+    /* 0V1 - Combat Idle - Offensive
+     * 0V2 - Combat Idle - Defensive
+     * 0V3 - Combat Idle - Passive
      * 2 - Run
      * 3 - Karate Basic Attack 1
      * 4 - Karate Basic Attack 2V1
@@ -44,7 +45,7 @@ public class KarateStats : MonoBehaviour
      * 7V1 - Karate Basic Attack 3V3
      * 7V2 - Karate Basic Attack 3V4
      * 
-     * 15 - Counter Attack
+     * 15 - Karate Counter Attack
      * 
      * 20 - Karate Parry
      * 
@@ -61,6 +62,8 @@ public class KarateStats : MonoBehaviour
      * 
      * 105 - Karate Stunned
      * 
+     * 109 - Bearhugged
+     * 
      * 110 - Knockback
      * 
      * 115 - Knockdown
@@ -68,6 +71,8 @@ public class KarateStats : MonoBehaviour
      * 118 - Recovery
      * 
      * 120 - Parried
+     * 
+     * 125 - Surrender
      */
 
     #endregion
