@@ -55,6 +55,8 @@ public class KarateStats : MonoBehaviour
      * 40 - Throw Idle
      * 41 - Throw Aim
      * 
+     * 50 - Karate Finisher
+     * 
      * 52 - Grabbed
      * 
      * 100 - Flinch 1

@@ -76,6 +76,11 @@ public class CoroutineManager : MonoBehaviour
             StopCoroutine(GetComponent<Combat>().basicAttack);
             GetComponent<Combat>().isAttacking = false;
         }
+        if (GetComponent<Combat>().finisher != null && ignore != GetComponent<Combat>().finisher)
+        {
+            StopCoroutine(GetComponent<Combat>().finisher);
+            GetComponent<Combat>().isFinishing = false;
+        }
         if (GetComponent<Combat>().afterAttack != null && ignore != GetComponent<Combat>().afterAttack)
         {
             StopCoroutine(GetComponent<Combat>().afterAttack);

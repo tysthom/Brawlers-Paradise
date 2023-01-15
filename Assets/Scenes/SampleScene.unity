@@ -5410,7 +5410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 1
+  fightStyle: 0
 --- !u!114 &835227091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5481,6 +5481,8 @@ MonoBehaviour:
   canNextAttack: 0
   isCounterAttacking: 0
   isCounterAttackBuffering: 0
+  canFinish: 0
+  isFinishing: 0
   canParry: 1
   isParrying: 0
   isParryBuffering: 0
@@ -5571,6 +5573,7 @@ MonoBehaviour:
   bearhuggedPosition: {fileID: 404023286}
   fightStyleManager: {fileID: 0}
   hudManager: {fileID: 0}
+  surrenderCanvas: {fileID: 0}
   isReacting: 0
   isFlinching: 0
   isFlinchBuffering: 0
@@ -13452,6 +13455,7 @@ MonoBehaviour:
   bearhuggedPosition: {fileID: 0}
   fightStyleManager: {fileID: 0}
   hudManager: {fileID: 0}
+  surrenderCanvas: {fileID: 0}
   isReacting: 0
   isFlinching: 0
   isFlinchBuffering: 0
@@ -13551,6 +13555,8 @@ MonoBehaviour:
   canNextAttack: 0
   isCounterAttacking: 0
   isCounterAttackBuffering: 0
+  canFinish: 0
+  isFinishing: 0
   canParry: 0
   isParrying: 0
   isParryBuffering: 0

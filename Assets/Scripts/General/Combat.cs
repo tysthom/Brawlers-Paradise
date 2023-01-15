@@ -38,6 +38,7 @@ public class Combat : MonoBehaviour
     public bool isCounterAttacking = false; //True if performing a counter attack after parrying
     public bool isCounterAttackBuffering = false;
     public bool canFinish;
+    public bool isFinishing;
     public bool canParry; //True if can parry
     public bool isParrying; //True if is parrying
     public bool isParryBuffering;
@@ -81,6 +82,7 @@ public class Combat : MonoBehaviour
     public Coroutine bearhugging;
     public Coroutine bearhugBreakOut;
     public Coroutine basicAttack;
+    public Coroutine finisher;
     public Coroutine afterAttack;
 
     void Start()
@@ -262,7 +264,7 @@ public class Combat : MonoBehaviour
                     }
                 } else
                 {
-                    //Finishing Move
+                    finisher = StartCoroutine(Finisher());
                     Debug.Log("Finish!");
                 }
             }
@@ -431,7 +433,7 @@ public class Combat : MonoBehaviour
             MoveWhenAttacking(fightStyleManager.GetComponent<MMAStats>().mmaDiveDistance);
         }
 
-        if (isAttacking || isGuardBreaking || isCounterAttacking || isGuardBreaking || isDiving || isGroundIdle || isGroundAttacking || isComboing || isEyePoking || isBearhugGrabbing || isBearhugging)
+        if (isAttacking || isGuardBreaking || isCounterAttacking || isGuardBreaking || isDiving || isGroundIdle || isGroundAttacking || isComboing || isEyePoking || isBearhugGrabbing || isBearhugging || isFinishing)
         {
             inCombat = true;
         }
@@ -897,6 +899,21 @@ public class Combat : MonoBehaviour
                 }
             }
         }
+
+    public IEnumerator Finisher()
+    {
+        GetComponent<CoroutineManager>().CancelCoroutines(finisher);
+        isFinishing = true;
+
+        anim.SetInteger("State", 50);
+
+        yield return new WaitForSeconds(5);
+    }
+
+    public void Finish()
+    {
+        enemy.GetComponent<Death>().Die();
+    }
 
 
     //Checks to make sure that player is close enough to face Ai when attacking
