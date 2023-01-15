@@ -101,7 +101,7 @@ public class Flinch : MonoBehaviour
                 GetComponent<AiBehavior>().canGlideToEnemy = false;
             }
 
-            if (isSurrendering && GetComponent<Combat>().enemy.GetComponent<Combat>().canFinish)
+            if (isSurrendering && GetComponent<Combat>().enemy.GetComponent<Combat>().canFinish && !GetComponent<Combat>().enemy.GetComponent<Combat>().isFinishing)
             {
                 surrenderCanvas.SetActive(true);
             }
@@ -112,7 +112,7 @@ public class Flinch : MonoBehaviour
         }
     }
 
-    public void ReactionInitiation(int state, float damage) //Causes gameobject to flinch
+    public void ReactionInitiation(int state, float damage) //Causes gameobject to flinch 
     {
         isStunned = false;
         if (tag == "Player") { GetComponent<CharacterController>().enabled = false; }
@@ -221,6 +221,7 @@ public class Flinch : MonoBehaviour
     {
         GetComponent<Combat>().canParry = false;
         GetComponent<Health>().SubtractHealth(damage);
+
         anim.SetInteger("State", state);
 
         if (tag != "Tourist")
@@ -490,7 +491,7 @@ public class Flinch : MonoBehaviour
 
     public void Knockback()
     {
-        ReactionInitiation(110, GetComponent<Combat>().CalculateDamage());
+        ReactionInitiation(110, GetComponent<Combat>().enemy.GetComponent<Combat>().CalculateDamage());
     }
 
     public IEnumerator Surrender()
@@ -498,7 +499,7 @@ public class Flinch : MonoBehaviour
         GetComponent<CoroutineManager>().CancelCoroutines(surrender);
         isSurrendering = true;
 
-        if (tag == "Enemy" && surrenderCanvas == null)
+        if (tag == "Enemy" && surrenderCanvas == null && idManagerInstance.gameMode != IdManagear.mode.AiVsAi)
         {
             for (int i = 0; i < transform.childCount; i++)
             {

@@ -222,7 +222,7 @@ public class Combat : MonoBehaviour
                     GetComponent<Technique>().UseTechnique(gameObject);
             }
 
-            canFinish = GetDistanceToEnemy() && enemy.GetComponent<Flinch>().isSurrendering;
+            canFinish = GetDistanceToFinish() && enemy.GetComponent<Flinch>().isSurrendering;
 
             if (attackButtonDown && (canAttack || canNextAttack) && !attackBuffering && !GetComponent<Throw>().isEquipped) //ATTACK
             {
@@ -908,6 +908,8 @@ public class Combat : MonoBehaviour
         anim.SetInteger("State", 50);
 
         yield return new WaitForSeconds(5);
+
+        anim.SetInteger("State", 0);
     }
 
     public void Finish()
@@ -916,8 +918,8 @@ public class Combat : MonoBehaviour
     }
 
 
-    //Checks to make sure that player is close enough to face Ai when attacking
-    bool GetDistanceToEnemy() //PLAYER ONLY
+    //Checks to make sure that player is close enough to face Ai to deal damage when attacking
+    bool GetDistanceToEnemy()
     {
         if (GetComponent<BrawlerId>().brawlerId == BrawlerId.Id.brawler1)
         {
@@ -945,6 +947,26 @@ public class Combat : MonoBehaviour
         }
         else
         {
+            return false;
+        }
+    }
+
+    public bool GetDistanceToFinish()
+    {
+        if (GetComponent<BrawlerId>().brawlerId == BrawlerId.Id.brawler1)
+        {
+            if (Vector3.Distance(transform.position, enemy.transform.position) <= combatStatsInstance.finisherDistance)
+            {
+                return true;
+            }
+            return false;
+        }
+        else
+        {
+            if (Vector3.Distance(transform.position, enemy.transform.position) <= combatStatsInstance.finisherDistance)
+            {
+                return true;
+            }
             return false;
         }
     }
@@ -1040,7 +1062,7 @@ public class Combat : MonoBehaviour
                             enemy.GetComponent<Flinch>().ReactionInitiation(a, CalculateDamage());
                         } else if(a == 110) //Perform knockback
                         {
-                            enemy.GetComponent<Flinch>().Knockback();
+                            enemy.GetComponent<Flinch>().Knockback(); 
                         } else if(a == 115) //Perform immediate knockdown
                         {
                             Debug.Log("Here");
@@ -1161,6 +1183,7 @@ public class Combat : MonoBehaviour
             if (GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.karate && anim.GetBool("isOffensiveStance"))
             {
                 damage *= fightStyleManager.GetComponent<KarateStats>().karateDamageIncreaser;
+                
             }
             if (enemy.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.karate && enemy.GetComponent<Combat>().anim.GetBool("isDefensiveStance"))
             {
@@ -1172,6 +1195,7 @@ public class Combat : MonoBehaviour
             }
         } else if(GetComponent<BrawlerId>().brawlerId == BrawlerId.Id.brawler2)
         {
+            Debug.Log("Here");
             if (anim.GetInteger("State") == 10 && GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.taekwondo)
             {
                 damage = fightStyleManager.GetComponent<TkdStats>().comboDamage;
@@ -1224,9 +1248,10 @@ public class Combat : MonoBehaviour
         }
     }
 
+    //DOESN'T WORK PROPERLY
     IEnumerator AttackBufferTime() //Brief pause between attack combos
     {
-        yield return new WaitForSeconds(.75f); //Needs variable
+        yield return new WaitForSeconds(7.5f); //Needs variable
         attackBuffering = false;
     }
 
@@ -1236,7 +1261,7 @@ public class Combat : MonoBehaviour
         anim.SetBool("canTransition", true);
         int i = Random.Range(1, 10);
             ShouldNotMove();
-            if (anim.GetInteger("State") != 3 && anim.GetInteger("State") != 4 && anim.GetInteger("State") != 5 || tag == "Tourist") { i = 100; }
+            if (anim.GetInteger("State") == 6 || anim.GetInteger("State") == 7 || enemy.GetComponent<Flinch>().isSurrendering || tag == "Tourist") { i = 100; }
             if (i <= combatStatsInstance.aiContinuedAttackFrequency)
             {
                 isAttacking = false;

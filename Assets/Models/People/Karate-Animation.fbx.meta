@@ -102,6 +102,9 @@ ModelImporter:
   - first:
       74: 8912365464695119086
     second: Karate Finisher
+  - first:
+      74: -5132319841600091881
+    second: Karate Surrender
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -117,7 +120,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
       in configuration does not match rotation in animation file:\n\t'Elbow.L' :
-      rotation error = 30.978405 deg\n\t'Elbow.R' : rotation error = 3.253049 deg\n"
+      rotation error = 5.092272 deg\n\t'Elbow.R' : rotation error = 5.092317 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Armature|Karate Attack 1' has import animation
       warnings that might lower retargeting quality:\nNote: Activate translation
@@ -755,6 +758,35 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Karate Surrender
+      takeName: Armature|Karate Surrender
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

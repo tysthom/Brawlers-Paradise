@@ -77,6 +77,9 @@ public class CombatStats : MonoBehaviour
     [Header("Throwables")]
     public float throwableDamage = 55;
 
+    [Header("Finisher")]
+    public float finisherDistance = 2;
+
     [Header("Ai Variation")]
     public bool randomFightStyle;
     [Range(0, 10)] public int aiDefendFrequency;

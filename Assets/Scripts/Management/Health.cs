@@ -83,9 +83,10 @@ public class Health : MonoBehaviour
         {
             health = maxHealth;
         } 
-        if (health < 0)
+        if (health <= 0)
         {
             health = 0;
+            regenHealth = 0;
         }
 
         if (hudManagerInstance.hudType != HUDManager.hud.none && tag != "Tourist")

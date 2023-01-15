@@ -90,6 +90,7 @@ public class CoroutineManager : MonoBehaviour
             StopCoroutine(GetComponent<Flinch>().reactionTime);
             GetComponent<Flinch>().isFlinching = false;
             GetComponent<Flinch>().isFlinchBuffering = false;
+            GetComponent<Flinch>().isKnockedBack = false;
         }
         if (GetComponent<Flinch>().recovery != null && ignore != GetComponent<Flinch>().recovery)
         {

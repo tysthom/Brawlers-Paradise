@@ -364,6 +364,11 @@ public class AiBehavior : MonoBehaviour
                 agent.isStopped = true;
                 isChargingEnemy = false;
                 int i = Random.Range(1, 10);
+                if(GetComponent<Combat>().GetDistanceToFinish() && enemy.GetComponent<Flinch>().isSurrendering)
+                {
+                    GetComponent<Combat>().finisher = StartCoroutine(GetComponent<Combat>().Finisher());
+                }
+                else 
                 if (GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.boxing &&
                     i <= fightStyleManager.GetComponent<BoxingStats>().aiGuardbreakerFrequency && !destination.GetComponent<Combat>().isGuardBreaking && 
                     !enemy.GetComponent<Flinch>().isStunned && !GetComponent<Flinch>().isReacting && !GetComponent<Dodge>().isDodging)

@@ -45,7 +45,7 @@ public class Death : MonoBehaviour
         if(tag != "Tourist")
         GetComponent<Throw>().enabled = false;
 
-        enemy.GetComponent<Combat>().enabled = false;
+        //enemy.GetComponent<Combat>().enabled = false;
         GetComponent<Flinch>().isFlinching = false;
         if (tag == "Player")
         {
