@@ -302,6 +302,8 @@ public class Flinch : MonoBehaviour
             GetComponent<CharacterController>().enabled = true;
         }
 
+        GetComponent<CoroutineManager>().CancelCoroutines(recovery);
+
         GetComponent<Combat>().invinsible = true;
         yield return new WaitForSeconds(.5f);
         anim.SetInteger("State", 118);
@@ -517,5 +519,11 @@ public class Flinch : MonoBehaviour
 
         anim.SetInteger("State", 125);
         yield return new WaitForSeconds(6);
+
+        if (!GetComponent<Combat>().enemy.GetComponent<Combat>().isFinishing)
+        {
+            GetComponent<Health>().AddHealth(200); //Adds health if failed to be finished
+            recovery = StartCoroutine(Recovery());
+        }
     }
 }

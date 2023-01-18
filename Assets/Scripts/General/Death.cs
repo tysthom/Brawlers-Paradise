@@ -10,6 +10,9 @@ public class Death : MonoBehaviour
     Rigidbody[] rigidbodies;
     Collider[] colliders;
     public GameObject enemy;
+    GameObject combatManagear;
+
+    public bool bounceBack;
 
     private void Awake()
     {
@@ -18,11 +21,12 @@ public class Death : MonoBehaviour
         colliders = GetComponentsInChildren<Collider>();
         SetCollidersEnabled(false);
         SetRigidbodiesKinematic(true);
+        combatManagear = GameObject.Find("Combat Manager");
     }
 
     private void LateUpdate()
     {
-        if(GetComponent<Health>().health <= 0)
+        if(GetComponent<Health>().health <= 0 && !GetComponent<Flinch>().isFlinching)
         {
             //Die();
             
@@ -67,6 +71,21 @@ public class Death : MonoBehaviour
             GetComponent<CapsuleCollider>().enabled = false;
             GetComponent<NavMeshAgent>().enabled = false;
         }
+
+        StartCoroutine(BounceBack());
+    }
+
+    IEnumerator BounceBack() //Causes a quick bounce back force so rigidbody doesn't fall on the enemy brawler
+    {
+        bounceBack = true;
+        yield return new WaitForSeconds(.25f);
+        bounceBack = false;
+    }
+
+    private void FixedUpdate()
+    {
+        if(bounceBack)
+            rigidbodies[Random.Range(2,rigidbodies.Length-1)].AddForce(transform.forward * -combatManagear.GetComponent<CombatStats>().bounceBackForceAmount);
     }
 
     void ChangeLayer()

@@ -124,6 +124,7 @@ public class CoroutineManager : MonoBehaviour
         if (GetComponent<Flinch>().surrender != null && ignore != GetComponent<Flinch>().surrender)
         {
             StopCoroutine(GetComponent<Flinch>().surrender);
+            GetComponent<Flinch>().surrender = null;
             GetComponent<Flinch>().isSurrendering = false;
         }
     }

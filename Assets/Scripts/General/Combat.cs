@@ -1248,10 +1248,9 @@ public class Combat : MonoBehaviour
         }
     }
 
-    //DOESN'T WORK PROPERLY
     IEnumerator AttackBufferTime() //Brief pause between attack combos
     {
-        yield return new WaitForSeconds(7.5f); //Needs variable
+        yield return new WaitForSeconds(.75f); //Needs variable
         attackBuffering = false;
     }
 

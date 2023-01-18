@@ -80,6 +80,9 @@ public class CombatStats : MonoBehaviour
     [Header("Finisher")]
     public float finisherDistance = 2;
 
+    [Header("Death")]
+    public int bounceBackForceAmount = 250;
+
     [Header("Ai Variation")]
     public bool randomFightStyle;
     [Range(0, 10)] public int aiDefendFrequency;
