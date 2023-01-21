@@ -75,6 +75,9 @@ ModelImporter:
   - first:
       74: -703543852543504114
     second: Boxing Counter Attack
+  - first:
+      74: 368839485793524597
+    second: Boxing Stunned
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -90,7 +93,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
       in configuration does not match rotation in animation file:\n\t'Elbow.L' :
-      rotation error = 46.442707 deg\n\t'Elbow.R' : rotation error = 51.655895 deg\n"
+      rotation error = 55.994141 deg\n\t'Elbow.R' : rotation error = 49.543243 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Armature|Boxing Attack 1' has import animation
       warnings that might lower retargeting quality:\nNote: Activate translation
@@ -128,9 +131,13 @@ ModelImporter:
       retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
       quality.\n\t'Elbow.L' is inbetween humanoid transforms and has rotation animation
       that will be discarded.\n\t'Elbow.R' is inbetween humanoid transforms and has
-      rotation animation that will be discarded.\n\nClip 'Armature|Guardbreaker'
+      rotation animation that will be discarded.\n\nClip 'Armature|Boxing Stunned'
       has import animation warnings that might lower retargeting quality:\nNote:
       Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Elbow.R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'Armature|Guardbreaker' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.L'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Elbow.R'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
@@ -150,7 +157,7 @@ ModelImporter:
       takeName: Armature|Boxing Combat Idle
       internalID: 0
       firstFrame: 0
-      lastFrame: 63
+      lastFrame: 79
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -179,7 +186,7 @@ ModelImporter:
       takeName: Armature|Boxing Attack 1
       internalID: 0
       firstFrame: 0
-      lastFrame: 22
+      lastFrame: 27
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -199,21 +206,21 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.1859659
+      - time: 0.27090797
         functionName: Move
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.41414845
+      - time: 0.42573145
         functionName: ShouldHit
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
         intParameter: 100
         messageOptions: 0
-      - time: 0.4313766
+      - time: 0.43909863
         functionName: ShouldNotMove
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
@@ -249,7 +256,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.36392656
+      - time: 0.36778757
         functionName: Move
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
@@ -263,7 +270,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 100
         messageOptions: 0
-      - time: 0.58339983
+      - time: 0.5988439
         functionName: ShouldNotMove
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
@@ -306,19 +313,19 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.51814044
+        functionName: ShouldHit
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 100
+        messageOptions: 0
       - time: 0.5233158
         functionName: ShouldNotMove
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
         intParameter: 0
-        messageOptions: 0
-      - time: 0.5683335
-        functionName: ShouldHit
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
-        floatParameter: 0
-        intParameter: 100
         messageOptions: 0
       transformMask: []
       maskType: 3
@@ -349,26 +356,26 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.23763274
+      - time: 0.38821185
         functionName: Move
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.42417532
-        functionName: ShouldNotMove
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.44268984
+      - time: 0.50832695
         functionName: ShouldHit
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
         intParameter: 110
+        messageOptions: 0
+      - time: 0.53614444
+        functionName: ShouldNotMove
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 0
         messageOptions: 0
       transformMask: []
       maskType: 3
@@ -399,21 +406,21 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.35308242
+      - time: 0.29902837
         functionName: Move
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.56124896
+      - time: 0.46858487
         functionName: ShouldHit
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
         intParameter: 110
         messageOptions: 0
-      - time: 0.58864594
+      - time: 0.49984282
         functionName: ShouldNotMove
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
@@ -429,7 +436,7 @@ ModelImporter:
       takeName: Armature|Boxing Attack 3V3
       internalID: 0
       firstFrame: 0
-      lastFrame: 25
+      lastFrame: 26
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -449,15 +456,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.54597044
+      - time: 0.6116075
         functionName: Move
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.85811573
-        functionName: ShouldNotMove
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
@@ -469,6 +469,13 @@ ModelImporter:
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
         intParameter: 110
+        messageOptions: 0
+      - time: 0.8388107
+        functionName: ShouldNotMove
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 0
         messageOptions: 0
       transformMask: []
       maskType: 3
@@ -499,26 +506,26 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.3359818
+      - time: 0.30509377
         functionName: Move
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.51181144
-        functionName: ShouldNotMove
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
-        floatParameter: 0
-        intParameter: 101
-        messageOptions: 0
-      - time: 0.5573212
+      - time: 0.48782313
         functionName: ShouldHit
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
         intParameter: 110
+        messageOptions: 0
+      - time: 0.5079504
+        functionName: ShouldNotMove
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 101
         messageOptions: 0
       transformMask: []
       maskType: 3
@@ -616,6 +623,35 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Boxing Stunned
+      takeName: Armature|Boxing Stunned
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 79
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

@@ -10101,7 +10101,7 @@ MonoBehaviour:
   secondBAttackTime: 1.2
   secondBAttackDistance: 8.4
   thirdAttackTime: 1
-  thirdAttackV1Distance: 2.4
+  thirdAttackV1Distance: 5
   thirdAttackV2Distance: 6
   thirdAttackV3Distance: 8.4
   thirdAttackV4Distance: 12
@@ -14699,7 +14699,7 @@ MonoBehaviour:
   tkdStatsRefrence: {fileID: 1365660891}
   kungFuStatsRefrence: {fileID: 1365660893}
   proWrestlingStatsRefrence: {fileID: 1365660892}
-  brawler1AttackDamage: 300
+  brawler1AttackDamage: 50
   brawler1FirstAttackTime: 1.12
   brawler1FirstAttackDistance: 9
   brawler1SecondAAttackTime: 1.12
@@ -14711,7 +14711,7 @@ MonoBehaviour:
   brawler1ThirdAttackV2Distance: 7
   brawler1ThirdAttackV3Distance: 7
   brawler1ThirdAttackV4Distance: 7
-  brawler2AttackDamage: 300
+  brawler2AttackDamage: 50
   brawler2FirstAttackTime: 0.5
   brawler2FirstAttackDistance: 5
   brawler2SecondAAttackTime: 0.9

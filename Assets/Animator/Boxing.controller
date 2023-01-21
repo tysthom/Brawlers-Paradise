@@ -399,7 +399,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Stunned
+  m_Name: Boxing Stunned
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -414,7 +414,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1982136495307655951, guid: 85249f106e982964a96428bb5def0c80, type: 3}
+  m_Motion: {fileID: 368839485793524597, guid: f4d749954e3116342b7ea856b42f2144, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1813,7 +1813,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Boxing Combat Idle
-  m_Speed: 1.5
+  m_Speed: 1.75
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 2868052980645781737}
