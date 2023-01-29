@@ -54,6 +54,15 @@ ModelImporter:
   - first:
       74: -3776578853692839594
     second: Kung Fu Stunned
+  - first:
+      74: -7941300620576248638
+    second: Armature|Kung Fu Stunned
+  - first:
+      74: 4112178277821458153
+    second: Kung Fu Surrender
+  - first:
+      74: -5450396728941878571
+    second: Kung Fu Finisher
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -69,7 +78,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
       in configuration does not match rotation in animation file:\n\t'Elbow.L' :
-      rotation error = 15.748203 deg\n\t'Elbow.R' : rotation error = 53.073338 deg\n"
+      rotation error = 38.382099 deg\n\t'Elbow.R' : rotation error = 5.817525 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Armature|Guardbreaker' has import animation
       warnings that might lower retargeting quality:\nNote: Activate translation
@@ -133,10 +142,21 @@ ModelImporter:
       quality.\n\t'Elbow.L' is inbetween humanoid transforms and has rotation animation
       that will be discarded.\n\t'Shoulder.R' has translation animation that will
       be discarded.\n\t'Elbow.R' is inbetween humanoid transforms and has rotation
-      animation that will be discarded.\n\nClip 'Armature|Kung Fu Stunned' has import
+      animation that will be discarded.\n\nClip 'Armature|Kung Fu Finisher' has import
       animation warnings that might lower retargeting quality:\nNote: Activate translation
       DOF on avatar to improve retargeting quality.\n\t'Elbow.L' is inbetween humanoid
-      transforms and has rotation animation that will be discarded.\n\t'Elbow.R'
+      transforms and has rotation animation that will be discarded.\n\t'Index1.L'
+      has translation animation that will be discarded.\n\t'Middle1.L' has translation
+      animation that will be discarded.\n\t'Ring1.L' has translation animation that
+      will be discarded.\n\t'Pinky1.L' has translation animation that will be discarded.\n\t'Elbow.R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Thumb3.R'
+      has translation animation that will be discarded.\n\t'Index1.R' has translation
+      animation that will be discarded.\n\t'Middle1.R' has translation animation
+      that will be discarded.\n\t'Ring1.R' has translation animation that will be
+      discarded.\n\t'Pinky1.R' has translation animation that will be discarded.\n\nClip
+      'Armature|Kung Fu Stunned' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Elbow.R'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
@@ -764,6 +784,71 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Kung Fu Surrender
+      takeName: Armature|Kung Fu Surrender
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Kung Fu Finisher
+      takeName: Armature|Kung Fu Finisher
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 89
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.5912806
+        functionName: Finish
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
