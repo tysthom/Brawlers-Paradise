@@ -5410,7 +5410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 4
+  fightStyle: 5
 --- !u!114 &835227091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14742,7 +14742,7 @@ MonoBehaviour:
   throwableDamage: 55
   finisherDistance: 2.5
   bounceBackForceAmount: 250
-  randomFightStyle: 0
+  randomFightStyle: 1
   aiDefendFrequency: 5
   aiParryDodgeFrequency: 3
   aiContinuedAttackFrequency: 9
