@@ -36,6 +36,10 @@ public class BlendShapeManager : MonoBehaviour
         {
             Outfit4(skin, brawler);
         }
+        else if (outfitSelection == 4)
+        {
+            Outfit5(skin, brawler);
+        }
     }
 
     void Outfit1(SkinnedMeshRenderer skin, GameObject brawler) //Karate Outfit 1
@@ -70,7 +74,6 @@ public class BlendShapeManager : MonoBehaviour
     }
     void Outfit3(SkinnedMeshRenderer skin, GameObject brawler) //Boxing Outfit 1
     {
-        Debug.Log("Boxing");
         skin.SetBlendShapeWeight(0, 25); //Neck
         skin.SetBlendShapeWeight(1, 0); //Shoulders
         skin.SetBlendShapeWeight(2, 0); //UpperArms
@@ -85,7 +88,7 @@ public class BlendShapeManager : MonoBehaviour
         skin.SetBlendShapeWeight(11, 0); //Feet
     }
 
-    void Outfit4(SkinnedMeshRenderer skin, GameObject brawler) //Training Outfit 1
+    void Outfit4(SkinnedMeshRenderer skin, GameObject brawler) //Boxing Outfit 2
     {
         skin.SetBlendShapeWeight(0, 25); //Neck
         skin.SetBlendShapeWeight(1, 0); //Shoulders
@@ -93,10 +96,26 @@ public class BlendShapeManager : MonoBehaviour
         skin.SetBlendShapeWeight(3, 0); //LowerArms
         skin.SetBlendShapeWeight(4, 0); //Chest
         skin.SetBlendShapeWeight(5, 0); //Back
-        skin.SetBlendShapeWeight(6, 0); //Stomach
-        skin.SetBlendShapeWeight(7, 0); //Waist
+        skin.SetBlendShapeWeight(6, 100); //Stomach
+        skin.SetBlendShapeWeight(7, 50); //Waist
         skin.SetBlendShapeWeight(8, 0); //Butt
-        skin.SetBlendShapeWeight(9, 0); //Thighes
+        skin.SetBlendShapeWeight(9, 25); //Thighes
+        skin.SetBlendShapeWeight(10, 0); //Calves
+        skin.SetBlendShapeWeight(11, 0); //Feet
+    }
+
+    void Outfit5(SkinnedMeshRenderer skin, GameObject brawler) //MMA Outfit 1
+    {
+        skin.SetBlendShapeWeight(0, 0); //Neck
+        skin.SetBlendShapeWeight(1, 0); //Shoulders
+        skin.SetBlendShapeWeight(2, 0); //UpperArms
+        skin.SetBlendShapeWeight(3, 0); //LowerArms
+        skin.SetBlendShapeWeight(4, 0); //Chest
+        skin.SetBlendShapeWeight(5, 0); //Back
+        skin.SetBlendShapeWeight(6, 0); //Stomach
+        skin.SetBlendShapeWeight(7, 100); //Waist
+        skin.SetBlendShapeWeight(8, 15); //Butt
+        skin.SetBlendShapeWeight(9, 20); //Thighes
         skin.SetBlendShapeWeight(10, 0); //Calves
         skin.SetBlendShapeWeight(11, 0); //Feet
     }
