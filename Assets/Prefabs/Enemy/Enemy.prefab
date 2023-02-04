@@ -3767,7 +3767,7 @@ MonoBehaviour:
   enemyRange: 10
   attackRange: 1.5
   attackRadius: 3
-  glideAmount: 2
+  glideAmount: 4
   pickUpRange: 5
   throwableSearchrange: 500
   isPunchingBag: 0
@@ -3800,7 +3800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 4
+  fightStyle: 5
 --- !u!65 &7087000783357512420
 BoxCollider:
   m_ObjectHideFlags: 0

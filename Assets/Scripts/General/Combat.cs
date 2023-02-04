@@ -282,6 +282,17 @@ public class Combat : MonoBehaviour
                 //agent.isStopped set to true in Update of AiBehavior script
                 return;
             }
+            if (isAttacking)
+            {
+                if (GetComponent<AiBehavior>().enemy.tag == "Player" && Vector3.Distance(transform.position, enemy.transform.position) > GetComponent<AiBehavior>().attackRadius)
+                {
+                    GetComponent<AiBehavior>().canGlideToEnemy = true;
+                }
+                else
+                {
+                    GetComponent<AiBehavior>().canGlideToEnemy = false;
+                }
+            }
             if (GetComponent<AiBehavior>().canGlideToEnemy)
             {
                     if (Vector3.Distance(transform.position, enemy.transform.position) > GetComponent<AiBehavior>().attackRange)
@@ -888,8 +899,6 @@ public class Combat : MonoBehaviour
                     }
                     anim.SetInteger("State", state);
                     isAttacking = true;
-                    if (GetComponent<AiBehavior>().enemy.tag == "Player")
-                        GetComponent<AiBehavior>().canGlideToEnemy = true;
                 }
                     yield return new WaitForSeconds(time);
                     anim.speed = 1;
@@ -1260,7 +1269,7 @@ public class Combat : MonoBehaviour
         anim.SetBool("canTransition", true);
         int i = Random.Range(1, 10);
             ShouldNotMove();
-            if (anim.GetInteger("State") == 6 || anim.GetInteger("State") == 7 || enemy.GetComponent<Flinch>().isSurrendering || tag == "Tourist") { i = 100; }
+            if ((anim.GetInteger("State") != 3 && anim.GetInteger("State") != 4 && anim.GetInteger("State") != 5) || enemy.GetComponent<Flinch>().isSurrendering || tag == "Tourist") { i = 100; }
             if (i <= combatStatsInstance.aiContinuedAttackFrequency)
             {
                 isAttacking = false;
@@ -1318,7 +1327,8 @@ public class Combat : MonoBehaviour
                     //canUseTechnique = true;
                     canAttack = true;
                     GetComponent<AiBehavior>().isChasingEnemy = true;
-                } else if (tag == "Tourist")
+                Debug.Log("Hey");
+            } else if (tag == "Tourist")
                 {
                     GetComponent<Tourist>().AssignIdle();
                     isAttacking = false;

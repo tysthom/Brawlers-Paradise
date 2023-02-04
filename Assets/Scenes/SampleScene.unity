@@ -8081,7 +8081,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 00702574e07b52a42a80b8498fcd57a3, type: 2}
   - {fileID: 2100000, guid: 3a707d1d2008da74f8219f18d79bf05a, type: 2}
   brawler1OutfitSelection: 2
-  brawler2OutfitSelection: 0
+  brawler2OutfitSelection: 1
   brawler1TargetMesh: {fileID: 0}
   brawler2TargetMesh: {fileID: 0}
   touristTargetMesh: {fileID: 0}
@@ -10197,7 +10197,7 @@ MonoBehaviour:
   bearhugGrabTime: 2
   bearhugDamagePerTick: 6
   clotheslineKnockdownTime: 1
-  aiBearhugFrequency: 0
+  aiBearhugFrequency: 2
   proWrestlingFightTypeStats: 0200000005000000030000000300000005000000
 --- !u!114 &1365660893
 MonoBehaviour:
@@ -14704,7 +14704,7 @@ MonoBehaviour:
   tkdStatsRefrence: {fileID: 1365660891}
   kungFuStatsRefrence: {fileID: 1365660893}
   proWrestlingStatsRefrence: {fileID: 1365660892}
-  brawler1AttackDamage: 300
+  brawler1AttackDamage: 50
   brawler1FirstAttackTime: 1.12
   brawler1FirstAttackDistance: 9
   brawler1SecondAAttackTime: 1.12
@@ -14716,7 +14716,7 @@ MonoBehaviour:
   brawler1ThirdAttackV2Distance: 7
   brawler1ThirdAttackV3Distance: 7
   brawler1ThirdAttackV4Distance: 7
-  brawler2AttackDamage: 400
+  brawler2AttackDamage: 50
   brawler2FirstAttackTime: 0.5
   brawler2FirstAttackDistance: 5
   brawler2SecondAAttackTime: 0.9
