@@ -142,16 +142,20 @@ public class BlendShapeManager : MonoBehaviour
     void Outfit5(SkinnedMeshRenderer skin, GameObject brawler) //MMA Outfit 1
     {
         skin.SetBlendShapeWeight(0, 0); //Neck
-        skin.SetBlendShapeWeight(1, 0); //Shoulders
-        skin.SetBlendShapeWeight(2, 0); //UpperArms
-        skin.SetBlendShapeWeight(3, 0); //LowerArms
-        skin.SetBlendShapeWeight(4, 0); //Chest
-        skin.SetBlendShapeWeight(5, 0); //Back
-        skin.SetBlendShapeWeight(6, 0); //Stomach
-        skin.SetBlendShapeWeight(7, 100); //Waist
-        skin.SetBlendShapeWeight(8, 40); //Butt
-        skin.SetBlendShapeWeight(9, 20); //Thighes
-        skin.SetBlendShapeWeight(10, 0); //Calves
-        skin.SetBlendShapeWeight(11, 0); //Feet
+        skin.SetBlendShapeWeight(1, 0); //Right Shoulder
+        skin.SetBlendShapeWeight(2, 0); //Left Shoulder
+        skin.SetBlendShapeWeight(3, 0); //Right Upper Arm
+        skin.SetBlendShapeWeight(4, 0); //Left Upper Arm
+        skin.SetBlendShapeWeight(5, 0); //Right Lower Arm
+        skin.SetBlendShapeWeight(6, 0); //Left Lower Arm
+        skin.SetBlendShapeWeight(7, 0); //Chest
+        skin.SetBlendShapeWeight(8, 0); //Back
+        skin.SetBlendShapeWeight(9, 0); //Stomach
+        skin.SetBlendShapeWeight(10, 35); //Waist
+        skin.SetBlendShapeWeight(11, 20); //Pelivs
+        skin.SetBlendShapeWeight(12, 75); //Butt
+        skin.SetBlendShapeWeight(13, 0); //Thighes
+        skin.SetBlendShapeWeight(14, 10); //Calves
+        skin.SetBlendShapeWeight(15, 10); //Feet
     }
 }
