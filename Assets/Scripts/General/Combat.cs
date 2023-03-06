@@ -265,7 +265,6 @@ public class Combat : MonoBehaviour
                 } else
                 {
                     finisher = StartCoroutine(Finisher());
-                    Debug.Log("Finish!");
                 }
             }
         }             
@@ -1204,7 +1203,6 @@ public class Combat : MonoBehaviour
             }
         } else if(GetComponent<BrawlerId>().brawlerId == BrawlerId.Id.brawler2)
         {
-            Debug.Log("Here");
             if (anim.GetInteger("State") == 10 && GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.taekwondo)
             {
                 damage = fightStyleManager.GetComponent<TkdStats>().comboDamage;

@@ -43,7 +43,7 @@ public class Health : MonoBehaviour
 
     IEnumerator CallFunctions()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(.25f);
 
         if (idManagerInstance.brawler1 == gameObject)
         {
@@ -53,10 +53,12 @@ public class Health : MonoBehaviour
         }
         else if (idManagerInstance.brawler2 == gameObject)
         {
+            
             healthBar = hudManagerInstance.brawler2HealthFill;
             healthRegenBar = hudManagerInstance.brawler2HealthRegen;
             shieldBar = hudManagerInstance.brawler2ShieldFill;
         }
+
         maxHealth = (int)(maxHealth * combatManager.GetComponent<BrawlerStats>().Health(gameObject));
         health = maxHealth;
         previousHealth = maxHealth;

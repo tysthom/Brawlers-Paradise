@@ -3591,7 +3591,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502112829}
-  m_LocalRotation: {x: 0.13162142, y: -0.00000001906995, z: 0.0000000025320428, w: 0.99130005}
+  m_LocalRotation: {x: 0.13162142, y: 0.000000019069953, z: -0.0000000025320432, w: 0.99130005}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -14741,8 +14741,8 @@ MonoBehaviour:
   playerDodgeTime: 0.2
   staminaDodgeCost: 200
   playerDodgeMinAmount: 200
-  flinchDistance: 3
-  flinchTime: 0.25
+  flinchDistance: 2
+  flinchTime: 0.2
   stunDuration: 5
   knockbackDistance: 18
   knockbackTime: 0.3

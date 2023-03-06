@@ -107,7 +107,7 @@ public class Flinch : MonoBehaviour
             }
             else
             {
-                surrenderCanvas.SetActive(false);
+                //surrenderCanvas.SetActive(false);
             }
         }
     }

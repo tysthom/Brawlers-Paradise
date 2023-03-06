@@ -340,12 +340,12 @@ public class AiBehavior : MonoBehaviour
     {
         if (GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.karate)
         {
-            if (!anim.GetBool("isAttackStance")) //Sets AI to attack stance
+            if (!anim.GetBool("isOffensiveStance")) //Sets AI to attack stance
             {
                 int i = Random.Range(0, 10);
                 if (i < fightStyleManager.GetComponent<KarateStats>().aiStanceChangeFrequency)
                 {
-                    anim.SetBool("isAttackStance", true);
+                    anim.SetBool("isOffensiveStance", true);
                 }
             }
         }
