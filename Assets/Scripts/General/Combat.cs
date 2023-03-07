@@ -39,8 +39,10 @@ public class Combat : MonoBehaviour
     public bool isCounterAttackBuffering = false;
     public bool canFinish;
     public bool isFinishing;
-    public bool canParry; //True if can parry
+    public bool canBlock; //True if can block
     public bool isParrying; //True if is parrying
+    public bool isBlocking;
+    public bool isBlockBuffering;
     public bool isParryBuffering;
     public float primary, secondary; //Trigger values
     bool secondaryLifted;
@@ -122,7 +124,7 @@ public class Combat : MonoBehaviour
         GetComponent<Death>().enemy = enemy;
         anim = GetComponent<Animator>();
         canAttack = true;
-        canParry = true;
+        canBlock = true;
         canUseTechnique = true;
     }
 
@@ -167,13 +169,13 @@ public class Combat : MonoBehaviour
         }
         #endregion
 
-        if (inCombat || GetComponent<Flinch>().isReacting || isParryBuffering || isParrying || !secondaryLifted)
+        if (inCombat || GetComponent<Flinch>().isReacting || isParryBuffering || isParrying )
         {
-            canParry = false;
+            canBlock = false;
         }
         else
         {
-            canParry = true;
+            canBlock = true;
         }
 
         if (!inCombat && !isParrying && !isCounterAttackBuffering && !GetComponent<Flinch>().isReacting && !GetComponent<Throw>().isAiming && !attackBuffering || isGroundIdle)
@@ -306,23 +308,27 @@ public class Combat : MonoBehaviour
         //START OF TRIGGER
         if (secondary != 0) //Makes sure trigger is down
         {
+            
             secondaryLifted = false;
             if (!GetComponent<Throw>().isEquipped)
             {
-                if (!inCombat && !GetComponent<Flinch>().isReacting && canParry)
+                if (!inCombat && !GetComponent<Flinch>().isReacting && canBlock)
                 {
+                    Debug.Log("BLOCKED");
                     if (tag == "Enemy") //Stops Ai from continuously parrying
                     {
                         secondary = 0; 
                     }
-                    canParry = false;
-                    isParrying = true;
-                    parry = StartCoroutine(Parry());
+                    //canBlock = false;
+                    isBlocking = true;
+                    anim.SetInteger("State", 20);
+                    // isParrying = true;
+                    // parry = StartCoroutine(Parry());
                 }
             }
             else
             {
-                isParrying = false;
+                isBlocking = false;
                 if (!inCombat && !GetComponent<Flinch>().isReacting)
                 {
                     if (primary != 0)
@@ -337,7 +343,15 @@ public class Combat : MonoBehaviour
                 }
             }
         }
-        else { if (GetComponent<Throw>()) { GetComponent<Throw>().isAiming = false; } if (secondaryLifted == false) secondaryLifted = true; }
+        else 
+        { 
+            if (GetComponent<Throw>()) { 
+                GetComponent<Throw>().isAiming = false; 
+            } 
+            if (secondaryLifted == false) secondaryLifted = true;
+
+            isBlocking = false;
+        }
 
         if (shouldMove && !GetComponent<Flinch>().isReacting)
         {
@@ -520,7 +534,7 @@ public class Combat : MonoBehaviour
         GetComponent<Dodge>().canDodge = false;
         //GetComponent<Combat>().enabled = true;
         isParrying = true;
-        canParry = false;
+        canBlock = false;
         anim.SetInteger("State", 20);
         faceEnemy = true;
         if(tag == "Enemy") 
@@ -546,7 +560,7 @@ public class Combat : MonoBehaviour
             if (tag == "Enemy") { GetComponent<AiBehavior>().canGlideToEnemy = false; GetComponent<AiBehavior>().AssignIdle(); GetComponent<AiBehavior>().isChasingEnemy = true; }
             yield return new WaitForSeconds(combatStatsInstance.parryBufferTime);
             isParryBuffering = false;
-            canParry = true;
+            canBlock = true;
         if(tag == "Enemy") { GetComponent<AiBehavior>().wTACalled = false; }
     }
 
@@ -1039,7 +1053,7 @@ public class Combat : MonoBehaviour
                 {
                     int defend = Random.Range(1, 10);
                     int dodgeParry = Random.Range(1, 10);
-                    if (!enemy.GetComponent<Combat>().canParry || !enemy.GetComponent<Dodge>().canDodge)
+                    if (!enemy.GetComponent<Combat>().canBlock || !enemy.GetComponent<Dodge>().canDodge)
                     {
                         defend = 11;
                     }
@@ -1065,15 +1079,13 @@ public class Combat : MonoBehaviour
                     {
                         StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.2f, .5f));
                         if (a == 100 || a == 101) //Perform a normal flinch
-                        {
-                            
+                        {  
                             enemy.GetComponent<Flinch>().ReactionInitiation(a, CalculateDamage());
                         } else if(a == 110) //Perform knockback
                         {
                             enemy.GetComponent<Flinch>().Knockback(); 
                         } else if(a == 115) //Perform immediate knockdown
                         {
-                            Debug.Log("Here");
                             enemy.GetComponent<Flinch>().ReactionInitiation(a, CalculateDamage());
                         }
                     }
@@ -1119,7 +1131,7 @@ public class Combat : MonoBehaviour
                         {
                             int defend = Random.Range(1, 10);
                             int dodgeParry = Random.Range(1, 10);
-                            if (!enemy.GetComponent<Combat>().canParry || !enemy.GetComponent<Dodge>().canDodge)
+                            if (!enemy.GetComponent<Combat>().canBlock || !enemy.GetComponent<Dodge>().canDodge)
                             {
                                 defend = 11;
                             }
@@ -1147,18 +1159,32 @@ public class Combat : MonoBehaviour
 
                         if (a == 100 || a == 101) //Perform a normal flinch
                         {
-                            enemy.GetComponent<Flinch>().ReactionInitiation(a, CalculateDamage());
+                            if(enemy.GetComponent<Combat>().isBlocking)
+                            {
+                                enemy.GetComponent<Flinch>().ReactionInitiation(-20, CalculateDamage());
+                            }
+                            else
+                            {
+                                enemy.GetComponent<Flinch>().ReactionInitiation(a, CalculateDamage());
+                            }       
                         }
                         else if (anim.GetInteger("State") == 13) //MMA ground attack
                         {
-                            Debug.Log("Hit");
                             StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .25f));
 
                             enemy.GetComponent<Flinch>().groundFlinch = StartCoroutine(enemy.GetComponent<Flinch>().GroundFlinch(CalculateDamage()));
                         }
                         else if (a == 110) //Perform knockdown
                         {
-                            enemy.GetComponent<Flinch>().Knockback();
+                            if (enemy.GetComponent<Combat>().isBlocking)
+                            {
+                                Debug.Log("Works");
+                                enemy.GetComponent<Flinch>().ReactionInitiation(-20, CalculateDamage());
+                            }
+                            else
+                            {
+                                enemy.GetComponent<Flinch>().Knockback();
+                            }                         
                         }
                     }
                     else
@@ -1308,12 +1334,13 @@ public class Combat : MonoBehaviour
                 {
                     if (GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.karate)
                     {
-                        if (anim.GetBool("isAttackStance")) //Sets AI to passive stance
+                        if (anim.GetBool("isOffensiveStance")) //Sets AI to passive stance
                         {
                             int j = Random.Range(0, 10);
                             if (j < fightStyleManager.GetComponent<KarateStats>().aiStanceChangeFrequency)
                             {
-                                anim.SetBool("isAttackStance", false);
+                                anim.SetBool("isOffensiveStance", false);
+                                anim.SetBool("isDefensiveStance", true);
                             }
                         }
                     }
@@ -1325,7 +1352,6 @@ public class Combat : MonoBehaviour
                     //canUseTechnique = true;
                     canAttack = true;
                     GetComponent<AiBehavior>().isChasingEnemy = true;
-                Debug.Log("Hey");
             } else if (tag == "Tourist")
                 {
                     GetComponent<Tourist>().AssignIdle();

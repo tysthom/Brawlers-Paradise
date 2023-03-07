@@ -22,6 +22,7 @@ public class Flinch : MonoBehaviour
     public bool isFlinchBuffering; //Prevents player from attacking while also allowing them to move around
     public bool isDove;
     public bool isBearhugged;
+    public bool isBlockedBack;
     public bool isKnockedBack; //True if currently being knockedback
     public bool isKnockedDown;
     public bool isStunned; //True if stunned
@@ -32,6 +33,7 @@ public class Flinch : MonoBehaviour
 
     [Header("Coroutine")]
     public Coroutine reactionTime;
+    public Coroutine blockedBack;
     public Coroutine recovery;
     public Coroutine stun;
     public Coroutine dove;
@@ -59,7 +61,7 @@ public class Flinch : MonoBehaviour
 
     private void Update()
     {
-        if (isFlinching || isFlinchBuffering || isParried || isParryBuffering || isStunned || isKnockedBack || isKnockedDown || isDove || isBearhugged || isSurrendering)
+        if (isFlinching || isFlinchBuffering || isBlockedBack || isParried || isParryBuffering || isStunned || isKnockedBack || isKnockedDown || isDove || isBearhugged || isSurrendering)
         {
             isReacting = true;
             if(tag == "Enemy") { GetComponent<AiBehavior>().canGlideToEnemy = false; }
@@ -69,9 +71,14 @@ public class Flinch : MonoBehaviour
             isReacting = false;
         }
 
-        if((isFlinching || isKnockedBack) && tag == "Player") { GetComponent<CharacterController>().enabled = false; }
+        if((isFlinching || isBlockedBack || isKnockedBack) && tag == "Player") { GetComponent<CharacterController>().enabled = false; }
 
         if((isFlinching || isParried) && !GetComponent<Dodge>().isColliding) { transform.position -= transform.forward * combatManagear.GetComponent<CombatStats>().flinchDistance * Time.deltaTime; }
+
+        if(isBlockedBack)
+        {
+            transform.position -= transform.forward * combatManagear.GetComponent<CombatStats>().flinchDistance * 2 * Time.deltaTime;
+        }
 
         if (isKnockedBack && !GetComponent<Dodge>().isColliding) 
         {
@@ -119,13 +126,13 @@ public class Flinch : MonoBehaviour
         if (tag == "Enemy") { GetComponent<AiBehavior>().canGlideToEnemy = false; }
 
         //Handles player's parry
-        if (GetComponent<Combat>().isParrying && damage != combatManagear.GetComponent<CombatStats>().throwableDamage
+        if (GetComponent<Combat>().isBlocking && damage != combatManagear.GetComponent<CombatStats>().throwableDamage
             && damage != fightStyleManager.GetComponent<MMAStats>().mmaDiveInitialDamage) //PARRY
         { //Makes sure that player can't parry if hit by a throwable
-            GetComponent<Combat>().isParrying = false;
-            GetComponent<Combat>().isParryBuffering = false;
-            GetComponent<Combat>().enemy.GetComponent<Flinch>().parried = StartCoroutine(GetComponent<Combat>().enemy.GetComponent<Flinch>().Parried());
-            return;
+            //GetComponent<Combat>().isParrying = false;
+            //GetComponent<Combat>().isParryBuffering = false;
+            //GetComponent<Combat>().enemy.GetComponent<Flinch>().parried = StartCoroutine(GetComponent<Combat>().enemy.GetComponent<Flinch>().Parried());
+            //return;
         }
         GetComponent<Combat>().canAttack = false;
         GetComponent<Combat>().canNextAttack = false;
@@ -157,6 +164,7 @@ public class Flinch : MonoBehaviour
             {
                 StopCoroutine(GetComponent<Combat>().parry);
             }
+
             if (tag == "Player")
             {
                 GetComponent<Combat>().faceEnemy = true;
@@ -167,9 +175,14 @@ public class Flinch : MonoBehaviour
                 GetComponent<Combat>().faceEnemy = false;
                 GetComponent<Tourist>().isChargingEnemy = false;
             }
+
             if (state == 100 || state == 101)
             {
                 isFlinching = true;
+            }
+            else if (state == -20)
+            {
+                isBlockedBack = true;
             }
             else if (state == 110)
             {
@@ -177,14 +190,15 @@ public class Flinch : MonoBehaviour
             }
             else if (state == 115)
             {
-            if (GetComponent<Combat>().enemy.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.MMA)
-            {
-                isDove = true;
-            } else if(GetComponent<Combat>().enemy.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.proWrestling)
-            {
-                isBearhugged = true;
+                if (GetComponent<Combat>().enemy.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.MMA)
+                {
+                    isDove = true;
+                } else if(GetComponent<Combat>().enemy.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.proWrestling)
+                {
+                    isBearhugged = true;
+                }
             }
-            }
+
             #region RESULT STATS
             if (idManagerInstance.brawler1 == GetComponent<Combat>().enemy) //RESULT STATS
             {
@@ -204,6 +218,14 @@ public class Flinch : MonoBehaviour
                 }
                 reactionTime = StartCoroutine(ReactionTime(combatManagear.GetComponent<CombatStats>().flinchTime, damage, state));
             }
+            else if (isBlockedBack)
+            {
+                if (GetComponent<Combat>().enemy.GetComponent<Souvenirs>().hasPoison)
+                {
+                    StartCoroutine(GetComponent<Combat>().enemy.GetComponent<Souvenirs>().RatPoison());
+                }
+                blockedBack = StartCoroutine(BlockedBack(combatManagear.GetComponent<CombatStats>().flinchTime));
+            }
             else if (isKnockedBack)
             {
                 if (GetComponent<Combat>().enemy.GetComponent<Souvenirs>().hasPoison)
@@ -219,7 +241,7 @@ public class Flinch : MonoBehaviour
 
     public IEnumerator ReactionTime(float t, float damage, int state) //Time that gameobject is flinching
     {
-        GetComponent<Combat>().canParry = false;
+        GetComponent<Combat>().canBlock = false;
         GetComponent<Health>().SubtractHealth(damage);
 
         anim.SetInteger("State", state);
@@ -295,6 +317,17 @@ public class Flinch : MonoBehaviour
         anim.SetBool("canTransition", true);
     }
 
+    public IEnumerator BlockedBack(float t)
+    {
+        GetComponent<CoroutineManager>().CancelCoroutines(blockedBack);
+
+        isBlockedBack = true;
+        yield return new WaitForSeconds(t);
+        isBlockedBack = false;
+
+        GetComponent<CharacterController>().enabled = true;
+    }
+
     public IEnumerator Recovery()
     {
         if (tag == "Player")
@@ -310,7 +343,7 @@ public class Flinch : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         isKnockedDown = false;
         isDove = false;
-        GetComponent<Combat>().canParry = true;
+        GetComponent<Combat>().canBlock = true;
         anim.SetInteger("State", 0);
         GetComponent<Combat>().canAttack = true;
         GetComponent<Combat>().invinsible = false;
@@ -448,7 +481,7 @@ public class Flinch : MonoBehaviour
         GetComponent<Combat>().isAttacking = false;
         GetComponent<Combat>().faceEnemy = false;
         GetComponent<Combat>().isGuardBreaking = false;
-        GetComponent<Combat>().canParry = false;
+        GetComponent<Combat>().canBlock = false;
         GetComponent<Dodge>().canDodge = false;
         GetComponent<Throw>().isAiming = false;
         GetComponent<Throw>().isThrowing = false;
@@ -471,7 +504,7 @@ public class Flinch : MonoBehaviour
             yield return new WaitForSeconds(.4f);
         }
      
-        GetComponent<Combat>().canParry = true;
+        GetComponent<Combat>().canBlock = true;
         GetComponent<Dodge>().canDodge = true;
 
         if (tag == "Enemy")

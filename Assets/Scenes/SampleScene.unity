@@ -5483,8 +5483,9 @@ MonoBehaviour:
   isCounterAttackBuffering: 0
   canFinish: 0
   isFinishing: 0
-  canParry: 1
+  canBlock: 0
   isParrying: 0
+  isBlocking: 0
   isParryBuffering: 0
   primary: 0
   secondary: 0
@@ -5580,6 +5581,7 @@ MonoBehaviour:
   isFlinchBuffering: 0
   isDove: 0
   isBearhugged: 0
+  isBlockedBack: 0
   isKnockedBack: 0
   isKnockedDown: 0
   isStunned: 0
@@ -8080,7 +8082,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8ead1c212bd4e4342aa56f929c05d630, type: 2}
   - {fileID: 2100000, guid: 00702574e07b52a42a80b8498fcd57a3, type: 2}
   - {fileID: 2100000, guid: 3a707d1d2008da74f8219f18d79bf05a, type: 2}
-  brawler1OutfitSelection: 4
+  brawler1OutfitSelection: 5
   brawler2OutfitSelection: 1
   brawler1TargetMesh: {fileID: 0}
   brawler2TargetMesh: {fileID: 0}
@@ -13475,6 +13477,7 @@ MonoBehaviour:
   isFlinchBuffering: 0
   isDove: 0
   isBearhugged: 0
+  isBlockedBack: 0
   isKnockedBack: 0
   isKnockedDown: 0
   isStunned: 0
@@ -13572,8 +13575,9 @@ MonoBehaviour:
   isCounterAttackBuffering: 0
   canFinish: 0
   isFinishing: 0
-  canParry: 0
+  canBlock: 0
   isParrying: 0
+  isBlocking: 0
   isParryBuffering: 0
   primary: 0
   secondary: 0
@@ -14741,8 +14745,8 @@ MonoBehaviour:
   playerDodgeTime: 0.2
   staminaDodgeCost: 200
   playerDodgeMinAmount: 200
-  flinchDistance: 2
-  flinchTime: 0.2
+  flinchDistance: 2.5
+  flinchTime: 0.25
   stunDuration: 5
   knockbackDistance: 18
   knockbackTime: 0.3

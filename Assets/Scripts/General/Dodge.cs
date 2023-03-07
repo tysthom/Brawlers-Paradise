@@ -60,7 +60,7 @@ public class Dodge : MonoBehaviour
     {
         isDodging = true;
         combatInstance.canAttack = false;
-        combatInstance.canParry = false;
+        combatInstance.canBlock = false;
         combatInstance.invinsible = true;
         if (tag == "Player")
         {
@@ -169,7 +169,7 @@ public class Dodge : MonoBehaviour
         } 
         GetComponent<Combat>().invulnerable = false;
         combatInstance.canAttack = true;
-        combatInstance.canParry = true;
+        combatInstance.canBlock = true;
         combatInstance.canUseTechnique = true;
         if (tag == "Enemy") { GetComponent<AiBehavior>().canGlideToEnemy = false; GetComponent<AiBehavior>().isChasingEnemy = true; }
         yield return new WaitForSeconds(.25f);

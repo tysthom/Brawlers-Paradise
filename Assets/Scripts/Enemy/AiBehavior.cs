@@ -290,7 +290,7 @@ public class AiBehavior : MonoBehaviour
                             if (!GetComponent<Combat>().inCombat)
                             {
                                 GetComponent<Throw>().Equiping(true);
-                                GetComponent<Combat>().canParry = false;
+                                GetComponent<Combat>().canBlock = false;
                                 AssignIdle();
                                 yield return new WaitForSeconds(.1f);
 
@@ -346,6 +346,7 @@ public class AiBehavior : MonoBehaviour
                 if (i < fightStyleManager.GetComponent<KarateStats>().aiStanceChangeFrequency)
                 {
                     anim.SetBool("isOffensiveStance", true);
+                    anim.SetBool("isDefensiveStance", false);
                 }
             }
         }

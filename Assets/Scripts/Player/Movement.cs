@@ -83,6 +83,7 @@ public class Movement : MonoBehaviour
         if (GetComponent<Combat>().isAttacking) { return; }
         if (GetComponent<Flinch>().isParried) { return; }
         if (GetComponent<Combat>().isParrying) { return; }
+        if(GetComponent<Combat>().isBlocking) { return; }
         if (GetComponent<Combat>().isGuardBreaking) { return; }
         if (GetComponent<Throw>().isAiming) { return; }
         if (GetComponent<Flinch>().isFlinching == true) { return; }
