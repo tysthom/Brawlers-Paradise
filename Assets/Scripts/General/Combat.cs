@@ -169,7 +169,7 @@ public class Combat : MonoBehaviour
         }
         #endregion
 
-        if (inCombat || GetComponent<Flinch>().isReacting || isParryBuffering || isParrying )
+        if (inCombat || GetComponent<Flinch>().isReacting || isBlockBuffering )
         {
             canBlock = false;
         }
@@ -178,7 +178,7 @@ public class Combat : MonoBehaviour
             canBlock = true;
         }
 
-        if (!inCombat && !isParrying && !isCounterAttackBuffering && !GetComponent<Flinch>().isReacting && !GetComponent<Throw>().isAiming && !attackBuffering || isGroundIdle)
+        if (!inCombat && !isParrying && !isCounterAttackBuffering && !GetComponent<Flinch>().isReacting && !GetComponent<Throw>().isAiming && !attackBuffering && !isBlockBuffering || isGroundIdle)
         {
             canAttack = true;
         }
@@ -314,7 +314,6 @@ public class Combat : MonoBehaviour
             {
                 if (!inCombat && !GetComponent<Flinch>().isReacting && canBlock)
                 {
-                    Debug.Log("BLOCKED");
                     if (tag == "Enemy") //Stops Ai from continuously parrying
                     {
                         secondary = 0; 
@@ -350,7 +349,11 @@ public class Combat : MonoBehaviour
             } 
             if (secondaryLifted == false) secondaryLifted = true;
 
-            isBlocking = false;
+            if (isBlocking)
+            {
+                isBlocking = false;
+                StartCoroutine(BlockBuffer());
+            }
         }
 
         if (shouldMove && !GetComponent<Flinch>().isReacting)
@@ -523,6 +526,13 @@ public class Combat : MonoBehaviour
         }
     }
 
+    IEnumerator BlockBuffer()
+    {
+        isBlockBuffering = true;
+        yield return new WaitForSeconds(.25f);
+        isBlockBuffering = false;
+    }
+
     IEnumerator Parry() 
     { 
         canAttack = false;
@@ -532,7 +542,6 @@ public class Combat : MonoBehaviour
         GetComponent<CoroutineManager>().CancelCoroutines(parry);
 
         GetComponent<Dodge>().canDodge = false;
-        //GetComponent<Combat>().enabled = true;
         isParrying = true;
         canBlock = false;
         anim.SetInteger("State", 20);
@@ -1155,6 +1164,7 @@ public class Combat : MonoBehaviour
                         }
 
                         //Attacks to player only
+                        GetComponent<AiBehavior>().canGlideToEnemy = false;
                         StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.2f, .5f));
 
                         if (a == 100 || a == 101) //Perform a normal flinch

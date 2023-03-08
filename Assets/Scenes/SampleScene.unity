@@ -5410,7 +5410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 2
+  fightStyle: 3
 --- !u!114 &835227091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5486,6 +5486,7 @@ MonoBehaviour:
   canBlock: 0
   isParrying: 0
   isBlocking: 0
+  isBlockBuffering: 0
   isParryBuffering: 0
   primary: 0
   secondary: 0
@@ -5517,9 +5518,9 @@ MonoBehaviour:
   healthBar: {fileID: 94847479}
   healthRegenBar: {fileID: 7210151674008996667}
   shieldBar: {fileID: 1074600925}
-  health: 1240
+  health: 1000
   regenHealth: 0
-  maxHealth: 1240
+  maxHealth: 1000
   shield: 0
   previousHealth: 0
 --- !u!114 &835227094
@@ -5624,7 +5625,7 @@ MonoBehaviour:
   hasDamageBoost: 0
   hasLifeSteal: 0
   hasDamageReduction: 0
-  souvenir: 2
+  souvenir: 0
 --- !u!114 &835227099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5653,8 +5654,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f33574a3a5e904ea8e1c5777f3d3d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stamina: 791
-  maxStamina: 791
+  stamina: 900
+  maxStamina: 900
 --- !u!114 &835227101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6325,7 +6326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da7ed6406ed7dd949b80d40ae1ae6e92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canUseSouvenir: 1
+  souvenirsAllowed: 0
   healthBoostAmount: 300
   medicineCooldownTime: 20
   shieldAmount: 750
@@ -8082,8 +8083,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8ead1c212bd4e4342aa56f929c05d630, type: 2}
   - {fileID: 2100000, guid: 00702574e07b52a42a80b8498fcd57a3, type: 2}
   - {fileID: 2100000, guid: 3a707d1d2008da74f8219f18d79bf05a, type: 2}
-  brawler1OutfitSelection: 5
-  brawler2OutfitSelection: 1
+  useAppropriateOutfits: 1
+  brawler1OutfitSelection: 3
+  brawler2OutfitSelection: 7
   brawler1TargetMesh: {fileID: 0}
   brawler2TargetMesh: {fileID: 0}
   touristTargetMesh: {fileID: 0}
@@ -9108,7 +9110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0dc2ef93580014f8ebf2fc26780d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameMode: 0
+  gameMode: 2
   playerPrefab: {fileID: 0}
   aiPrefab: {fileID: 7454506845584546906, guid: aab3a4d0f5b20894a91046ac24da77e3, type: 3}
   brawler1: {fileID: 0}
@@ -10070,11 +10072,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstAttackTime: 0.8
   firstAttackDistance: 9
-  secondAAttackTime: 0.9
+  secondAAttackTime: 0.81
   secondAAttackDistance: 7
-  secondBAttackTime: 1.1
+  secondBAttackTime: 0.99
   secondBAttackDistance: 4
-  thirdAttackTime: 1.15
+  thirdAttackTime: 1.035
   thirdAttackV1Distance: 5
   thirdAttackV2Distance: 7
   thirdAttackV3Distance: 5
@@ -10109,19 +10111,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4f4db39a573cf948bdf6fefe74b1033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstAttackTime: 0.9
+  firstAttackTime: 0.81
   firstAttackDistance: 3
-  secondAAttackTime: 1.2
+  secondAAttackTime: 1.08
   secondAAttackDistance: 8.4
-  secondBAttackTime: 1.2
+  secondBAttackTime: 1.08
   secondBAttackDistance: 8.4
   thirdAttackTime: 1
-  thirdAttackV1Distance: 5
+  thirdAttackV1Distance: 7
   thirdAttackV2Distance: 6
   thirdAttackV3Distance: 8.4
   thirdAttackV4Distance: 12
   aiGuardbreakerFrequency: 2
-  boxingFightTypeStats: 0500000004000000010000000200000001000000
+  boxingFightTypeStats: 0500000004000000010000000100000003000000
 --- !u!114 &1365660890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10177,7 +10179,7 @@ MonoBehaviour:
   thirdAttackV2Distance: 7
   thirdAttackV3Distance: 7
   thirdAttackV4Distance: 7
-  tkdFightTypeStats: 0200000004000000050000000400000001000000
+  tkdFightTypeStats: 0200000004000000050000000300000002000000
   comboTime: 2.5
   comboDamage: 25
   aiComboFrequency: 3
@@ -13578,6 +13580,7 @@ MonoBehaviour:
   canBlock: 0
   isParrying: 0
   isBlocking: 0
+  isBlockBuffering: 0
   isParryBuffering: 0
   primary: 0
   secondary: 0
@@ -14759,7 +14762,7 @@ MonoBehaviour:
   throwableDamage: 55
   finisherDistance: 2.5
   bounceBackForceAmount: 250
-  randomFightStyle: 0
+  randomFightStyle: 1
   aiDefendFrequency: 5
   aiParryDodgeFrequency: 3
   aiContinuedAttackFrequency: 9
@@ -14795,12 +14798,12 @@ MonoBehaviour:
   b1Strength: 5
   b1Range: 2
   b1Health: 5
-  b1Stamina: 2
+  b1Stamina: 4
   b2AttackSpeed: 3
   b2Strength: 1
   b2Range: 2
   b2Health: 3
-  b2Stamina: 3
+  b2Stamina: 4
 --- !u!1 &1910274577
 GameObject:
   m_ObjectHideFlags: 0

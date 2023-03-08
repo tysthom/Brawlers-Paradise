@@ -7,7 +7,7 @@ public class SouvenirsManager : MonoBehaviour
 {
     GameObject gameManager;
     IdManagear idManagerInstance;
-    public bool canUseSouvenir;
+    public bool souvenirsAllowed;
 
     [Header("Medicine")]
     public float healthBoostAmount = 50;
@@ -81,7 +81,7 @@ public class SouvenirsManager : MonoBehaviour
 
     private void Start()
     {
-        if (canUseSouvenir) //Assigns random souvenir if no souvenir is assigned already
+        if (souvenirsAllowed) //Assigns random souvenir if no souvenir is assigned already
         {
             if(idManagerInstance.brawler1.GetComponent<Souvenirs>().souvenir == Souvenirs.souvenirs.none)
             {

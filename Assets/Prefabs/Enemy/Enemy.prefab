@@ -3573,7 +3573,7 @@ MonoBehaviour:
   hasDamageBoost: 0
   hasLifeSteal: 0
   hasDamageReduction: 0
-  souvenir: 9
+  souvenir: 5
 --- !u!114 &7911793694284746384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3609,6 +3609,7 @@ MonoBehaviour:
   isFlinchBuffering: 0
   isDove: 0
   isBearhugged: 0
+  isBlockedBack: 0
   isKnockedBack: 0
   isKnockedDown: 0
   isStunned: 0
@@ -3706,8 +3707,10 @@ MonoBehaviour:
   isCounterAttackBuffering: 0
   canFinish: 0
   isFinishing: 0
-  canParry: 0
+  canBlock: 0
   isParrying: 0
+  isBlocking: 0
+  isBlockBuffering: 0
   isParryBuffering: 0
   primary: 0
   secondary: 0
@@ -3800,7 +3803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 0
+  fightStyle: 4
 --- !u!65 &7087000783357512420
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -46,8 +46,16 @@ public class Stamina : MonoBehaviour
             GetComponent<Stamina>().enabled = false;
         }
 
+        StartCoroutine(Assign());
+    }
+
+    IEnumerator Assign()
+    {
+        yield return new WaitForSeconds(.25f);
         maxStamina = (int)(maxStamina * combatManager.GetComponent<BrawlerStats>().Stamina(gameObject));
+        Debug.Log(maxStamina);
         stamina = maxStamina;
+
     }
 
     // Update is called once per frame
@@ -79,7 +87,6 @@ public class Stamina : MonoBehaviour
 
     void BarFiller()
     {
-        
         staminaBar.fillAmount = stamina / maxStamina;
     }
 

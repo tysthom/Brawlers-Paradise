@@ -98,7 +98,7 @@ public class BrawlerStats : MonoBehaviour
         float amount;
         if (brawler == idManagerInstance.brawler1)
         {
-            amount = (1 + (.12f * (b1Stamina - 3))); //.15f is what determines the amount multiplyer
+            amount = (1 + (.12f * (b1Stamina - 3))); //.12f is what determines the amount multiplyer
             return amount;
         }
         else if (brawler == idManagerInstance.brawler2)
