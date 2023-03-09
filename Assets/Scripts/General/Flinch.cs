@@ -367,6 +367,7 @@ public class Flinch : MonoBehaviour
 
     public IEnumerator Stun(int s)
     {
+        
         GetComponent<Combat>().canNextAttack = false;
         GetComponent<Combat>().isAttacking = false;
         GetComponent<Combat>().faceEnemy = false;
@@ -376,12 +377,14 @@ public class Flinch : MonoBehaviour
         isStunned = true;
 
         GetComponent<CoroutineManager>().CancelCoroutines(stun);
+        Debug.Log("Stunned");
 
         if (GetComponent<Throw>().currentThrowable != null)
         {
             GetComponent<Throw>().Equiping(false);
         }
 
+        anim.SetBool("canTransition", true);
         anim.SetInteger("State", s);
         #region RESULT STATS
         if (idManagerInstance.brawler1 == GetComponent<Combat>().enemy) //RESULT STATS

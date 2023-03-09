@@ -26,12 +26,24 @@ public class Death : MonoBehaviour
 
     private void LateUpdate()
     {
-        if(GetComponent<Health>().health <= 0 && !GetComponent<Flinch>().isFlinching)
+        if(GetComponent<Health>().health <= 0)
         {
-            //Die();
-            
-            if(GetComponent<Flinch>().surrender == null)
-            GetComponent<Flinch>().surrender = StartCoroutine(GetComponent<Flinch>().Surrender());
+            if (GetComponent<Flinch>().isPoisoned)
+            {
+                GetComponent<Health>().health = 1;
+            }
+
+            if (!GetComponent<Flinch>().isFlinching && !GetComponent<Flinch>().isDove && !GetComponent<Flinch>().isBearhugged &&
+                    !GetComponent<Flinch>().isKnockedDown && !GetComponent<Combat>().isDiving && !GetComponent<Combat>().isGroundIdle &&
+                    !GetComponent<Combat>().isGroundAttacking && !GetComponent<Combat>().isBearhugging)
+            {
+                if (GetComponent<Flinch>().surrender == null)
+                    GetComponent<Flinch>().surrender = StartCoroutine(GetComponent<Flinch>().Surrender());
+            }
+            else
+            {
+                Die();
+            }
         }
     }
 

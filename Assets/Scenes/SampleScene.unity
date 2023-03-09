@@ -3591,7 +3591,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502112829}
-  m_LocalRotation: {x: 0.13162142, y: -0.00000001906995, z: 0.0000000025320428, w: 0.99130005}
+  m_LocalRotation: {x: 0.13162142, y: 0.000000019069953, z: -0.0000000025320432, w: 0.99130005}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5410,7 +5410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 3
+  fightStyle: 0
 --- !u!114 &835227091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10149,13 +10149,13 @@ MonoBehaviour:
   thirdAttackV3Distance: 7
   thirdAttackV4Distance: 7
   mmaDiveRange: 3
-  mmaDiveDistance: 10
+  mmaDiveDistance: 13
   mmaDiveInitialDamage: 15
   mmaDiveTime: 2
   mmaGroundAttackTime: 0.5
   mmaGroundBufferTime: 0.35
   mmaGroundAttackStaminaCost: 50
-  aiDiveFrequency: 7
+  aiDiveFrequency: 8
   mmaFightTypeStats: 0400000005000000020000000300000003000000
 --- !u!114 &1365660891
 MonoBehaviour:
@@ -14767,7 +14767,7 @@ MonoBehaviour:
   randomFightStyle: 0
   aiDefendFrequency: 5
   aiParryDodgeFrequency: 3
-  aiContinuedAttackFrequency: 9
+  aiContinuedAttackFrequency: 7
   aiThrowableFrequency: 0
 --- !u!4 &1891941794
 Transform:

@@ -310,18 +310,29 @@ public class AiBehavior : MonoBehaviour
                     }
                     else
                     {
-                        if (GetComponent<Throw>().currentThrowable != null) 
+                        int j = Random.Range(1, 10);
+                        if (GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.MMA && !enemy.GetComponent<Flinch>().isSurrendering &&
+                                j <= fightStyleManager.GetComponent<MMAStats>().aiDiveFrequency &&
+                                !enemy.GetComponent<Flinch>().isStunned && GetComponent<Combat>().canUseTechnique)
                         {
-                            GetComponent<Throw>().Equiping(false); //Unequips throwable
+                                GetComponent<Combat>().diveAttack = StartCoroutine(GetComponent<Combat>().DiveAttack());
                         }
-                        int c = Random.Range(1, 10);
-                        if (GetComponent<Souvenirs>().souvenir == Souvenirs.souvenirs.coffee &&
-                         GetComponent<Souvenirs>().canUseSouvenir && c <= souvenirsManagerInstance.coffeeUsage)
+                        else
                         {
-                            GetComponent<Souvenirs>().ActivateSouvenir(); //COFFEE
+
+                            if (GetComponent<Throw>().currentThrowable != null)
+                            {
+                                GetComponent<Throw>().Equiping(false); //Unequips throwable
+                            }
+                            int c = Random.Range(1, 10);
+                            if (GetComponent<Souvenirs>().souvenir == Souvenirs.souvenirs.coffee &&
+                             GetComponent<Souvenirs>().canUseSouvenir && c <= souvenirsManagerInstance.coffeeUsage)
+                            {
+                                GetComponent<Souvenirs>().ActivateSouvenir(); //COFFEE
+                            }
+                            wTACalled = false;
+                            MoveToAttack(enemy);
                         }
-                        wTACalled = false;
-                        MoveToAttack(enemy);
                     }
                 }
                 else
@@ -354,7 +365,7 @@ public class AiBehavior : MonoBehaviour
         if (!GetComponent<Flinch>().isReacting && !GetComponent<Dodge>().isDodging)
         {
             agent.isStopped = false;
-            if ((Vector3.Distance(transform.position, destination.transform.position) > attackRange + 1))
+            if (Vector3.Distance(transform.position, destination.transform.position) > attackRange + 1)
             {
                 isChargingEnemy = true;
                 anim.SetInteger("State", 2);
@@ -393,12 +404,8 @@ public class AiBehavior : MonoBehaviour
                         GetComponent<Combat>().eyePoke = StartCoroutine(GetComponent<Combat>().EyePoke());
                     }
                 }
-                else if(GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.MMA &&
-                    i <= fightStyleManager.GetComponent<MMAStats>().aiDiveFrequency && !destination.GetComponent<Combat>().isDiving &&
-                    !enemy.GetComponent<Flinch>().isStunned && GetComponent<Combat>().canUseTechnique)
-                {
-                    GetComponent<Combat>().diveAttack = StartCoroutine(GetComponent<Combat>().DiveAttack());
-                } else if(GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.proWrestling &&
+                
+                 else if(GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.proWrestling &&
                     i <= fightStyleManager.GetComponent<ProWrestlingStats>().aiBearhugFrequency && !destination.GetComponent<Combat>().isBearhugging &&
                     !enemy.GetComponent<Flinch>().isStunned && GetComponent<Combat>().canUseTechnique)
                 {

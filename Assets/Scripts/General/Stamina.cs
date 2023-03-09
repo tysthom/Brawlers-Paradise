@@ -53,7 +53,6 @@ public class Stamina : MonoBehaviour
     {
         yield return new WaitForSeconds(.25f);
         maxStamina = (int)(maxStamina * combatManager.GetComponent<BrawlerStats>().Stamina(gameObject));
-        Debug.Log(maxStamina);
         stamina = maxStamina;
 
     }

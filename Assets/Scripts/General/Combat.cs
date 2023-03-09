@@ -654,7 +654,7 @@ public class Combat : MonoBehaviour
         anim.SetBool("canTransition", false);
         canUseTechnique = false;
         isDiving = true;
-        invinsible = true;
+        //invinsible = true;
 
         if (tag == "Enemy")
         {
@@ -1030,6 +1030,7 @@ public class Combat : MonoBehaviour
         {
             if (anim.GetInteger("State") == 10 && GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.boxing)
             {
+                Debug.Log("STUN");
                 StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .25f));
                 enemy.GetComponent<Flinch>().stun = StartCoroutine(enemy.GetComponent<Combat>().GetComponent<Flinch>().Stun(a));
             } else if (anim.GetInteger("State") == 10 && GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.taekwondo)

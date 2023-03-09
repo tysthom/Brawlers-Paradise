@@ -232,7 +232,6 @@ public class CharacterManager : MonoBehaviour
             {
                 brawler2OutfitSelection = Random.Range(2, 4);
             }
-            Debug.Log("WORKS");
         }
 
         holdBrawler2Outfit = new SkinnedMeshRenderer[outfits[brawler2OutfitSelection].transform.childCount];
