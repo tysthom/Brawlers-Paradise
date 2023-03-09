@@ -21,6 +21,7 @@ public class Flinch : MonoBehaviour
     public bool isFlinching; //True if flinching (moving backwards & not animation flinching)
     public bool isFlinchBuffering; //Prevents player from attacking while also allowing them to move around
     public bool isDove;
+    public bool isRecovering;
     public bool isBearhugged;
     public bool isBlockedBack;
     public bool isKnockedBack; //True if currently being knockedback
@@ -61,7 +62,8 @@ public class Flinch : MonoBehaviour
 
     private void Update()
     {
-        if (isFlinching || isFlinchBuffering || isBlockedBack || isParried || isParryBuffering || isStunned || isKnockedBack || isKnockedDown || isDove || isBearhugged || isSurrendering)
+        if (isFlinching || isFlinchBuffering || isBlockedBack || isParried || isParryBuffering || isStunned 
+            || isKnockedBack || isKnockedDown || isDove || isRecovering || isBearhugged || isSurrendering)
         {
             isReacting = true;
             if(tag == "Enemy") { GetComponent<AiBehavior>().canGlideToEnemy = false; }
@@ -337,17 +339,24 @@ public class Flinch : MonoBehaviour
 
         GetComponent<CoroutineManager>().CancelCoroutines(recovery);
 
-        GetComponent<Combat>().invinsible = true;
-        yield return new WaitForSeconds(.5f);
-        anim.SetInteger("State", 118);
-        yield return new WaitForSeconds(.5f);
         isKnockedDown = false;
         isDove = false;
+        isRecovering = true;
+        GetComponent<Combat>().invinsible = true;
+
+        anim.SetInteger("State", 115);
+
+        
+        yield return new WaitForSeconds(.5f);
+        anim.SetInteger("State", 118);
+        yield return new WaitForSeconds(.55f);
+        
         GetComponent<Combat>().canBlock = true;
         anim.SetInteger("State", 0);
         GetComponent<Combat>().canAttack = true;
         GetComponent<Combat>().invinsible = false;
         GetComponent<Combat>().canUseTechnique = true;
+        isRecovering = false;
 
         if (tag == "Enemy")
         {
@@ -425,7 +434,7 @@ public class Flinch : MonoBehaviour
     {
         GetComponent<Health>().SubtractHealth(damage);
         anim.SetInteger("State", 107);
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.25f);
         anim.SetInteger("State", 115);
     }
 

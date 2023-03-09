@@ -91,6 +91,7 @@ public class Movement : MonoBehaviour
         if (GetComponent<Flinch>().isKnockedDown == true) { return; }
         if (GetComponent<Flinch>().isStunned == true) { return; }
         if (GetComponent<Flinch>().isDove == true) { return; }
+        if (GetComponent<Flinch>().isReacting == true) { return; }
         if (GetComponent<Dodge>().isDodging == true) { return; }
         //if (GetComponent<Flinch>().isKnockedBack == true) { return; }
         if(GetComponent<Combat>().isDiving) { return; }

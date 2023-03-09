@@ -123,9 +123,13 @@ public class Souvenirs : MonoBehaviour
             //canUseSouvenir = false;
         }
 
-        if(souvenir == souvenirs.briefcase && GetComponent<Throw>().hasThrowable || GetComponent<Flinch>().isReacting) //Makes sure user doesn't already have a throwable
+        if(souvenir == souvenirs.briefcase && GetComponent<Throw>().hasThrowable || GetComponent<Flinch>().isReacting || onCooldown) //Makes sure user doesn't already have a throwable
         {
             canUseSouvenir = false;
+        }
+        else
+        {
+            canUseSouvenir = true;
         }
     }
 

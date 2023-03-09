@@ -283,9 +283,9 @@ public class Combat : MonoBehaviour
                 //agent.isStopped set to true in Update of AiBehavior script
                 return;
             }
-            if (isAttacking)
+            /* if (isAttacking)
             {
-                if (GetComponent<AiBehavior>().enemy.tag == "Player" && Vector3.Distance(transform.position, enemy.transform.position) > GetComponent<AiBehavior>().attackRadius)
+                if (GetComponent<AiBehavior>().enemy.tag == "Player" && !attackBuffering)
                 {
                     GetComponent<AiBehavior>().canGlideToEnemy = true;
                 }
@@ -293,14 +293,13 @@ public class Combat : MonoBehaviour
                 {
                     GetComponent<AiBehavior>().canGlideToEnemy = false;
                 }
-            }
-            if (GetComponent<AiBehavior>().canGlideToEnemy)
+            } */
+            if (GetComponent<AiBehavior>().canGlideToEnemy && Vector3.Distance(transform.position, enemy.transform.position) > GetComponent<AiBehavior>().attackRadius)
             {
                     if (Vector3.Distance(transform.position, enemy.transform.position) > GetComponent<AiBehavior>().attackRange)
                     {
                         transform.position = Vector3.Lerp(transform.position, enemy.transform.position, GetComponent<AiBehavior>().glideAmount * Time.deltaTime);
                     }
-
             }
         }
         //END OF AI SECTION
@@ -487,6 +486,7 @@ public class Combat : MonoBehaviour
                 
                     anim.SetInteger("State", 12);
                     isGroundIdle = true;
+                    groundAttack = StartCoroutine(GroundAttack());
             }
         }
         if (isGroundIdle || isGroundAttacking)
@@ -664,16 +664,8 @@ public class Combat : MonoBehaviour
         isDiving = false;
         invinsible = false;
 
-        if (!isGroundAttacking && !isGroundIdle && !GetComponent<Flinch>().isReacting)
-        {
-           if(tag == "Enemy")
-            {
                 afterAttack = StartCoroutine(AfterAttack());
-            }
-        } else if (isGroundIdle && tag == "Enemy")
-        {
-            groundAttack = StartCoroutine(GroundAttack());
-        }
+       
     }
 
     public void Dive()
@@ -683,7 +675,6 @@ public class Combat : MonoBehaviour
 
     public void ShouldNotDive()
     {
-        //invinsible = false;
         shouldDive = false;
         velocity.z = 0;
     }
@@ -695,13 +686,17 @@ public class Combat : MonoBehaviour
         canAttack = false;
         isGroundIdle = false;
         isGroundAttacking = true;
+        invinsible = false;
+
+        yield return new WaitForSeconds(.1f); //Allows Brawler to go ton Ground Idle animation before attacking
 
         int i = Random.Range(1, 3);
         GetComponent<Stamina>().SubtractStamina(fightStyleManager.GetComponent<MMAStats>().mmaGroundAttackStaminaCost);
         anim.SetInteger("Variation", i);
         anim.SetInteger("State", 13);
+
         yield return new WaitForSeconds(fightStyleManager.GetComponent<MMAStats>().mmaGroundAttackTime);
-        invinsible = false;
+        
         anim.SetInteger("State", 12);
         yield return new WaitForSeconds(fightStyleManager.GetComponent<MMAStats>().mmaGroundBufferTime);
         canAttack = true;
@@ -921,6 +916,7 @@ public class Combat : MonoBehaviour
                     }
                     anim.SetInteger("State", state);
                     isAttacking = true;
+                    GetComponent<AiBehavior>().canGlideToEnemy = true;
                 }
                     yield return new WaitForSeconds(time);
                     anim.speed = 1;

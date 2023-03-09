@@ -99,6 +99,7 @@ public class CoroutineManager : MonoBehaviour
         if (GetComponent<Flinch>().recovery != null && ignore != GetComponent<Flinch>().recovery)
         {
             StopCoroutine(GetComponent<Flinch>().recovery);
+            GetComponent<Flinch>().isReacting = false;
         }
         if (GetComponent<Flinch>().stun != null && ignore != GetComponent<Flinch>().stun)
         {
