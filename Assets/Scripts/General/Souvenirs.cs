@@ -135,7 +135,6 @@ public class Souvenirs : MonoBehaviour
 
     public void ActivateSouvenir()
     {
-        Debug.Log(gameObject.name + " used " + souvenir);
         canUseSouvenir = false;
         if(souvenirFill != null)
         souvenirFill.fillAmount = 0;

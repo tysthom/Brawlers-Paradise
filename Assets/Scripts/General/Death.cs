@@ -26,7 +26,7 @@ public class Death : MonoBehaviour
 
     private void LateUpdate()
     {
-        if(GetComponent<Health>().health <= 0)
+        if(GetComponent<Health>().health <= 0 && !GetComponent<Flinch>().isSurrendering)
         {
             if (GetComponent<Flinch>().isPoisoned)
             {

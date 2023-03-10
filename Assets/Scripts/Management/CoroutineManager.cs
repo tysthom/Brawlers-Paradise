@@ -16,6 +16,12 @@ public class CoroutineManager : MonoBehaviour
                 GetComponent<AiBehavior>().wTACalled = false;
             }
         }
+        if (GetComponent<Combat>().block != null && ignore != GetComponent<Combat>().block)
+        {
+            StopCoroutine(GetComponent<Combat>().block);
+            GetComponent<Combat>().isBlocking = false;
+            GetComponent<Combat>().isBlockBuffering = false;
+        }
         if (GetComponent<Combat>().parry != null && ignore != GetComponent<Combat>().parry)
         {
             StopCoroutine(GetComponent<Combat>().parry);

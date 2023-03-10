@@ -74,6 +74,7 @@ public class Combat : MonoBehaviour
 
     [Header("Coroutine")]
     public Coroutine parry;
+    public Coroutine block;
     public Coroutine counterAttack;
     public Coroutine guardBreaker; //Once assigned, starts GuardBreaker(). If cancelled, stops the script and doesn't force brawler back to idle like usual
     public Coroutine diveAttack;
@@ -169,7 +170,7 @@ public class Combat : MonoBehaviour
         }
         #endregion
 
-        if (inCombat || GetComponent<Flinch>().isReacting || isBlockBuffering )
+        if (inCombat || (GetComponent<Flinch>().isReacting && !GetComponent<Flinch>().isBlockedBack) || isBlockBuffering )
         {
             canBlock = false;
         }
@@ -311,17 +312,24 @@ public class Combat : MonoBehaviour
             secondaryLifted = false;
             if (!GetComponent<Throw>().isEquipped)
             {
-                if (!inCombat && !GetComponent<Flinch>().isReacting && canBlock)
+                if (canBlock)
                 {
                     if (tag == "Enemy") //Stops Ai from continuously parrying
                     {
-                        secondary = 0; 
+                        secondary = 0;
+                        if(!isBlocking)
+                        block = StartCoroutine(Block());
                     }
-                    //canBlock = false;
-                    isBlocking = true;
-                    anim.SetInteger("State", 20);
-                    // isParrying = true;
-                    // parry = StartCoroutine(Parry());
+                    else
+                    {
+                        //canBlock = false;
+                        isBlocking = true;
+                        anim.SetInteger("State", 20);
+                        // isParrying = true;
+                        //parry = StartCoroutine(Parry());
+                    }
+
+
                 }
             }
             else
@@ -351,6 +359,7 @@ public class Combat : MonoBehaviour
             if (isBlocking)
             {
                 isBlocking = false;
+                if(tag == "Player")
                 StartCoroutine(BlockBuffer());
             }
         }
@@ -529,8 +538,24 @@ public class Combat : MonoBehaviour
     IEnumerator BlockBuffer()
     {
         isBlockBuffering = true;
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(.25f); //Prevents player from attacking immediaetly
         isBlockBuffering = false;
+    }
+
+    IEnumerator Block()
+    {
+        //GetComponent<CoroutineManager>().CancelCoroutines(block);
+
+        isBlocking = true;
+        faceEnemy = true;
+        anim.SetInteger("State", 20);
+        Debug.Log("BLOCK");
+        yield return new WaitForSeconds(.2f);
+        
+        anim.SetInteger("State", 0);
+        isBlocking = false;
+        if (tag == "Enemy") { GetComponent<AiBehavior>().canGlideToEnemy = false; 
+            GetComponent<AiBehavior>().AssignIdle(); GetComponent<AiBehavior>().isChasingEnemy = true; }
     }
 
     IEnumerator Parry() 
@@ -1026,11 +1051,10 @@ public class Combat : MonoBehaviour
 
     public void ShouldHit(int a) //Causes their enemy to flinch
     {
-        if (tag == "Player" && GetDistanceToEnemy() && !enemy.GetComponent<Combat>().invinsible)
+        if (tag == "Player" && GetDistanceToEnemy() && !GetComponent<Flinch>().isReacting && !enemy.GetComponent<Combat>().invinsible)
         {
             if (anim.GetInteger("State") == 10 && GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.boxing)
             {
-                Debug.Log("STUN");
                 StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .25f));
                 enemy.GetComponent<Flinch>().stun = StartCoroutine(enemy.GetComponent<Combat>().GetComponent<Flinch>().Stun(a));
             } else if (anim.GetInteger("State") == 10 && GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.taekwondo)
@@ -1073,12 +1097,12 @@ public class Combat : MonoBehaviour
                         }
                         else
                         {
-                            enemy.GetComponent<Combat>().isParrying = true;
+                            //Block
                             enemy.GetComponent<Combat>().secondary = 1;
                             StartCoroutine(enemy.GetComponent<AiBehavior>().IncreaseDefenseFrequency());
                             StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.2f, .5f));
-                            
-                            enemy.GetComponent<Flinch>().ReactionInitiation(a, 0); //Deal 0 damage when parrying
+
+                            enemy.GetComponent<Flinch>().ReactionInitiation(-20, CalculateDamage());
                         }
                     }
                     else
@@ -1102,7 +1126,7 @@ public class Combat : MonoBehaviour
                 }
             }
         }
-        if (tag == "Enemy" && !enemy.GetComponent<Combat>().invinsible)
+        if (tag == "Enemy" && !GetComponent<Flinch>().isReacting && !enemy.GetComponent<Combat>().invinsible)
         {
             GetComponent<AiBehavior>().canGlideToEnemy = false;
             if (Vector3.Distance(transform.position, GetComponent<AiBehavior>().enemy.transform.position) < GetComponent<AiBehavior>().attackRadius)
@@ -1185,7 +1209,6 @@ public class Combat : MonoBehaviour
                         {
                             if (enemy.GetComponent<Combat>().isBlocking)
                             {
-                                Debug.Log("Works");
                                 enemy.GetComponent<Flinch>().ReactionInitiation(-20, CalculateDamage());
                             }
                             else

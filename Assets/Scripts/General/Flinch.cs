@@ -101,6 +101,11 @@ public class Flinch : MonoBehaviour
 
         }
 
+        /*if(isDove && GetComponent<Combat>().enemy.GetComponent<Flinch>().isReacting)
+        {
+            recovery = StartCoroutine(Recovery());
+        } */
+
         if (tag == "Enemy")
         {
             if (isReacting)
@@ -127,15 +132,6 @@ public class Flinch : MonoBehaviour
         if (tag == "Player") { GetComponent<CharacterController>().enabled = false; }
         if (tag == "Enemy") { GetComponent<AiBehavior>().canGlideToEnemy = false; }
 
-        //Handles player's parry
-        if (GetComponent<Combat>().isBlocking && damage != combatManagear.GetComponent<CombatStats>().throwableDamage
-            && damage != fightStyleManager.GetComponent<MMAStats>().mmaDiveInitialDamage) //PARRY
-        { //Makes sure that player can't parry if hit by a throwable
-            //GetComponent<Combat>().isParrying = false;
-            //GetComponent<Combat>().isParryBuffering = false;
-            //GetComponent<Combat>().enemy.GetComponent<Flinch>().parried = StartCoroutine(GetComponent<Combat>().enemy.GetComponent<Flinch>().Parried());
-            //return;
-        }
         GetComponent<Combat>().canAttack = false;
         GetComponent<Combat>().canNextAttack = false;
         GetComponent<Combat>().isAttacking = false;
@@ -421,10 +417,12 @@ public class Flinch : MonoBehaviour
 
     public IEnumerator Dove(int state)
     {
+        GetComponent<CoroutineManager>().CancelCoroutines(dove);
+
+        yield return new WaitForSeconds(.05f);
+
         GetComponent<Combat>().faceEnemy = true;
         isDove = true;
-
-        GetComponent<CoroutineManager>().CancelCoroutines(dove);
 
         anim.SetInteger("State", state);
 
