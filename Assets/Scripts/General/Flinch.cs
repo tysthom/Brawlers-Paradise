@@ -222,7 +222,7 @@ public class Flinch : MonoBehaviour
                 {
                     StartCoroutine(GetComponent<Combat>().enemy.GetComponent<Souvenirs>().RatPoison());
                 }
-                blockedBack = StartCoroutine(BlockedBack(combatManagear.GetComponent<CombatStats>().flinchTime));
+                blockedBack = StartCoroutine(BlockedBack(damage, combatManagear.GetComponent<CombatStats>().flinchTime));
             }
             else if (isKnockedBack)
             {
@@ -315,12 +315,18 @@ public class Flinch : MonoBehaviour
         anim.SetBool("canTransition", true);
     }
 
-    public IEnumerator BlockedBack(float t)
+    public IEnumerator BlockedBack(float damage, float time)
     {
         GetComponent<CoroutineManager>().CancelCoroutines(blockedBack);
 
         isBlockedBack = true;
-        yield return new WaitForSeconds(t);
+        if(GetComponent<Stamina>().stamina < combatManagear.GetComponent<CombatStats>().blockMinAmount)
+        {
+            GetComponent<Health>().SubtractHealth(damage * combatManagear.GetComponent<CombatStats>().blockMultiplier);
+        }
+        
+        GetComponent<Stamina>().SubtractStamina(combatManagear.GetComponent<CombatStats>().staminaBlockCost);
+        yield return new WaitForSeconds(time);
         isBlockedBack = false;
 
         GetComponent<CharacterController>().enabled = true;

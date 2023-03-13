@@ -26,7 +26,7 @@ public class Dodge : MonoBehaviour
     void Update()
     {
         if(combatInstance.inCombat || flinchInstance.isReacting || combatInstance.isParrying || GetComponent<Throw>().isEquipped ||
-            isDodging || GetComponent<Stamina>().stamina < combatStatsInstance.playerDodgeMinAmount ||
+            isDodging || 
             GetComponent<Combat>().enemy.GetComponent<Flinch>().isParried)
         {
             canDodge = false;
@@ -151,7 +151,7 @@ public class Dodge : MonoBehaviour
         #endregion
 
         combatInstance.invulnerable = true;
-        GetComponent<Stamina>().SubtractStamina(combatStatsInstance.staminaDodgeCost);
+        //GetComponent<Stamina>().SubtractStamina(combatStatsInstance.staminaDodgeCost);
         if (tag == "Player") { GetComponent<CharacterController>().enabled = false; }
         
         

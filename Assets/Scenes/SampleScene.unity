@@ -3591,7 +3591,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502112829}
-  m_LocalRotation: {x: 0.13162142, y: -0.00000001906995, z: 0.0000000025320428, w: 0.99130005}
+  m_LocalRotation: {x: 0.13162142, y: 0.000000019069953, z: -0.0000000025320432, w: 0.99130005}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9111,7 +9111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0dc2ef93580014f8ebf2fc26780d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameMode: 0
+  gameMode: 2
   playerPrefab: {fileID: 0}
   aiPrefab: {fileID: 7454506845584546906, guid: aab3a4d0f5b20894a91046ac24da77e3, type: 3}
   brawler1: {fileID: 0}
@@ -10082,6 +10082,9 @@ MonoBehaviour:
   thirdAttackV2Distance: 7
   thirdAttackV3Distance: 5
   thirdAttackV4Distance: 8
+  forthAttackTime: 1.1
+  forthAttackV1Distance: 5
+  forthAttackV2Distance: 3
   karateDamageIncreaser: 1.25
   karateDamageDecreaser: 0.75
   karateHealthRecoveryAmount: 10
@@ -10155,7 +10158,7 @@ MonoBehaviour:
   mmaGroundAttackTime: 0.5
   mmaGroundBufferTime: 0.35
   mmaGroundAttackStaminaCost: 50
-  aiDiveFrequency: 8
+  aiDiveFrequency: 2
   mmaFightTypeStats: 0400000005000000020000000300000003000000
 --- !u!114 &1365660891
 MonoBehaviour:
@@ -14733,6 +14736,9 @@ MonoBehaviour:
   brawler1ThirdAttackV2Distance: 7
   brawler1ThirdAttackV3Distance: 7
   brawler1ThirdAttackV4Distance: 7
+  brawler1ForthAttackTime: 1.12
+  brawler1ForthAttackV1Distance: 5
+  brawler1ForthAttackV2Distance: 2
   brawler2AttackDamage: 50
   brawler2FirstAttackTime: 0.5
   brawler2FirstAttackDistance: 5
@@ -14746,10 +14752,13 @@ MonoBehaviour:
   brawler2ThirdAttackV3Distance: 7
   brawler2ThirdAttackV4Distance: 7
   parryAttackTime: 0.75
+  blockMinAmount: 200
+  staminaBlockCost: 200
+  blockMultiplier: 0.4
   playerDodgeDistance: 12
   playerDodgeTime: 0.2
   staminaDodgeCost: 200
-  playerDodgeMinAmount: 200
+  playerDodgeMinAmount: 300
   flinchDistance: 2
   flinchTime: 0.2
   stunDuration: 5
@@ -14763,10 +14772,10 @@ MonoBehaviour:
   counterAttackTime: 0.25
   throwableDamage: 55
   finisherDistance: 2.5
-  bounceBackForceAmount: 250
-  randomFightStyle: 0
-  aiDefendFrequency: 0
-  aiParryDodgeFrequency: 0
+  bounceBackForceAmount: 500
+  randomFightStyle: 1
+  aiDefendFrequency: 5
+  aiParryDodgeFrequency: 3
   aiContinuedAttackFrequency: 7
   aiThrowableFrequency: 0
 --- !u!4 &1891941794

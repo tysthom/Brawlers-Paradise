@@ -108,7 +108,8 @@ public class Stamina : MonoBehaviour
 
         while (stamina < maxStamina)
         {
-            stamina += maxStamina / 100;
+            if(!GetComponent<Combat>().isBlocking)
+                stamina += maxStamina / 100;
             yield return new WaitForSeconds(.2f);
         }
         regen = null;

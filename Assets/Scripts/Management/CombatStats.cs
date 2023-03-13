@@ -31,6 +31,9 @@ public class CombatStats : MonoBehaviour
     public float brawler1ThirdAttackV2Distance = 7;
     public float brawler1ThirdAttackV3Distance = 7;
     public float brawler1ThirdAttackV4Distance = 7;
+    public float brawler1ForthAttackTime = 1.12f;
+    public float brawler1ForthAttackV1Distance = 5;
+    public float brawler1ForthAttackV2Distance = 2;
 
     [Header("Brawler 2 Combat")]
     public int brawler2AttackDamage = 50;
@@ -46,6 +49,11 @@ public class CombatStats : MonoBehaviour
     public float brawler2ThirdAttackV3Distance = 7;
     public float brawler2ThirdAttackV4Distance = 7;
     public float parryAttackTime = .75f;
+
+    [Header("Block")]
+    public float blockMinAmount = 200;
+    public float staminaBlockCost = 300;
+    public float blockMultiplier = .4f;
 
     [Header("Dodge")]
     public float playerDodgeDistance = 5;
@@ -113,6 +121,9 @@ public class CombatStats : MonoBehaviour
             brawler1ThirdAttackV2Distance = karateStatsRefrence.thirdAttackV2Distance;
             brawler1ThirdAttackV3Distance = karateStatsRefrence.thirdAttackV3Distance;
             brawler1ThirdAttackV4Distance = karateStatsRefrence.thirdAttackV4Distance;
+            brawler1ForthAttackTime = karateStatsRefrence.forthAttackTime;
+            brawler1ForthAttackV1Distance = karateStatsRefrence.forthAttackV1Distance;
+            brawler1ForthAttackV2Distance = karateStatsRefrence.forthAttackV2Distance;
 
             if (brawlerStatsInstance.useAssignedFightTypeStats)
             {

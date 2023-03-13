@@ -43,6 +43,7 @@ public class Combat : MonoBehaviour
     public bool isParrying; //True if is parrying
     public bool isBlocking;
     public bool isBlockBuffering;
+    bool blockTransitionCalled = false;
     public bool isParryBuffering;
     public float primary, secondary; //Trigger values
     bool secondaryLifted;
@@ -173,6 +174,10 @@ public class Combat : MonoBehaviour
         if (inCombat || (GetComponent<Flinch>().isReacting && !GetComponent<Flinch>().isBlockedBack) || isBlockBuffering )
         {
             canBlock = false;
+            if(tag == "Player")
+            {
+                isBlocking = false;
+            }
         }
         else
         {
@@ -263,6 +268,14 @@ public class Combat : MonoBehaviour
                             int i = Random.Range(1, 3);
                             anim.SetInteger("Variation", i);
                             basicAttack = StartCoroutine(Attack(7, combatStatsInstance.brawler1ThirdAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
+                        } 
+                        else if(anim.GetInteger("State") == 6 && canNextAttack == true)
+                        {
+                            basicAttack = StartCoroutine(Attack(8, combatStatsInstance.brawler1ForthAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
+                        } 
+                        else if (anim.GetInteger("State") == 7 && canNextAttack == true)
+                        {
+                            basicAttack = StartCoroutine(Attack(9, combatStatsInstance.brawler1ForthAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
                         }
                     }
                 } else
@@ -325,11 +338,11 @@ public class Combat : MonoBehaviour
                         //canBlock = false;
                         isBlocking = true;
                         anim.SetInteger("State", 20);
+                        if(!blockTransitionCalled)
+                            StartCoroutine(BlockTransitionTime());
                         // isParrying = true;
                         //parry = StartCoroutine(Parry());
                     }
-
-
                 }
             }
             else
@@ -402,6 +415,14 @@ public class Combat : MonoBehaviour
                     {
                         MoveWhenAttacking(combatStatsInstance.brawler1ThirdAttackV4Distance);
                     }
+                }
+                else if (anim.GetInteger("State") == 8)
+                {
+                    MoveWhenAttacking(combatStatsInstance.brawler1ForthAttackV1Distance);
+                } 
+                else if (anim.GetInteger("State") == 9)
+                {
+                    MoveWhenAttacking(combatStatsInstance.brawler1ForthAttackV2Distance);
                 }
                 else if (anim.GetInteger("State") == 10)
                 {
@@ -535,11 +556,20 @@ public class Combat : MonoBehaviour
         }
     }
 
+    IEnumerator BlockTransitionTime()
+    {
+        anim.SetBool("canTransition", true);
+        blockTransitionCalled = true;
+        yield return new WaitForSeconds(.3f);
+        anim.SetBool("canTransition", false);
+    }
+
     IEnumerator BlockBuffer()
     {
         isBlockBuffering = true;
         yield return new WaitForSeconds(.25f); //Prevents player from attacking immediaetly
         isBlockBuffering = false;
+        blockTransitionCalled = false;
     }
 
     IEnumerator Block()
@@ -1087,7 +1117,8 @@ public class Combat : MonoBehaviour
                     {
                         defend = 11;
                     }
-                    if (defend <= combatStatsInstance.aiDefendFrequency && enemy.GetComponent<AiBehavior>().isIdle)
+                    if (defend <= combatStatsInstance.aiDefendFrequency && enemy.GetComponent<AiBehavior>().isIdle
+                        && (enemy.GetComponent<Dodge>().canDodge || canBlock))
                     {
                         if (dodgeParry <= combatStatsInstance.aiParryDodgeFrequency && enemy.GetComponent<AiBehavior>().isIdle && enemy.GetComponent<Dodge>().canDodge)
                         {
@@ -1298,12 +1329,12 @@ public class Combat : MonoBehaviour
 
     IEnumerator CouldNextAttack()
     {
-        if (anim.GetInteger("State") != 6 && anim.GetInteger("State") != 7) //Stops player from speeding up next attack combo
+        if (anim.GetInteger("State") != 8 && anim.GetInteger("State") != 9) //Stops player from speeding up next attack combo
         {
             canNextAttack = true;
             yield return new WaitForSeconds(1f); //Time frame after attack that new attack can be performed //Needs variable
             canNextAttack = false;
-        }
+        } 
         else //If at the end attack combo, forces another brief pause between attack combos
         {
             attackBuffering = true;

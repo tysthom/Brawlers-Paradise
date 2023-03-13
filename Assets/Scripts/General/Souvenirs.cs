@@ -135,45 +135,48 @@ public class Souvenirs : MonoBehaviour
 
     public void ActivateSouvenir()
     {
-        canUseSouvenir = false;
-        if(souvenirFill != null)
-        souvenirFill.fillAmount = 0;
-        if(souvenir == souvenirs.medicine) //Health Boost
+        if (souvenirsManager.GetComponent<SouvenirsManager>().souvenirsAllowed)
         {
-            HealthBoost();
-        }
-        if(souvenir == souvenirs.sunscreen) //Flinch Shield
-        {
-            Shield();
-        }
-        if (souvenir == souvenirs.coffee) //Movement Speed Boost
-        {
-            StartCoroutine(Coffee());
-        }
-        if (souvenir == souvenirs.briefcase) //Throwable
-        {
-            Briefcase();
-        }
-        if (souvenir == souvenirs.ratPoison) //Poison
-        {
-            hasPoison = true;
-           //StartCoroutine(RatPoison());
-        }
-        if (souvenir == souvenirs.lifeJacket) //Unkillable
-        {
-            StartCoroutine(LifeJacket());
-        }
-        if (souvenir == souvenirs.tequila) //Damage Boost
-        {
-            StartCoroutine(Tequila());
-        }
-        if(souvenir == souvenirs.vipCard) //Life Steal
-        {
-            StartCoroutine(VIPCard());
-        }
-        if(souvenir == souvenirs.floaty) //Damage Reduction
-        {
-            StartCoroutine(Floaty());
+            canUseSouvenir = false;
+            if (souvenirFill != null)
+                souvenirFill.fillAmount = 0;
+            if (souvenir == souvenirs.medicine) //Health Boost
+            {
+                HealthBoost();
+            }
+            if (souvenir == souvenirs.sunscreen) //Flinch Shield
+            {
+                Shield();
+            }
+            if (souvenir == souvenirs.coffee) //Movement Speed Boost
+            {
+                StartCoroutine(Coffee());
+            }
+            if (souvenir == souvenirs.briefcase) //Throwable
+            {
+                Briefcase();
+            }
+            if (souvenir == souvenirs.ratPoison) //Poison
+            {
+                hasPoison = true;
+                //StartCoroutine(RatPoison());
+            }
+            if (souvenir == souvenirs.lifeJacket) //Unkillable
+            {
+                StartCoroutine(LifeJacket());
+            }
+            if (souvenir == souvenirs.tequila) //Damage Boost
+            {
+                StartCoroutine(Tequila());
+            }
+            if (souvenir == souvenirs.vipCard) //Life Steal
+            {
+                StartCoroutine(VIPCard());
+            }
+            if (souvenir == souvenirs.floaty) //Damage Reduction
+            {
+                StartCoroutine(Floaty());
+            }
         }
     }
 

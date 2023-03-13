@@ -33,7 +33,7 @@ public class Death : MonoBehaviour
                 GetComponent<Health>().health = 1;
             }
 
-            if (!GetComponent<Flinch>().isFlinching && !GetComponent<Flinch>().isDove && !GetComponent<Flinch>().isBearhugged &&
+            if (!GetComponent<Flinch>().isDove && !GetComponent<Flinch>().isBearhugged &&
                     !GetComponent<Flinch>().isKnockedDown && !GetComponent<Combat>().isDiving && !GetComponent<Combat>().isGroundIdle &&
                     !GetComponent<Combat>().isGroundAttacking && !GetComponent<Combat>().isBearhugging)
             {
