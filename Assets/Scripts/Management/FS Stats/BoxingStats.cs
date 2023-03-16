@@ -15,6 +15,9 @@ public class BoxingStats : MonoBehaviour
     public float thirdAttackV2Distance = 7;
     public float thirdAttackV3Distance = 7;
     public float thirdAttackV4Distance = 7;
+    public float forthAttackTime = 1f;
+    public float forthAttackV1Distance = 5;
+    public float forthAttackV2Distance = 3;
 
     [Header("Ai Guardbreaker Usage")]
     [Range(0, 10)] public int aiGuardbreakerFrequency;

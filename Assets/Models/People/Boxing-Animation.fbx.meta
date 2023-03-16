@@ -84,6 +84,12 @@ ModelImporter:
   - first:
       74: -5385822987519855732
     second: Boxing Finisher
+  - first:
+      74: 5843352254961612202
+    second: Boxing Attack 4V1
+  - first:
+      74: 5680007318075719183
+    second: Boxing Attack 4V2
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -99,7 +105,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
       in configuration does not match rotation in animation file:\n\t'Elbow.L' :
-      rotation error = 55.994095 deg\n\t'Elbow.R' : rotation error = 49.543213 deg\n"
+      rotation error = 55.994114 deg\n\t'Elbow.R' : rotation error = 49.543175 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Armature|Boxing Attack 1' has import animation
       warnings that might lower retargeting quality:\nNote: Activate translation
@@ -130,6 +136,15 @@ ModelImporter:
       that will be discarded.\n\t'Elbow.R' is inbetween humanoid transforms and has
       rotation animation that will be discarded.\n\nClip 'Armature|Boxing Attack
       3V4' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Elbow.R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'Armature|Boxing Attack 4V1' has import animation warnings that might lower
+      retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
+      quality.\n\t'Elbow.L' is inbetween humanoid transforms and has rotation animation
+      that will be discarded.\n\t'Elbow.R' is inbetween humanoid transforms and has
+      rotation animation that will be discarded.\n\nClip 'Armature|Boxing Attack
+      4V2' has import animation warnings that might lower retargeting quality:\nNote:
       Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.L'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Elbow.R'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
@@ -378,7 +393,7 @@ ModelImporter:
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
-        intParameter: 110
+        intParameter: 100
         messageOptions: 0
       - time: 0.53614444
         functionName: ShouldNotMove
@@ -428,7 +443,7 @@ ModelImporter:
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
-        intParameter: 110
+        intParameter: 101
         messageOptions: 0
       - time: 0.49984282
         functionName: ShouldNotMove
@@ -478,7 +493,7 @@ ModelImporter:
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
-        intParameter: 110
+        intParameter: 101
         messageOptions: 0
       - time: 0.8388107
         functionName: ShouldNotMove
@@ -528,7 +543,7 @@ ModelImporter:
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
-        intParameter: 110
+        intParameter: 100
         messageOptions: 0
       - time: 0.5079504
         functionName: ShouldNotMove
@@ -738,6 +753,106 @@ ModelImporter:
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
         intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Boxing Attack 4V1
+      takeName: Armature|Boxing Attack 4V1
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.4888337
+        functionName: Move
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.6211745
+        functionName: ShouldHit
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 110
+        messageOptions: 0
+      - time: 0.6335814
+        functionName: ShouldNotMove
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Boxing Attack 4V2
+      takeName: Armature|Boxing Attack 4V2
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.4226633
+        functionName: Move
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5810598
+        functionName: ShouldNotMove
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.6336423
+        functionName: ShouldHit
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 110
         messageOptions: 0
       transformMask: []
       maskType: 3

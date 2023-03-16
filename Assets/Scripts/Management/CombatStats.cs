@@ -146,6 +146,9 @@ public class CombatStats : MonoBehaviour
             brawler1ThirdAttackV2Distance = boxingStatsRefrence.thirdAttackV2Distance;
             brawler1ThirdAttackV3Distance = boxingStatsRefrence.thirdAttackV3Distance;
             brawler1ThirdAttackV4Distance = boxingStatsRefrence.thirdAttackV4Distance;
+            brawler1ForthAttackTime = boxingStatsRefrence.forthAttackTime;
+            brawler1ForthAttackV1Distance = boxingStatsRefrence.forthAttackV1Distance;
+            brawler1ForthAttackV2Distance = boxingStatsRefrence.forthAttackV2Distance;
 
             if (brawlerStatsInstance.useAssignedFightTypeStats)
             {
@@ -168,6 +171,9 @@ public class CombatStats : MonoBehaviour
             brawler1ThirdAttackV2Distance = mmaStatsRefrence.thirdAttackV2Distance;
             brawler1ThirdAttackV3Distance = mmaStatsRefrence.thirdAttackV3Distance;
             brawler1ThirdAttackV4Distance = mmaStatsRefrence.thirdAttackV4Distance;
+            brawler1ForthAttackTime = mmaStatsRefrence.forthAttackTime;
+            brawler1ForthAttackV1Distance = mmaStatsRefrence.forthAttackV1Distance;
+            brawler1ForthAttackV2Distance = mmaStatsRefrence.forthAttackV2Distance;
 
             if (brawlerStatsInstance.useAssignedFightTypeStats)
             {

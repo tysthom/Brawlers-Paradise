@@ -15,9 +15,12 @@ public class MMAStats : MonoBehaviour
     public float thirdAttackV2Distance = 7;
     public float thirdAttackV3Distance = 7;
     public float thirdAttackV4Distance = 7;
+    public float forthAttackTime = 1f;
+    public float forthAttackV1Distance = 5;
+    public float forthAttackV2Distance = 3;
 
 
-    
+
     public float mmaDiveRange = 3;
     public float mmaDiveDistance = 2;
     public float mmaDiveInitialDamage = 15;

@@ -5410,7 +5410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 0
+  fightStyle: 2
 --- !u!114 &835227091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10126,6 +10126,9 @@ MonoBehaviour:
   thirdAttackV2Distance: 6
   thirdAttackV3Distance: 8.4
   thirdAttackV4Distance: 12
+  forthAttackTime: 0.9
+  forthAttackV1Distance: 5
+  forthAttackV2Distance: 3
   aiGuardbreakerFrequency: 2
   boxingFightTypeStats: 0500000004000000010000000100000003000000
 --- !u!114 &1365660890
@@ -10151,6 +10154,9 @@ MonoBehaviour:
   thirdAttackV2Distance: 7
   thirdAttackV3Distance: 7
   thirdAttackV4Distance: 7
+  forthAttackTime: 1
+  forthAttackV1Distance: 5
+  forthAttackV2Distance: 3
   mmaDiveRange: 3
   mmaDiveDistance: 13
   mmaDiveInitialDamage: 15
