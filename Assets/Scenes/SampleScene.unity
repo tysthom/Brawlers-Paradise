@@ -5410,7 +5410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 2
+  fightStyle: 3
 --- !u!114 &835227091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10184,11 +10184,14 @@ MonoBehaviour:
   secondAAttackDistance: 7
   secondBAttackTime: 1.12
   secondBAttackDistance: 7
-  thirdAttackTime: 1.45
+  thirdAttackTime: 1.2
   thirdAttackV1Distance: 7
   thirdAttackV2Distance: 7
   thirdAttackV3Distance: 7
+  forthAttackTime: 1.25
   thirdAttackV4Distance: 7
+  forthAttackV1Distance: 5
+  forthAttackV2Distance: 2
   tkdFightTypeStats: 0200000004000000050000000300000002000000
   comboTime: 2.5
   comboDamage: 25
@@ -14779,7 +14782,7 @@ MonoBehaviour:
   throwableDamage: 55
   finisherDistance: 2.5
   bounceBackForceAmount: 500
-  randomFightStyle: 1
+  randomFightStyle: 0
   aiDefendFrequency: 5
   aiParryDodgeFrequency: 3
   aiContinuedAttackFrequency: 7

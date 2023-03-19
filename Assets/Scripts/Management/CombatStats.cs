@@ -196,6 +196,9 @@ public class CombatStats : MonoBehaviour
             brawler1ThirdAttackV2Distance = tkdStatsRefrence.thirdAttackV2Distance;
             brawler1ThirdAttackV3Distance = tkdStatsRefrence.thirdAttackV3Distance;
             brawler1ThirdAttackV4Distance = tkdStatsRefrence.thirdAttackV4Distance;
+            brawler1ForthAttackTime = tkdStatsRefrence.forthAttackTime;
+            brawler1ForthAttackV1Distance = tkdStatsRefrence.forthAttackV1Distance;
+            brawler1ForthAttackV2Distance = tkdStatsRefrence.forthAttackV2Distance;
 
             if (brawlerStatsInstance.useAssignedFightTypeStats)
             {

@@ -14,7 +14,10 @@ public class TkdStats : MonoBehaviour
     public float thirdAttackV1Distance = 7;
     public float thirdAttackV2Distance = 7;
     public float thirdAttackV3Distance = 7;
+    public float forthAttackTime = 1.25f;
     public float thirdAttackV4Distance = 7;
+    public float forthAttackV1Distance = 5;
+    public float forthAttackV2Distance = 2;
 
     [Header("Fight Type Stats")]
     public int[] tkdFightTypeStats = new int[5];
