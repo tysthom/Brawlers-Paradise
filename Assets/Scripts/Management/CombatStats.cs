@@ -221,6 +221,9 @@ public class CombatStats : MonoBehaviour
             brawler1ThirdAttackV2Distance = kungFuStatsRefrence.thirdAttackV2Distance;
             brawler1ThirdAttackV3Distance = kungFuStatsRefrence.thirdAttackV3Distance;
             brawler1ThirdAttackV4Distance = kungFuStatsRefrence.thirdAttackV4Distance;
+            brawler1ForthAttackTime = kungFuStatsRefrence.forthAttackTime;
+            brawler1ForthAttackV1Distance = kungFuStatsRefrence.forthAttackV1Distance;
+            brawler1ForthAttackV2Distance = kungFuStatsRefrence.forthAttackV2Distance;
 
             if (brawlerStatsInstance.useAssignedFightTypeStats)
             {

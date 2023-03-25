@@ -15,6 +15,9 @@ public class kungFuStats : MonoBehaviour
     public float thirdAttackV2Distance = 7;
     public float thirdAttackV3Distance = 7;
     public float thirdAttackV4Distance = 7;
+    public float forthAttackTime = 1.12f;
+    public float forthAttackV1Distance = 5;
+    public float forthAttackV2Distance = 3;
 
     [Header("Fight Type Stats")]
     public int[] kungFuFightTypeStats = new int[5];

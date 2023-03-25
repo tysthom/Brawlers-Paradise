@@ -47,7 +47,7 @@ ModelImporter:
     second: Kung Fu Eye Poke
   - first:
       74: 8649518592450581384
-    second: Armature|Kung Fu Eye Poke
+    second: Kung Fu Eye Poke (1)
   - first:
       74: 2519919151138548553
     second: Kung Fu Counter Attack
@@ -63,6 +63,12 @@ ModelImporter:
   - first:
       74: -5450396728941878571
     second: Kung Fu Finisher
+  - first:
+      74: 6604945317231347985
+    second: Kung Fu Attack 4V1
+  - first:
+      74: -30171376735328669
+    second: Kung Fu Attack 4V2
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -78,7 +84,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
       in configuration does not match rotation in animation file:\n\t'Elbow.L' :
-      rotation error = 38.382099 deg\n\t'Elbow.R' : rotation error = 5.817525 deg\n"
+      rotation error = 3.049930 deg\n\t'Elbow.R' : rotation error = 3.050019 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Armature|Guardbreaker' has import animation
       warnings that might lower retargeting quality:\nNote: Activate translation
@@ -133,30 +139,54 @@ ModelImporter:
       retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
       quality.\n\t'Elbow.L' is inbetween humanoid transforms and has rotation animation
       that will be discarded.\n\t'Elbow.R' is inbetween humanoid transforms and has
-      rotation animation that will be discarded.\n\nClip 'Armature|Kung Fu Combat
-      Idle' has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.R'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'Armature|Kung Fu Eye Poke' has import animation warnings that might lower
-      retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
-      quality.\n\t'Elbow.L' is inbetween humanoid transforms and has rotation animation
-      that will be discarded.\n\t'Shoulder.R' has translation animation that will
-      be discarded.\n\t'Elbow.R' is inbetween humanoid transforms and has rotation
-      animation that will be discarded.\n\nClip 'Armature|Kung Fu Finisher' has import
-      animation warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'Elbow.L' is inbetween humanoid
-      transforms and has rotation animation that will be discarded.\n\t'Index1.L'
+      rotation animation that will be discarded.\n\nClip 'Armature|Kung Fu Attack
+      4V1' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Index1.L'
       has translation animation that will be discarded.\n\t'Middle1.L' has translation
       animation that will be discarded.\n\t'Ring1.L' has translation animation that
-      will be discarded.\n\t'Pinky1.L' has translation animation that will be discarded.\n\t'Elbow.R'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Thumb3.R'
-      has translation animation that will be discarded.\n\t'Index1.R' has translation
+      will be discarded.\n\t'Ring2.L' has translation animation that will be discarded.\n\t'Pinky1.L'
+      has translation animation that will be discarded.\n\t'Pinky2.L' has translation
+      animation that will be discarded.\n\t'Elbow.R' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Index1.R' has translation
       animation that will be discarded.\n\t'Middle1.R' has translation animation
       that will be discarded.\n\t'Ring1.R' has translation animation that will be
       discarded.\n\t'Pinky1.R' has translation animation that will be discarded.\n\nClip
-      'Armature|Kung Fu Stunned' has import animation warnings that might lower retargeting
-      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.L'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Elbow.R'
+      'Armature|Kung Fu Attack 4V2' has import animation warnings that might lower
+      retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
+      quality.\n\t'Elbow.L' is inbetween humanoid transforms and has rotation animation
+      that will be discarded.\n\t'Index1.L' has translation animation that will be
+      discarded.\n\t'Middle1.L' has translation animation that will be discarded.\n\t'Ring1.L'
+      has translation animation that will be discarded.\n\t'Pinky1.L' has translation
+      animation that will be discarded.\n\t'Elbow.R' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Index1.R' has translation
+      animation that will be discarded.\n\t'Middle1.R' has translation animation
+      that will be discarded.\n\t'Ring1.R' has translation animation that will be
+      discarded.\n\t'Pinky1.R' has translation animation that will be discarded.\n\nClip
+      'Armature|Kung Fu Combat Idle' has import animation warnings that might lower
+      retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
+      quality.\n\t'Elbow.R' is inbetween humanoid transforms and has rotation animation
+      that will be discarded.\n\nClip 'Armature|Kung Fu Eye Poke' has import animation
+      warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'Elbow.L' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'Shoulder.R'
+      has translation animation that will be discarded.\n\t'Elbow.R' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'Armature|Kung Fu Finisher' has import animation warnings that might lower
+      retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
+      quality.\n\t'Elbow.L' is inbetween humanoid transforms and has rotation animation
+      that will be discarded.\n\t'Index1.L' has translation animation that will be
+      discarded.\n\t'Middle1.L' has translation animation that will be discarded.\n\t'Ring1.L'
+      has translation animation that will be discarded.\n\t'Pinky1.L' has translation
+      animation that will be discarded.\n\t'Elbow.R' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Thumb3.R' has translation
+      animation that will be discarded.\n\t'Index1.R' has translation animation that
+      will be discarded.\n\t'Middle1.R' has translation animation that will be discarded.\n\t'Ring1.R'
+      has translation animation that will be discarded.\n\t'Pinky1.R' has translation
+      animation that will be discarded.\n\nClip 'Armature|Kung Fu Stunned' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'Elbow.L' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'Elbow.R'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
@@ -480,7 +510,7 @@ ModelImporter:
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
-        intParameter: 110
+        intParameter: 100
         messageOptions: 0
       transformMask: []
       maskType: 3
@@ -530,7 +560,7 @@ ModelImporter:
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
-        intParameter: 110
+        intParameter: 100
         messageOptions: 0
       transformMask: []
       maskType: 3
@@ -580,7 +610,7 @@ ModelImporter:
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
-        intParameter: 110
+        intParameter: 100
         messageOptions: 0
       transformMask: []
       maskType: 3
@@ -630,7 +660,7 @@ ModelImporter:
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
-        intParameter: 110
+        intParameter: 101
         messageOptions: 0
       transformMask: []
       maskType: 3
@@ -731,35 +761,6 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Kung Fu Eye Poke
-      takeName: Armature|Kung Fu Eye Poke
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 59
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
       name: Kung Fu Stunned
       takeName: Armature|Kung Fu Stunned
       internalID: 0
@@ -848,6 +849,106 @@ ModelImporter:
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
         intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Kung Fu Attack 4V1
+      takeName: Armature|Kung Fu Attack 4V1
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.19933827
+        functionName: Move
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.59636056
+        functionName: ShouldNotMove
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.6129032
+        functionName: ShouldHit
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 110
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Kung Fu Attack 4V2
+      takeName: Armature|Kung Fu Attack 4V2
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.29445818
+        functionName: Move
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.48475897
+        functionName: ShouldNotMove
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.51393574
+        functionName: ShouldHit
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 110
         messageOptions: 0
       transformMask: []
       maskType: 3
