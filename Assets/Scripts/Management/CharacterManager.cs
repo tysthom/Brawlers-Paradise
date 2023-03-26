@@ -174,11 +174,11 @@ public class CharacterManager : MonoBehaviour
                 brawler1OutfitSelection = Random.Range(8, 9);
                 holdBrawler1Outfit = new SkinnedMeshRenderer[outfits[brawler1OutfitSelection].transform.childCount];
             }
-            /*else if (brawler1.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.boxing)
+            else if (brawler1.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.proWrestling)
             {
-                brawler1OutfitSelection = Random.Range(2, 4);
+                brawler1OutfitSelection = Random.Range(10, 11);
                 holdBrawler1Outfit = new SkinnedMeshRenderer[outfits[brawler1OutfitSelection].transform.childCount];
-            } */
+            } 
         }
         else
         {

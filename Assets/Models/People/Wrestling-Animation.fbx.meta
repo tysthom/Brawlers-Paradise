@@ -93,6 +93,12 @@ ModelImporter:
   - first:
       74: 3125781902382444752
     second: Wrestling Surrender
+  - first:
+      74: 8015251934422585389
+    second: Wrestling Attack 4V1
+  - first:
+      74: 603607494172595168
+    second: Wrestling Attack 4V2
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -108,7 +114,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
       in configuration does not match rotation in animation file:\n\t'Elbow.L' :
-      rotation error = 43.157196 deg\n\t'Elbow.R' : rotation error = 44.974709 deg\n"
+      rotation error = 30.153728 deg\n\t'Elbow.R' : rotation error = 39.020725 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Armature|MMA Dive' has import animation warnings
       that might lower retargeting quality:\nNote: Activate translation DOF on avatar
@@ -183,6 +189,15 @@ ModelImporter:
       animation that will be discarded.\n\t'Middle1.R' has translation animation
       that will be discarded.\n\t'Ring1.R' has translation animation that will be
       discarded.\n\t'Pinky1.R' has translation animation that will be discarded.\n\nClip
+      'Armature|Wrestling Attack 4V1' has import animation warnings that might lower
+      retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
+      quality.\n\t'Elbow.L' is inbetween humanoid transforms and has rotation animation
+      that will be discarded.\n\t'Elbow.R' is inbetween humanoid transforms and has
+      rotation animation that will be discarded.\n\nClip 'Armature|Wrestling Attack
+      4V2' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Elbow.R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
       'Armature|Wrestling Combat Idle' has import animation warnings that might lower
       retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
       quality.\n\t'Elbow.L' is inbetween humanoid transforms and has rotation animation
@@ -357,7 +372,7 @@ ModelImporter:
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
-        intParameter: 110
+        intParameter: 100
         messageOptions: 0
       transformMask: []
       maskType: 3
@@ -486,7 +501,7 @@ ModelImporter:
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
-        intParameter: 110
+        intParameter: 101
         messageOptions: 0
       transformMask: []
       maskType: 3
@@ -529,7 +544,7 @@ ModelImporter:
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
-        intParameter: 110
+        intParameter: 100
         messageOptions: 0
       - time: 0.89501154
         functionName: ShouldNotMove
@@ -579,7 +594,7 @@ ModelImporter:
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
-        intParameter: 110
+        intParameter: 101
         messageOptions: 0
       - time: 0.85244036
         functionName: ShouldNotMove
@@ -805,6 +820,106 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Wrestling Attack 4V1
+      takeName: Armature|Wrestling Attack 4V1
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.3633395
+        functionName: Move
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.50170594
+        functionName: ShouldHit
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 110
+        messageOptions: 0
+      - time: 0.6281828
+        functionName: ShouldNotMove
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Wrestling Attack 4V2
+      takeName: Armature|Wrestling Attack 4V2
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.56553996
+        functionName: Move
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.70156634
+        functionName: ShouldNotMove
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.74278647
+        functionName: ShouldHit
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 110
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

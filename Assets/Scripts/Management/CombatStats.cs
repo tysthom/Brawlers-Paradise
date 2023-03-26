@@ -246,6 +246,9 @@ public class CombatStats : MonoBehaviour
             brawler1ThirdAttackV2Distance = proWrestlingStatsRefrence.thirdAttackV2Distance;
             brawler1ThirdAttackV3Distance = proWrestlingStatsRefrence.thirdAttackV3Distance;
             brawler1ThirdAttackV4Distance = proWrestlingStatsRefrence.thirdAttackV4Distance;
+            brawler1ForthAttackTime = boxingStatsRefrence.forthAttackTime;
+            brawler1ForthAttackV1Distance = boxingStatsRefrence.forthAttackV1Distance;
+            brawler1ForthAttackV2Distance = boxingStatsRefrence.forthAttackV2Distance;
 
             if (brawlerStatsInstance.useAssignedFightTypeStats)
             {

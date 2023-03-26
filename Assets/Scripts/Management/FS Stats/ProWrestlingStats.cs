@@ -15,6 +15,9 @@ public class ProWrestlingStats : MonoBehaviour
     public float thirdAttackV2Distance = 7;
     public float thirdAttackV3Distance = 7;
     public float thirdAttackV4Distance = 7;
+    public float forthAttackTime = 1.12f;
+    public float forthAttackV1Distance = 3;
+    public float forthAttackV2Distance = 3;
 
     [Header("Clothesline")]
     public float bearhugGrabTime = 2;
