@@ -48,6 +48,9 @@ public class CombatStats : MonoBehaviour
     public float brawler2ThirdAttackV2Distance = 7;
     public float brawler2ThirdAttackV3Distance = 7;
     public float brawler2ThirdAttackV4Distance = 7;
+    public float brawler2ForthAttackTime = 1.12f;
+    public float brawler2ForthAttackV1Distance = 5;
+    public float brawler2ForthAttackV2Distance = 2;
     public float parryAttackTime = .75f;
 
     [Header("Block")]
@@ -277,6 +280,9 @@ public class CombatStats : MonoBehaviour
             brawler2ThirdAttackV2Distance = karateStatsRefrence.thirdAttackV2Distance;
             brawler2ThirdAttackV3Distance = karateStatsRefrence.thirdAttackV3Distance;
             brawler2ThirdAttackV4Distance = karateStatsRefrence.thirdAttackV4Distance;
+            brawler2ForthAttackTime = karateStatsRefrence.forthAttackTime;
+            brawler2ForthAttackV1Distance = karateStatsRefrence.forthAttackV1Distance;
+            brawler2ForthAttackV2Distance = karateStatsRefrence.forthAttackV2Distance;
 
             if (brawlerStatsInstance.useAssignedFightTypeStats)
             {
@@ -300,6 +306,9 @@ public class CombatStats : MonoBehaviour
             brawler2ThirdAttackV2Distance = boxingStatsRefrence.thirdAttackV2Distance;
             brawler2ThirdAttackV3Distance = boxingStatsRefrence.thirdAttackV3Distance;
             brawler2ThirdAttackV4Distance = boxingStatsRefrence.thirdAttackV4Distance;
+            brawler2ForthAttackTime = boxingStatsRefrence.forthAttackTime;
+            brawler2ForthAttackV1Distance = boxingStatsRefrence.forthAttackV1Distance;
+            brawler2ForthAttackV2Distance = boxingStatsRefrence.forthAttackV2Distance;
 
             if (brawlerStatsInstance.useAssignedFightTypeStats)
             {
@@ -323,6 +332,9 @@ public class CombatStats : MonoBehaviour
             brawler2ThirdAttackV2Distance = boxingStatsRefrence.thirdAttackV2Distance;
             brawler2ThirdAttackV3Distance = mmaStatsRefrence.thirdAttackV3Distance;
             brawler2ThirdAttackV4Distance = mmaStatsRefrence.thirdAttackV4Distance;
+            brawler2ForthAttackTime = mmaStatsRefrence.forthAttackTime;
+            brawler2ForthAttackV1Distance = mmaStatsRefrence.forthAttackV1Distance;
+            brawler2ForthAttackV2Distance = mmaStatsRefrence.forthAttackV2Distance;
 
             if (brawlerStatsInstance.useAssignedFightTypeStats)
             {
@@ -346,6 +358,9 @@ public class CombatStats : MonoBehaviour
             brawler2ThirdAttackV2Distance = tkdStatsRefrence.thirdAttackV2Distance;
             brawler2ThirdAttackV3Distance = tkdStatsRefrence.thirdAttackV3Distance;
             brawler2ThirdAttackV4Distance = tkdStatsRefrence.thirdAttackV4Distance;
+            brawler2ForthAttackTime = tkdStatsRefrence.forthAttackTime;
+            brawler2ForthAttackV1Distance = tkdStatsRefrence.forthAttackV1Distance;
+            brawler2ForthAttackV2Distance = tkdStatsRefrence.forthAttackV2Distance;
 
             if (brawlerStatsInstance.useAssignedFightTypeStats)
             {
@@ -369,6 +384,9 @@ public class CombatStats : MonoBehaviour
             brawler2ThirdAttackV2Distance = kungFuStatsRefrence.thirdAttackV2Distance;
             brawler2ThirdAttackV3Distance = kungFuStatsRefrence.thirdAttackV3Distance;
             brawler2ThirdAttackV4Distance = kungFuStatsRefrence.thirdAttackV4Distance;
+            brawler2ForthAttackTime = kungFuStatsRefrence.forthAttackTime;
+            brawler2ForthAttackV1Distance = kungFuStatsRefrence.forthAttackV1Distance;
+            brawler2ForthAttackV2Distance = kungFuStatsRefrence.forthAttackV2Distance;
 
             if (brawlerStatsInstance.useAssignedFightTypeStats)
             {
@@ -392,6 +410,9 @@ public class CombatStats : MonoBehaviour
             brawler2ThirdAttackV2Distance = proWrestlingStatsRefrence.thirdAttackV2Distance;
             brawler2ThirdAttackV3Distance = proWrestlingStatsRefrence.thirdAttackV3Distance;
             brawler2ThirdAttackV4Distance = proWrestlingStatsRefrence.thirdAttackV4Distance;
+            brawler2ForthAttackTime = proWrestlingStatsRefrence.forthAttackTime;
+            brawler2ForthAttackV1Distance = proWrestlingStatsRefrence.forthAttackV1Distance;
+            brawler2ForthAttackV2Distance = proWrestlingStatsRefrence.forthAttackV2Distance;
 
             if (brawlerStatsInstance.useAssignedFightTypeStats)
             {

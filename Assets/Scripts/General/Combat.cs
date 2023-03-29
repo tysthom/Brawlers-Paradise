@@ -987,6 +987,13 @@ public class Combat : MonoBehaviour
         GetComponent<CoroutineManager>().CancelCoroutines(finisher);
         isFinishing = true;
 
+        if(tag == "Player")
+        {
+            enemy.GetComponent<Flinch>().surrenderCanvas.SetActive(false);
+            enemy.GetComponent<Flinch>().hudManager.GetComponent<HUDManager>().finisherText.text = "";
+        }
+        
+
         anim.SetInteger("State", 50);
 
         yield return new WaitForSeconds(4);
@@ -1354,7 +1361,7 @@ public class Combat : MonoBehaviour
         anim.SetBool("canTransition", true);
         int i = Random.Range(1, 10);
             ShouldNotMove();
-            if ((anim.GetInteger("State") != 3 && anim.GetInteger("State") != 4 && anim.GetInteger("State") != 5) || enemy.GetComponent<Flinch>().isSurrendering || tag == "Tourist") { i = 100; }
+            if ((anim.GetInteger("State") == 8 || anim.GetInteger("State") == 9) || enemy.GetComponent<Flinch>().isSurrendering || tag == "Tourist") { i = 100; }
             if (i <= combatStatsInstance.aiContinuedAttackFrequency)
             {
                 isAttacking = false;
@@ -1387,7 +1394,19 @@ public class Combat : MonoBehaviour
                     variedAttack = 7;
                     anim.GetComponent<Animator>().SetInteger("Variation", Random.Range(1, 3));
                     basicAttack = StartCoroutine(Attack(variedAttack, combatStatsInstance.brawler2ThirdAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
-                }             
+                }
+                else if(anim.GetInteger("State") == 6)
+                {
+                    variedAttack = 8;
+                    anim.GetComponent<Animator>().SetInteger("Variation", Random.Range(1, 3));
+                    basicAttack = StartCoroutine(Attack(variedAttack, combatStatsInstance.brawler2ForthAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
+                }
+                else if(anim.GetInteger("State") == 7)
+                {
+                    variedAttack = 9;
+                    anim.GetComponent<Animator>().SetInteger("Variation", Random.Range(1, 3));
+                    basicAttack = StartCoroutine(Attack(variedAttack, combatStatsInstance.brawler2ForthAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
+                }
             }
             else
             {

@@ -347,7 +347,7 @@ ModelImporter:
       name: TKD Attack 3V1
       takeName: Armature|TKD Attack 3V1
       internalID: 0
-      firstFrame: 0
+      firstFrame: 15
       lastFrame: 36
       wrapMode: 0
       orientationOffsetY: 0
@@ -368,26 +368,26 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.6279401
+      - time: 0.37864834
         functionName: Move
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.7190547
-        functionName: ShouldNotMove
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.8071435
+      - time: 0.654169
         functionName: ShouldHit
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
         intParameter: 101
+        messageOptions: 0
+      - time: 0.67372894
+        functionName: ShouldNotMove
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 0
         messageOptions: 0
       transformMask: []
       maskType: 3
@@ -447,7 +447,7 @@ ModelImporter:
       name: TKD Attack 3V3
       takeName: Armature|TKD Attack 3V3
       internalID: 0
-      firstFrame: 0
+      firstFrame: 11
       lastFrame: 36
       wrapMode: 0
       orientationOffsetY: 0
@@ -468,21 +468,21 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.5970487
+      - time: 0.44124135
         functionName: Move
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.7502837
+      - time: 0.6058077
         functionName: ShouldNotMove
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.80136204
+      - time: 0.6937133
         functionName: ShouldHit
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
@@ -497,7 +497,7 @@ ModelImporter:
       name: TKD Attack 3V4
       takeName: Armature|TKD Attack 3V4
       internalID: 0
-      firstFrame: 0
+      firstFrame: 8
       lastFrame: 36
       wrapMode: 0
       orientationOffsetY: 0
@@ -518,21 +518,21 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.60272413
+      - time: 0.48657683
         functionName: Move
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.7275823
+      - time: 0.67942363
         functionName: ShouldNotMove
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.79568666
+      - time: 0.7191994
         functionName: ShouldHit
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
@@ -806,7 +806,7 @@ ModelImporter:
       name: TKD Attack 4V2
       takeName: Armature|TKD Attack 4V2
       internalID: 0
-      firstFrame: 0
+      firstFrame: 7
       lastFrame: 38
       wrapMode: 0
       orientationOffsetY: 0
@@ -827,21 +827,21 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.46634078
+      - time: 0.35869205
         functionName: Move
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.6482511
+      - time: 0.588761
         functionName: ShouldNotMove
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.68974215
+      - time: 0.6019234
         functionName: ShouldHit
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
