@@ -945,7 +945,6 @@ public class Combat : MonoBehaviour
                 yield return new WaitForSeconds(time);
                 anim.speed = 1;
                 StartCoroutine(CouldNextAttack());
-                //canUseTechnique = true;
                 yield return new WaitForSeconds(.5f); //Time that brawler waits before they can move
                     if (state == anim.GetInteger("State")) //Checks to see if the animator has moved to the next attack animation
                     { //If not, returns player to normal movement
@@ -990,9 +989,9 @@ public class Combat : MonoBehaviour
         if(tag == "Player")
         {
             enemy.GetComponent<Flinch>().surrenderCanvas.SetActive(false);
-            enemy.GetComponent<Flinch>().hudManager.GetComponent<HUDManager>().finisherText.text = "";
         }
-        
+        enemy.GetComponent<Flinch>().hudManager.GetComponent<HUDManager>().finisherText.text = "";
+
 
         anim.SetInteger("State", 50);
 
@@ -1339,7 +1338,7 @@ public class Combat : MonoBehaviour
         if (anim.GetInteger("State") != 8 && anim.GetInteger("State") != 9) //Stops player from speeding up next attack combo
         {
             canNextAttack = true;
-            yield return new WaitForSeconds(1f); //Time frame after attack that new attack can be performed //Needs variable
+            yield return new WaitForSeconds(.5f); //Time frame after attack that new attack can be performed //Needs variable
             canNextAttack = false;
         } 
         else //If at the end attack combo, forces another brief pause between attack combos

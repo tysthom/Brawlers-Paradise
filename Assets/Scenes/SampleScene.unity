@@ -5410,7 +5410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 3
+  fightStyle: 1
 --- !u!114 &835227091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10084,7 +10084,7 @@ MonoBehaviour:
   thirdAttackV2Distance: 7
   thirdAttackV3Distance: 5
   thirdAttackV4Distance: 8
-  forthAttackTime: 1.1
+  forthAttackTime: 1.2
   forthAttackV1Distance: 5
   forthAttackV2Distance: 3
   karateDamageIncreaser: 1.25
@@ -10117,18 +10117,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4f4db39a573cf948bdf6fefe74b1033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstAttackTime: 0.81
+  firstAttackTime: 1
   firstAttackDistance: 3
-  secondAAttackTime: 1.08
+  secondAAttackTime: 1.3
   secondAAttackDistance: 8.4
-  secondBAttackTime: 1.08
+  secondBAttackTime: 1.3
   secondBAttackDistance: 8.4
-  thirdAttackTime: 1
+  thirdAttackTime: 1.3
   thirdAttackV1Distance: 7
   thirdAttackV2Distance: 6
   thirdAttackV3Distance: 8.4
   thirdAttackV4Distance: 12
-  forthAttackTime: 0.9
+  forthAttackTime: 1.6
   forthAttackV1Distance: 5
   forthAttackV2Distance: 3
   aiGuardbreakerFrequency: 2
@@ -10151,12 +10151,12 @@ MonoBehaviour:
   secondAAttackDistance: 7
   secondBAttackTime: 1.25
   secondBAttackDistance: 7
-  thirdAttackTime: 1.12
+  thirdAttackTime: 1.3
   thirdAttackV1Distance: 7
   thirdAttackV2Distance: 7
   thirdAttackV3Distance: 7
   thirdAttackV4Distance: 7
-  forthAttackTime: 1
+  forthAttackTime: 1.25
   forthAttackV1Distance: 5
   forthAttackV2Distance: 3
   mmaDiveRange: 3
@@ -14741,7 +14741,7 @@ MonoBehaviour:
   tkdStatsRefrence: {fileID: 1365660891}
   kungFuStatsRefrence: {fileID: 1365660893}
   proWrestlingStatsRefrence: {fileID: 1365660892}
-  brawler1AttackDamage: 500
+  brawler1AttackDamage: 50
   brawler1FirstAttackTime: 1.12
   brawler1FirstAttackDistance: 9
   brawler1SecondAAttackTime: 1.12
