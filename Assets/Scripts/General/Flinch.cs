@@ -352,7 +352,7 @@ public class Flinch : MonoBehaviour
         
         yield return new WaitForSeconds(.5f);
         anim.SetInteger("State", 118);
-        yield return new WaitForSeconds(.55f);
+        yield return new WaitForSeconds(.7f);
         
         GetComponent<Combat>().canBlock = true;
         anim.SetInteger("State", 0);
