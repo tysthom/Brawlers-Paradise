@@ -1,87 +1,12 @@
 fileFormatVersion: 2
-guid: 693c3d874b8a4a544beac3027bbacee0
+guid: 0619b19ce9985c84c91107df5a44ae97
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: 2200736570788784969
     second: Armature|A-Idle
-  - first:
-      74: 1430991505813726
-    second: Armature|Backwards Dodge
-  - first:
-      74: 4847262820057354059
-    second: Armature|Bearhugged
-  - first:
-      74: 5978651762570310600
-    second: Armature|Fist
-  - first:
-      74: 3668113286774973900
-    second: Armature|Flinch 1
-  - first:
-      74: -8271177757521377094
-    second: Armature|Flinch 2
-  - first:
-      74: -1968298355828862949
-    second: Armature|Forward Dodge
-  - first:
-      74: -4829879222298969183
-    second: Armature|Ground Flinch 1
-  - first:
-      74: -8945691123924629249
-    second: Armature|Idle
-  - first:
-      74: -9169652097704067027
-    second: Armature|KnifeHand
-  - first:
-      74: 1675703283331457872
-    second: Armature|Knockback 1
-  - first:
-      74: -6667937370999840730
-    second: Armature|Knockdown 1
-  - first:
-      74: 8994469276650271615
-    second: Armature|Parried
-  - first:
-      74: -5634258956781064799
-    second: Armature|Recovery
-  - first:
-      74: -7551964380084998518
-    second: Armature|Run
-  - first:
-      74: -3674672345321093044
-    second: Armature|Surrender
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Band
-    second: {fileID: 2100000, guid: bf390114a86e75849b450f293c57b591, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Boots
-    second: {fileID: 2100000, guid: 9435105495cdf2d409934a2cea6bbf73, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Boots2
-    second: {fileID: 2100000, guid: 3783d956fa8fd3242a005229681e94b2, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Boots3
-    second: {fileID: 2100000, guid: 0b060fa4cf0268e489a2a8e0209ce6b3, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Trunks
-    second: {fileID: 2100000, guid: ab35f02b4bbf08949b9dcba129a9eda0, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Trunks2
-    second: {fileID: 2100000, guid: 826e8d44f525e4a4d947986d2569e137, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -163,7 +88,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1.25
+    globalScale: 0.012499999
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
