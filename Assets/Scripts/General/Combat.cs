@@ -472,6 +472,28 @@ public class Combat : MonoBehaviour
                         MoveWhenAttacking(combatStatsInstance.brawler2ThirdAttackV4Distance);
                     }
                 }
+                else if (anim.GetInteger("State") == 8)
+                {
+                    if (anim.GetInteger("Variation") == 1)
+                    {
+                        MoveWhenAttacking(combatStatsInstance.brawler2ForthAttackV1Distance);
+                    }
+                    else
+                    {
+                        MoveWhenAttacking(combatStatsInstance.brawler2ForthAttackV2Distance);
+                    }
+                }
+                else if (anim.GetInteger("State") == 9)
+                {
+                    if (anim.GetInteger("Variation") == 1)
+                    {
+                        MoveWhenAttacking(combatStatsInstance.brawler2ForthAttackV1Distance);
+                    }
+                    else
+                    {
+                        MoveWhenAttacking(combatStatsInstance.brawler2ForthAttackV2Distance);
+                    }
+                }
                 else if (anim.GetInteger("State") == 10)
                 {
                     MoveWhenAttacking(combatStatsInstance.guardBreakerDistance);
