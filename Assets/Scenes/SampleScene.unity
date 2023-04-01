@@ -3591,7 +3591,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502112829}
-  m_LocalRotation: {x: 0.13162142, y: -0.00000001906995, z: 0.0000000025320428, w: 0.99130005}
+  m_LocalRotation: {x: 0.13162142, y: 0.000000019069953, z: -0.0000000025320432, w: 0.99130005}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9113,7 +9113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0dc2ef93580014f8ebf2fc26780d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameMode: 2
+  gameMode: 0
   playerPrefab: {fileID: 0}
   aiPrefab: {fileID: 7454506845584546906, guid: aab3a4d0f5b20894a91046ac24da77e3, type: 3}
   brawler1: {fileID: 0}
@@ -10131,7 +10131,7 @@ MonoBehaviour:
   forthAttackTime: 1.6
   forthAttackV1Distance: 5
   forthAttackV2Distance: 3
-  aiGuardbreakerFrequency: 2
+  aiGuardbreakerFrequency: 10
   boxingFightTypeStats: 0500000004000000010000000100000003000000
 --- !u!114 &1365660890
 MonoBehaviour:
