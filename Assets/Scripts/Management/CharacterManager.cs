@@ -171,12 +171,12 @@ public class CharacterManager : MonoBehaviour
             }
             else if (brawler1.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.kungFu)
             {
-                brawler1OutfitSelection = Random.Range(8, 9);
+                brawler1OutfitSelection = Random.Range(8, 10);
                 holdBrawler1Outfit = new SkinnedMeshRenderer[outfits[brawler1OutfitSelection].transform.childCount];
             }
             else if (brawler1.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.proWrestling)
             {
-                brawler1OutfitSelection = Random.Range(10, 11);
+                brawler1OutfitSelection = Random.Range(10, 12);
                 holdBrawler1Outfit = new SkinnedMeshRenderer[outfits[brawler1OutfitSelection].transform.childCount];
             } 
         }
@@ -226,11 +226,11 @@ public class CharacterManager : MonoBehaviour
             }
             else if (brawler2.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.kungFu)
             {
-                brawler2OutfitSelection = Random.Range(8, 9);
+                brawler2OutfitSelection = Random.Range(8, 10);
             }
             else if (brawler2.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.proWrestling)
             {
-                brawler2OutfitSelection = Random.Range(2, 4);
+                brawler2OutfitSelection = Random.Range(10, 12);
             }
         }
 
