@@ -203,7 +203,7 @@ public class Combat : MonoBehaviour
             bool dodgeButtonDown = Input.GetButtonDown("Dodge");
             bool souvenir = Input.GetButtonDown("Secondary Special");
 
-            if (!inCombat && !isParrying && !GetComponent<Flinch>().isReacting && !GetComponent<Throw>().isAiming || GetComponent<Flinch>().isDove)
+            if (!inCombat && !isBlocking && (!GetComponent<Flinch>().isReacting || GetComponent<Flinch>().isStunned) && !GetComponent<Throw>().isAiming || GetComponent<Flinch>().isDove)
             {
                 faceEnemy = false;
             }
@@ -230,52 +230,56 @@ public class Combat : MonoBehaviour
                     GetComponent<Technique>().UseTechnique(gameObject);
             }
 
-            canFinish = GetDistanceToFinish() && enemy.GetComponent<Flinch>().isSurrendering;
+            canFinish = GetDistanceToFinish() && enemy.GetComponent<Flinch>().isSurrendering && !isAttacking;
 
             if (attackButtonDown && (canAttack || canNextAttack) && !attackBuffering && !GetComponent<Throw>().isEquipped) //ATTACK
             {
-                if (!canFinish)
+                if (!canFinish) //Stops player from continuing basic attack combo
                 {
-                    if (enemy.GetComponent<Flinch>().isParried)
+                    if (!enemy.GetComponent<Flinch>().isSurrendering)
                     {
-                        if (!isCounterAttacking)
-                            counterAttack = StartCoroutine(CounterAttack());
-                    }
-                    else if (isGroundIdle)
-                    {
-                        groundAttack = StartCoroutine(GroundAttack());
-                    }
-                    else //Controls attack type/variation
-                    {
-                        anim.speed = 2 - brawlerStatsInstance.AttackSpeed(gameObject); //Controls attack speed
-                        if (anim.GetInteger("State") < 3)
+                        if (enemy.GetComponent<Flinch>().isParried)
                         {
-                            basicAttack = StartCoroutine(Attack(3, combatStatsInstance.brawler1FirstAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
+                            if (!isCounterAttacking)
+                                counterAttack = StartCoroutine(CounterAttack());
                         }
-                        else if (anim.GetInteger("State") == 3 && canNextAttack == true)
+                        else if (isGroundIdle)
                         {
-                            int i = Random.Range(4, 6);
-                            basicAttack = StartCoroutine(Attack(i, combatStatsInstance.brawler1SecondAAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
+                            groundAttack = StartCoroutine(GroundAttack());
                         }
-                        else if (anim.GetInteger("State") == 4 && canNextAttack == true)
+                        else //Controls attack type/variation
                         {
-                            int i = Random.Range(1, 3);
-                            anim.SetInteger("Variation", i);
-                            basicAttack = StartCoroutine(Attack(6, combatStatsInstance.brawler1ThirdAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
-                        }
-                        else if (anim.GetInteger("State") == 5 && canNextAttack == true)
-                        {
-                            int i = Random.Range(1, 3);
-                            anim.SetInteger("Variation", i);
-                            basicAttack = StartCoroutine(Attack(7, combatStatsInstance.brawler1ThirdAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
-                        } 
-                        else if(anim.GetInteger("State") == 6 && canNextAttack == true)
-                        {
-                            basicAttack = StartCoroutine(Attack(8, combatStatsInstance.brawler1ForthAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
-                        } 
-                        else if (anim.GetInteger("State") == 7 && canNextAttack == true)
-                        {
-                            basicAttack = StartCoroutine(Attack(9, combatStatsInstance.brawler1ForthAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
+                            anim.speed = 2 - brawlerStatsInstance.AttackSpeed(gameObject); //Controls attack speed
+                            if (anim.GetInteger("State") < 3)
+                            {
+                                basicAttack = StartCoroutine(Attack(3, combatStatsInstance.brawler1FirstAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
+                            }
+                            else if (anim.GetInteger("State") == 3 && canNextAttack == true)
+                            {
+                                int i = Random.Range(4, 6);
+                                basicAttack = StartCoroutine(Attack(i, combatStatsInstance.brawler1SecondAAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
+                            }
+                            else if (anim.GetInteger("State") == 4 && canNextAttack == true)
+                            {
+                                int i = Random.Range(1, 3);
+                                anim.SetInteger("Variation", i);
+                                basicAttack = StartCoroutine(Attack(6, combatStatsInstance.brawler1ThirdAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
+                            }
+                            else if (anim.GetInteger("State") == 5 && canNextAttack == true)
+                            {
+                                int i = Random.Range(1, 3);
+                                anim.SetInteger("Variation", i);
+                                basicAttack = StartCoroutine(Attack(7, combatStatsInstance.brawler1ThirdAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
+                            }
+                            else if (anim.GetInteger("State") == 6 && canNextAttack == true)
+                            {
+                                basicAttack = StartCoroutine(Attack(8, combatStatsInstance.brawler1ForthAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
+                            }
+                            else if (anim.GetInteger("State") == 7 && canNextAttack == true)
+                            {
+                                basicAttack = StartCoroutine(Attack(9, combatStatsInstance.brawler1ForthAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
+                            }
+
                         }
                     }
                 } else

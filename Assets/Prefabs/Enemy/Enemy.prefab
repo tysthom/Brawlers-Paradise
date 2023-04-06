@@ -28,7 +28,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2546496853665692273}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &413911015
 GameObject:
@@ -197,7 +197,7 @@ RectTransform:
   m_Children:
   - {fileID: 413911016}
   m_Father: {fileID: 2546496853665692273}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1213,7 +1213,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2546496853665692273}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2301180851847936134
 GameObject:
@@ -1366,7 +1366,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2546496853665692273}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2994549418423283688
 GameObject:
@@ -2523,6 +2523,36 @@ Transform:
   m_Father: {fileID: 7342803831129345336}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5239410990718292779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9008873227001040645}
+  m_Layer: 7
+  m_Name: Hand Hold
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9008873227001040645
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5239410990718292779}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.221, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5343668774467151132}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5259625449855661361
 GameObject:
   m_ObjectHideFlags: 0
@@ -2866,6 +2896,36 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!1 &5752308819134209668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6336558210594541603}
+  m_Layer: 7
+  m_Name: Throwable Launch Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6336558210594541603
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5752308819134209668}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.08, z: 1.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2546496853665692273}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5781734770364309876
 GameObject:
   m_ObjectHideFlags: 0
@@ -3467,6 +3527,7 @@ Transform:
   - {fileID: 4119795084717291942}
   - {fileID: 653469610756263783}
   - {fileID: 8083502030071434418}
+  - {fileID: 6336558210594541603}
   - {fileID: 4204590465689146405}
   - {fileID: 6786538413944017703}
   - {fileID: 243564302}
@@ -3647,8 +3708,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closestThrowable: {fileID: 0}
   currentThrowable: {fileID: 0}
-  handHold: {fileID: 0}
-  ballLaunchPosition: {fileID: 0}
+  handHold: {fileID: 5239410990718292779}
+  ballLaunchPosition: {fileID: 5752308819134209668}
   pickUpText: {fileID: 0}
   hasThrowable: 0
   isAiming: 0
@@ -3738,7 +3799,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 10
+  m_Speed: 9
   m_Acceleration: 50
   avoidancePriority: 50
   m_AngularSpeed: 600
@@ -3804,7 +3865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 3
+  fightStyle: 1
 --- !u!65 &7087000783357512420
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4046,6 +4107,7 @@ Transform:
   - {fileID: 5892178139152742429}
   - {fileID: 8711855979829931445}
   - {fileID: 1630760922949723769}
+  - {fileID: 9008873227001040645}
   m_Father: {fileID: 5411590414497146284}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
