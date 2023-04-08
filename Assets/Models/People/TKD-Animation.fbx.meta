@@ -81,6 +81,12 @@ ModelImporter:
   - first:
       74: -7978243832621047673
     second: TKD Attack 4V2
+  - first:
+      74: 2741432238470413930
+    second: Stretch V1
+  - first:
+      74: 5569996219995929315
+    second: Stretch V2
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -96,17 +102,31 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
       in configuration does not match rotation in animation file:\n\t'Elbow.L' :
-      rotation error = 9.565619 deg\n\t'Elbow.R' : rotation error = 37.930550 deg\n"
+      rotation error = 9.565534 deg\n\t'Elbow.R' : rotation error = 37.930550 deg\n"
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Armature|Combo' has import animation warnings
+    animationImportWarnings: "\nClip 'Armature|Stretch V1' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Elbow.L' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Index1.L' has translation
+      animation that will be discarded.\n\t'Ring1.L' has translation animation that
+      will be discarded.\n\t'Pinky1.L' has translation animation that will be discarded.\n\t'Elbow.R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Index1.R'
+      has translation animation that will be discarded.\n\t'Ring1.R' has translation
+      animation that will be discarded.\n\t'Pinky1.R' has translation animation that
+      will be discarded.\n\nClip 'Armature|Stretch V2' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Elbow.L' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Index1.L' has translation
+      animation that will be discarded.\n\t'Ring1.L' has translation animation that
+      will be discarded.\n\t'Pinky1.L' has translation animation that will be discarded.\n\t'Elbow.R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Index1.R'
+      has translation animation that will be discarded.\n\t'Ring1.R' has translation
+      animation that will be discarded.\n\t'Pinky1.R' has translation animation that
+      will be discarded.\n\nClip 'Armature|TKD Attack 1' has import animation warnings
       that might lower retargeting quality:\nNote: Activate translation DOF on avatar
       to improve retargeting quality.\n\t'Elbow.L' is inbetween humanoid transforms
       and has rotation animation that will be discarded.\n\t'Elbow.R' is inbetween
       humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'Armature|TKD Attack 1' has import animation warnings that might lower retargeting
-      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.L'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Elbow.R'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
       'Armature|TKD Attack 2V1' has import animation warnings that might lower retargeting
       quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.L'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Elbow.R'
@@ -602,63 +622,6 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Combo
-      takeName: Armature|Combo
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 68
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events:
-      - time: 0.1600454
-        functionName: ShouldHit
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.35868326
-        functionName: ShouldHit
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.6558867
-        functionName: ShouldHit
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.9544902
-        functionName: ShouldHit
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
       name: TKD Stunned
       takeName: Armature|TKD Stunned
       internalID: 0
@@ -848,6 +811,64 @@ ModelImporter:
         floatParameter: 0
         intParameter: 110
         messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Stretch V1
+      takeName: Armature|Stretch V1
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Stretch V2
+      takeName: Armature|Stretch V2
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

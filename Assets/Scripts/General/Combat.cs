@@ -63,7 +63,8 @@ public class Combat : MonoBehaviour
     public bool isGroundAttacking; //True if either groundIdle or performing ground attacks
 
     [Header("TKD Status")]
-    public bool isComboing;
+    public bool isStretching;
+    public bool isStretchBuffering;
 
     [Header("Kung Fu Status")]
     public bool isEyePoking;
@@ -80,7 +81,7 @@ public class Combat : MonoBehaviour
     public Coroutine guardBreaker; //Once assigned, starts GuardBreaker(). If cancelled, stops the script and doesn't force brawler back to idle like usual
     public Coroutine diveAttack;
     public Coroutine groundAttack;
-    public Coroutine combo;
+    public Coroutine stretch;
     public Coroutine eyePoke;
     public Coroutine bearhugGrab;
     public Coroutine bearhugging;
@@ -153,7 +154,7 @@ public class Combat : MonoBehaviour
             canUseTechnique = true;
         }
         else if (GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.taekwondo && canAttack && !GetComponent<Flinch>().isReacting &&
-                  !isComboing)
+                  !isStretching && !isStretchBuffering)
         {
             canUseTechnique = true;
         }
@@ -203,7 +204,8 @@ public class Combat : MonoBehaviour
             bool dodgeButtonDown = Input.GetButtonDown("Dodge");
             bool souvenir = Input.GetButtonDown("Secondary Special");
 
-            if (!inCombat && !isBlocking && (!GetComponent<Flinch>().isReacting || GetComponent<Flinch>().isStunned) && !GetComponent<Throw>().isAiming || GetComponent<Flinch>().isDove)
+            if (!inCombat && !isBlocking && (!GetComponent<Flinch>().isReacting || GetComponent<Flinch>().isStunned) 
+                && !GetComponent<Throw>().isAiming || GetComponent<Flinch>().isDove)
             {
                 faceEnemy = false;
             }
@@ -515,7 +517,8 @@ public class Combat : MonoBehaviour
             MoveWhenAttacking(fightStyleManager.GetComponent<MMAStats>().mmaDiveDistance);
         }
 
-        if (isAttacking || isGuardBreaking || isCounterAttacking || isGuardBreaking || isDiving || isGroundIdle || isGroundAttacking || isComboing || isEyePoking || isBearhugGrabbing || isBearhugging || isFinishing)
+        if (isAttacking || isGuardBreaking || isCounterAttacking || isGuardBreaking || isDiving || isGroundIdle || isGroundAttacking 
+            || isStretching || isStretchBuffering || isEyePoking || isBearhugGrabbing || isBearhugging || isFinishing)
         {
             inCombat = true;
         }
@@ -615,7 +618,8 @@ public class Combat : MonoBehaviour
     }
 
     IEnumerator Parry() 
-    { 
+    {
+        yield return null; //MUST DELETE TO USE AGAIN
         canAttack = false;
         canNextAttack = false;
         isAttacking = false;
@@ -635,7 +639,7 @@ public class Combat : MonoBehaviour
                 StopCoroutine(GetComponent<AiBehavior>().waitToAttack);      
             }
         }
-        yield return new WaitForSeconds(combatStatsInstance.parryTime);
+        //yield return new WaitForSeconds(combatStatsInstance.parryTime);
             isParrying = false;
             isParryBuffering = true;
             if (tag == "Player")
@@ -643,12 +647,12 @@ public class Combat : MonoBehaviour
                 GetComponent<CharacterController>().enabled = true;
                 if(!isCounterAttacking)
                 anim.SetInteger("State", 0);
-                yield return new WaitForSeconds(combatStatsInstance.parryBufferTime);
+                //yield return new WaitForSeconds(combatStatsInstance.parryBufferTime);
             }
             canAttack = true;
             GetComponent<Dodge>().canDodge = true;
             if (tag == "Enemy") { GetComponent<AiBehavior>().canGlideToEnemy = false; GetComponent<AiBehavior>().AssignIdle(); GetComponent<AiBehavior>().isChasingEnemy = true; }
-            yield return new WaitForSeconds(combatStatsInstance.parryBufferTime);
+            //yield return new WaitForSeconds(combatStatsInstance.parryBufferTime);
             isParryBuffering = false;
             canBlock = true;
         if(tag == "Enemy") { GetComponent<AiBehavior>().wTACalled = false; }
@@ -789,40 +793,51 @@ public class Combat : MonoBehaviour
         }
     }
 
-    public IEnumerator Combo()
+    public IEnumerator Stretch()
     {
-            if (!inCombat && !GetComponent<Flinch>().isReacting && !enemy.GetComponent<Flinch>().isParried)
-            {
-                ShouldNotMove();
-                canUseTechnique = false;
-                isComboing = true;
-                anim.SetInteger("State", 10);
+        if (!inCombat && !GetComponent<Flinch>().isReacting)
+        {
+            
+            GetComponent<CoroutineManager>().CancelCoroutines(stretch);
 
-                if (tag == "Player")
-                {
-                    faceEnemy = true;
-                }
-                else
-                {
-                    faceEnemy = true;
-                    GetComponent<AiBehavior>().agent.isStopped = true;
-                }
-                anim.SetInteger("State", 10);
-                yield return new WaitForSeconds(fightStyleManager.GetComponent<TkdStats>().comboTime);
-                if (tag == "Player")
-                {
-                    GetComponent<Movement>().PlayerMovement();
-                }
-                else
-                {
-                    yield return new WaitForSeconds(.5f);
-                    if (!GetComponent<Flinch>().isReacting)
-                    {
-                        anim.SetInteger("State", 0);
-                        afterAttack = StartCoroutine(AfterAttack());
-                    }
-                }
-                isComboing = false;
+            ShouldNotMove();
+            canUseTechnique = false;
+            isStretching = true;
+
+            if (tag == "Enemy")
+            { 
+                faceEnemy = true;
+                GetComponent<AiBehavior>().agent.isStopped = true;
+            }
+
+            anim.GetComponent<Animator>().SetInteger("Variation", Random.Range(1, 3));
+            anim.SetInteger("State", 10);
+            Debug.Log("WROKS");
+            yield return new WaitForSeconds(fightStyleManager.GetComponent<TkdStats>().stretchParryWindow);
+
+            isStretching = false;
+            isStretchBuffering = true;
+
+            if (enemy.GetComponent<Flinch>().isReacting)
+            {
+                yield return new WaitForSeconds(fightStyleManager.GetComponent<TkdStats>().stretchSuccessTime);
+            }
+            else
+            {
+                yield return new WaitForSeconds(fightStyleManager.GetComponent<TkdStats>().stretchMissTime);
+            }
+            
+            if (tag == "Player")
+            {
+                GetComponent<Movement>().PlayerMovement();
+            }
+            else
+            {
+                yield return new WaitForSeconds(.05f);
+                anim.SetInteger("State", 0);
+                afterAttack = StartCoroutine(AfterAttack());
+            }
+            isStretchBuffering = false;
         }
     }
 
@@ -1143,16 +1158,23 @@ public class Combat : MonoBehaviour
             {
                 if (!enemy.GetComponent<Combat>().invulnerable)
                 {
-                    int defend = Random.Range(1, 10);
+                    int enemyDefend = Random.Range(1, 10);
                     int dodgeParry = Random.Range(1, 10);
                     if (!enemy.GetComponent<Combat>().canBlock || !enemy.GetComponent<Dodge>().canDodge)
                     {
-                        defend = 11;
+                        enemyDefend = 11;
                     }
-                    if (defend <= combatStatsInstance.aiDefendFrequency && enemy.GetComponent<AiBehavior>().isIdle
+                    if (enemyDefend <= combatStatsInstance.aiDefendFrequency && enemy.GetComponent<AiBehavior>().isIdle
                         && (enemy.GetComponent<Dodge>().canDodge || canBlock))
                     {
-                        if (dodgeParry <= combatStatsInstance.aiParryDodgeFrequency && enemy.GetComponent<AiBehavior>().isIdle && enemy.GetComponent<Dodge>().canDodge)
+                        int enemyTkdTech = Random.Range(1, 10);
+                        if (GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.taekwondo && 
+                            enemyTkdTech <= fightStyleManager.GetComponent<TkdStats>().aiStretchFrequency)
+                        {
+                            enemy.GetComponent<Combat>().stretch = StartCoroutine(enemy.GetComponent<Combat>().Stretch());
+                            GetComponent<Flinch>().parried = StartCoroutine(GetComponent<Flinch>().Parried());
+                        } 
+                        else if (dodgeParry <= combatStatsInstance.aiParryDodgeFrequency && enemy.GetComponent<AiBehavior>().isIdle && enemy.GetComponent<Dodge>().canDodge)
                         {
                             //Dodge
                             enemy.GetComponent<Dodge>().isDodging = true;
@@ -1255,8 +1277,12 @@ public class Combat : MonoBehaviour
                         {
                             if(enemy.GetComponent<Combat>().isBlocking)
                             {
-                                enemy.GetComponent<Flinch>().ReactionInitiation(-20, CalculateDamage());
+                                enemy.GetComponent<Flinch>().ReactionInitiation(-20, CalculateDamage()); //-20 = BlockedBack
                             }
+                            else if (enemy.GetComponent<Combat>().isStretching)
+                            {
+                                GetComponent<Flinch>().parried = StartCoroutine(GetComponent<Flinch>().Parried());
+                            } 
                             else
                             {
                                 enemy.GetComponent<Flinch>().ReactionInitiation(a, CalculateDamage());
@@ -1272,7 +1298,11 @@ public class Combat : MonoBehaviour
                         {
                             if (enemy.GetComponent<Combat>().isBlocking)
                             {
-                                enemy.GetComponent<Flinch>().ReactionInitiation(-20, CalculateDamage());
+                                enemy.GetComponent<Flinch>().ReactionInitiation(-20, CalculateDamage()); //-20 = BlockedBack
+                            }
+                            else if (enemy.GetComponent<Combat>().isStretching)
+                            {
+                                GetComponent<Flinch>().parried = StartCoroutine(GetComponent<Flinch>().Parried());
                             }
                             else
                             {
@@ -1299,14 +1329,9 @@ public class Combat : MonoBehaviour
         float damage = 0;
         if (GetComponent<BrawlerId>().brawlerId == BrawlerId.Id.brawler1)
         {
-            if (anim.GetInteger("State") == 10 && GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.taekwondo)
-            {
-                damage = fightStyleManager.GetComponent<TkdStats>().comboDamage;
-            }
-            else
-            {
-                damage = combatStatsInstance.brawler1AttackDamage;
-            }
+
+            damage = combatStatsInstance.brawler1AttackDamage;
+
             if (GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.karate && anim.GetBool("isOffensiveStance"))
             {
                 damage *= fightStyleManager.GetComponent<KarateStats>().karateDamageIncreaser;
@@ -1322,14 +1347,8 @@ public class Combat : MonoBehaviour
             }
         } else if(GetComponent<BrawlerId>().brawlerId == BrawlerId.Id.brawler2)
         {
-            if (anim.GetInteger("State") == 10 && GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.taekwondo)
-            {
-                damage = fightStyleManager.GetComponent<TkdStats>().comboDamage;
-            }
-            else
-            {
-                damage = combatStatsInstance.brawler2AttackDamage;
-            }
+            damage = combatStatsInstance.brawler2AttackDamage;
+
             if (GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.karate && anim.GetBool("isOffensiveStance"))
             {
                 damage *= fightStyleManager.GetComponent<KarateStats>().karateDamageIncreaser;

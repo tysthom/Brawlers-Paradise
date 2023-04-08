@@ -3591,7 +3591,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502112829}
-  m_LocalRotation: {x: 0.13162142, y: 0.00000001906995, z: -0.0000000025320428, w: 0.99130005}
+  m_LocalRotation: {x: 0.13162142, y: -0.000000019069953, z: 0.0000000025320432, w: 0.99130005}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5410,7 +5410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 5
+  fightStyle: 3
 --- !u!114 &835227091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5498,7 +5498,8 @@ MonoBehaviour:
   isDiving: 0
   isGroundIdle: 0
   isGroundAttacking: 0
-  isComboing: 0
+  isStretching: 0
+  isStretchBuffering: 0
   isEyePoking: 0
   isBearhugGrabbing: 0
   isBearhugging: 0
@@ -10137,7 +10138,7 @@ MonoBehaviour:
   forthAttackTime: 1.6
   forthAttackV1Distance: 5
   forthAttackV2Distance: 3
-  aiGuardbreakerFrequency: 10
+  aiGuardbreakerFrequency: 2
   boxingFightTypeStats: 0500000004000000010000000100000003000000
 --- !u!114 &1365660890
 MonoBehaviour:
@@ -10201,9 +10202,10 @@ MonoBehaviour:
   forthAttackV1Distance: 5
   forthAttackV2Distance: 2
   tkdFightTypeStats: 0200000004000000050000000300000002000000
-  comboTime: 2.5
-  comboDamage: 25
-  aiComboFrequency: 0
+  stretchParryWindow: 0.15
+  stretchSuccessTime: 0.25
+  stretchMissTime: 1.6
+  aiStretchFrequency: 1
 --- !u!114 &1365660892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13620,7 +13622,8 @@ MonoBehaviour:
   isDiving: 0
   isGroundIdle: 0
   isGroundAttacking: 0
-  isComboing: 0
+  isStretching: 0
+  isStretchBuffering: 0
   isEyePoking: 0
   isBearhugGrabbing: 0
   isBearhugging: 0
@@ -14787,23 +14790,22 @@ MonoBehaviour:
   playerDodgeMinAmount: 300
   flinchDistance: 2
   flinchTime: 0.2
-  stunDuration: 2
+  stunDuration: 5
   knockbackDistance: 18
   knockbackTime: 0.3
   guardBreakerDistance: 12
   guardBreakerTime: 1.5
   guardBreakerBufferTime: 0.25
-  parryTime: 0.25
-  parryBufferTime: 0.5
+  parriedTime: 0.3
   counterAttackTime: 0.25
-  throwableDamage: 500
+  throwableDamage: 65
   finisherDistance: 2.5
   bounceBackForceAmount: 500
   randomFightStyle: 0
-  aiDefendFrequency: 5
+  aiDefendFrequency: 4
   aiParryDodgeFrequency: 3
-  aiContinuedAttackFrequency: 10
-  aiThrowableFrequency: 5
+  aiContinuedAttackFrequency: 9
+  aiThrowableFrequency: 1
 --- !u!4 &1891941794
 Transform:
   m_ObjectHideFlags: 0

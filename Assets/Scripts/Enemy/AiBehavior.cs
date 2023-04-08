@@ -387,15 +387,7 @@ public class AiBehavior : MonoBehaviour
                 {
                         GetComponent<Combat>().guardBreaker = StartCoroutine(GetComponent<Combat>().GuardBreaker());
                 } else
-                if (GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.taekwondo &&
-                   i <= fightStyleManager.GetComponent<TkdStats>().aiComboFrequency &&
-                   !enemy.GetComponent<Flinch>().isStunned)
-                {
-                    if (!GetComponent<Flinch>().isReacting && !GetComponent<Dodge>().isDodging)
-                    {
-                        GetComponent<Combat>().combo = StartCoroutine(GetComponent<Combat>().Combo());
-                    }
-                } else if (GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.kungFu &&
+                if (GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.kungFu &&
                    i <= fightStyleManager.GetComponent<kungFuStats>().aiEyePokeFrequency &&
                    !enemy.GetComponent<Flinch>().isStunned)
                 {
@@ -403,9 +395,7 @@ public class AiBehavior : MonoBehaviour
                     {
                         GetComponent<Combat>().eyePoke = StartCoroutine(GetComponent<Combat>().EyePoke());
                     }
-                }
-                
-                 else if(GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.proWrestling &&
+                } else if(GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.proWrestling &&
                     i <= fightStyleManager.GetComponent<ProWrestlingStats>().aiBearhugFrequency && !destination.GetComponent<Combat>().isBearhugging &&
                     !enemy.GetComponent<Flinch>().isStunned && GetComponent<Combat>().canUseTechnique)
                 {

@@ -511,16 +511,10 @@ public class Flinch : MonoBehaviour
         if (tag == "Enemy" && idManagerInstance.gameMode == IdManagear.mode.playerVsAi)
         {
             StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, 0f));
-            GetComponent<Combat>().enemy.GetComponent<Combat>().canAttack = true;
-            Time.timeScale = .1f;
-            yield return new WaitForSeconds(.1f);
-            Time.timeScale = 1;
         }
-        else
-        {
-            yield return new WaitForSeconds(.4f);
-        }
-     
+
+        yield return new WaitForSeconds(combatManagear.GetComponent<CombatStats>().parriedTime);
+
         GetComponent<Combat>().canBlock = true;
         GetComponent<Dodge>().canDodge = true;
 

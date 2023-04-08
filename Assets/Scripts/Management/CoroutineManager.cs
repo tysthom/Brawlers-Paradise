@@ -47,9 +47,10 @@ public class CoroutineManager : MonoBehaviour
             GetComponent<Combat>().isGroundIdle = false;
             GetComponent<Combat>().invinsible = false;
         }
-        if (GetComponent<Combat>().combo != null && ignore != (GetComponent<Combat>().combo)){
-            StopCoroutine(GetComponent<Combat>().combo);
-            GetComponent<Combat>().isComboing = false;
+        if (GetComponent<Combat>().stretch != null && ignore != (GetComponent<Combat>().stretch)){
+            StopCoroutine(GetComponent<Combat>().stretch);
+            GetComponent<Combat>().isStretching = false;
+            GetComponent<Combat>().isStretchBuffering = false;
         }
         if (GetComponent<Combat>().eyePoke != null && ignore != (GetComponent<Combat>().eyePoke))
         {

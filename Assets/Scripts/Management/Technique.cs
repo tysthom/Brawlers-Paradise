@@ -19,7 +19,7 @@ public class Technique : MonoBehaviour
                 GetComponent<Combat>().diveAttack = StartCoroutine(GetComponent<Combat>().DiveAttack());
             } else if(brawler.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.taekwondo)
             {
-                GetComponent<Combat>().combo = StartCoroutine(GetComponent<Combat>().Combo());
+                GetComponent<Combat>().stretch = StartCoroutine(GetComponent<Combat>().Stretch());
             }  else if(brawler.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.kungFu)
             {
                 Debug.Log("Eye Poke");

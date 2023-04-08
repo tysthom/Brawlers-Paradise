@@ -78,9 +78,8 @@ public class CombatStats : MonoBehaviour
     public float guardBreakerTime = 1.75f;
     public float guardBreakerBufferTime = .5f;
 
-    [Header("Parry")]
-    public float parryTime = .25f;
-    public float parryBufferTime = .5f;
+    [Header("Parried")]
+    public float parriedTime = .3f;
 
     [Header("Counter Attack")]
     public float counterAttackTime = .35f;

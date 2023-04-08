@@ -22,12 +22,13 @@ public class TkdStats : MonoBehaviour
     [Header("Fight Type Stats")]
     public int[] tkdFightTypeStats = new int[5];
 
-    [Header("Combo")]
-    public float comboTime = 2.5f;
-    public int comboDamage = 30;
+    [Header("Stretch")]
+    public float stretchParryWindow = .15f;
+    public float stretchSuccessTime = .25f;
+    public float stretchMissTime = 2.5f;
 
-    [Header("Ai Combo Usage")]
-    [Range(0, 10)] public int aiComboFrequency;
+    [Header("Ai Stretch Usage")]
+    [Range(0, 10)] public int aiStretchFrequency;
 
 
     #region Animation
