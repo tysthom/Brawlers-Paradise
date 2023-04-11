@@ -22,19 +22,19 @@ public class BlendShapeManager : MonoBehaviour
 
     public void AssignBlendShape(SkinnedMeshRenderer skin, int outfitSelection, GameObject brawler)
     {
-        if(outfitSelection == 0)
+        if(GetComponent<CharacterManager>().outfits[outfitSelection].name == "Kata_Gi")
         {
-            Outfit1(skin, brawler);
-        } else if(outfitSelection == 1)
+            KataGi(skin);
+        } else if(GetComponent<CharacterManager>().outfits[outfitSelection].name == "Japanese_Style") 
         {
-            Outfit2(skin, brawler);
-        } else if(outfitSelection == 2)
+            JapaneseSyle(skin);
+        } else if(GetComponent<CharacterManager>().outfits[outfitSelection].name == "Workout")
         {
-            Outfit3(skin, brawler);
+            Workout(skin);
         }
-        else if (outfitSelection == 3)
+        else if (GetComponent<CharacterManager>().outfits[outfitSelection].name == "Main_Event") 
         {
-            Outfit4(skin, brawler);
+            MainEvent(skin);
         }
         else if (outfitSelection == 4)
         {
@@ -89,7 +89,7 @@ public class BlendShapeManager : MonoBehaviour
         skin.SetBlendShapeWeight(15, 0); //Feet
     */
 
-    void Outfit1(SkinnedMeshRenderer skin, GameObject brawler) //Karate Outfit 1
+    void KataGi(SkinnedMeshRenderer skin) //Karate Outfit 1
     {
         skin.SetBlendShapeWeight(0, 0); //Neck
         skin.SetBlendShapeWeight(1, 0); //Right Shoulder
@@ -108,7 +108,7 @@ public class BlendShapeManager : MonoBehaviour
         skin.SetBlendShapeWeight(14, 0); //Calves
         skin.SetBlendShapeWeight(15, 20); //Feet
     }
-    void Outfit2(SkinnedMeshRenderer skin, GameObject brawler) //Karate Outfit 2 
+    void JapaneseSyle(SkinnedMeshRenderer skin) //Karate Outfit 2
     {
         skin.SetBlendShapeWeight(0, 0); //Neck
         skin.SetBlendShapeWeight(1, 0); //Right Shoulder
@@ -127,7 +127,7 @@ public class BlendShapeManager : MonoBehaviour
         skin.SetBlendShapeWeight(14, 0); //Calves
         skin.SetBlendShapeWeight(15, 0); //Feet
     }
-    void Outfit3(SkinnedMeshRenderer skin, GameObject brawler) //Boxing Outfit 1
+    void Workout(SkinnedMeshRenderer skin) //Boxing Outfit 1
     {
         skin.SetBlendShapeWeight(0, 0); //Neck
         skin.SetBlendShapeWeight(1, 0); //Right Shoulder
@@ -147,7 +147,7 @@ public class BlendShapeManager : MonoBehaviour
         skin.SetBlendShapeWeight(15, 50); //Feet
     }
 
-    void Outfit4(SkinnedMeshRenderer skin, GameObject brawler) //Boxing Outfit 2
+    void MainEvent(SkinnedMeshRenderer skin) //Boxing Outfit 2
     {
         skin.SetBlendShapeWeight(0, 0); //Neck
         skin.SetBlendShapeWeight(1, 0); //Right Shoulder
