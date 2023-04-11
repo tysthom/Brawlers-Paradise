@@ -66,7 +66,8 @@ public class Flinch : MonoBehaviour
             || isKnockedBack || isKnockedDown || isDove || isRecovering || isBearhugged || isSurrendering)
         {
             isReacting = true;
-            if(tag == "Enemy") { GetComponent<AiBehavior>().canGlideToEnemy = false; }
+            anim.speed = 1;
+            if (tag == "Enemy") { GetComponent<AiBehavior>().canGlideToEnemy = false; }
         }
         else
         {

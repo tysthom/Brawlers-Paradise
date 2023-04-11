@@ -102,7 +102,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
       in configuration does not match rotation in animation file:\n\t'Elbow.L' :
-      rotation error = 9.565534 deg\n\t'Elbow.R' : rotation error = 37.930550 deg\n"
+      rotation error = 39.937088 deg\n\t'Elbow.R' : rotation error = 50.395683 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Armature|Stretch V1' has import animation warnings
       that might lower retargeting quality:\nNote: Activate translation DOF on avatar
@@ -171,6 +171,10 @@ ModelImporter:
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
       'Armature|TKD Stunned' has import animation warnings that might lower retargeting
       quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'Armature|TKD Surrender' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Elbow.R'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
@@ -691,7 +695,7 @@ ModelImporter:
       takeName: Armature|TKD Surrender
       internalID: 0
       firstFrame: 0
-      lastFrame: 69
+      lastFrame: 99
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

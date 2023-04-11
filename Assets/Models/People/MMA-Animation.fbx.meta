@@ -102,7 +102,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
       in configuration does not match rotation in animation file:\n\t'Elbow.L' :
-      rotation error = 54.210098 deg\n\t'Elbow.R' : rotation error = 33.393211 deg\n"
+      rotation error = 39.778603 deg\n\t'Elbow.R' : rotation error = 8.396145 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Armature|MMA Attack 1' has import animation
       warnings that might lower retargeting quality:\nNote: Activate translation
@@ -169,6 +169,10 @@ ModelImporter:
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
       'Armature|MMA Stunned' has import animation warnings that might lower retargeting
       quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'Armature|MMA Surrender' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Elbow.R'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
@@ -833,14 +837,14 @@ ModelImporter:
       takeName: Armature|MMA Surrender
       internalID: 0
       firstFrame: 0
-      lastFrame: 1
+      lastFrame: 99
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

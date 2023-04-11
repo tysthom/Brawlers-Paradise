@@ -5410,7 +5410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 3
+  fightStyle: 1
 --- !u!114 &835227091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8073,7 +8073,7 @@ MonoBehaviour:
   - {fileID: 4829580189524917900, guid: c7a8fbc0e8c03bc4c981fe535ba265a6, type: 3}
   - {fileID: 2659415202614274411, guid: 5110f37a85b19e84389d131c63079e04, type: 3}
   brawler1HairColorSelction: 0
-  brawler2HairColorSelction: 4
+  brawler2HairColorSelction: 5
   hairColor:
   - {fileID: 2100000, guid: 64a2afa3936d6bd44a71153fe01c5434, type: 2}
   - {fileID: 2100000, guid: f5803db67945e774ab919d5454628a53, type: 2}
@@ -14796,7 +14796,7 @@ MonoBehaviour:
   guardBreakerDistance: 12
   guardBreakerTime: 1.5
   guardBreakerBufferTime: 0.25
-  parriedTime: 0.3
+  parriedTime: 0.4
   counterAttackTime: 0.25
   throwableDamage: 65
   finisherDistance: 2.5

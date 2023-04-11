@@ -72,8 +72,8 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
       does not match position in animation file:\n\t'Index1.L' : position error =
-      7.879092 mm\n\t'Middle1.L' : position error = 2.849753 mm\n\t'Index1.R' : position
-      error = 7.879188 mm\n\t'Middle1.R' : position error = 2.849713 mm\n"
+      7.878994 mm\n\t'Middle1.L' : position error = 2.849655 mm\n\t'Index1.R' : position
+      error = 7.879122 mm\n\t'Middle1.R' : position error = 2.849697 mm\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Armature|Backwards Dodge' has import animation
       warnings that might lower retargeting quality:\nNote: Activate translation
@@ -81,6 +81,10 @@ ModelImporter:
       transforms and has rotation animation that will be discarded.\n\t'Elbow.R'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
       'Armature|Bearhugged' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Elbow.R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'Armature|Flinch 1' has import animation warnings that might lower retargeting
       quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.L'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Elbow.R'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
@@ -98,6 +102,10 @@ ModelImporter:
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
       'Armature|Knockback 1' has import animation warnings that might lower retargeting
       quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'Armature|Parried' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Elbow.R'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
       'Armature|Recovery' has import animation warnings that might lower retargeting
       quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.L'
@@ -182,7 +190,7 @@ ModelImporter:
       takeName: Armature|Parried
       internalID: 0
       firstFrame: 0
-      lastFrame: 1
+      lastFrame: 9
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -211,7 +219,7 @@ ModelImporter:
       takeName: Armature|Flinch 1
       internalID: 0
       firstFrame: 0
-      lastFrame: 19
+      lastFrame: 10
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -240,7 +248,7 @@ ModelImporter:
       takeName: Armature|Flinch 2
       internalID: 0
       firstFrame: 0
-      lastFrame: 19
+      lastFrame: 10
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
