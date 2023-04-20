@@ -129,7 +129,6 @@ public class Flinch : MonoBehaviour
 
     public void ReactionInitiation(int state, float damage) //Causes gameobject to flinch 
     {
-        isStunned = false;
         if (tag == "Player") { GetComponent<CharacterController>().enabled = false; }
         if (tag == "Enemy") { GetComponent<AiBehavior>().canGlideToEnemy = false; }
 
@@ -142,6 +141,7 @@ public class Flinch : MonoBehaviour
         GetComponent<Combat>().isDiving = false;
         GetComponent<Combat>().isGroundAttacking = false;
         GetComponent<Combat>().isGroundIdle = false;
+        GetComponent<Throw>().isEquipped = false;
 
         isParried = false;
         isStunned = false;
@@ -168,6 +168,10 @@ public class Flinch : MonoBehaviour
             {
                 GetComponent<Combat>().faceEnemy = true;
                 StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .25f));
+            }
+            else if (tag == "Enemy")
+            {
+                GetComponent<Combat>().faceEnemy = true;
             }
             else if (tag == "Tourist")
             {

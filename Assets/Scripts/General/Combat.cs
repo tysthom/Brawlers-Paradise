@@ -1403,7 +1403,7 @@ public class Combat : MonoBehaviour
     {
         GetComponent<CoroutineManager>().CancelCoroutines(afterAttack);
         anim.SetBool("canTransition", true);
-        int i = Random.Range(1, 10);
+        int i = Random.Range(1, 11);
             ShouldNotMove();
             if ((anim.GetInteger("State") != 3 && anim.GetInteger("State") != 4 && anim.GetInteger("State") != 5 && 
             anim.GetInteger("State") != 6 && anim.GetInteger("State") != 7) || enemy.GetComponent<Flinch>().isSurrendering || tag == "Tourist") 
