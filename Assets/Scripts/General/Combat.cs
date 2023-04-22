@@ -1467,18 +1467,17 @@ public class Combat : MonoBehaviour
                         if (j < fightStyleManager.GetComponent<KarateStats>().aiStanceChangeFrequency)
                         {
                             anim.SetBool("isOffensiveStance", false);
-
-                            int s = Random.Range(1,4);
-                            if(s < 3)
+                            int s = Random.Range(1, 4);
+                            if (s < 3)
                             {
                                 anim.SetBool("isDefensiveStance", true);
                                 anim.SetBool("isPassiveStance", false);
                             }
                             else
                             {
-                            anim.SetBool("isDefensiveStance", false);
-                            anim.SetBool("isPassiveStance", true);
-                        }
+                                anim.SetBool("isDefensiveStance", false);
+                                anim.SetBool("isPassiveStance", true);
+                            }
                         }
                     }
                 }
@@ -1487,9 +1486,9 @@ public class Combat : MonoBehaviour
                 faceEnemy = true;
                 faceHead = false;
                 isAttacking = false;
+                //canUseTechnique = true;
                 canAttack = true;
                 GetComponent<AiBehavior>().isChasingEnemy = true;
-
             } 
             else if (tag == "Tourist")
             {

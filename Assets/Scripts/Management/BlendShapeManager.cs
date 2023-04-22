@@ -138,11 +138,11 @@ public class BlendShapeManager : MonoBehaviour
         skin.SetBlendShapeWeight(6, 0); //Left Lower Arm
         skin.SetBlendShapeWeight(7, 0); //Chest
         skin.SetBlendShapeWeight(8, 0); //Back
-        skin.SetBlendShapeWeight(9, 0); //Stomach
+        skin.SetBlendShapeWeight(9, 25); //Stomach
         skin.SetBlendShapeWeight(10, 50); //Waist
         skin.SetBlendShapeWeight(11, 0); //Pelivs
         skin.SetBlendShapeWeight(12, 75); //Butt
-        skin.SetBlendShapeWeight(13, 0); //Thighes
+        skin.SetBlendShapeWeight(13, 30); //Thighes
         skin.SetBlendShapeWeight(14, 0); //Calves
         skin.SetBlendShapeWeight(15, 50); //Feet
     }
