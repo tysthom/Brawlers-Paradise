@@ -336,6 +336,8 @@ public class Flinch : MonoBehaviour
 
         if(tag == "Player")
             GetComponent<CharacterController>().enabled = true;
+
+        if (tag == "Enemy") { GetComponent<AiBehavior>().canGlideToEnemy = false; GetComponent<AiBehavior>().isChasingEnemy = true; }
     }
 
     public IEnumerator Recovery()

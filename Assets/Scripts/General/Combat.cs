@@ -1404,89 +1404,101 @@ public class Combat : MonoBehaviour
         GetComponent<CoroutineManager>().CancelCoroutines(afterAttack);
         anim.SetBool("canTransition", true);
         int i = Random.Range(1, 11);
-            ShouldNotMove();
-            if ((anim.GetInteger("State") != 3 && anim.GetInteger("State") != 4 && anim.GetInteger("State") != 5 && 
-            anim.GetInteger("State") != 6 && anim.GetInteger("State") != 7) || enemy.GetComponent<Flinch>().isSurrendering || tag == "Tourist") 
-                { i = 100; }
+        ShouldNotMove();
+        if ((anim.GetInteger("State") != 3 && anim.GetInteger("State") != 4 && anim.GetInteger("State") != 5 && 
+        anim.GetInteger("State") != 6 && anim.GetInteger("State") != 7) || enemy.GetComponent<Flinch>().isSurrendering || tag == "Tourist") 
+            { i = 100; }
 
-            if (i <= combatStatsInstance.aiContinuedAttackFrequency)
+        if (i <= combatStatsInstance.aiContinuedAttackFrequency)
+        {
+            isAttacking = false;
+            int variedAttack;
+            if(basicAttack != null)
             {
-                isAttacking = false;
-                int variedAttack;
-                if(basicAttack != null)
-                {
-                    StopCoroutine(basicAttack);
-                }
-                if (anim.GetInteger("State") == 3) //Leads to V1 & V2 of next attack
-                {
-                    variedAttack = Random.Range(4, 6);
-                    if (variedAttack == 4)
-                    {
-                        basicAttack = StartCoroutine(Attack(variedAttack, combatStatsInstance.brawler2SecondAAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
-                    }
-                    else
-                    {
-                    basicAttack = StartCoroutine(Attack(variedAttack, combatStatsInstance.brawler2SecondBAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
-                    }
-
-                }
-                else if(anim.GetInteger("State") == 4)
-                {
-                    variedAttack = 6;
-                    anim.GetComponent<Animator>().SetInteger("Variation", Random.Range(1, 3));
-                    basicAttack = StartCoroutine(Attack(variedAttack, combatStatsInstance.brawler2ThirdAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
-                }
-                else if(anim.GetInteger("State") == 5)
-                {
-                    variedAttack = 7;
-                    anim.GetComponent<Animator>().SetInteger("Variation", Random.Range(1, 3));
-                    basicAttack = StartCoroutine(Attack(variedAttack, combatStatsInstance.brawler2ThirdAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
-                }
-                else if(anim.GetInteger("State") == 6)
-                {
-                    variedAttack = 8;
-                    anim.GetComponent<Animator>().SetInteger("Variation", Random.Range(1, 3));
-                    basicAttack = StartCoroutine(Attack(variedAttack, combatStatsInstance.brawler2ForthAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
-                }
-                else if(anim.GetInteger("State") == 7)
-                {
-                    variedAttack = 9;
-                    anim.GetComponent<Animator>().SetInteger("Variation", Random.Range(1, 3));
-                    basicAttack = StartCoroutine(Attack(variedAttack, combatStatsInstance.brawler2ForthAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
-                }
+                StopCoroutine(basicAttack);
             }
-            else
+            if (anim.GetInteger("State") == 3) //Leads to V1 & V2 of next attack
             {
-                if (tag == "Enemy")
+                variedAttack = Random.Range(4, 6);
+                if (variedAttack == 4)
                 {
-                    if (GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.karate)
+                    basicAttack = StartCoroutine(Attack(variedAttack, combatStatsInstance.brawler2SecondAAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
+                }
+                else
+                {
+                basicAttack = StartCoroutine(Attack(variedAttack, combatStatsInstance.brawler2SecondBAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
+                }
+
+            }
+            else if(anim.GetInteger("State") == 4)
+            {
+                variedAttack = 6;
+                anim.GetComponent<Animator>().SetInteger("Variation", Random.Range(1, 3));
+                basicAttack = StartCoroutine(Attack(variedAttack, combatStatsInstance.brawler2ThirdAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
+            }
+            else if(anim.GetInteger("State") == 5)
+            {
+                variedAttack = 7;
+                anim.GetComponent<Animator>().SetInteger("Variation", Random.Range(1, 3));
+                basicAttack = StartCoroutine(Attack(variedAttack, combatStatsInstance.brawler2ThirdAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
+            }
+            else if(anim.GetInteger("State") == 6)
+            {
+                variedAttack = 8;
+                anim.GetComponent<Animator>().SetInteger("Variation", Random.Range(1, 3));
+                basicAttack = StartCoroutine(Attack(variedAttack, combatStatsInstance.brawler2ForthAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
+            }
+            else if(anim.GetInteger("State") == 7)
+            {
+                variedAttack = 9;
+                anim.GetComponent<Animator>().SetInteger("Variation", Random.Range(1, 3));
+                basicAttack = StartCoroutine(Attack(variedAttack, combatStatsInstance.brawler2ForthAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
+            }
+        }
+        else
+        {
+            if (tag == "Enemy")
+            {
+                if (GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.karate)
+                {
+                    if (anim.GetBool("isOffensiveStance")) //Sets AI to defensive/passive stance
                     {
-                        if (anim.GetBool("isOffensiveStance")) //Sets AI to passive stance
+                        int j = Random.Range(0, 10);
+                        if (j < fightStyleManager.GetComponent<KarateStats>().aiStanceChangeFrequency)
                         {
-                            int j = Random.Range(0, 10);
-                            if (j < fightStyleManager.GetComponent<KarateStats>().aiStanceChangeFrequency)
+                            anim.SetBool("isOffensiveStance", false);
+
+                            int s = Random.Range(1,4);
+                            if(s < 3)
                             {
-                                anim.SetBool("isOffensiveStance", false);
                                 anim.SetBool("isDefensiveStance", true);
+                                anim.SetBool("isPassiveStance", false);
                             }
+                            else
+                            {
+                            anim.SetBool("isDefensiveStance", false);
+                            anim.SetBool("isPassiveStance", true);
+                        }
                         }
                     }
-                    GetComponent<AiBehavior>().AssignIdle();
-                    yield return new WaitForSeconds(.15f);
-                    faceEnemy = true;
-                    faceHead = false;
-                    isAttacking = false;
-                    //canUseTechnique = true;
-                    canAttack = true;
-                    GetComponent<AiBehavior>().isChasingEnemy = true;
-            } else if (tag == "Tourist")
-                {
-                    GetComponent<Tourist>().AssignIdle();
-                    isAttacking = false;
-                    yield return new WaitForSeconds(3f);
-                    GetComponent<Tourist>().isChargingEnemy = true;
                 }
+                GetComponent<AiBehavior>().AssignIdle();
+                yield return new WaitForSeconds(.15f);
+                faceEnemy = true;
+                faceHead = false;
+                isAttacking = false;
+                canAttack = true;
+                GetComponent<AiBehavior>().isChasingEnemy = true;
+
+            } 
+            else if (tag == "Tourist")
+            {
+                GetComponent<Tourist>().AssignIdle();
+                isAttacking = false;
+                yield return new WaitForSeconds(3f);
+                GetComponent<Tourist>().isChargingEnemy = true;
             }
+        }
     }  
 
     void Emergency()

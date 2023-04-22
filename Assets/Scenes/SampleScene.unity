@@ -5410,7 +5410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 5
+  fightStyle: 0
 --- !u!114 &835227091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14788,8 +14788,8 @@ MonoBehaviour:
   playerDodgeTime: 0.15
   staminaDodgeCost: 200
   playerDodgeMinAmount: 300
-  flinchDistance: 2
-  flinchTime: 0.2
+  flinchDistance: 1.8
+  flinchTime: 0.25
   stunDuration: 5
   knockbackDistance: 18
   knockbackTime: 0.3
@@ -14804,7 +14804,7 @@ MonoBehaviour:
   randomFightStyle: 0
   aiDefendFrequency: 4
   aiParryDodgeFrequency: 3
-  aiContinuedAttackFrequency: 19
+  aiContinuedAttackFrequency: 9
   aiThrowableFrequency: 1
 --- !u!4 &1891941794
 Transform:

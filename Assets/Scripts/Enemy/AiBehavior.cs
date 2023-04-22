@@ -358,6 +358,7 @@ public class AiBehavior : MonoBehaviour
                 {
                     anim.SetBool("isOffensiveStance", true);
                     anim.SetBool("isDefensiveStance", false);
+                    anim.SetBool("isPassiveStance", false);
                 }
             }
         }
