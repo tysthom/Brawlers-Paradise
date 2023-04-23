@@ -17,6 +17,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Leggings
+    second: {fileID: 2100000, guid: 10b86ec4ad42fff4fbc3b56722464fbe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leggings 2
+    second: {fileID: 2100000, guid: 1f6a6f2a926525e48aaa22983ad39b40, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Shorts
     second: {fileID: 2100000, guid: 095c74273bf58e544a88b029ff37cfb0, type: 2}
   - first:
@@ -24,11 +34,6 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Shorts2
     second: {fileID: 2100000, guid: 8ab370d3cb2adce439950a933e540ca7, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Shorts3
-    second: {fileID: 2100000, guid: c14489edb347cc846a4b9ad386c7e9a8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

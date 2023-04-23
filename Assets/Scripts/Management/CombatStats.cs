@@ -53,45 +53,49 @@ public class CombatStats : MonoBehaviour
     public float brawler2ForthAttackV2Distance = 2;
     public float parryAttackTime = .75f;
 
+    [Header("Defense")]
+    public float staminaDodgeBlockCost = 200;
+    public float staminaMinAmount = 200;
+
     [Header("Block")]
     public float blockMinAmount = 200;
-    public float staminaBlockCost = 300;
     public float blockMultiplier = .4f;
 
     [Header("Dodge")]
-    public float playerDodgeDistance = 5;
-    public float playerDodgeTime = .25f;
-    public float staminaDodgeCost = 200;
-    public float playerDodgeMinAmount = 300;
+    public float dodgeDistance = 8;
+    public float dodgeTime = .2f;
+    public float playerDodgeBufferTime = .3f;
 
     [Header("Flinch")]
-    public float flinchDistance = 8;
-    public float flinchTime = .2f;
+    public float flinchDistance = 1.5f;
+    public float flinchTime = .22f;
+
+    [Header("Stun")]
     public float stunDuration = 5;
 
     [Header("Knockback")]
-    public float knockbackDistance = 1;
-    public float knockbackTime = 1;
+    public float knockbackDistance = 18;
+    public float knockbackTime = .3f;
 
     [Header("Gurad Breaker")]
     public float guardBreakerDistance = 12;
-    public float guardBreakerTime = 1.75f;
-    public float guardBreakerBufferTime = .5f;
+    public float guardBreakerTime = 1.5f;
+    public float guardBreakerBufferTime = .25f;
 
     [Header("Parried")]
-    public float parriedTime = .3f;
+    public float parriedTime = .4f;
 
     [Header("Counter Attack")]
-    public float counterAttackTime = .35f;
+    public float counterAttackTime = .22f;
 
     [Header("Throwables")]
-    public float throwableDamage = 55;
+    public float throwableDamage = 65;
 
     [Header("Finisher")]
-    public float finisherDistance = 2;
+    public float finisherDistance = 2.5f;
 
     [Header("Death")]
-    public int bounceBackForceAmount = 250;
+    public int bounceBackForceAmount = 500;
 
     [Header("Ai Variation")]
     public bool randomFightStyle;

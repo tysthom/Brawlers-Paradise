@@ -69,7 +69,7 @@ public class Stamina : MonoBehaviour
             stamina = 0;
         }
 
-        if(stamina < combatManager.GetComponent<CombatStats>().playerDodgeMinAmount)
+        if(stamina < combatManager.GetComponent<CombatStats>().staminaMinAmount)
         {
             staminaBar.GetComponent<Image>().color = barColorInstance.lowStaminaColor;
         }

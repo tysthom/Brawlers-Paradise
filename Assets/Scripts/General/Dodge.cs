@@ -10,7 +10,7 @@ public class Dodge : MonoBehaviour
     Flinch flinchInstance;
     CombatStats combatStatsInstance;
     public bool canDodge;
-    public bool isDodging;
+    public bool isDodging, isDodgeBuffering;
     public bool isColliding;
 
     private void Awake()
@@ -26,8 +26,8 @@ public class Dodge : MonoBehaviour
     void Update()
     {
         if(combatInstance.inCombat || flinchInstance.isReacting || combatInstance.isParrying || GetComponent<Throw>().isEquipped ||
-            isDodging || 
-            GetComponent<Combat>().enemy.GetComponent<Flinch>().isParried)
+            isDodging || isDodgeBuffering ||
+            GetComponent<Combat>().enemy.GetComponent<Flinch>().isParried || GetComponent<Stamina>().stamina < combatStatsInstance.staminaDodgeBlockCost)
         {
             canDodge = false;
         }
@@ -42,16 +42,16 @@ public class Dodge : MonoBehaviour
             {
                 if (anim.GetInteger("State") == 26)
                 {
-                    transform.position += transform.forward * combatStatsInstance.playerDodgeDistance * Time.deltaTime;
+                    transform.position += transform.forward * combatStatsInstance.dodgeDistance * Time.deltaTime;
                 }
                 else
                 {
-                    transform.position -= transform.forward * combatStatsInstance.playerDodgeDistance * Time.deltaTime;
+                    transform.position -= transform.forward * combatStatsInstance.dodgeDistance * Time.deltaTime;
                 }
             }
             else
             {
-                transform.position -= transform.forward * combatStatsInstance.playerDodgeDistance * Time.deltaTime;
+                transform.position -= transform.forward * combatStatsInstance.dodgeDistance * Time.deltaTime;
             }
         } 
     }
@@ -62,6 +62,9 @@ public class Dodge : MonoBehaviour
         combatInstance.canAttack = false;
         combatInstance.canBlock = false;
         combatInstance.invinsible = true;
+
+        GetComponent<Stamina>().SubtractStamina(combatStatsInstance.staminaDodgeBlockCost);
+
         if (tag == "Player")
         {
             if (GetComponent<Movement>().direction.magnitude >= .1)
@@ -150,30 +153,31 @@ public class Dodge : MonoBehaviour
         }
         #endregion
 
-        combatInstance.invulnerable = true;
-        //GetComponent<Stamina>().SubtractStamina(combatStatsInstance.staminaDodgeCost);
+        //combatInstance.invulnerable = true;
         if (tag == "Player") { GetComponent<CharacterController>().enabled = false; }
         
         
-        yield return new WaitForSeconds(combatStatsInstance.playerDodgeTime);
+        yield return new WaitForSeconds(combatStatsInstance.dodgeTime);
         isDodging = false;
+        GetComponent<Combat>().invinsible = false;
+
+
         if (tag == "Player")
         {
             GetComponent<CharacterController>().enabled = true;
             combatInstance.faceEnemy = false;
             GetComponent<Movement>().PlayerMovement();
+            isDodgeBuffering = true;
+            yield return new WaitForSeconds(combatStatsInstance.playerDodgeBufferTime);
+            combatInstance.invinsible = false;
+            isDodgeBuffering = false;
         }
         else
         {
             anim.SetInteger("State", 0);
+            GetComponent<AiBehavior>().canGlideToEnemy = false; 
+            GetComponent<AiBehavior>().isChasingEnemy = true;
         } 
-        GetComponent<Combat>().invulnerable = false;
-        combatInstance.canAttack = true;
-        combatInstance.canBlock = true;
-        combatInstance.canUseTechnique = true;
-        if (tag == "Enemy") { GetComponent<AiBehavior>().canGlideToEnemy = false; GetComponent<AiBehavior>().isChasingEnemy = true; }
-        yield return new WaitForSeconds(.25f);
-        combatInstance.invinsible = false;
     }
 
     void OnTriggerStay(Collider other)

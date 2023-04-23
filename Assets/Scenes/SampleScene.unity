@@ -5410,7 +5410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 1
+  fightStyle: 2
 --- !u!114 &835227091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5643,6 +5643,7 @@ MonoBehaviour:
   combatManagear: {fileID: 1891941792}
   canDodge: 1
   isDodging: 0
+  isDodgeBuffering: 0
   isColliding: 0
 --- !u!114 &835227100
 MonoBehaviour:
@@ -8101,7 +8102,7 @@ MonoBehaviour:
   - {fileID: 5241079162996319913, guid: e53747da2fa3bee4b8fe68d7550e35d0, type: 3}
   - {fileID: 6310004904691892625, guid: 448b289fd1db0684791f8a211939852f, type: 3}
   - {fileID: 3219369471398525267, guid: 052748e11b50be74a91d5a64b3d5e49e, type: 3}
-  - {fileID: 2069546638605059804, guid: fcad545174f765242b46a9401f283685, type: 3}
+  - {fileID: 7622105665765051881, guid: fcad545174f765242b46a9401f283685, type: 3}
   - {fileID: 8511164671966218129, guid: 0c05caabe10f6f046a2d4c72d542d89b, type: 3}
   - {fileID: 1341525287874481365, guid: 62b7b11775a3b624380536aa603ea369, type: 3}
   - {fileID: 4902637393758663884, guid: 4976ad1d8a036374090794801c026144, type: 3}
@@ -9120,7 +9121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0dc2ef93580014f8ebf2fc26780d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameMode: 2
+  gameMode: 0
   playerPrefab: {fileID: 0}
   aiPrefab: {fileID: 7454506845584546906, guid: aab3a4d0f5b20894a91046ac24da77e3, type: 3}
   brawler1: {fileID: 0}
@@ -13460,6 +13461,7 @@ MonoBehaviour:
   combatManagear: {fileID: 0}
   canDodge: 1
   isDodging: 0
+  isDodgeBuffering: 0
   isColliding: 0
 --- !u!114 &1760875129
 MonoBehaviour:
@@ -14781,15 +14783,15 @@ MonoBehaviour:
   brawler2ForthAttackV1Distance: 5
   brawler2ForthAttackV2Distance: 2
   parryAttackTime: 0.75
+  staminaDodgeBlockCost: 200
+  staminaMinAmount: 200
   blockMinAmount: 200
-  staminaBlockCost: 200
   blockMultiplier: 0.4
-  playerDodgeDistance: 10
-  playerDodgeTime: 0.15
-  staminaDodgeCost: 200
-  playerDodgeMinAmount: 300
-  flinchDistance: 1.8
-  flinchTime: 0.25
+  dodgeDistance: 5
+  dodgeTime: 0.25
+  playerDodgeBufferTime: 0.45
+  flinchDistance: 1.5
+  flinchTime: 0.22
   stunDuration: 5
   knockbackDistance: 18
   knockbackTime: 0.3
@@ -14802,10 +14804,10 @@ MonoBehaviour:
   finisherDistance: 2.5
   bounceBackForceAmount: 500
   randomFightStyle: 0
-  aiDefendFrequency: 4
-  aiParryDodgeFrequency: 3
-  aiContinuedAttackFrequency: 19
-  aiThrowableFrequency: 1
+  aiDefendFrequency: 10
+  aiParryDodgeFrequency: 0
+  aiContinuedAttackFrequency: 10
+  aiThrowableFrequency: 0
 --- !u!4 &1891941794
 Transform:
   m_ObjectHideFlags: 0

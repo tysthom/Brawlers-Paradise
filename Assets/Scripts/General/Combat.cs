@@ -149,7 +149,7 @@ public class Combat : MonoBehaviour
             canUseTechnique = true;
         }
         else if (GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.MMA && canAttack && !GetComponent<Flinch>().isReacting &&
-                  GetComponent<Stamina>().stamina >= combatStatsInstance.playerDodgeMinAmount)
+                  GetComponent<Stamina>().stamina >= combatStatsInstance.staminaDodgeBlockCost)
         {
             canUseTechnique = true;
         }
@@ -185,7 +185,8 @@ public class Combat : MonoBehaviour
             canBlock = true;
         }
 
-        if (!inCombat && !isParrying && !isCounterAttackBuffering && !GetComponent<Flinch>().isReacting && !GetComponent<Throw>().isAiming && !attackBuffering && !isBlockBuffering || isGroundIdle)
+        if (!inCombat && !isParrying && !isCounterAttackBuffering && !GetComponent<Flinch>().isReacting && !GetComponent<Throw>().isAiming 
+            && !attackBuffering && !isBlockBuffering && !GetComponent<Dodge>().isDodging && !GetComponent<Dodge>().isDodgeBuffering || isGroundIdle)
         {
             canAttack = true;
         }
@@ -1160,12 +1161,12 @@ public class Combat : MonoBehaviour
                 {
                     int enemyDefend = Random.Range(1, 10);
                     int dodgeParry = Random.Range(1, 10);
-                    if (!enemy.GetComponent<Combat>().canBlock || !enemy.GetComponent<Dodge>().canDodge)
+                    if (!enemy.GetComponent<Combat>().canBlock && !enemy.GetComponent<Dodge>().canDodge)
                     {
                         enemyDefend = 11;
                     }
-                    if (enemyDefend <= combatStatsInstance.aiDefendFrequency && enemy.GetComponent<AiBehavior>().isIdle
-                        && (enemy.GetComponent<Dodge>().canDodge || canBlock))
+
+                    if (enemyDefend <= combatStatsInstance.aiDefendFrequency && enemy.GetComponent<AiBehavior>().isIdle)
                     {
                         int enemyTkdTech = Random.Range(1, 10);
                         if (GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.taekwondo && 

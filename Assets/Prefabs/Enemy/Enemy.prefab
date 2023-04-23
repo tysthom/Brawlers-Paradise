@@ -3610,6 +3610,7 @@ MonoBehaviour:
   combatManagear: {fileID: 0}
   canDodge: 1
   isDodging: 0
+  isDodgeBuffering: 0
   isColliding: 0
 --- !u!114 &5727061373553259682
 MonoBehaviour:
@@ -3866,7 +3867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 2
+  fightStyle: 4
 --- !u!65 &7087000783357512420
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -330,7 +330,7 @@ public class Flinch : MonoBehaviour
             GetComponent<Health>().SubtractHealth(damage * combatManagear.GetComponent<CombatStats>().blockMultiplier);
         }
         
-        GetComponent<Stamina>().SubtractStamina(combatManagear.GetComponent<CombatStats>().staminaBlockCost);
+        GetComponent<Stamina>().SubtractStamina(combatManagear.GetComponent<CombatStats>().staminaDodgeBlockCost);
         yield return new WaitForSeconds(time);
         isBlockedBack = false;
 
