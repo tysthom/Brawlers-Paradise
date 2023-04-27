@@ -1278,6 +1278,10 @@ public class Combat : MonoBehaviour
                         {
                             if(enemy.GetComponent<Combat>().isBlocking)
                             {
+                                if(anim.GetInteger("State") == 3)
+                                {
+                                    combatStatsInstance.aiContinuedAttackFrequency = 5;
+                                }
                                 enemy.GetComponent<Flinch>().ReactionInitiation(-20, CalculateDamage()); //-20 = BlockedBack
                             }
                             else if (enemy.GetComponent<Combat>().isStretching)
@@ -1499,6 +1503,7 @@ public class Combat : MonoBehaviour
                 GetComponent<Tourist>().isChargingEnemy = true;
             }
         }
+        combatStatsInstance.aiContinuedAttackFrequency = 10;
     }  
 
     void Emergency()
