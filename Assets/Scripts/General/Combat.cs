@@ -59,7 +59,7 @@ public class Combat : MonoBehaviour
     [Header("MMA Status")]
     public bool shouldDive; //Determines if should be moving while diving
     public bool isDiving; //True if performing diving attack ONLY
-    public bool isGroundIdle; 
+    public bool isGroundIdle;
     public bool isGroundAttacking; //True if either groundIdle or performing ground attacks
 
     [Header("TKD Status")]
@@ -102,24 +102,24 @@ public class Combat : MonoBehaviour
         brawlerStatsInstance = combatManagear.GetComponent<BrawlerStats>();
         fightStyleManager = GameObject.Find("Fight Style Manager");
 
-        if (tag == "Player") { 
-            controller = GetComponent<CharacterController>(); controller.enabled = true; 
-            enemy = idManagerInstance.brawler2; 
+        if (tag == "Player") {
+            controller = GetComponent<CharacterController>(); controller.enabled = true;
+            enemy = idManagerInstance.brawler2;
         }
         if (tag == "Enemy") {
-            faceEnemy = true; GetComponent<CapsuleCollider>().enabled = true; 
-            if(idManagerInstance.brawler1 == gameObject)
+            faceEnemy = true; GetComponent<CapsuleCollider>().enabled = true;
+            if (idManagerInstance.brawler1 == gameObject)
             {
                 enemy = idManagerInstance.brawler2;
             }
-            else if(idManagerInstance.brawler2 == gameObject)
+            else if (idManagerInstance.brawler2 == gameObject)
             {
                 enemy = idManagerInstance.brawler1;
             }
         }
-        foreach(Transform child in enemy.transform)
+        foreach (Transform child in enemy.transform)
         {
-            if(child.gameObject.name == "Head Position")
+            if (child.gameObject.name == "Head Position")
             {
                 enemyHead = child.gameObject;
             }
@@ -135,7 +135,7 @@ public class Combat : MonoBehaviour
     {
         if (tag == "Tourist")
         {
-            if(GetComponent<Tourist>().companion == null) { return; }
+            if (GetComponent<Tourist>().companion == null) { return; }
         }
 
         #region Technique Managment
@@ -172,7 +172,7 @@ public class Combat : MonoBehaviour
         }
         #endregion
 
-        if (inCombat || (GetComponent<Flinch>().isReacting && !GetComponent<Flinch>().isBlockedBack) || isBlockBuffering )
+        if (inCombat || (GetComponent<Flinch>().isReacting && (!GetComponent<Flinch>().isBlockedBack || !GetComponent<Flinch>().isFlinchBuffering)) || isBlockBuffering )
         {
             canBlock = false;
             if(tag == "Player")
@@ -345,10 +345,8 @@ public class Combat : MonoBehaviour
                         //canBlock = false;
                         isBlocking = true;
                         anim.SetInteger("State", 20);
-                        if(!blockTransitionCalled)
-                            StartCoroutine(BlockTransitionTime());
-                        // isParrying = true;
-                        //parry = StartCoroutine(Parry());
+                        //if(!blockTransitionCalled)
+                            //StartCoroutine(BlockTransitionTime());
                     }
                 }
             }

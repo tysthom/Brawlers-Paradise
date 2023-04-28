@@ -25,7 +25,7 @@ public class Dodge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(combatInstance.inCombat || flinchInstance.isReacting || combatInstance.isParrying || GetComponent<Throw>().isEquipped ||
+        if(combatInstance.inCombat || (flinchInstance.isReacting && (!GetComponent<Flinch>().isFlinching && !GetComponent<Flinch>().isFlinchBuffering)) || combatInstance.isParrying || GetComponent<Throw>().isEquipped ||
             isDodging || isDodgeBuffering ||
             GetComponent<Combat>().enemy.GetComponent<Flinch>().isParried || GetComponent<Stamina>().stamina < combatStatsInstance.staminaDodgeBlockCost)
         {
@@ -58,6 +58,8 @@ public class Dodge : MonoBehaviour
 
     public IEnumerator PerformDodge()
     {
+        GetComponent<CoroutineManager>().CancelCoroutines(null);
+
         isDodging = true;
         combatInstance.canAttack = false;
         combatInstance.canBlock = false;

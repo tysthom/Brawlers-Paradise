@@ -141,8 +141,6 @@ public class CombatStats : MonoBehaviour
             }
         } else if(brawler1.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.boxing)
         {
-            brawler1.GetComponent<Combat>().anim.SetLayerWeight(1, 1);
-
             brawler1FirstAttackTime = boxingStatsRefrence.firstAttackTime;
             brawler1FirstAttackDistance = boxingStatsRefrence.firstAttackDistance;
             brawler1SecondAAttackTime = boxingStatsRefrence.secondAAttackTime;

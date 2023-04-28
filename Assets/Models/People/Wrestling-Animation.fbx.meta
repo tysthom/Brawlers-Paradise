@@ -114,7 +114,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
       in configuration does not match rotation in animation file:\n\t'Elbow.L' :
-      rotation error = 10.714650 deg\n\t'Elbow.R' : rotation error = 17.154980 deg\n"
+      rotation error = 7.035047 deg\n\t'Elbow.R' : rotation error = 3.051770 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Armature|MMA Dive' has import animation warnings
       that might lower retargeting quality:\nNote: Activate translation DOF on avatar
@@ -209,8 +209,14 @@ ModelImporter:
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
       'Armature|Wrestling Grab' has import animation warnings that might lower retargeting
       quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.L'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Elbow.R'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Index1.L'
+      has translation animation that will be discarded.\n\t'Middle1.L' has translation
+      animation that will be discarded.\n\t'Ring1.L' has translation animation that
+      will be discarded.\n\t'Pinky1.L' has translation animation that will be discarded.\n\t'Elbow.R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Index1.R'
+      has translation animation that will be discarded.\n\t'Middle1.R' has translation
+      animation that will be discarded.\n\t'Ring1.R' has translation animation that
+      will be discarded.\n\t'Pinky1.R' has translation animation that will be discarded.\n\nClip
       'Armature|Wrestling Stunned' has import animation warnings that might lower
       retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
       quality.\n\t'Elbow.L' is inbetween humanoid transforms and has rotation animation
@@ -415,7 +421,7 @@ ModelImporter:
       name: Wrestling Attack 2V2
       takeName: Armature|Wrestling Attack 2V2
       internalID: 0
-      firstFrame: 0
+      firstFrame: 10
       lastFrame: 39
       wrapMode: 0
       orientationOffsetY: 0
@@ -436,21 +442,21 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.54597044
+      - time: 0.42423132
         functionName: Move
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.6765039
+      - time: 0.5779531
         functionName: ShouldNotMove
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.66515315
+      - time: 0.58979076
         functionName: ShouldHit
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}

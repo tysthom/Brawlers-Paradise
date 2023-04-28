@@ -34,11 +34,11 @@ public class BrawlerStats : MonoBehaviour
         float amount;
         if(brawler == idManagerInstance.brawler1)
         {
-            amount = .57f + (.05f * (3-b1AttackSpeed)); //.1f is what determines the amount multiplyer. .65f is the base speed
+            amount = .55f + (.02f * (3-b1AttackSpeed)); //.1f is what determines the amount multiplyer. .65f is the base speed
             return amount;
         } else if(brawler == idManagerInstance.brawler2)
         {
-            amount = .57f + (.05f * (3 - b2AttackSpeed));
+            amount = .55f + (.02f * (3 - b2AttackSpeed));
             return amount;
         }
         return 0;
