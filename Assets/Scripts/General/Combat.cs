@@ -172,7 +172,7 @@ public class Combat : MonoBehaviour
         }
         #endregion
 
-        if (inCombat || (GetComponent<Flinch>().isReacting && (!GetComponent<Flinch>().isBlockedBack || !GetComponent<Flinch>().isFlinchBuffering)) || isBlockBuffering )
+        if (inCombat || (GetComponent<Flinch>().isReacting && (!GetComponent<Flinch>().isBlockedBack && !GetComponent<Flinch>().isFlinchBuffering)) || isBlockBuffering )
         {
             canBlock = false;
             if(tag == "Player")
@@ -328,7 +328,6 @@ public class Combat : MonoBehaviour
         //START OF TRIGGER
         if (secondary != 0) //Makes sure trigger is down
         {
-            
             secondaryLifted = false;
             if (!GetComponent<Throw>().isEquipped)
             {
@@ -337,8 +336,9 @@ public class Combat : MonoBehaviour
                     if (tag == "Enemy") //Stops Ai from continuously parrying
                     {
                         secondary = 0;
+                        
                         if(!isBlocking)
-                        block = StartCoroutine(Block());
+                            block = StartCoroutine(Block());
                     }
                     else
                     {
@@ -607,7 +607,6 @@ public class Combat : MonoBehaviour
         isBlocking = true;
         faceEnemy = true;
         anim.SetInteger("State", 20);
-        Debug.Log("BLOCK");
         yield return new WaitForSeconds(.2f);
         
         anim.SetInteger("State", 0);
@@ -1185,7 +1184,7 @@ public class Combat : MonoBehaviour
                             enemy.GetComponent<Combat>().secondary = 1;
                             StartCoroutine(enemy.GetComponent<AiBehavior>().IncreaseDefenseFrequency());
                             StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.2f, .5f));
-
+                            enemy.GetComponent<Throw>().isEquipped = false;
                             enemy.GetComponent<Flinch>().ReactionInitiation(-20, CalculateDamage());
                         }
                     }
@@ -1261,6 +1260,7 @@ public class Combat : MonoBehaviour
                                 {
                                     enemy.GetComponent<Combat>().isParrying = true;
                                     enemy.GetComponent<Combat>().secondary = 1;
+                                    enemy.GetComponent<Throw>().isEquipped = false;
                                     enemy.GetComponent<Flinch>().ReactionInitiation(a, 0); //Deal 0 damage when parrying
 
                                 }

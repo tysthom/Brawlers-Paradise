@@ -425,7 +425,7 @@ public class AiBehavior : MonoBehaviour
         {
             combatManagear.GetComponent<CombatStats>().aiDefendFrequency++;
 
-            yield return new WaitForSeconds(4);
+            yield return new WaitForSeconds(1);
 
             combatManagear.GetComponent<CombatStats>().aiDefendFrequency--;
         }

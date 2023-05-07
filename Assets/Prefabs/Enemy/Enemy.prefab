@@ -3635,7 +3635,7 @@ MonoBehaviour:
   hasDamageBoost: 0
   hasLifeSteal: 0
   hasDamageReduction: 0
-  souvenir: 5
+  souvenir: 9
 --- !u!114 &7911793694284746384
 MonoBehaviour:
   m_ObjectHideFlags: 0
