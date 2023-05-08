@@ -390,7 +390,7 @@ ModelImporter:
       name: MMA Attack 3V2
       takeName: Armature|MMA Attack 3V2
       internalID: 0
-      firstFrame: 0
+      firstFrame: 5
       lastFrame: 32
       wrapMode: 0
       orientationOffsetY: 0
@@ -943,14 +943,14 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.6459884
+      - time: 0.6199014
         functionName: ShouldNotMove
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.7004337
+      - time: 0.6424626
         functionName: ShouldHit
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}

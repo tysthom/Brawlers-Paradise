@@ -5410,7 +5410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 1
+  fightStyle: 5
 --- !u!114 &835227091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5627,7 +5627,7 @@ MonoBehaviour:
   hasDamageBoost: 0
   hasLifeSteal: 0
   hasDamageReduction: 0
-  souvenir: 0
+  souvenir: 8
 --- !u!114 &835227099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6358,11 +6358,11 @@ MonoBehaviour:
   sunscreenUsage: 5
   coffeeUsage: 3
   briefcaseUsage: 8
-  lifeJacketUsage: 8
+  lifeJacketUsage: 9
   ratPoisonUsage: 5
   tequilaUsage: 3
-  vipCardUsage: 0
-  floatyUsage: 0
+  vipCardUsage: 7
+  floatyUsage: 5
   medicineImage: {fileID: 21300000, guid: 0ae5e993e14da9848b9db88c8c4f826d, type: 3}
   sunscreenImage: {fileID: 21300000, guid: 455567152cb38734f9cf1eda600a3b6e, type: 3}
   coffeeImage: {fileID: 21300000, guid: 437469ae1cd6e5a44ac4266b93f80ddc, type: 3}
@@ -10131,7 +10131,7 @@ MonoBehaviour:
   secondAAttackDistance: 8.4
   secondBAttackTime: 1.1
   secondBAttackDistance: 8.4
-  thirdAttackTime: 1.3
+  thirdAttackTime: 1.15
   thirdAttackV1Distance: 7
   thirdAttackV2Distance: 6
   thirdAttackV3Distance: 8.4
@@ -10153,18 +10153,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc612d3da4bebdf449cf5630f81b73e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstAttackTime: 0.7
+  firstAttackTime: 0.8
   firstAttackDistance: 3
-  secondAAttackTime: 1.12
+  secondAAttackTime: 1.25
   secondAAttackDistance: 7
-  secondBAttackTime: 1.25
+  secondBAttackTime: 1.3
   secondBAttackDistance: 7
-  thirdAttackTime: 1.3
+  thirdAttackTime: 1.4
   thirdAttackV1Distance: 7
   thirdAttackV2Distance: 7
   thirdAttackV3Distance: 7
   thirdAttackV4Distance: 7
-  forthAttackTime: 1.25
+  forthAttackTime: 1.35
   forthAttackV1Distance: 5
   forthAttackV2Distance: 3
   mmaDiveRange: 3
@@ -10188,25 +10188,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc3bdd6aa4487984194a7161b20bb8f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstAttackTime: 0.9
+  firstAttackTime: 1.1
   firstAttackDistance: 9
-  secondAAttackTime: 1.12
+  secondAAttackTime: 1.4
   secondAAttackDistance: 7
-  secondBAttackTime: 1
+  secondBAttackTime: 1.25
   secondBAttackDistance: 7
-  thirdAttackTime: 1
+  thirdAttackTime: 1.25
   thirdAttackV1Distance: 7
   thirdAttackV2Distance: 7
   thirdAttackV3Distance: 7
   thirdAttackV4Distance: 7
-  forthAttackTime: 1.25
+  forthAttackTime: 1.5
   forthAttackV1Distance: 5
   forthAttackV2Distance: 2
   tkdFightTypeStats: 0200000004000000050000000300000002000000
   stretchParryWindow: 0.15
   stretchSuccessTime: 0.25
   stretchMissTime: 1.6
-  aiStretchFrequency: 1
+  aiStretchFrequency: 10
 --- !u!114 &1365660892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10219,9 +10219,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7634205b660c9ae49abd3fd06d38f4a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstAttackTime: 1
+  firstAttackTime: 0.8
   firstAttackDistance: 5
-  secondAAttackTime: 1.5
+  secondAAttackTime: 1.3
   secondAAttackDistance: 7
   secondBAttackTime: 1.3
   secondBAttackDistance: 7
@@ -10236,8 +10236,8 @@ MonoBehaviour:
   bearhugGrabTime: 2
   bearhugDamagePerTick: 6
   clotheslineKnockdownTime: 1
-  aiBearhugFrequency: 2
-  proWrestlingFightTypeStats: 0200000005000000030000000300000005000000
+  aiBearhugFrequency: 0
+  proWrestlingFightTypeStats: 0100000005000000030000000300000005000000
 --- !u!114 &1365660893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10250,24 +10250,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60def7e510a02a540806a9a2bab8eb39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstAttackTime: 1
+  firstAttackTime: 1.1
   firstAttackDistance: 5
-  secondAAttackTime: 1.12
+  secondAAttackTime: 1.2
   secondAAttackDistance: 7
-  secondBAttackTime: 1.12
+  secondBAttackTime: 1.2
   secondBAttackDistance: 10
-  thirdAttackTime: 1.12
+  thirdAttackTime: 1.2
   thirdAttackV1Distance: 7
   thirdAttackV2Distance: 7
   thirdAttackV3Distance: 10
   thirdAttackV4Distance: 15
-  forthAttackTime: 1.12
+  forthAttackTime: 1.25
   forthAttackV1Distance: 5
   forthAttackV2Distance: 10
   kungFuFightTypeStats: 0400000002000000030000000500000002000000
   eyePokeTime: 1.5
   eyePokeDamage: 10
-  aiEyePokeFrequency: 2
+  aiEyePokeFrequency: 1
 --- !u!114 &1365660894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14807,7 +14807,7 @@ MonoBehaviour:
   aiDefendFrequency: 5
   aiParryDodgeFrequency: 4
   aiContinuedAttackFrequency: 10
-  aiThrowableFrequency: 1
+  aiThrowableFrequency: 0
 --- !u!4 &1891941794
 Transform:
   m_ObjectHideFlags: 0

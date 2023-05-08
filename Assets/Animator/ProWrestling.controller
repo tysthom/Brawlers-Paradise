@@ -953,7 +953,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.1
   m_TransitionOffset: 0
   m_ExitTime: 0.68421054
   m_HasExitTime: 0
@@ -1115,7 +1115,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.1
   m_TransitionOffset: 0
   m_ExitTime: 0.60526323
   m_HasExitTime: 0
@@ -1306,7 +1306,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Wrestling Attack 4V1
-  m_Speed: 0.9
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 6155589781124994319}
@@ -1359,7 +1359,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Wrestling Attack 2V1
-  m_Speed: 1
+  m_Speed: 1.1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -809277945378516229}
@@ -2217,7 +2217,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Wrestling Attack 3V3
-  m_Speed: 1.2
+  m_Speed: 1.1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -1524875320580032746}

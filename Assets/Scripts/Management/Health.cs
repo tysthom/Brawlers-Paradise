@@ -240,7 +240,6 @@ public class Health : MonoBehaviour
         {
             if (GetComponent<Combat>().anim.GetBool("isPassiveStance"))
             {
-                Debug.Log("Regenerating");
                 regenHealth += fightStyleManager.GetComponent<KarateStats>().karateHealthRecoveryAmount;
                 health += fightStyleManager.GetComponent<KarateStats>().karateHealthRecoveryAmount;
                 yield return new WaitForSeconds(fightStyleManager.GetComponent<KarateStats>().karateRegenHealthWaitTime);

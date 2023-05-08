@@ -130,7 +130,7 @@ public class Flinch : MonoBehaviour
     public void ReactionInitiation(int state, float damage) //Causes gameobject to flinch 
     {
         if (tag == "Player") { GetComponent<CharacterController>().enabled = false; }
-        if (tag == "Enemy") { GetComponent<AiBehavior>().canGlideToEnemy = false; }
+        if (tag == "Enemy") { GetComponent<AiBehavior>().canGlideToEnemy = false; GetComponent<AiBehavior>().isLookingForThrowable = false; }
 
         GetComponent<Combat>().canAttack = false;
         GetComponent<Combat>().canNextAttack = false;

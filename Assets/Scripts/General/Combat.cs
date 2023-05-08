@@ -1166,7 +1166,7 @@ public class Combat : MonoBehaviour
                     if (enemyDefend <= combatStatsInstance.aiDefendFrequency && enemy.GetComponent<AiBehavior>().isIdle)
                     {
                         int enemyTkdTech = Random.Range(1, 10);
-                        if (GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.taekwondo && 
+                        if (enemy.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.taekwondo && 
                             enemyTkdTech <= fightStyleManager.GetComponent<TkdStats>().aiStretchFrequency)
                         {
                             enemy.GetComponent<Combat>().stretch = StartCoroutine(enemy.GetComponent<Combat>().Stretch());
@@ -1323,8 +1323,17 @@ public class Combat : MonoBehaviour
             else
             {
                 Debug.Log("Fail");
+                StartCoroutine(DecreaseAttackFrequency());
             }
         }
+    }
+
+    IEnumerator DecreaseAttackFrequency()
+    {
+        int holder = combatStatsInstance.aiContinuedAttackFrequency;
+        combatStatsInstance.aiContinuedAttackFrequency = 0;
+        yield return new WaitForSeconds(2);
+        combatStatsInstance.aiContinuedAttackFrequency = holder;
     }
 
     public float CalculateDamage() // Calculates damage dealt after intaking all multipliers
