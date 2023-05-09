@@ -205,8 +205,8 @@ public class Combat : MonoBehaviour
             bool dodgeButtonDown = Input.GetButtonDown("Dodge");
             bool souvenir = Input.GetButtonDown("Secondary Special");
 
-            if (!inCombat && !isBlocking && (!GetComponent<Flinch>().isReacting || GetComponent<Flinch>().isStunned) 
-                && !GetComponent<Throw>().isAiming || GetComponent<Flinch>().isDove)
+            if (!inCombat && !isBlocking && (!GetComponent<Flinch>().isReacting || GetComponent<Flinch>().isStunned || GetComponent<Flinch>().isSurrendering) 
+                && !GetComponent<Throw>().isAiming && !GetComponent<Flinch>().isBeingFinished || GetComponent<Flinch>().isDove)
             {
                 faceEnemy = false;
             }
@@ -1024,11 +1024,15 @@ public class Combat : MonoBehaviour
     {
         GetComponent<CoroutineManager>().CancelCoroutines(finisher);
         isFinishing = true;
+        //GetComponent<Throw>().Equiping(false);
+        enemy.GetComponent<Flinch>().isBeingFinished = true;
 
         if(tag == "Player")
         {
             enemy.GetComponent<Flinch>().surrenderCanvas.SetActive(false);
+            enemy.GetComponent<Combat>().faceEnemy = true;
         }
+
         enemy.GetComponent<Flinch>().hudManager.GetComponent<HUDManager>().finisherText.text = "";
 
 

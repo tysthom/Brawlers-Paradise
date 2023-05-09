@@ -5540,7 +5540,7 @@ MonoBehaviour:
   currentThrowable: {fileID: 0}
   handHold: {fileID: 1685498081}
   ballLaunchPosition: {fileID: 1694688398}
-  pickUpText: {fileID: 258280998}
+  pickupIcon: {fileID: 1956418732}
   hasThrowable: 0
   isAiming: 0
   isThrowing: 0
@@ -5592,6 +5592,7 @@ MonoBehaviour:
   isParryBuffering: 0
   isPoisoned: 0
   isSurrendering: 0
+  isBeingFinished: 0
 --- !u!114 &835227097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9121,7 +9122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0dc2ef93580014f8ebf2fc26780d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameMode: 0
+  gameMode: 2
   playerPrefab: {fileID: 0}
   aiPrefab: {fileID: 7454506845584546906, guid: aab3a4d0f5b20894a91046ac24da77e3, type: 3}
   brawler1: {fileID: 0}
@@ -10219,24 +10220,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7634205b660c9ae49abd3fd06d38f4a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstAttackTime: 0.8
+  firstAttackTime: 0.9
   firstAttackDistance: 5
-  secondAAttackTime: 1.3
+  secondAAttackTime: 1.1
   secondAAttackDistance: 7
-  secondBAttackTime: 1.3
+  secondBAttackTime: 1.1
   secondBAttackDistance: 7
   thirdAttackTime: 1.3
   thirdAttackV1Distance: 7
   thirdAttackV2Distance: 7
   thirdAttackV3Distance: 7
   thirdAttackV4Distance: 7
-  forthAttackTime: 1.5
+  forthAttackTime: 1.75
   forthAttackV1Distance: 12
   forthAttackV2Distance: 3
   bearhugGrabTime: 2
-  bearhugDamagePerTick: 6
+  bearhugDamagePerTick: 10
   clotheslineKnockdownTime: 1
-  aiBearhugFrequency: 0
+  aiBearhugFrequency: 1
   proWrestlingFightTypeStats: 0100000005000000030000000300000005000000
 --- !u!114 &1365660893
 MonoBehaviour:
@@ -11140,6 +11141,7 @@ RectTransform:
   - {fileID: 1859523829}
   - {fileID: 454209517}
   - {fileID: 1434413684}
+  - {fileID: 1956418733}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13519,6 +13521,7 @@ MonoBehaviour:
   isParryBuffering: 0
   isPoisoned: 0
   isSurrendering: 0
+  isBeingFinished: 0
 --- !u!114 &1760875131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13550,7 +13553,7 @@ MonoBehaviour:
   currentThrowable: {fileID: 0}
   handHold: {fileID: 1484587749}
   ballLaunchPosition: {fileID: 1129745151}
-  pickUpText: {fileID: 0}
+  pickupIcon: {fileID: 0}
   hasThrowable: 0
   isAiming: 0
   isThrowing: 0
@@ -14752,7 +14755,7 @@ MonoBehaviour:
   tkdStatsRefrence: {fileID: 1365660891}
   kungFuStatsRefrence: {fileID: 1365660893}
   proWrestlingStatsRefrence: {fileID: 1365660892}
-  brawler1AttackDamage: 50
+  brawler1AttackDamage: 500
   brawler1FirstAttackTime: 1.12
   brawler1FirstAttackDistance: 9
   brawler1SecondAAttackTime: 1.12
@@ -15286,6 +15289,81 @@ Transform:
   m_Father: {fileID: 705329088}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1956418732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1956418733}
+  - component: {fileID: 1956418735}
+  - component: {fileID: 1956418734}
+  m_Layer: 5
+  m_Name: Throwable Pickup Prompt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1956418733
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956418732}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1504636459}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -407}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1956418734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956418732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 36b4b039ad2de684aa80973a61500277, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1956418735
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956418732}
+  m_CullTransparentMesh: 1
 --- !u!1 &1957587760
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,6 +31,7 @@ public class Flinch : MonoBehaviour
     public bool isParryBuffering; //Prevents player from attacking while also allowing them to move around
     public bool isPoisoned; //True if poisoned
     public bool isSurrendering;
+    public bool isBeingFinished;
 
     [Header("Coroutine")]
     public Coroutine reactionTime;
@@ -122,7 +123,7 @@ public class Flinch : MonoBehaviour
             }
             else
             {
-                //surrenderCanvas.SetActive(false);
+                surrenderCanvas.SetActive(false);
             }
         }
     }
@@ -553,19 +554,23 @@ public class Flinch : MonoBehaviour
         GetComponent<CoroutineManager>().CancelCoroutines(surrender);
         isSurrendering = true;
         
-        if (tag == "Enemy" && surrenderCanvas == null && idManagerInstance.gameMode != IdManagear.mode.AiVsAi)
+        if (tag == "Enemy")
         {
-            for (int i = 0; i < transform.childCount; i++)
+            if (surrenderCanvas == null && idManagerInstance.gameMode != IdManagear.mode.AiVsAi)
             {
-                if (transform.GetChild(i).gameObject.name == "Canvas")
+                for (int i = 0; i < transform.childCount; i++)
                 {
-                    surrenderCanvas = transform.GetChild(i).gameObject;
-                    surrenderCanvas.SetActive(true);
-                    surrenderCanvas.GetComponent<Billboard>().cam = GetComponent<Combat>().enemy.GetComponent<Movement>().cam;
-                    i = transform.childCount;
+                    if (transform.GetChild(i).gameObject.name == "Canvas")
+                    {
+                        surrenderCanvas = transform.GetChild(i).gameObject;
+                        surrenderCanvas.SetActive(true);
+                        surrenderCanvas.GetComponent<Billboard>().cam = GetComponent<Combat>().enemy.GetComponent<Movement>().cam;
+                        i = transform.childCount;
 
+                    }
                 }
-            } 
+            }
+            GetComponent<Combat>().faceEnemy = false;
         }
 
         hudManager.GetComponent<HUDManager>().finisherText.text = "FINISH HIM!";

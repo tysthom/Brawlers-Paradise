@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class Throw : MonoBehaviour
 {
@@ -10,7 +9,7 @@ public class Throw : MonoBehaviour
     public GameObject currentThrowable;
     public GameObject handHold;
     public GameObject ballLaunchPosition;
-    public TextMeshProUGUI pickUpText;
+    public GameObject pickupIcon;
     Collider[] throwablesInRange;
     bool throwableIsInRange;
     public bool hasThrowable;
@@ -28,10 +27,7 @@ public class Throw : MonoBehaviour
 
     void Start()
     {
-        if (tag == "Player")
-        {
-            pickUpText.text = "";
-        }
+
     }
 
     void Update()
@@ -53,14 +49,16 @@ public class Throw : MonoBehaviour
                 }
             }
 
-            if (closestThrowable != null && closestThrowable.tag == "Throwable" && currentThrowable == null && Vector3.Distance(transform.position, closestThrowable.transform.position) < GetComponent<Movement>().pickUpRange)
+            if (closestThrowable != null && closestThrowable.tag == "Throwable" && currentThrowable == null 
+                && Vector3.Distance(transform.position, closestThrowable.transform.position) < GetComponent<Movement>().pickUpRange
+                && !GetComponent<Combat>().isFinishing)
             {
-                pickUpText.text = "Press B to pick up";
+                pickupIcon.SetActive(true);
                 throwableIsInRange = true;
             }
             else
             {
-                pickUpText.text = "";
+                pickupIcon.SetActive(false);
                 throwableIsInRange = false;
             }
 
@@ -144,6 +142,8 @@ public class Throw : MonoBehaviour
         currentThrowable.transform.parent = transform;
         currentThrowable.tag = tag;
         currentThrowable.GetComponent<Throwable>().holder = gameObject;
+        GetComponent<Combat>().isBlocking = false;
+
         if(currentThrowable.GetComponent<BoxCollider>() != null)
         {
             currentThrowable.GetComponent<BoxCollider>().enabled = false;

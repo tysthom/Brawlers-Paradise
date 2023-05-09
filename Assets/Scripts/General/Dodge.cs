@@ -26,7 +26,7 @@ public class Dodge : MonoBehaviour
     void Update()
     {
         if(combatInstance.inCombat || (flinchInstance.isReacting && (!GetComponent<Flinch>().isFlinching && !GetComponent<Flinch>().isFlinchBuffering)) || combatInstance.isParrying || GetComponent<Throw>().isEquipped ||
-            isDodging || isDodgeBuffering ||
+            isDodging || isDodgeBuffering || GetComponent<Combat>().isBlocking || 
             GetComponent<Combat>().enemy.GetComponent<Flinch>().isParried || GetComponent<Stamina>().stamina < combatStatsInstance.staminaDodgeBlockCost)
         {
             canDodge = false;
