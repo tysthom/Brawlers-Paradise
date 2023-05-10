@@ -1145,7 +1145,8 @@ public class Combat : MonoBehaviour
             } else if (anim.GetInteger("State") == 10 && GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.kungFu)
             {
                 StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .1f));
-                StartCoroutine(enemy.GetComponent<Health>().DamageOverTime(fightStyleManager.GetComponent<kungFuStats>().eyePokeDamage));
+                StartCoroutine(enemy.GetComponent<Health>().DamageOverTime(fightStyleManager.GetComponent<kungFuStats>().eyePokeDamage, 
+                    fightStyleManager.GetComponent<kungFuStats>().eyePokeTickRepeats));
             } else if (anim.GetInteger("State") == 10 && GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.proWrestling)
             {
                 StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .3f));
@@ -1233,7 +1234,8 @@ public class Combat : MonoBehaviour
                 else if (anim.GetInteger("State") == 10 && GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.kungFu)
                 {
                     StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .1f));
-                    StartCoroutine(enemy.GetComponent<Health>().DamageOverTime(fightStyleManager.GetComponent<kungFuStats>().eyePokeDamage));
+                    StartCoroutine(enemy.GetComponent<Health>().DamageOverTime(fightStyleManager.GetComponent<kungFuStats>().eyePokeDamage,
+                        fightStyleManager.GetComponent<kungFuStats>().eyePokeTickRepeats));
                 }
                 else if (anim.GetInteger("State") == 10 && GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.proWrestling)
                 {

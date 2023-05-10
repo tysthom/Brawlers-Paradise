@@ -24,6 +24,7 @@ public class kungFuStats : MonoBehaviour
 
     [Header("Eye Poke Stats")]
     public float eyePokeTime = 1.5f;
+    public int eyePokeTickRepeats = 5;
     public int eyePokeDamage = 10;
 
     [Header("Ai Combo Usage")]

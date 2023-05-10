@@ -182,18 +182,22 @@ public class Health : MonoBehaviour
         }
     }
 
-    public IEnumerator DamageOverTime(float damageAmount)
+    public IEnumerator DamageOverTime(float damageAmount, int repeatAmount)
     {
         if (regen != null)
             StopCoroutine(regen);
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < repeatAmount; i++)
         {
             if (shield <= 0)
             {
                 if (health > 0)
                 {
                     health -= damageAmount;
+                    if(health <= 0)
+                    {
+                        health = 5;
+                    }
                 }
             }
             else

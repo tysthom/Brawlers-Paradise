@@ -28,14 +28,17 @@ public class Throwable : MonoBehaviour
     {
         if((collision.gameObject.tag == "Enemy" && holder != collision.gameObject) || (collision.gameObject.tag == "Player" && previousTag == "Enemy"))
         {
-            if (name == "Briefcase")
+            if (!collision.gameObject.GetComponent<Combat>().invulnerable)
             {
-                collision.gameObject.GetComponent<Flinch>().ReactionInitiation(100, combatManagear.GetComponent<CombatStats>().throwableDamage * 2);
-            }
-            else
-            {
-                
-                collision.gameObject.GetComponent<Flinch>().ReactionInitiation(100, combatManagear.GetComponent<CombatStats>().throwableDamage);
+                if (name == "Briefcase")
+                {
+                    collision.gameObject.GetComponent<Flinch>().ReactionInitiation(100, combatManagear.GetComponent<CombatStats>().throwableDamage * 2);
+                }
+                else
+                {
+
+                    collision.gameObject.GetComponent<Flinch>().ReactionInitiation(100, combatManagear.GetComponent<CombatStats>().throwableDamage);
+                }
             }
             StartCoroutine(ResetThrowable(collision.gameObject));
         }

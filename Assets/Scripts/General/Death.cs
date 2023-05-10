@@ -67,7 +67,7 @@ public class Death : MonoBehaviour
 
             if (GetComponent<Combat>().enemy.tag == "Player")
             {
-                GetComponent<Combat>().enemy.GetComponent<CharacterController>().enabled = true;
+                GetComponent<Combat>().enemy.GetComponent<CharacterController>().enabled = false;
             }
 
             anim.enabled = false;

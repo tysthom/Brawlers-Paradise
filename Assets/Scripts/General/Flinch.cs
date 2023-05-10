@@ -552,8 +552,11 @@ public class Flinch : MonoBehaviour
     {
         
         GetComponent<CoroutineManager>().CancelCoroutines(surrender);
+
         isSurrendering = true;
-        
+        GetComponent<Combat>().isBlocking = false;
+        GetComponent<Combat>().invulnerable = true;
+
         if (tag == "Enemy")
         {
             if (surrenderCanvas == null && idManagerInstance.gameMode != IdManagear.mode.AiVsAi)
@@ -574,7 +577,7 @@ public class Flinch : MonoBehaviour
         }
 
         hudManager.GetComponent<HUDManager>().finisherText.text = "FINISH HIM!";
-        
+        yield return new WaitForSeconds(.05f);
         anim.SetInteger("State", 125);
         yield return new WaitForSeconds(6);
 
@@ -583,6 +586,7 @@ public class Flinch : MonoBehaviour
             hudManager.GetComponent<HUDManager>().finisherText.text = "";
             surrenderCanvas.SetActive(false);
             GetComponent<Health>().AddHealth(200); //Adds health if failed to be finished
+            GetComponent<Combat>().invulnerable = false;
             recovery = StartCoroutine(Recovery());
         }
     }
