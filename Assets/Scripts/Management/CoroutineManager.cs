@@ -71,6 +71,7 @@ public class CoroutineManager : MonoBehaviour
         if (GetComponent<Combat>().bearhugBreakOut != null && ignore != (GetComponent<Combat>().bearhugBreakOut))
         {
             StopCoroutine(GetComponent<Combat>().bearhugBreakOut);
+            GetComponent<Combat>().isBearhugging = false;
         }
         if (GetComponent<Combat>().counterAttack != null && ignore != GetComponent<Combat>().counterAttack)
         {

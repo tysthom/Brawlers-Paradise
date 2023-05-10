@@ -51,7 +51,7 @@ public class Throw : MonoBehaviour
 
             if (closestThrowable != null && closestThrowable.tag == "Throwable" && currentThrowable == null 
                 && Vector3.Distance(transform.position, closestThrowable.transform.position) < GetComponent<Movement>().pickUpRange
-                && !GetComponent<Combat>().isFinishing)
+                && !GetComponent<Combat>().isFinishing && !GetComponent<Combat>().enemy.GetComponent<Death>().dead)
             {
                 pickupIcon.SetActive(true);
                 throwableIsInRange = true;

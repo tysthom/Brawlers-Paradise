@@ -172,7 +172,8 @@ public class Combat : MonoBehaviour
         }
         #endregion
 
-        if (inCombat || (GetComponent<Flinch>().isReacting && (!GetComponent<Flinch>().isBlockedBack && !GetComponent<Flinch>().isFlinchBuffering)) || isBlockBuffering )
+        if (inCombat || (GetComponent<Flinch>().isReacting && (!GetComponent<Flinch>().isBlockedBack && !GetComponent<Flinch>().isFlinchBuffering)) 
+            || isBlockBuffering || GetComponent<Combat>().enemy.GetComponent<Death>().dead)
         {
             canBlock = false;
             if(tag == "Player")
@@ -186,7 +187,8 @@ public class Combat : MonoBehaviour
         }
 
         if (!inCombat && !isParrying && !isCounterAttackBuffering && !GetComponent<Flinch>().isReacting && !GetComponent<Throw>().isAiming 
-            && !attackBuffering && !isBlockBuffering && !GetComponent<Dodge>().isDodging && !GetComponent<Dodge>().isDodgeBuffering || isGroundIdle)
+            && !attackBuffering && !isBlockBuffering && !GetComponent<Dodge>().isDodging && !GetComponent<Dodge>().isDodgeBuffering 
+            && !enemy.GetComponent<Death>().dead || isGroundIdle)
         {
             canAttack = true;
         }

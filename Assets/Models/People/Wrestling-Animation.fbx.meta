@@ -114,7 +114,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
       in configuration does not match rotation in animation file:\n\t'Elbow.L' :
-      rotation error = 7.035047 deg\n\t'Elbow.R' : rotation error = 3.051770 deg\n"
+      rotation error = 30.524023 deg\n\t'Elbow.R' : rotation error = 27.845900 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Armature|MMA Dive' has import animation warnings
       that might lower retargeting quality:\nNote: Activate translation DOF on avatar
@@ -198,17 +198,22 @@ ModelImporter:
       Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.L'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Elbow.R'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'Armature|Wrestling Combat Idle' has import animation warnings that might lower
+      'Armature|Wrestling Bearhug' has import animation warnings that might lower
       retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
       quality.\n\t'Elbow.L' is inbetween humanoid transforms and has rotation animation
       that will be discarded.\n\t'Elbow.R' is inbetween humanoid transforms and has
-      rotation animation that will be discarded.\n\nClip 'Armature|Wrestling Finisher'
-      has import animation warnings that might lower retargeting quality:\nNote:
+      rotation animation that will be discarded.\n\nClip 'Armature|Wrestling Combat
+      Idle' has import animation warnings that might lower retargeting quality:\nNote:
       Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.L'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Elbow.R'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'Armature|Wrestling Grab' has import animation warnings that might lower retargeting
-      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.L'
+      'Armature|Wrestling Finisher' has import animation warnings that might lower
+      retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
+      quality.\n\t'Elbow.L' is inbetween humanoid transforms and has rotation animation
+      that will be discarded.\n\t'Elbow.R' is inbetween humanoid transforms and has
+      rotation animation that will be discarded.\n\nClip 'Armature|Wrestling Grab'
+      has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.L'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Index1.L'
       has translation animation that will be discarded.\n\t'Middle1.L' has translation
       animation that will be discarded.\n\t'Ring1.L' has translation animation that
@@ -622,14 +627,14 @@ ModelImporter:
       takeName: Armature|Wrestling Bearhug
       internalID: 0
       firstFrame: 0
-      lastFrame: 1
+      lastFrame: 99
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -794,7 +799,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.5363251
+      - time: 0.51603526
         functionName: Finish
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}

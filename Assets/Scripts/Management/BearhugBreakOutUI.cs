@@ -7,12 +7,14 @@ public class BearhugBreakOutUI : MonoBehaviour
 {
     public GameObject bearhugBreakOutBar;
     public Image bearHugBreakOutFill;
+    public GameObject bearHugBreakOutPrompt;
     GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
         bearhugBreakOutBar.SetActive(false);
+        bearHugBreakOutPrompt.SetActive(false);
         player = GameObject.Find("Player");
     }
 
@@ -22,12 +24,14 @@ public class BearhugBreakOutUI : MonoBehaviour
         if (player.GetComponent<Flinch>().isBearhugged)
         {
             bearhugBreakOutBar.SetActive(true);
+            bearHugBreakOutPrompt.SetActive(true);
             bearHugBreakOutFill.fillAmount = (float)player.GetComponent<Combat>().bearhugBreakOutCount / 100;
         }
         else
         {
             bearHugBreakOutFill.fillAmount = 0;
             bearhugBreakOutBar.SetActive(false);
+            bearHugBreakOutPrompt.SetActive(false);
         }
     }
 }

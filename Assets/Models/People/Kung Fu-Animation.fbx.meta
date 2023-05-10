@@ -82,9 +82,11 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: <Root Transform>
     rigImportErrors: 
-    rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
+    rigImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
+      does not match position in animation file:\n\t'Shoulder.R' : position error
+      = 32.384056 mm\nAvatar Rig Configuration mis-match. Inbetween bone rotation
       in configuration does not match rotation in animation file:\n\t'Elbow.L' :
-      rotation error = 16.750172 deg\n\t'Elbow.R' : rotation error = 8.388702 deg\n"
+      rotation error = 49.162327 deg\n\t'Elbow.R' : rotation error = 3.051891 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Armature|Guardbreaker' has import animation
       warnings that might lower retargeting quality:\nNote: Activate translation
@@ -819,7 +821,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.5912806
+      - time: 0.57099074
         functionName: Finish
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}

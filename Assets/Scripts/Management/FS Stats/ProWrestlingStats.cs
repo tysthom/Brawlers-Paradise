@@ -22,7 +22,6 @@ public class ProWrestlingStats : MonoBehaviour
     [Header("Clothesline")]
     public float bearhugGrabTime = 2;
     public float bearhugDamagePerTick = 20;
-    public float clotheslineKnockdownTime = 1;
 
     [Header("Ai Bearhug Frequency")]
     [Range(0, 10)] public int aiBearhugFrequency;

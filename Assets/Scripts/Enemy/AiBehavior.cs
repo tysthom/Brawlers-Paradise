@@ -108,7 +108,8 @@ public class AiBehavior : MonoBehaviour
             {
                 GetComponent<Combat>().faceEnemy = true;
             }
-            if(!GetComponent<Flinch>().isStunned)
+            GetComponent<Combat>().faceEnemy = false;
+            if (!GetComponent<Flinch>().isStunned)
                 return; 
         }
 

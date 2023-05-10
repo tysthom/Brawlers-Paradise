@@ -12,6 +12,8 @@ public class Death : MonoBehaviour
     public GameObject enemy;
     GameObject combatManagear;
 
+    public bool dead;
+
     public bool bounceBack;
 
     private void Awake()
@@ -26,23 +28,23 @@ public class Death : MonoBehaviour
 
     private void LateUpdate()
     {
-        if(GetComponent<Health>().health <= 0 && !GetComponent<Flinch>().isSurrendering)
+        if(GetComponent<Health>().health <= 0 && !GetComponent<Flinch>().isSurrendering && !dead)
         {
             if (GetComponent<Flinch>().isPoisoned)
             {
                 GetComponent<Health>().health = 1;
             }
 
-            if (!GetComponent<Flinch>().isDove && !GetComponent<Flinch>().isBearhugged &&
-                    !GetComponent<Flinch>().isKnockedDown && !GetComponent<Combat>().isDiving && !GetComponent<Combat>().isGroundIdle &&
-                    !GetComponent<Combat>().isGroundAttacking && !GetComponent<Combat>().isBearhugging)
+            if (GetComponent<Flinch>().isDove || GetComponent<Flinch>().isBearhugged ||
+                     GetComponent<Combat>().isDiving || GetComponent<Combat>().isGroundIdle)
             {
-                if (GetComponent<Flinch>().surrender == null)
-                    GetComponent<Flinch>().surrender = StartCoroutine(GetComponent<Flinch>().Surrender());
+                Debug.Log("here");
+                Die();
             }
             else
             {
-                Die();
+                if (GetComponent<Flinch>().surrender == null)
+                    GetComponent<Flinch>().surrender = StartCoroutine(GetComponent<Flinch>().Surrender());
             }
         }
     }
@@ -51,40 +53,60 @@ public class Death : MonoBehaviour
 
     public void Die()
     {
-        anim.enabled = false;
-        GetComponent<Health>().regenHealth = 0;
-        gameObject.layer = 9;
-        ChangeLayer();
-        SetCollidersEnabled(true);
-        SetRigidbodiesKinematic(false);
-        GetComponent<Combat>().enabled = false;
-        if(tag != "Tourist")
-        GetComponent<Throw>().enabled = false;
+        if (!dead)
+        {
+            dead = true;
+            GetComponent<CoroutineManager>().CancelCoroutines(null);
+            if (!GetComponent<Combat>().enemy.GetComponent<Combat>().isFinishing)
+            {
+                GetComponent<Combat>().enemy.GetComponent<CoroutineManager>().CancelCoroutines(null);
+                GetComponent<Combat>().enemy.GetComponent<Combat>().anim.SetInteger("State", 0);
+                GetComponent<Combat>().enemy.GetComponent<Combat>().faceEnemy = false;
+                GetComponent<Combat>().enemy.GetComponent<Combat>().faceHead = false;
+            }
 
-        //enemy.GetComponent<Combat>().enabled = false;
-        GetComponent<Flinch>().isFlinching = false;
-        if (tag == "Player")
-        {
-            GetComponent<CharacterController>().enabled = false;
-            GetComponent<Movement>().enabled = false;
-            enemy.GetComponent<AiBehavior>().enabled = false;
-            enemy.GetComponent<AiBehavior>().agent.isStopped = true;
-        }
-        else if (tag == "Enemy")
-        {
-            GetComponent<AiBehavior>().agent.isStopped = true;
-            GetComponent<AiBehavior>().enabled = false;
-            GetComponent<CapsuleCollider>().enabled = false;
-            GetComponent<NavMeshAgent>().enabled = false;
-        } else if(tag == "Tourist")
-        {
-            GetComponent<Tourist>().agent.isStopped = true;
-            GetComponent<Tourist>().enabled = false;
-            GetComponent<CapsuleCollider>().enabled = false;
-            GetComponent<NavMeshAgent>().enabled = false;
-        }
+            if (GetComponent<Combat>().enemy.tag == "Player")
+            {
+                GetComponent<Combat>().enemy.GetComponent<CharacterController>().enabled = true;
+            }
 
-        StartCoroutine(BounceBack());
+            anim.enabled = false;
+            GetComponent<Health>().regenHealth = 0;
+            gameObject.layer = 9;
+            ChangeLayer();
+            SetCollidersEnabled(true);
+            SetRigidbodiesKinematic(false);
+            GetComponent<Combat>().enabled = false;
+            if (tag != "Tourist")
+                GetComponent<Throw>().enabled = false;
+
+            //enemy.GetComponent<Combat>().enabled = false;
+            GetComponent<Flinch>().isFlinching = false;
+            GetComponent<CorrectRotation>().enabled = false;
+            if (tag == "Player")
+            {
+                GetComponent<CharacterController>().enabled = false;
+                GetComponent<Movement>().enabled = false;
+                enemy.GetComponent<AiBehavior>().enabled = false;
+                enemy.GetComponent<AiBehavior>().agent.isStopped = true;
+            }
+            else if (tag == "Enemy")
+            {
+                GetComponent<AiBehavior>().agent.isStopped = true;
+                GetComponent<AiBehavior>().enabled = false;
+                GetComponent<CapsuleCollider>().enabled = false;
+                GetComponent<NavMeshAgent>().enabled = false;
+            }
+            else if (tag == "Tourist")
+            {
+                GetComponent<Tourist>().agent.isStopped = true;
+                GetComponent<Tourist>().enabled = false;
+                GetComponent<CapsuleCollider>().enabled = false;
+                GetComponent<NavMeshAgent>().enabled = false;
+            }
+
+            StartCoroutine(BounceBack());
+        }
     }
 
     IEnumerator BounceBack() //Causes a quick bounce back force so rigidbody doesn't fall on the enemy brawler
