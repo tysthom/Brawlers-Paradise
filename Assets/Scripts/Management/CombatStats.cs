@@ -100,7 +100,7 @@ public class CombatStats : MonoBehaviour
     [Header("Ai Variation")]
     public bool randomFightStyle;
     [Range(0, 10)] public int aiDefendFrequency;
-    [Range(0, 10)] public int aiParryDodgeFrequency;
+    [Range(0, 10)] public int aiBlockDodgeFrequency;
     [Range(0, 10)] public int aiContinuedAttackFrequency;
     [Range(0, 10)] public int aiThrowableFrequency;
 

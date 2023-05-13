@@ -30,15 +30,10 @@ public class Death : MonoBehaviour
     {
         if(GetComponent<Health>().health <= 0 && !GetComponent<Flinch>().isSurrendering && !dead)
         {
-            if (GetComponent<Flinch>().isPoisoned)
-            {
-                GetComponent<Health>().health = 1;
-            }
 
             if (GetComponent<Flinch>().isDove || GetComponent<Flinch>().isBearhugged ||
                      GetComponent<Combat>().isDiving || GetComponent<Combat>().isGroundIdle)
             {
-                Debug.Log("here");
                 Die();
             }
             else

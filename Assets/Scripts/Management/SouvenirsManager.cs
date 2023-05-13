@@ -59,7 +59,7 @@ public class SouvenirsManager : MonoBehaviour
     [Range(0, 10)] public int lifeJacketUsage;
     [Range(0, 10)] public int ratPoisonUsage;
     [Range(0, 10)] public int tequilaUsage;
-    [Range(0, 10)] public int vipCardUsage;
+    [Range(0, 10)] public int vipCadUsage;
     [Range(0, 10)] public int floatyUsage;
 
     [Header("Souvenir Images")]

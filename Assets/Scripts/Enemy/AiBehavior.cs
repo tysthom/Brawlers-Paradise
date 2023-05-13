@@ -17,6 +17,7 @@ public class AiBehavior : MonoBehaviour
     IdManagear idManagerInstance;
     BrawlerStats brawlerStatsInstance;
     GameObject fightStyleManager;
+    Difficulty difficultyInstance;
 
     [Header("Stats")]
     float baseSpeed;
@@ -67,6 +68,7 @@ public class AiBehavior : MonoBehaviour
         idManagerInstance = gameManager.GetComponent<IdManagear>();
         brawlerStatsInstance = combatManagear.GetComponent<BrawlerStats>();
         fightStyleManager = GameObject.Find("Fight Style Manager");
+        difficultyInstance = gameManager.GetComponent<Difficulty>();
         agent = GetComponent<NavMeshAgent>();
         baseSpeed = agent.speed;
         baseDefense = combatManagear.GetComponent<CombatStats>().aiDefendFrequency;
@@ -259,12 +261,36 @@ public class AiBehavior : MonoBehaviour
             {
                 GetComponent<Souvenirs>().ActivateSouvenir(); //TEQUILA
             }
+            if (GetComponent<Souvenirs>().souvenir == Souvenirs.souvenirs.vipCard && GetComponent<Souvenirs>().canUseSouvenir
+                && a <= souvenirsManagerInstance.vipCadUsage)
+            {
+                GetComponent<Souvenirs>().ActivateSouvenir(); //VIP CARD
+            }
+            if (GetComponent<Souvenirs>().souvenir == Souvenirs.souvenirs.floaty && GetComponent<Souvenirs>().canUseSouvenir
+                && a <= souvenirsManagerInstance.floatyUsage && GetComponent<Health>().health < GetComponent<Health>().maxHealth * .5f)
+            {
+                GetComponent<Souvenirs>().ActivateSouvenir(); //FLOATY
+            }
             #endregion
 
             if (GetComponent<Combat>().canAttack)
             {
                 wTACalled = true;
-                yield return new WaitForSeconds(Random.Range(.5f, 1.75f)); //Time Ai has to wait before attacking
+
+                //Time Ai has to wait before attacking
+                if(difficultyInstance.difficultyMode == Difficulty.difficulty.easy)
+                {
+                    yield return new WaitForSeconds(Random.Range(.75f, 2.25f));
+                } 
+                else if (difficultyInstance.difficultyMode == Difficulty.difficulty.medium)
+                {
+                    yield return new WaitForSeconds(Random.Range(.5f, 1.75f));
+                } 
+                else if (difficultyInstance.difficultyMode == Difficulty.difficulty.hard)
+                {
+                    yield return new WaitForSeconds(Random.Range(.1f, 1.75f));
+                }
+
                 GetComponent<Throw>().isThrowing = false; //Possible fix
 
                 if (!GetComponent<Flinch>().isReacting && !GetComponent<Dodge>().isDodging)
@@ -426,7 +452,18 @@ public class AiBehavior : MonoBehaviour
         {
             combatManagear.GetComponent<CombatStats>().aiDefendFrequency++;
 
-            yield return new WaitForSeconds(1);
+            if (difficultyInstance.difficultyMode == Difficulty.difficulty.easy)
+            {
+                yield return new WaitForSeconds(.25f);
+            }
+            else if (difficultyInstance.difficultyMode == Difficulty.difficulty.medium)
+            {
+                yield return new WaitForSeconds(.5f);
+            }
+            else if (difficultyInstance.difficultyMode == Difficulty.difficulty.hard)
+            {
+                yield return new WaitForSeconds(1);
+            }
 
             combatManagear.GetComponent<CombatStats>().aiDefendFrequency--;
         }

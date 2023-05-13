@@ -126,7 +126,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
       in configuration does not match rotation in animation file:\n\t'Elbow.L' :
-      rotation error = 2.284957 deg\n\t'Elbow.R' : rotation error = 2.285036 deg\n"
+      rotation error = 1.761436 deg\n\t'Elbow.R' : rotation error = 1.761451 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Armature|Karate Attack 1' has import animation
       warnings that might lower retargeting quality:\nNote: Activate translation
@@ -181,6 +181,9 @@ ModelImporter:
       4V2' has import animation warnings that might lower retargeting quality:\nNote:
       Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.L'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Elbow.R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'Armature|Karate Block' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.L'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
       'Armature|Karate Combat Idle - Defensive' has import animation warnings that
       might lower retargeting quality:\nNote: Activate translation DOF on avatar

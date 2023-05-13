@@ -5276,7 +5276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 4
+  fightStyle: 2
 --- !u!114 &835227091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6229,7 +6229,7 @@ MonoBehaviour:
   lifeJacketUsage: 9
   ratPoisonUsage: 5
   tequilaUsage: 3
-  vipCardUsage: 7
+  vipCadUsage: 7
   floatyUsage: 5
   medicineImage: {fileID: 21300000, guid: 0ae5e993e14da9848b9db88c8c4f826d, type: 3}
   sunscreenImage: {fileID: 21300000, guid: 455567152cb38734f9cf1eda600a3b6e, type: 3}
@@ -8935,6 +8935,7 @@ GameObject:
   - component: {fileID: 1209302669}
   - component: {fileID: 1209302670}
   - component: {fileID: 1209302668}
+  - component: {fileID: 1209302666}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -8942,6 +8943,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1209302666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209302665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba01587a4332f3a4a9cadfffe6e644a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultyMode: 2
 --- !u!4 &1209302667
 Transform:
   m_ObjectHideFlags: 0
@@ -8989,7 +9003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0dc2ef93580014f8ebf2fc26780d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameMode: 2
+  gameMode: 0
   playerPrefab: {fileID: 0}
   aiPrefab: {fileID: 7454506845584546906, guid: aab3a4d0f5b20894a91046ac24da77e3, type: 3}
   brawler1: {fileID: 0}
@@ -10133,7 +10147,7 @@ MonoBehaviour:
   forthAttackV2Distance: 10
   kungFuFightTypeStats: 0400000002000000030000000500000002000000
   eyePokeTime: 1.5
-  eyePokeTickRepeats: 20
+  eyePokeTickRepeats: 5
   eyePokeDamage: 10
   aiEyePokeFrequency: 1
 --- !u!114 &1365660894
@@ -14675,11 +14689,11 @@ MonoBehaviour:
   throwableDamage: 65
   finisherDistance: 2.5
   bounceBackForceAmount: 500
-  randomFightStyle: 0
+  randomFightStyle: 1
   aiDefendFrequency: 5
-  aiParryDodgeFrequency: 4
+  aiBlockDodgeFrequency: 4
   aiContinuedAttackFrequency: 10
-  aiThrowableFrequency: 0
+  aiThrowableFrequency: 1
 --- !u!4 &1891941794
 Transform:
   m_ObjectHideFlags: 0

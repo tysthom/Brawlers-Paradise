@@ -22,6 +22,7 @@ public class Combat : MonoBehaviour
     IdManagear idManagerInstance;
     ResultStats resultStatsInstance;
     BrawlerStats brawlerStatsInstance;
+    Difficulty difficultyInstance;
 
     [Header("General Status")]
     public bool invinsible; //True if can't take damage and flinch
@@ -101,6 +102,7 @@ public class Combat : MonoBehaviour
         resultStatsInstance = gameManager.GetComponent<ResultStats>();
         brawlerStatsInstance = combatManagear.GetComponent<BrawlerStats>();
         fightStyleManager = GameObject.Find("Fight Style Manager");
+        difficultyInstance = gameManager.GetComponent<Difficulty>();
 
         if (tag == "Player") {
             controller = GetComponent<CharacterController>(); controller.enabled = true;
@@ -129,6 +131,25 @@ public class Combat : MonoBehaviour
         canAttack = true;
         canBlock = true;
         canUseTechnique = true;
+
+        if(tag == "Enemy")
+        {
+            if(difficultyInstance.difficultyMode == Difficulty.difficulty.easy)
+            {
+                combatStatsInstance.aiContinuedAttackFrequency -= 2;
+                combatStatsInstance.aiThrowableFrequency -= 1;
+                combatStatsInstance.aiDefendFrequency -= 2;
+            } 
+            else if(difficultyInstance.difficultyMode == Difficulty.difficulty.medium)
+            {
+                combatStatsInstance.aiContinuedAttackFrequency -= 1;
+                combatStatsInstance.aiDefendFrequency -= 1;
+            } 
+            else if(difficultyInstance.difficultyMode == Difficulty.difficulty.hard)
+            {
+
+            }
+        }
     }
 
     void Update()
@@ -1179,7 +1200,7 @@ public class Combat : MonoBehaviour
                             enemy.GetComponent<Combat>().stretch = StartCoroutine(enemy.GetComponent<Combat>().Stretch());
                             GetComponent<Flinch>().parried = StartCoroutine(GetComponent<Flinch>().Parried());
                         } 
-                        else if (dodgeParry <= combatStatsInstance.aiParryDodgeFrequency && enemy.GetComponent<AiBehavior>().isIdle && enemy.GetComponent<Dodge>().canDodge)
+                        else if (dodgeParry <= combatStatsInstance.aiBlockDodgeFrequency && enemy.GetComponent<AiBehavior>().isIdle && enemy.GetComponent<Dodge>().canDodge)
                         {
                             //Dodge
                             enemy.GetComponent<Dodge>().isDodging = true;
@@ -1258,7 +1279,7 @@ public class Combat : MonoBehaviour
                             }
                             if (defend <= combatStatsInstance.aiDefendFrequency && enemy.GetComponent<AiBehavior>().isIdle)
                             {
-                                if (dodgeParry <= combatStatsInstance.aiParryDodgeFrequency && enemy.GetComponent<AiBehavior>().isIdle && enemy.GetComponent<Dodge>().canDodge)
+                                if (dodgeParry <= combatStatsInstance.aiBlockDodgeFrequency && enemy.GetComponent<AiBehavior>().isIdle && enemy.GetComponent<Dodge>().canDodge)
                                 {
                                     //Dodge
                                     enemy.GetComponent<Dodge>().isDodging = true;
@@ -1284,10 +1305,6 @@ public class Combat : MonoBehaviour
                         {
                             if(enemy.GetComponent<Combat>().isBlocking)
                             {
-                                if(anim.GetInteger("State") == 3)
-                                {
-                                    combatStatsInstance.aiContinuedAttackFrequency = 5;
-                                }
                                 enemy.GetComponent<Flinch>().ReactionInitiation(-20, CalculateDamage()); //-20 = BlockedBack
                             }
                             else if (enemy.GetComponent<Combat>().isStretching)
@@ -1502,7 +1519,19 @@ public class Combat : MonoBehaviour
                     }
                 }
                 GetComponent<AiBehavior>().AssignIdle();
-                yield return new WaitForSeconds(.15f);
+                
+                if (difficultyInstance.difficultyMode == Difficulty.difficulty.easy)
+                {
+                    yield return new WaitForSeconds(.25f);
+                }
+                else if (difficultyInstance.difficultyMode == Difficulty.difficulty.medium)
+                {
+                    yield return new WaitForSeconds(.15f);
+                }
+                else if (difficultyInstance.difficultyMode == Difficulty.difficulty.hard)
+                {
+                    yield return new WaitForSeconds(.05f);
+                }
                 faceEnemy = true;
                 faceHead = false;
                 isAttacking = false;
@@ -1518,7 +1547,6 @@ public class Combat : MonoBehaviour
                 GetComponent<Tourist>().isChargingEnemy = true;
             }
         }
-        combatStatsInstance.aiContinuedAttackFrequency = 10;
     }  
 
     void Emergency()
