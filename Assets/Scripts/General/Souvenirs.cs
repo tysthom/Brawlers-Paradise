@@ -97,13 +97,13 @@ public class Souvenirs : MonoBehaviour
                 }
                 if (idManagerInstance.brawler1 == gameObject)
                 {
-                    if (child.gameObject.name == "Brawler1 Souvenir Icon")
+                    if (child.gameObject.name == "Souvenir Icon")
                     {
                         souvenirIcon = child;
                     }
                 } else if (idManagerInstance.brawler2 == gameObject)
                 {
-                    if (child.gameObject.name == "Brawler2 Souvenir Icon")
+                    if (child.gameObject.name == "Souvenir Icon")
                     {
                         souvenirIcon = child;
                     }

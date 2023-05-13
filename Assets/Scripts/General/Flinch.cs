@@ -54,11 +54,13 @@ public class Flinch : MonoBehaviour
         brawlerStatsInstance = combatManagear.GetComponent<BrawlerStats>();
         fightStyleManager = GameObject.Find("Fight Style Manager");
         hudManager = GameObject.Find("HUD Manager");
+        hudManager.GetComponent<HUDManager>().finisherPrompt = GameObject.Find("Finisher Prompt");
     }
 
     private void Start()
     {
         hudManager.GetComponent<HUDManager>().finisherText.text = "";
+        hudManager.GetComponent<HUDManager>().finisherPrompt.SetActive(false);
     }
 
     private void Update()
@@ -119,11 +121,11 @@ public class Flinch : MonoBehaviour
 
             if (isSurrendering && GetComponent<Combat>().enemy.GetComponent<Combat>().canFinish && !GetComponent<Combat>().enemy.GetComponent<Combat>().isFinishing)
             {
-                surrenderCanvas.SetActive(true);
+                hudManager.GetComponent<HUDManager>().finisherPrompt.SetActive(true);
             }
             else
             {
-                surrenderCanvas.SetActive(false);
+                hudManager.GetComponent<HUDManager>().finisherPrompt.SetActive(false);
             }
         }
     }
@@ -557,22 +559,27 @@ public class Flinch : MonoBehaviour
         GetComponent<Combat>().isBlocking = false;
         GetComponent<Combat>().invulnerable = true;
 
-        if (tag == "Enemy")
+        if (tag == "Enemy" && idManagerInstance.gameMode != IdManagear.mode.AiVsAi)
         {
-            if (surrenderCanvas == null && idManagerInstance.gameMode != IdManagear.mode.AiVsAi)
+           /* if (surrenderCanvas == null && idManagerInstance.gameMode != IdManagear.mode.AiVsAi)
             {
                 for (int i = 0; i < transform.childCount; i++)
                 {
-                    if (transform.GetChild(i).gameObject.name == "Canvas")
+                    /*if (transform.GetChild(i).gameObject.name == "Canvas")
                     {
                         surrenderCanvas = transform.GetChild(i).gameObject;
                         surrenderCanvas.SetActive(true);
                         surrenderCanvas.GetComponent<Billboard>().cam = GetComponent<Combat>().enemy.GetComponent<Movement>().cam;
                         i = transform.childCount;
 
-                    }
+                    } 
+
+                    
                 }
-            }
+            }  */
+            
+
+            hudManager.GetComponent<HUDManager>().finisherPrompt.SetActive(true);
             GetComponent<Combat>().faceEnemy = false;
         }
 
@@ -584,7 +591,8 @@ public class Flinch : MonoBehaviour
         if (!GetComponent<Combat>().enemy.GetComponent<Combat>().isFinishing)
         {
             hudManager.GetComponent<HUDManager>().finisherText.text = "";
-            surrenderCanvas.SetActive(false);
+            //surrenderCanvas.SetActive(false);
+            hudManager.GetComponent<HUDManager>().finisherPrompt.SetActive(false);
             GetComponent<Health>().AddHealth(200); //Adds health if failed to be finished
             GetComponent<Combat>().invulnerable = false;
             recovery = StartCoroutine(Recovery());

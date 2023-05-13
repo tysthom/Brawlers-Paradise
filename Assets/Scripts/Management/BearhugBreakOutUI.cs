@@ -21,7 +21,7 @@ public class BearhugBreakOutUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.GetComponent<Flinch>().isBearhugged)
+        if (player != null && player.GetComponent<Flinch>().isBearhugged)
         {
             bearhugBreakOutBar.SetActive(true);
             bearHugBreakOutPrompt.SetActive(true);

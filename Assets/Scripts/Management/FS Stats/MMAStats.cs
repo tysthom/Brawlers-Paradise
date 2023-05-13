@@ -19,11 +19,9 @@ public class MMAStats : MonoBehaviour
     public float forthAttackV1Distance = 5;
     public float forthAttackV2Distance = 3;
 
-
-
+    [Header("MMA Dive Stats")]
     public float mmaDiveRange = 3;
-    public float mmaDiveDistance = 2;
-    public float mmaDiveInitialDamage = 15;
+    public float mmaDiveDistane = 2;
     public float mmaDiveTime = 2;
     public float mmaGroundAttackTime = .5f;
     public float mmaGroundBufferTime = .35f;

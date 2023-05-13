@@ -18,6 +18,7 @@ public class Combat : MonoBehaviour
     public CombatStats combatStatsInstance;
     public GameObject souvenirsManager;
     public GameObject fightStyleManager;
+    public GameObject hudManager;
     SouvenirsManager souvenirsManagerInstance;
     IdManagear idManagerInstance;
     ResultStats resultStatsInstance;
@@ -103,6 +104,7 @@ public class Combat : MonoBehaviour
         brawlerStatsInstance = combatManagear.GetComponent<BrawlerStats>();
         fightStyleManager = GameObject.Find("Fight Style Manager");
         difficultyInstance = gameManager.GetComponent<Difficulty>();
+        hudManager = GameObject.Find("HUD Manager");
 
         if (tag == "Player") {
             controller = GetComponent<CharacterController>(); controller.enabled = true;
@@ -264,12 +266,7 @@ public class Combat : MonoBehaviour
                 {
                     if (!enemy.GetComponent<Flinch>().isSurrendering)
                     {
-                        if (enemy.GetComponent<Flinch>().isParried)
-                        {
-                            if (!isCounterAttacking)
-                                counterAttack = StartCoroutine(CounterAttack());
-                        }
-                        else if (isGroundIdle)
+                        if (isGroundIdle)
                         {
                             groundAttack = StartCoroutine(GroundAttack());
                         }
@@ -551,19 +548,24 @@ public class Combat : MonoBehaviour
 
         if (shouldDive)
         {
-            if (GetDistanceToDive() && !enemy.GetComponent<Combat>().invinsible)
+            if (GetDistanceToDive() && !enemy.GetComponent<Combat>().invinsible) //Lands on enemy
             {
-                    isDiving = false;
-                    if(tag == "Enemy")
-                    {
-                        faceEnemy = false;
-                    }
+                isDiving = false;
+                if (tag == "Enemy")
+                {
+                    faceEnemy = false;
+                }
+                if (enemy.tag == "Player")
+                {
+
+                }
+
                     faceHead = true;
                     if(GetComponent<Flinch>().reactionTime != null)
                 {
                     StopCoroutine(GetComponent<Flinch>().reactionTime);
                 }
-                    enemy.GetComponent<Flinch>().ReactionInitiation(115, fightStyleManager.GetComponent<MMAStats>().mmaDiveInitialDamage);
+                    enemy.GetComponent<Flinch>().ReactionInitiation(115, 0);
                 
                     anim.SetInteger("State", 12);
                     isGroundIdle = true;
@@ -1049,17 +1051,18 @@ public class Combat : MonoBehaviour
         isFinishing = true;
         //GetComponent<Throw>().Equiping(false);
         enemy.GetComponent<Flinch>().isBeingFinished = true;
-
-        if(tag == "Player")
+        Debug.Log("FINISH");
+        if (tag == "Player")
         {
-            enemy.GetComponent<Flinch>().surrenderCanvas.SetActive(false);
+            hudManager.GetComponent<HUDManager>().finisherPrompt.SetActive(false);
             enemy.GetComponent<Combat>().faceEnemy = true;
         }
-
-        enemy.GetComponent<Flinch>().hudManager.GetComponent<HUDManager>().finisherText.text = "";
+        
+        hudManager.GetComponent<HUDManager>().finisherText.text = "";
 
 
         anim.SetInteger("State", 50);
+        
 
         yield return new WaitForSeconds(4);
 

@@ -17,6 +17,7 @@ public class HUDManager : MonoBehaviour
         brawler2Health, brawler2HealthFill, brawler2HealthRegen, brawler2ShieldFill, brawler2Stamina, brawler2StaminaFill;
 
     public TMP_Text finisherText;
+    public GameObject finisherPrompt;
 
     private void Awake()
     {
