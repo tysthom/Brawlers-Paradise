@@ -112,6 +112,8 @@ public class HUDManager : MonoBehaviour
                 }
             }
             #endregion
+
+            
         }
         else if(hudType == hud.minimalist)
         {
@@ -198,6 +200,8 @@ public class HUDManager : MonoBehaviour
                 }
             }
             #endregion
+
+            brawler1Health.gameObject.SetActive(true);
         }
         else
         {

@@ -5577,7 +5577,7 @@ MonoBehaviour:
   hasDamageBoost: 0
   hasLifeSteal: 0
   hasDamageReduction: 0
-  souvenir: 9
+  souvenir: 4
 --- !u!114 &835227099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6281,7 +6281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   souvenirsAllowed: 1
   healthBoostAmount: 300
-  medicineCooldownTime: 20
+  medicineCooldownTime: 30
   shieldAmount: 750
   sunscreenCooldownTime: 30
   speedMultiplier: 1.2
@@ -6291,7 +6291,7 @@ MonoBehaviour:
   briefcaseCooldownTime: 15
   ljMinHealthAmount: 0.2
   ljDuration: 5
-  lifeJacketCooldownTime: 50
+  lifeJacketCooldownTime: 40
   rpDamageAmount: 15
   rpDuration: 5
   ratPoisonCooldownTime: 30
@@ -6308,7 +6308,7 @@ MonoBehaviour:
   sunscreenUsage: 5
   coffeeUsage: 3
   briefcaseUsage: 8
-  lifeJacketUsage: 9
+  lifeJacketUsage: 10
   ratPoisonUsage: 5
   tequilaUsage: 3
   vipCadUsage: 7
@@ -9085,7 +9085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0dc2ef93580014f8ebf2fc26780d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameMode: 2
+  gameMode: 0
   playerPrefab: {fileID: 0}
   aiPrefab: {fileID: 7454506845584546906, guid: aab3a4d0f5b20894a91046ac24da77e3, type: 3}
   brawler1: {fileID: 0}
@@ -10134,7 +10134,6 @@ MonoBehaviour:
   forthAttackV2Distance: 3
   mmaDiveRange: 3
   mmaDiveDistance: 13
-  mmaDiveInitialDamage: 15
   mmaDiveTime: 2
   mmaGroundAttackTime: 0.5
   mmaGroundBufferTime: 0.35
@@ -10200,6 +10199,8 @@ MonoBehaviour:
   forthAttackV2Distance: 3
   bearhugGrabTime: 2
   bearhugDamagePerTick: 6
+  minBreakOutAmount: 7
+  maxBreakOutAmount: 11
   aiBearhugFrequency: 1
   proWrestlingFightTypeStats: 0100000005000000030000000300000005000000
 --- !u!114 &1365660893
@@ -11916,7 +11917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07c15265983f9ec4ab9242b65346ef57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hudType: 1
+  hudType: 0
   brawler1: {fileID: 0}
   brawler2: {fileID: 0}
   brawler1Health: {fileID: 0}
@@ -14737,7 +14738,7 @@ MonoBehaviour:
   tkdStatsRefrence: {fileID: 1365660891}
   kungFuStatsRefrence: {fileID: 1365660893}
   proWrestlingStatsRefrence: {fileID: 1365660892}
-  brawler1AttackDamage: 500
+  brawler1AttackDamage: 50
   brawler1FirstAttackTime: 1.12
   brawler1FirstAttackDistance: 9
   brawler1SecondAAttackTime: 1.12
@@ -16363,10 +16364,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1185486479, guid: aab3a4d0f5b20894a91046ac24da77e3, type: 3}
-      propertyPath: cam
-      value: 
-      objectReference: {fileID: 963194228}
     - target: {fileID: 916211913074541671, guid: aab3a4d0f5b20894a91046ac24da77e3, type: 3}
       propertyPath: combatManagear
       value: 
@@ -16981,14 +16978,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 144787875}
     m_Modifications:
-    - target: {fileID: 436999592929727536, guid: d7b68d6b8553c3e47a52806ddb6e620a, type: 3}
-      propertyPath: cam
-      value: 
-      objectReference: {fileID: 963194228}
-    - target: {fileID: 5127398600426773294, guid: d7b68d6b8553c3e47a52806ddb6e620a, type: 3}
-      propertyPath: cam
-      value: 
-      objectReference: {fileID: 963194228}
     - target: {fileID: 7478207192700227786, guid: d7b68d6b8553c3e47a52806ddb6e620a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -17024,18 +17013,6 @@ PrefabInstance:
     - target: {fileID: 7478207192700227786, guid: d7b68d6b8553c3e47a52806ddb6e620a, type: 3}
       propertyPath: m_SizeDelta.y
       value: 167.4389
-      objectReference: {fileID: 0}
-    - target: {fileID: 7478207192700227786, guid: d7b68d6b8553c3e47a52806ddb6e620a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.005
-      objectReference: {fileID: 0}
-    - target: {fileID: 7478207192700227786, guid: d7b68d6b8553c3e47a52806ddb6e620a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.005
-      objectReference: {fileID: 0}
-    - target: {fileID: 7478207192700227786, guid: d7b68d6b8553c3e47a52806ddb6e620a, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 7478207192700227786, guid: d7b68d6b8553c3e47a52806ddb6e620a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17090,10 +17067,6 @@ PrefabInstance:
       value: Player Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 7478207192700227830, guid: d7b68d6b8553c3e47a52806ddb6e620a, type: 3}
-      propertyPath: cam
-      value: 
-      objectReference: {fileID: 963194228}
-    - target: {fileID: 7478207192821086603, guid: d7b68d6b8553c3e47a52806ddb6e620a, type: 3}
       propertyPath: cam
       value: 
       objectReference: {fileID: 963194228}

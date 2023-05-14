@@ -22,8 +22,8 @@ public class Billboard : MonoBehaviour
         {
             if (hudManagerInstance.hudType != HUDManager.hud.minimalist)
             {
-                gameObject.SetActive(false);
-                return;
+                //gameObject.SetActive(false);
+                //return;
             }
 
             gameManager = GameObject.Find("Game Manager");

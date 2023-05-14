@@ -10,6 +10,8 @@ public class Throw : MonoBehaviour
     public GameObject handHold;
     public GameObject ballLaunchPosition;
     public GameObject pickupIcon;
+    GameObject hudManager;
+    HUDManager hudManagerInstance;
     Collider[] throwablesInRange;
     bool throwableIsInRange;
     public bool hasThrowable;
@@ -27,7 +29,8 @@ public class Throw : MonoBehaviour
 
     void Start()
     {
-
+        hudManager = GameObject.Find("HUD Manager");
+        hudManagerInstance = hudManager.GetComponent<HUDManager>();
     }
 
     void Update()
@@ -53,7 +56,9 @@ public class Throw : MonoBehaviour
                 && Vector3.Distance(transform.position, closestThrowable.transform.position) < GetComponent<Movement>().pickUpRange
                 && !GetComponent<Combat>().isFinishing && !GetComponent<Combat>().enemy.GetComponent<Death>().dead)
             {
-                pickupIcon.SetActive(true);
+                if(hudManagerInstance.hudType != HUDManager.hud.none)
+                    pickupIcon.SetActive(true);
+
                 throwableIsInRange = true;
             }
             else

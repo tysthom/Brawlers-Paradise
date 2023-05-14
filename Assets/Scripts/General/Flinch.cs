@@ -578,8 +578,9 @@ public class Flinch : MonoBehaviour
                 }
             }  */
             
+            if(hudManager.GetComponent<HUDManager>().hudType != HUDManager.hud.none)
+                hudManager.GetComponent<HUDManager>().finisherPrompt.SetActive(true);
 
-            hudManager.GetComponent<HUDManager>().finisherPrompt.SetActive(true);
             GetComponent<Combat>().faceEnemy = false;
         }
 

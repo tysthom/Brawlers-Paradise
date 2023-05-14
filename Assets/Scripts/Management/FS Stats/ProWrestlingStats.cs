@@ -19,9 +19,13 @@ public class ProWrestlingStats : MonoBehaviour
     public float forthAttackV1Distance = 3;
     public float forthAttackV2Distance = 3;
 
-    [Header("Clothesline")]
+    [Header("Bearhug")]
     public float bearhugGrabTime = 2;
     public float bearhugDamagePerTick = 20;
+
+    [Header("Break Out")]
+    public int minBreakOutAmount = 7;
+    public int maxBreakOutAmount = 11;
 
     [Header("Ai Bearhug Frequency")]
     [Range(0, 10)] public int aiBearhugFrequency;

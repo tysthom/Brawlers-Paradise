@@ -21,7 +21,7 @@ public class MMAStats : MonoBehaviour
 
     [Header("MMA Dive Stats")]
     public float mmaDiveRange = 3;
-    public float mmaDiveDistane = 2;
+    public float mmaDiveDistance = 13;
     public float mmaDiveTime = 2;
     public float mmaGroundAttackTime = .5f;
     public float mmaGroundBufferTime = .35f;

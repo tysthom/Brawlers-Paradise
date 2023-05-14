@@ -961,7 +961,8 @@ public class Combat : MonoBehaviour
     { 
         if (tag == "Player")
         {
-            bearhugBreakOutCount += Random.Range(5, 11);
+            bearhugBreakOutCount += Random.Range(fightStyleManager.GetComponent<ProWrestlingStats>().minBreakOutAmount,
+                fightStyleManager.GetComponent<ProWrestlingStats>().maxBreakOutAmount);
             
         }
         else
