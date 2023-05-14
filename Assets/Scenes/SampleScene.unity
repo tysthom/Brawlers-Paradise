@@ -9014,6 +9014,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1209302667}
+  - component: {fileID: 1209302671}
   - component: {fileID: 1209302669}
   - component: {fileID: 1209302670}
   - component: {fileID: 1209302668}
@@ -9085,7 +9086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0dc2ef93580014f8ebf2fc26780d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameMode: 0
+  gameMode: 2
   playerPrefab: {fileID: 0}
   aiPrefab: {fileID: 7454506845584546906, guid: aab3a4d0f5b20894a91046ac24da77e3, type: 3}
   brawler1: {fileID: 0}
@@ -9118,6 +9119,19 @@ MonoBehaviour:
   b2DamageInflicted: 0
   b2HealthRecoverd: 0
   b2StaminaUsed: 0
+--- !u!114 &1209302671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209302665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a9147a9c834bac41b5e2fdf27f95e9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fight: 1
 --- !u!1 &1211467494
 GameObject:
   m_ObjectHideFlags: 0
@@ -11917,7 +11931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07c15265983f9ec4ab9242b65346ef57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hudType: 0
+  hudType: 1
   brawler1: {fileID: 0}
   brawler2: {fileID: 0}
   brawler1Health: {fileID: 0}

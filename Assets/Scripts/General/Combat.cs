@@ -156,6 +156,8 @@ public class Combat : MonoBehaviour
 
     void Update()
     {
+        if (!gameManager.GetComponent<UniversalFight>().fight) { return; }
+
         if (tag == "Tourist")
         {
             if (GetComponent<Tourist>().companion == null) { return; }

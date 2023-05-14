@@ -102,6 +102,8 @@ public class AiBehavior : MonoBehaviour
 
     void Update()
     {
+        if (!gameManager.GetComponent<UniversalFight>().fight) { return; }
+
         GetComponent<BoxCollider>().enabled = true;
 
         if (isPunchingBag)
