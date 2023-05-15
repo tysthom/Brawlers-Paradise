@@ -111,6 +111,9 @@ ModelImporter:
   - first:
       74: 5130648394472771278
     second: Karate Attack 4V2
+  - first:
+      74: 6001075358681892484
+    second: Karate Win Animation
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -126,7 +129,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
       in configuration does not match rotation in animation file:\n\t'Elbow.L' :
-      rotation error = 1.761436 deg\n\t'Elbow.R' : rotation error = 1.761451 deg\n"
+      rotation error = 1.478254 deg\n\t'Elbow.R' : rotation error = 1.478265 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Armature|Karate Attack 1' has import animation
       warnings that might lower retargeting quality:\nNote: Activate translation
@@ -212,7 +215,11 @@ ModelImporter:
       retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
       quality.\n\t'Elbow.L' is inbetween humanoid transforms and has rotation animation
       that will be discarded.\n\t'Elbow.R' is inbetween humanoid transforms and has
-      rotation animation that will be discarded.\n"
+      rotation animation that will be discarded.\n\nClip 'Armature|Karate Win Animation'
+      has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Elbow.R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -910,6 +917,35 @@ ModelImporter:
         floatParameter: 0
         intParameter: 110
         messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Karate Win Animation
+      takeName: Armature|Karate Win Animation
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 99
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

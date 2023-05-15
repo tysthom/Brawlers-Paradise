@@ -26,6 +26,7 @@ public class Combat : MonoBehaviour
     Difficulty difficultyInstance;
 
     [Header("General Status")]
+    public bool winner;
     public bool invinsible; //True if can't take damage and flinch
     public bool unkillable; //True if user can't be killed, but can still flinch
     public bool invulnerable; //True if user can take damage but won't be casued to flinch
@@ -156,7 +157,7 @@ public class Combat : MonoBehaviour
 
     void Update()
     {
-        if (!gameManager.GetComponent<UniversalFight>().fight) { return; }
+        if (!gameManager.GetComponent<UniversalFight>().fight || winner) { return; }
 
         if (tag == "Tourist")
         {
@@ -1070,6 +1071,13 @@ public class Combat : MonoBehaviour
         yield return new WaitForSeconds(4);
 
         anim.SetInteger("State", 0);
+
+        yield return new WaitForSeconds(2);
+
+        winner = true;
+        faceEnemy = false;
+
+        StartCoroutine(Winner());
     }
 
     public void Finish()
@@ -1554,6 +1562,23 @@ public class Combat : MonoBehaviour
             }
         }
     }  
+
+    public IEnumerator Winner()
+    {
+        anim.SetInteger("State", 1000);
+
+        gameManager.GetComponent<UniversalFight>().fight = false;
+        gameManager.GetComponent<IdManagear>().playerCamera.enabled = false;
+        gameManager.GetComponent<IdManagear>().spectatorCamera.enabled = false;
+        gameManager.GetComponent<IdManagear>().winnerCamera.enabled = true;
+
+        transform.position = GameObject.Find("Winner Position").transform.position;
+        transform.rotation = Quaternion.Euler(0,0,0);
+
+        yield return new WaitForSeconds(1);
+
+        anim.SetInteger("State", 0);
+    }
 
     void Emergency()
     {

@@ -15,6 +15,7 @@ public class IdManagear : MonoBehaviour
     public GameObject brawler1, brawler2;
     public Camera playerCamera;
     public Camera spectatorCamera;
+    public Camera winnerCamera;
     GameObject[] spawnPositions;
     public GameObject combatManager, characterManager;
 
@@ -41,6 +42,7 @@ public class IdManagear : MonoBehaviour
         player = GameObject.FindGameObjectsWithTag("Player");
         ai = GameObject.FindGameObjectsWithTag("Enemy");
         //spectatorCamera = Camer GameObject.Find("Spectator Camera");
+        winnerCamera.enabled = false;
 
         if (gameMode == mode.playerVsAi || gameMode == mode.training)
         {
