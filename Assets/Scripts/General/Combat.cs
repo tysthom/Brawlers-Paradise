@@ -1071,18 +1071,11 @@ public class Combat : MonoBehaviour
         yield return new WaitForSeconds(4);
 
         anim.SetInteger("State", 0);
-
-        yield return new WaitForSeconds(2);
-
-        winner = true;
-        faceEnemy = false;
-
-        StartCoroutine(Winner());
     }
 
     public void Finish()
     {
-        enemy.GetComponent<Death>().Die();
+        StartCoroutine(enemy.GetComponent<Death>().Die());
     }
 
 
@@ -1565,6 +1558,9 @@ public class Combat : MonoBehaviour
 
     public IEnumerator Winner()
     {
+        winner = true;
+        faceEnemy = false;
+
         anim.SetInteger("State", 1000);
 
         gameManager.GetComponent<UniversalFight>().fight = false;

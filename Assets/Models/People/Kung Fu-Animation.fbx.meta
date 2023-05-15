@@ -69,6 +69,9 @@ ModelImporter:
   - first:
       74: -30171376735328669
     second: Kung Fu Attack 4V2
+  - first:
+      74: 6053486555930101337
+    second: Kung Fu Win Animation
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -82,11 +85,9 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: <Root Transform>
     rigImportErrors: 
-    rigImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
-      does not match position in animation file:\n\t'Shoulder.R' : position error
-      = 32.384056 mm\nAvatar Rig Configuration mis-match. Inbetween bone rotation
+    rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
       in configuration does not match rotation in animation file:\n\t'Elbow.L' :
-      rotation error = 49.162327 deg\n\t'Elbow.R' : rotation error = 3.051891 deg\n"
+      rotation error = 22.157927 deg\n\t'Elbow.R' : rotation error = 21.785538 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Armature|Guardbreaker' has import animation
       warnings that might lower retargeting quality:\nNote: Activate translation
@@ -194,7 +195,15 @@ ModelImporter:
       retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
       quality.\n\t'Elbow.L' is inbetween humanoid transforms and has rotation animation
       that will be discarded.\n\t'Elbow.R' is inbetween humanoid transforms and has
-      rotation animation that will be discarded.\n"
+      rotation animation that will be discarded.\n\nClip 'Armature|Kung Fu Win Animation'
+      has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Index1.L'
+      has translation animation that will be discarded.\n\t'Middle1.L' has translation
+      animation that will be discarded.\n\t'Elbow.R' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Index1.R' has translation
+      animation that will be discarded.\n\t'Middle1.R' has translation animation
+      that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -928,6 +937,35 @@ ModelImporter:
         floatParameter: 0
         intParameter: 110
         messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Kung Fu Win Animation
+      takeName: Armature|Kung Fu Win Animation
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 69
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

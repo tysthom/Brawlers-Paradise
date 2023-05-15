@@ -34,7 +34,7 @@ public class Death : MonoBehaviour
             if (GetComponent<Flinch>().isDove || GetComponent<Flinch>().isBearhugged ||
                      GetComponent<Combat>().isDiving || GetComponent<Combat>().isGroundIdle)
             {
-                Die();
+                StartCoroutine(Die());
             }
             else
             {
@@ -46,7 +46,7 @@ public class Death : MonoBehaviour
 
     
 
-    public void Die()
+    public IEnumerator Die()
     {
         if (!dead)
         {
@@ -101,6 +101,9 @@ public class Death : MonoBehaviour
             }
 
             StartCoroutine(BounceBack());
+
+            yield return new WaitForSeconds(4);
+            StartCoroutine(GetComponent<Combat>().enemy.GetComponent<Combat>().Winner());
         }
     }
 
