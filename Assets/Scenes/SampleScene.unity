@@ -2047,7 +2047,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 0
+    Value: 180
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -3665,7 +3665,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502112829}
-  m_LocalRotation: {x: 0.13162142, y: -0.00000001906995, z: 0.0000000025320428, w: 0.99130005}
+  m_LocalRotation: {x: -0.0000000032552192, y: 0.99130005, z: -0.13162142, w: -0.000000024516513}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5484,7 +5484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 5
+  fightStyle: 4
 --- !u!114 &835227091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5821,7 +5821,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 835227087}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: -0.011338711, z: -6.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6717,7 +6717,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -6740,13 +6740,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.14958341, y: -0.000000014733512, z: 0.0000000022289668, w: 0.98874915}
-  m_LocalPosition: {x: 0, y: 4.9886613, z: -16.17}
+  m_LocalRotation: {x: -0.000000008767465, y: 0.98874915, z: -0.14958341, w: -0.000000057953113}
+  m_LocalPosition: {x: 0.0000008742278, y: 4.9886613, z: 3.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 17.24, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 37.565, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7379,7 +7379,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1022230445}
-  m_LocalRotation: {x: 0.14958338, y: -1e-45, z: -0, w: 0.98874915}
+  m_LocalRotation: {x: -0.0000000065384995, y: 0.98874915, z: -0.14958338, w: -0.000000043219604}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7602,7 +7602,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 0
+    Value: 180
     m_SpeedMode: 0
     m_MaxSpeed: 225
     m_AccelTime: 0.1
@@ -7651,7 +7651,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1029178369}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.9886613, z: -16.17}
+  m_LocalPosition: {x: 0.0000008742278, y: 4.9886613, z: 3.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1232815401}
@@ -9423,7 +9423,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1232815399}
-  m_LocalRotation: {x: 0.16754349, y: -0, z: -0, w: 0.9858647}
+  m_LocalRotation: {x: -0.0000000073235586, y: 0.9858647, z: -0.16754349, w: -0.000000043093518}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -11674,7 +11674,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 0
+    Value: 180
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -14117,7 +14117,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 0
+    Value: 180
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -14971,7 +14971,7 @@ MonoBehaviour:
   brawler1ForthAttackTime: 1.12
   brawler1ForthAttackV1Distance: 5
   brawler1ForthAttackV2Distance: 2
-  brawler2AttackDamage: 50
+  brawler2AttackDamage: 300
   brawler2FirstAttackTime: 0.5
   brawler2FirstAttackDistance: 5
   brawler2SecondAAttackTime: 0.9
@@ -15006,7 +15006,7 @@ MonoBehaviour:
   counterAttackTime: 0.22
   throwableDamage: 65
   finisherDistance: 2.5
-  bounceBackForceAmount: 500
+  bounceBackForceAmount: 200
   randomFightStyle: 1
   aiDefendFrequency: 5
   aiBlockDodgeFrequency: 4
@@ -17226,11 +17226,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7478207192700227786, guid: d7b68d6b8553c3e47a52806ddb6e620a, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 475.0519
+      value: 323.3811
       objectReference: {fileID: 0}
     - target: {fileID: 7478207192700227786, guid: d7b68d6b8553c3e47a52806ddb6e620a, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 167.4389
+      value: 85.0274
       objectReference: {fileID: 0}
     - target: {fileID: 7478207192700227786, guid: d7b68d6b8553c3e47a52806ddb6e620a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17242,7 +17242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7478207192700227786, guid: d7b68d6b8553c3e47a52806ddb6e620a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7478207192700227786, guid: d7b68d6b8553c3e47a52806ddb6e620a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17262,11 +17262,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7478207192700227786, guid: d7b68d6b8553c3e47a52806ddb6e620a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.289
+      value: -0.067
       objectReference: {fileID: 0}
     - target: {fileID: 7478207192700227786, guid: d7b68d6b8553c3e47a52806ddb6e620a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 3.61
+      value: 3.599
       objectReference: {fileID: 0}
     - target: {fileID: 7478207192700227786, guid: d7b68d6b8553c3e47a52806ddb6e620a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

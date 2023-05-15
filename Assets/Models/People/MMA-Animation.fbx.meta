@@ -105,7 +105,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
       in configuration does not match rotation in animation file:\n\t'Elbow.L' :
-      rotation error = 23.102749 deg\n\t'Elbow.R' : rotation error = 23.896778 deg\n"
+      rotation error = 28.104227 deg\n\t'Elbow.R' : rotation error = 27.548929 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Armature|MMA Attack 1' has import animation
       warnings that might lower retargeting quality:\nNote: Activate translation
@@ -980,7 +980,7 @@ ModelImporter:
       takeName: Armature|MMA Win Animation
       internalID: 0
       firstFrame: 0
-      lastFrame: 79
+      lastFrame: 179
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

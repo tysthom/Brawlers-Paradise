@@ -87,7 +87,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
       in configuration does not match rotation in animation file:\n\t'Elbow.L' :
-      rotation error = 22.157927 deg\n\t'Elbow.R' : rotation error = 21.785538 deg\n"
+      rotation error = 21.775162 deg\n\t'Elbow.R' : rotation error = 21.775145 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Armature|Guardbreaker' has import animation
       warnings that might lower retargeting quality:\nNote: Activate translation
@@ -946,7 +946,7 @@ ModelImporter:
       takeName: Armature|Kung Fu Win Animation
       internalID: 0
       firstFrame: 0
-      lastFrame: 69
+      lastFrame: 86
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

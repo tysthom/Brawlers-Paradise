@@ -105,7 +105,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
       in configuration does not match rotation in animation file:\n\t'Elbow.L' :
-      rotation error = 5.845996 deg\n\t'Elbow.R' : rotation error = 31.288742 deg\n"
+      rotation error = 5.724359 deg\n\t'Elbow.R' : rotation error = 31.017361 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Armature|Stretch V1' has import animation warnings
       that might lower retargeting quality:\nNote: Activate translation DOF on avatar
@@ -890,7 +890,7 @@ ModelImporter:
       takeName: Armature|TKD Win Animation
       internalID: 0
       firstFrame: 0
-      lastFrame: 49
+      lastFrame: 65
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
