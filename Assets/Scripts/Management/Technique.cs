@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Technique : MonoBehaviour
 {
+    GameObject particleManager;
+
+    private void Start()
+    {
+        particleManager = GameObject.Find("Particle Manager");
+    }
+
     public void UseTechnique(GameObject brawler)
     {
         if (brawler.GetComponent<Combat>().canUseTechnique)
@@ -38,18 +45,24 @@ public class Technique : MonoBehaviour
             b.GetComponent<Animator>().SetBool("isOffensiveStance", false);
             b.GetComponent<Animator>().SetBool("isDefensiveStance", true);
             b.GetComponent<Animator>().SetBool("isPassiveStance", false);
+
+            particleManager.GetComponent<ParticleManager>().KarateDefensiveParticles(gameObject); //Switches stance from defensive to passive & activates particles
         }
         else if(b.GetComponent<Animator>().GetBool("isDefensiveStance"))
         {
             b.GetComponent<Animator>().SetBool("isOffensiveStance", false);
             b.GetComponent<Animator>().SetBool("isDefensiveStance", false);
             b.GetComponent<Animator>().SetBool("isPassiveStance", true);
+
+            particleManager.GetComponent<ParticleManager>().KaratePassiveParticles(gameObject); //Switches stance from defensive to passive & activates particles
         }
         else if(b.GetComponent<Animator>().GetBool("isPassiveStance"))
         {
             b.GetComponent<Animator>().SetBool("isOffensiveStance", true);
             b.GetComponent<Animator>().SetBool("isDefensiveStance", false);
             b.GetComponent<Animator>().SetBool("isPassiveStance", false);
+
+            particleManager.GetComponent<ParticleManager>().KarateOffensiveParticles(gameObject); //Switches stance from defensive to passive & activates particles
         }
         else
         {

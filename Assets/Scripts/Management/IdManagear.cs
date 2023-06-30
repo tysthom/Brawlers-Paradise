@@ -17,7 +17,7 @@ public class IdManagear : MonoBehaviour
     public Camera spectatorCamera;
     public Camera winnerCamera;
     GameObject[] spawnPositions;
-    public GameObject combatManager, characterManager;
+    public GameObject combatManager, characterManager, particleManager;
 
     private void Awake()
     {
@@ -69,5 +69,7 @@ public class IdManagear : MonoBehaviour
         combatManager.GetComponent<CombatStats>().brawler2 = brawler2;
         characterManager.GetComponent<CharacterManager>().brawler1 = brawler1;
         characterManager.GetComponent<CharacterManager>().brawler2 = brawler2;
+        particleManager.GetComponent<ParticleManager>().brawler1 = brawler1;
+        particleManager.GetComponent<ParticleManager>().brawler2 = brawler2;
     }
 }
