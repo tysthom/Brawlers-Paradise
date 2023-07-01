@@ -18,6 +18,7 @@ public class AiBehavior : MonoBehaviour
     BrawlerStats brawlerStatsInstance;
     GameObject fightStyleManager;
     Difficulty difficultyInstance;
+    GameObject particleManager;
 
     [Header("Stats")]
     float baseSpeed;
@@ -69,6 +70,7 @@ public class AiBehavior : MonoBehaviour
         brawlerStatsInstance = combatManagear.GetComponent<BrawlerStats>();
         fightStyleManager = GameObject.Find("Fight Style Manager");
         difficultyInstance = gameManager.GetComponent<Difficulty>();
+        particleManager = GameObject.Find("Particle Manager");
         agent = GetComponent<NavMeshAgent>();
         baseSpeed = agent.speed;
         baseDefense = combatManagear.GetComponent<CombatStats>().aiDefendFrequency;
@@ -388,6 +390,8 @@ public class AiBehavior : MonoBehaviour
                     anim.SetBool("isOffensiveStance", true);
                     anim.SetBool("isDefensiveStance", false);
                     anim.SetBool("isPassiveStance", false);
+
+                    particleManager.GetComponent<ParticleManager>().KarateOffensiveParticles(gameObject);
                 }
             }
         }

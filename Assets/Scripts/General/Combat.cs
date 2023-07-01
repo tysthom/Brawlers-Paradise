@@ -24,6 +24,7 @@ public class Combat : MonoBehaviour
     ResultStats resultStatsInstance;
     BrawlerStats brawlerStatsInstance;
     Difficulty difficultyInstance;
+    GameObject particleManager;
 
     [Header("General Status")]
     public bool winner;
@@ -106,6 +107,7 @@ public class Combat : MonoBehaviour
         fightStyleManager = GameObject.Find("Fight Style Manager");
         difficultyInstance = gameManager.GetComponent<Difficulty>();
         hudManager = GameObject.Find("HUD Manager");
+        particleManager = GameObject.Find("Particle Manager");
 
         if (tag == "Player") {
             controller = GetComponent<CharacterController>(); controller.enabled = true;
@@ -1516,11 +1518,15 @@ public class Combat : MonoBehaviour
                             {
                                 anim.SetBool("isDefensiveStance", true);
                                 anim.SetBool("isPassiveStance", false);
+
+                                particleManager.GetComponent<ParticleManager>().KarateDefensiveParticles(gameObject);
                             }
                             else
                             {
                                 anim.SetBool("isDefensiveStance", false);
                                 anim.SetBool("isPassiveStance", true);
+
+                                particleManager.GetComponent<ParticleManager>().KaratePassiveParticles(gameObject);
                             }
                         }
                     }
