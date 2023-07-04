@@ -16,13 +16,13 @@ public class Health : MonoBehaviour
 
     public Image healthBar;
     public Image healthRegenBar;
-    public Image shieldBar;
+    public Image armourBar;
 
-    public float health, regenHealth, maxHealth = 100, shield;
+    public float health, regenHealth, maxHealth = 100, armour;
     public float previousHealth;
     Coroutine regen;
 
-    bool canDeteriorate = true; //Derterioration of the shield
+    bool canDeteriorate = true; //Derterioration of the armour
 
     private void Awake()
     {
@@ -49,20 +49,20 @@ public class Health : MonoBehaviour
         {
             healthBar = hudManagerInstance.brawler1HealthFill;
             healthRegenBar = hudManagerInstance.brawler1HealthRegen;
-            shieldBar = hudManagerInstance.brawler1ShieldFill;
+            armourBar = hudManagerInstance.brawler1ArmourFill;
         }
         else if (idManagerInstance.brawler2 == gameObject)
         {
             
             healthBar = hudManagerInstance.brawler2HealthFill;
             healthRegenBar = hudManagerInstance.brawler2HealthRegen;
-            shieldBar = hudManagerInstance.brawler2ShieldFill;
+            armourBar = hudManagerInstance.brawler2ArmourFill;
         }
 
         maxHealth = (int)(maxHealth * combatManager.GetComponent<BrawlerStats>().Health(gameObject));
         health = maxHealth;
         previousHealth = maxHealth;
-        shield = 0;
+        armour = 0;
 
         StartCoroutine(KararteRegenHealth());
 
@@ -95,9 +95,9 @@ public class Health : MonoBehaviour
         {
             BarFiller();
 
-            if (GetComponent<Souvenirs>().hasShield && canDeteriorate)
+            if (GetComponent<Souvenirs>().hasArmour && canDeteriorate)
             {
-                StartCoroutine(DeteriorateShield());
+                StartCoroutine(DeteriorateArmour());
             }
 
             if (GetComponent<Flinch>().isPoisoned)
@@ -119,30 +119,30 @@ public class Health : MonoBehaviour
     {
         healthBar.fillAmount = health / maxHealth;
         healthRegenBar.fillAmount = regenHealth / maxHealth;
-        if(GetComponent<Souvenirs>().hasShield)
-        shieldBar.fillAmount = shield / souvenirsManager.GetComponent<SouvenirsManager>().shieldAmount;
+        if(GetComponent<Souvenirs>().hasArmour)
+        armourBar.fillAmount = armour / souvenirsManager.GetComponent<SouvenirsManager>().armourAmount;
     }
 
-    IEnumerator DeteriorateShield()
+    IEnumerator DeteriorateArmour()
     {
-        while (shield > 0)
+        while (armour > 0)
         {
 
             canDeteriorate = false;
             yield return new WaitForSeconds(.5f);
-            shield -= souvenirsManager.GetComponent<SouvenirsManager>().shieldAmount/10;
+            armour -= souvenirsManager.GetComponent<SouvenirsManager>().armourAmount/10;
             canDeteriorate = true;
         }
         regen = null;
-        GetComponent<Souvenirs>().hasShield = false;
+        GetComponent<Souvenirs>().hasArmour = false;
         GetComponent<Combat>().invulnerable = false;
-        shieldBar.fillAmount = 0;
+        armourBar.fillAmount = 0;
         StartCoroutine(GetComponent<Souvenirs>().CooldownTime(souvenirsManager.GetComponent<SouvenirsManager>().sunscreenCooldownTime));
     }
 
     public void SubtractHealth(float damageAmount)
     {
-        if (shield <= 0)
+        if (armour <= 0)
         {
             previousHealth = health;
             if (health > 0)
@@ -174,11 +174,11 @@ public class Health : MonoBehaviour
 
     public void SubtractShield(float damageAmount)
     {
-        shield -= damageAmount;
-        if(shield < 0)
+        armour -= damageAmount;
+        if(armour < 0)
         {
-            shield = 0;
-            GetComponent<Souvenirs>().hasShield = false;
+            armour = 0;
+            GetComponent<Souvenirs>().hasArmour = false;
         }
     }
 
@@ -189,7 +189,7 @@ public class Health : MonoBehaviour
 
         for (int i = 0; i < repeatAmount; i++)
         {
-            if (shield <= 0)
+            if (armour <= 0)
             {
                 if (health > 0)
                 {
@@ -202,7 +202,7 @@ public class Health : MonoBehaviour
             }
             else
             {
-                shield -= damageAmount;
+                armour -= damageAmount;
             }
             yield return new WaitForSeconds(1);
         }

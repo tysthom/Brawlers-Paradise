@@ -13,8 +13,8 @@ public class HUDManager : MonoBehaviour
     GameObject gameManager;
     public GameObject brawler1, brawler2;
 
-    public Image brawler1Health, brawler1HealthFill, brawler1HealthRegen, brawler1ShieldFill, brawler1Stamina, brawler1StaminaFill,
-        brawler2Health, brawler2HealthFill, brawler2HealthRegen, brawler2ShieldFill, brawler2Stamina, brawler2StaminaFill;
+    public Image brawler1Health, brawler1HealthFill, brawler1HealthRegen, brawler1ArmourFill, brawler1Stamina, brawler1StaminaFill,
+        brawler2Health, brawler2HealthFill, brawler2HealthRegen, brawler2ArmourFill, brawler2Stamina, brawler2StaminaFill;
 
     public TMP_Text finisherText;
     public GameObject finisherPrompt;
@@ -56,9 +56,9 @@ public class HUDManager : MonoBehaviour
                 {
                     brawler1HealthRegen = child;
                 }
-                if (child.gameObject.name == "Shield Fill") //Finds b1 shield fill on main canvas
+                if (child.gameObject.name == "Armour Fill") //Finds b1 armour fill on main canvas
                 {
-                    brawler1ShieldFill = child;
+                    brawler1ArmourFill = child;
                 }
             }
 
@@ -97,9 +97,9 @@ public class HUDManager : MonoBehaviour
                 {
                     brawler2HealthRegen = child;
                 }
-                if (child.gameObject.name == "Shield Fill") //Finds b2 shield fill on main canvas
+                if (child.gameObject.name == "Armour Fill") //Finds b2 armour fill on main canvas
                 {
-                    brawler2ShieldFill = child;
+                    brawler2ArmourFill = child;
                 }
             }
 
@@ -143,9 +143,9 @@ public class HUDManager : MonoBehaviour
                 {
                     brawler1HealthRegen = child;
                 }
-                if (child.gameObject.name == "Shield Fill") //Finds b1 shield fill
+                if (child.gameObject.name == "Armour Fill") //Finds b1 armour fill
                 {
-                    brawler1ShieldFill = child;
+                    brawler1ArmourFill = child;
                 }
             }
 
@@ -185,9 +185,9 @@ public class HUDManager : MonoBehaviour
                 {
                     brawler2HealthRegen = child;
                 }
-                if (child.gameObject.name == "Shield Fill") //Finds b2 shield fill
+                if (child.gameObject.name == "Armour Fill") //Finds b2 armour fill
                 {
-                    brawler2ShieldFill = child;
+                    brawler2ArmourFill = child;
                 }
             }
 

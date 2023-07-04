@@ -27,6 +27,7 @@ public class Combat : MonoBehaviour
     GameObject particleManager;
 
     [Header("General Status")]
+    public FightStyle.fightStyles currentStyle;
     public bool winner;
     public bool invinsible; //True if can't take damage and flinch
     public bool unkillable; //True if user can't be killed, but can still flinch

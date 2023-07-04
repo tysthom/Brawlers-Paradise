@@ -14,7 +14,7 @@ public class SouvenirsManager : MonoBehaviour
     public float medicineCooldownTime = 15;
 
     [Header("Sunscreen")]
-    public float shieldAmount = 300;
+    public float armourAmount = 300;
     public float sunscreenCooldownTime = 30;
 
     [Header("Coffee")]

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5858717172134639468}
   - component: {fileID: 4818361678842031413}
   m_Layer: 7
-  m_Name: Health Particles
+  m_Name: Armour Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

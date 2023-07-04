@@ -1525,6 +1525,7 @@ MonoBehaviour:
   karateOffensiveParticles: {fileID: 5858717172134639469, guid: 8d7c2aa52d33ec14a93793ccae353386, type: 3}
   karateDefensiveParticles: {fileID: 5858717172134639469, guid: f763f03317e539a4692013b71bba6f01, type: 3}
   karatePassiceParticles: {fileID: 5858717172134639469, guid: d62ce8275e9f7c84b8a7831100e3b265, type: 3}
+  armourParticles: {fileID: 5858717172134639469, guid: a7e5f9645c64f3c4bba1fcec5aae3a83, type: 3}
 --- !u!1 &197373996
 GameObject:
   m_ObjectHideFlags: 0
@@ -3845,7 +3846,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502112829}
-  m_LocalRotation: {x: -0.000000009250937, y: 0.99130005, z: -0.13162142, w: -0.00000006967296}
+  m_LocalRotation: {x: -0.0000000032213134, y: 0.99130005, z: -0.13162142, w: -0.000000024261153}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5780,6 +5781,7 @@ MonoBehaviour:
   souvenirsManager: {fileID: 934910624}
   fightStyleManager: {fileID: 1365660884}
   hudManager: {fileID: 0}
+  currentStyle: 0
   winner: 0
   invinsible: 0
   unkillable: 0
@@ -5831,11 +5833,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 94847479}
   healthRegenBar: {fileID: 7210151674008996667}
-  shieldBar: {fileID: 1074600925}
+  armourBar: {fileID: 0}
   health: 1000
   regenHealth: 0
   maxHealth: 1000
-  shield: 0
+  armour: 0
   previousHealth: 0
 --- !u!114 &835227094
 MonoBehaviour:
@@ -5936,13 +5938,13 @@ MonoBehaviour:
   souvenirIcon: {fileID: 0}
   canUseSouvenir: 1
   onCooldown: 0
-  hasShield: 0
+  hasArmour: 0
   hasSpeedBoost: 0
   hasPoison: 0
   hasDamageBoost: 0
   hasLifeSteal: 0
   hasDamageReduction: 0
-  souvenir: 4
+  souvenir: 1
 --- !u!114 &835227099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6652,7 +6654,7 @@ MonoBehaviour:
   souvenirsAllowed: 1
   healthBoostAmount: 300
   medicineCooldownTime: 30
-  shieldAmount: 750
+  armourAmount: 300
   sunscreenCooldownTime: 30
   speedMultiplier: 1.2
   speedBoostDuration: 10
@@ -7764,7 +7766,7 @@ GameObject:
   - component: {fileID: 1029171472}
   - component: {fileID: 1029171471}
   m_Layer: 5
-  m_Name: Shield Fill
+  m_Name: Armour Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8146,17 +8148,6 @@ Transform:
   m_Father: {fileID: 802183923}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1074600925 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1074600925, guid: 72dac294a9ea97f4cb6837a52a92a65e, type: 3}
-  m_PrefabInstance: {fileID: 5354269155589090199}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1079042501
 GameObject:
   m_ObjectHideFlags: 0
@@ -9575,7 +9566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0dc2ef93580014f8ebf2fc26780d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameMode: 0
+  gameMode: 2
   playerPrefab: {fileID: 0}
   aiPrefab: {fileID: 7454506845584546906, guid: aab3a4d0f5b20894a91046ac24da77e3, type: 3}
   brawler1: {fileID: 0}
@@ -12508,13 +12499,13 @@ MonoBehaviour:
   brawler1Health: {fileID: 0}
   brawler1HealthFill: {fileID: 0}
   brawler1HealthRegen: {fileID: 0}
-  brawler1ShieldFill: {fileID: 0}
+  brawler1ArmourFill: {fileID: 0}
   brawler1Stamina: {fileID: 0}
   brawler1StaminaFill: {fileID: 0}
   brawler2Health: {fileID: 0}
   brawler2HealthFill: {fileID: 0}
   brawler2HealthRegen: {fileID: 0}
-  brawler2ShieldFill: {fileID: 0}
+  brawler2ArmourFill: {fileID: 0}
   brawler2Stamina: {fileID: 0}
   brawler2StaminaFill: {fileID: 0}
   finisherText: {fileID: 1434413685}
@@ -12865,6 +12856,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1504636459}
     m_Modifications:
+    - target: {fileID: 1074600923, guid: 72dac294a9ea97f4cb6837a52a92a65e, type: 3}
+      propertyPath: m_Name
+      value: Armour Fill
+      objectReference: {fileID: 0}
     - target: {fileID: 1074600925, guid: 72dac294a9ea97f4cb6837a52a92a65e, type: 3}
       propertyPath: m_FillAmount
       value: 0
@@ -13974,7 +13969,7 @@ MonoBehaviour:
   souvenirIcon: {fileID: 0}
   canUseSouvenir: 1
   onCooldown: 0
-  hasShield: 0
+  hasArmour: 0
   hasSpeedBoost: 0
   hasPoison: 0
   hasDamageBoost: 0
@@ -14065,11 +14060,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
   healthRegenBar: {fileID: 0}
-  shieldBar: {fileID: 0}
+  armourBar: {fileID: 0}
   health: 0
   regenHealth: 0
   maxHealth: 1000
-  shield: 0
+  armour: 0
   previousHealth: 0
 --- !u!114 &1760875134
 MonoBehaviour:
@@ -14091,6 +14086,7 @@ MonoBehaviour:
   souvenirsManager: {fileID: 0}
   fightStyleManager: {fileID: 0}
   hudManager: {fileID: 0}
+  currentStyle: 0
   winner: 0
   invinsible: 0
   unkillable: 0
@@ -16953,6 +16949,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 560146491278166177, guid: aab3a4d0f5b20894a91046ac24da77e3, type: 3}
+      propertyPath: m_Name
+      value: Armour Fill
+      objectReference: {fileID: 0}
     - target: {fileID: 916211913074541671, guid: aab3a4d0f5b20894a91046ac24da77e3, type: 3}
       propertyPath: combatManagear
       value: 
@@ -17099,6 +17099,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1504636459}
     m_Modifications:
+    - target: {fileID: 1074600923, guid: 72dac294a9ea97f4cb6837a52a92a65e, type: 3}
+      propertyPath: m_Name
+      value: Armour Fill
+      objectReference: {fileID: 0}
     - target: {fileID: 5354269154642796792, guid: 72dac294a9ea97f4cb6837a52a92a65e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -17716,6 +17720,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 963194228}
+    - target: {fileID: 7478207193286842573, guid: d7b68d6b8553c3e47a52806ddb6e620a, type: 3}
+      propertyPath: m_Name
+      value: Armour Fill
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7b68d6b8553c3e47a52806ddb6e620a, type: 3}
 --- !u!1001 &8493836433236241913
@@ -17733,6 +17741,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 963194228}
+    - target: {fileID: 4231891231930031148, guid: f3c2f6bc970717d418d0358cac4af068, type: 3}
+      propertyPath: m_Name
+      value: Armour Fill
+      objectReference: {fileID: 0}
     - target: {fileID: 5174290558674300091, guid: f3c2f6bc970717d418d0358cac4af068, type: 3}
       propertyPath: m_Name
       value: Enemy - Old

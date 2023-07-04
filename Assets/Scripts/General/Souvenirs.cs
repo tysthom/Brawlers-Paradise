@@ -15,13 +15,15 @@ public class Souvenirs : MonoBehaviour
     GameObject hudManager;
     HUDManager hudManagerInstance;
     IdManagear idManagerInstance;
+    GameObject particleManager;
+    ParticleManager particleManagerInstance;
 
     public enum souvenirs {medicine, sunscreen, coffee, briefcase, lifeJacket, ratPoison, tequila, vipCard, floaty, none};
 
     [Header("Status")]
     public bool canUseSouvenir;
     public bool onCooldown;
-    public bool hasShield;
+    public bool hasArmour;
     public bool hasSpeedBoost;
     public bool hasPoison;
     public bool hasDamageBoost;
@@ -39,6 +41,8 @@ public class Souvenirs : MonoBehaviour
         hudManager = GameObject.Find("HUD Manager");
         hudManagerInstance = hudManager.GetComponent<HUDManager>();
         idManagerInstance = gameManager.GetComponent<IdManagear>();
+        particleManager = GameObject.Find("Particle Manager");
+        particleManagerInstance = particleManager.GetComponent<ParticleManager>();
 
         canUseSouvenir = true;
     }
@@ -144,9 +148,9 @@ public class Souvenirs : MonoBehaviour
             {
                 HealthBoost();
             }
-            if (souvenir == souvenirs.sunscreen) //Flinch Shield
+            if (souvenir == souvenirs.sunscreen) //Flinch Armour
             {
-                Shield();
+                Armour();
             }
             if (souvenir == souvenirs.coffee) //Movement Speed Boost
             {
@@ -186,11 +190,12 @@ public class Souvenirs : MonoBehaviour
         StartCoroutine(CooldownTime(souvenirsManagerInstance.medicineCooldownTime));
     }
 
-    void Shield()
+    void Armour()
     {
-        GetComponent<Health>().shield = souvenirsManagerInstance.shieldAmount;
-        GetComponent<Health>().GetComponent<Souvenirs>().hasShield = true;
+        GetComponent<Health>().armour = souvenirsManagerInstance.armourAmount;
+        GetComponent<Health>().GetComponent<Souvenirs>().hasArmour = true;
         GetComponent<Combat>().invulnerable = true;
+        particleManagerInstance.ArmourParticles(gameObject);
     }
 
     IEnumerator Coffee()

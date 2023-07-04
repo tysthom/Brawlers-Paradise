@@ -7,12 +7,25 @@ public class Particles : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 5);   
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public IEnumerator ParticlesDeletion(GameObject brawler)
+    {
+        
+        if (name == "Defense Increase Particles(Clone)")
+        {
+            Debug.Log("Hey");
+            yield return new WaitUntil(() => brawler.GetComponent<Animator>().GetBool("isDefensiveStance") == false);
+            GetComponent<ParticleSystem>().Stop();
+
+            //Destroy(gameObject);
+        }
     }
 }
