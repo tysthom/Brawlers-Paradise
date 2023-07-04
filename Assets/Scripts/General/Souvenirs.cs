@@ -195,7 +195,8 @@ public class Souvenirs : MonoBehaviour
         GetComponent<Health>().armour = souvenirsManagerInstance.armourAmount;
         GetComponent<Health>().GetComponent<Souvenirs>().hasArmour = true;
         GetComponent<Combat>().invulnerable = true;
-        particleManagerInstance.ArmourParticles(gameObject);
+        StartCoroutine(CooldownTime(souvenirsManager.GetComponent<SouvenirsManager>().sunscreenCooldownTime));
+        particleManagerInstance.ArmorParticles(gameObject);
     }
 
     IEnumerator Coffee()

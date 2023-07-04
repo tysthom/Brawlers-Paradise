@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5858717172134639468}
   - component: {fileID: 4818361678842031413}
   m_Layer: 7
-  m_Name: Defense Increase Particles
+  m_Name: Defense Increase Lasting Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,7 +116,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 1.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -169,7 +169,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -4759,7 +4759,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4ee0527ff1b6be846bcefbfc816f1b1f, type: 2}
+  - {fileID: 2100000, guid: 08e9f5d69347ad8459aa2c9a4ab1ae1e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

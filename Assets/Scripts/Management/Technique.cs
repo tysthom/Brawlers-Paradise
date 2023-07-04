@@ -39,7 +39,7 @@ public class Technique : MonoBehaviour
     }
 
     IEnumerator KarateTechnique(GameObject b)
-    {
+    {   
         if (b.GetComponent<Animator>().GetBool("isOffensiveStance"))
         {
             b.GetComponent<Animator>().SetBool("isOffensiveStance", false);

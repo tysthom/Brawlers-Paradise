@@ -1525,7 +1525,7 @@ MonoBehaviour:
   karateOffensiveParticles: {fileID: 5858717172134639469, guid: 8d7c2aa52d33ec14a93793ccae353386, type: 3}
   karateDefensiveParticles: {fileID: 5858717172134639469, guid: f763f03317e539a4692013b71bba6f01, type: 3}
   karatePassiceParticles: {fileID: 5858717172134639469, guid: d62ce8275e9f7c84b8a7831100e3b265, type: 3}
-  armourParticles: {fileID: 5858717172134639469, guid: a7e5f9645c64f3c4bba1fcec5aae3a83, type: 3}
+  armorParticles: {fileID: 4973389518718938060, guid: dce3ccc2c95f3884fadd197fdfe8af20, type: 3}
 --- !u!1 &197373996
 GameObject:
   m_ObjectHideFlags: 0
@@ -3846,7 +3846,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502112829}
-  m_LocalRotation: {x: -0.0000000032213134, y: 0.99130005, z: -0.13162142, w: -0.000000024261153}
+  m_LocalRotation: {x: -0.000000009521172, y: 0.99130005, z: -0.13162142, w: -0.00000007170823}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5722,7 +5722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 0
+  fightStyle: 2
 --- !u!114 &835227091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5781,7 +5781,6 @@ MonoBehaviour:
   souvenirsManager: {fileID: 934910624}
   fightStyleManager: {fileID: 1365660884}
   hudManager: {fileID: 0}
-  currentStyle: 0
   winner: 0
   invinsible: 0
   unkillable: 0
@@ -14086,7 +14085,6 @@ MonoBehaviour:
   souvenirsManager: {fileID: 0}
   fightStyleManager: {fileID: 0}
   hudManager: {fileID: 0}
-  currentStyle: 0
   winner: 0
   invinsible: 0
   unkillable: 0

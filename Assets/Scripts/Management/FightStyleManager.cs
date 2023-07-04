@@ -57,8 +57,5 @@ public class FightStyleManager : MonoBehaviour
         {
             brawler2.GetComponent<Animator>().runtimeAnimatorController = fightingTypeAnimators[5];
         }
-
-        brawler1.GetComponent<Combat>().currentStyle = brawler1.GetComponent<FightStyle>().fightStyle;
-        brawler2.GetComponent<Combat>().currentStyle = brawler2.GetComponent<FightStyle>().fightStyle;
     }
 }

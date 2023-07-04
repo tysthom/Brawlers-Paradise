@@ -18,14 +18,29 @@ public class Particles : MonoBehaviour
 
     public IEnumerator ParticlesDeletion(GameObject brawler)
     {
-        
-        if (name == "Defense Increase Particles(Clone)")
+
+        if (name == "Attack Increase Lasting Particles(Clone)")
         {
-            Debug.Log("Hey");
+            yield return new WaitUntil(() => brawler.GetComponent<Animator>().GetBool("isOffensiveStance") == false);
+            GetComponent<ParticleSystem>().Stop();
+        } 
+        else if (name == "Defense Increase Lasting Particles(Clone)")
+        {
             yield return new WaitUntil(() => brawler.GetComponent<Animator>().GetBool("isDefensiveStance") == false);
             GetComponent<ParticleSystem>().Stop();
-
-            //Destroy(gameObject);
+        } 
+        else if (name == "Health Regen Lasting Particles(Clone)")
+        {
+            yield return new WaitUntil(() => brawler.GetComponent<Animator>().GetBool("isPassiveStance") == false);
+            GetComponent<ParticleSystem>().Stop();
         }
+        else if (name == "Armor Lasting Particles(Clone)")
+        {
+            yield return new WaitUntil(() => brawler.GetComponent<Souvenirs>().hasArmour == false);
+            GetComponent<ParticleSystem>().Stop();
+        }
+
+        yield return new WaitForSeconds(2);
+        Destroy(gameObject);
     }
 }

@@ -15,7 +15,7 @@ public class ParticleManager : MonoBehaviour
     public ParticleSystem karateOffensiveParticles;
     public ParticleSystem karateDefensiveParticles;
     public ParticleSystem karatePassiceParticles;
-    public ParticleSystem armourParticles;
+    public ParticleSystem armorParticles;
 
 
     // Start is called before the first frame update
@@ -36,22 +36,28 @@ public class ParticleManager : MonoBehaviour
     public void KarateOffensiveParticles(GameObject brawler)
     {
         ParticleSystem p = Instantiate(karateOffensiveParticles, brawler.transform.position, Quaternion.Euler(-90, 0, 0));
-        
+        p.transform.SetParent(brawler.transform);
+        StartCoroutine(p.GetComponent<Particles>().ParticlesDeletion(brawler));
     }
 
     public void KarateDefensiveParticles(GameObject brawler)
     {
         ParticleSystem p = Instantiate(karateDefensiveParticles, brawler.transform.position, Quaternion.Euler(-90, 0, 0));
+        p.transform.SetParent(brawler.transform);
         StartCoroutine(p.GetComponent<Particles>().ParticlesDeletion(brawler));
     }
 
     public void KaratePassiveParticles(GameObject brawler)
     {
-        Instantiate(karatePassiceParticles, brawler.transform.position, Quaternion.Euler(-90,0,0));
+        ParticleSystem p = Instantiate(karatePassiceParticles, brawler.transform.position, Quaternion.Euler(-90,0,0));
+        p.transform.SetParent(brawler.transform);
+        StartCoroutine(p.GetComponent<Particles>().ParticlesDeletion(brawler));
     }
 
-    public void ArmourParticles(GameObject brawler)
+    public void ArmorParticles(GameObject brawler)
     {
-        Instantiate(armourParticles, brawler.transform.position, Quaternion.Euler(-90, 0, 0));
+        ParticleSystem p = Instantiate(armorParticles, brawler.transform.position, Quaternion.Euler(-90, 0, 0));
+        p.transform.SetParent(brawler.transform);
+        StartCoroutine(p.GetComponent<Particles>().ParticlesDeletion(brawler));
     }
 }

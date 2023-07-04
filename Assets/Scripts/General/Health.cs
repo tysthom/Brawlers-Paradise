@@ -137,7 +137,6 @@ public class Health : MonoBehaviour
         GetComponent<Souvenirs>().hasArmour = false;
         GetComponent<Combat>().invulnerable = false;
         armourBar.fillAmount = 0;
-        StartCoroutine(GetComponent<Souvenirs>().CooldownTime(souvenirsManager.GetComponent<SouvenirsManager>().sunscreenCooldownTime));
     }
 
     public void SubtractHealth(float damageAmount)
