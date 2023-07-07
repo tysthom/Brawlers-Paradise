@@ -18,7 +18,7 @@ public class Souvenirs : MonoBehaviour
     GameObject particleManager;
     ParticleManager particleManagerInstance;
 
-    public enum souvenirs {medicine, sunscreen, coffee, briefcase, lifeJacket, ratPoison, tequila, vipCard, floaty, none};
+    public enum souvenirs {medicine, sunscreen, coffee, briefcase, ratPoison, lifeJacket, tequila, vipCard, floaty, none};
 
     [Header("Status")]
     public bool canUseSouvenir;
@@ -163,7 +163,8 @@ public class Souvenirs : MonoBehaviour
             if (souvenir == souvenirs.ratPoison) //Poison
             {
                 hasPoison = true;
-                //StartCoroutine(RatPoison());
+                particleManagerInstance.PoisonParticles(gameObject);
+                StartCoroutine(CooldownTime(souvenirsManagerInstance.ratPoisonCooldownTime));
             }
             if (souvenir == souvenirs.lifeJacket) //Unkillable
             {
@@ -188,6 +189,7 @@ public class Souvenirs : MonoBehaviour
     {
         GetComponent<Health>().AddHealth(souvenirsManagerInstance.healthBoostAmount);
         StartCoroutine(CooldownTime(souvenirsManagerInstance.medicineCooldownTime));
+        particleManagerInstance.HealthBoostParticles(gameObject);
     }
 
     void Armour()
@@ -202,9 +204,10 @@ public class Souvenirs : MonoBehaviour
     IEnumerator Coffee()
     {
         hasSpeedBoost = true;
+        StartCoroutine(CooldownTime(souvenirsManagerInstance.coffeeCooldownTime));
+        particleManagerInstance.SpeedIncreaseParticles(gameObject);
         yield return new WaitForSeconds(souvenirsManagerInstance.speedBoostDuration);
         hasSpeedBoost = false;
-        StartCoroutine(CooldownTime(souvenirsManagerInstance.coffeeCooldownTime));
     }
 
     void Briefcase()
@@ -219,7 +222,6 @@ public class Souvenirs : MonoBehaviour
     public IEnumerator RatPoison()
     {
         hasPoison = false;
-        StartCoroutine(CooldownTime(souvenirsManagerInstance.ratPoisonCooldownTime));
         GetComponent<Combat>().enemy.GetComponent<Flinch>().isPoisoned = true;
         for (int i = 0; i < souvenirsManagerInstance.rpDuration; i++)
         {
@@ -234,6 +236,7 @@ public class Souvenirs : MonoBehaviour
     {
         GetComponent<Combat>().unkillable = true;
         GetComponent<Health>().SubtractHealth(0); //Used to update health bar UI
+        particleManagerInstance.UnkillableParticles(gameObject);
         yield return new WaitForSeconds(souvenirsManagerInstance.ljDuration);
         GetComponent<Combat>().unkillable = false;
         StartCoroutine(CooldownTime(souvenirsManagerInstance.lifeJacketCooldownTime));

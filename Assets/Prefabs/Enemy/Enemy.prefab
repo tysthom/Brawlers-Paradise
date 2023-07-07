@@ -3480,13 +3480,13 @@ MonoBehaviour:
   souvenirIcon: {fileID: 0}
   canUseSouvenir: 1
   onCooldown: 0
-  hasShield: 0
+  hasArmour: 0
   hasSpeedBoost: 0
   hasPoison: 0
   hasDamageBoost: 0
   hasLifeSteal: 0
   hasDamageReduction: 0
-  souvenir: 9
+  souvenir: 4
 --- !u!114 &7911793694284746384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3583,11 +3583,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
   healthRegenBar: {fileID: 0}
-  shieldBar: {fileID: 0}
+  armourBar: {fileID: 0}
   health: 1000
   regenHealth: 0
   maxHealth: 1000
-  shield: 0
+  armour: 0
   previousHealth: 0
 --- !u!114 &9139872718358921519
 MonoBehaviour:
@@ -4461,6 +4461,10 @@ PrefabInstance:
     - target: {fileID: 7478207192700227787, guid: d7b68d6b8553c3e47a52806ddb6e620a, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478207193286842573, guid: d7b68d6b8553c3e47a52806ddb6e620a, type: 3}
+      propertyPath: m_Name
+      value: Armour Fill
       objectReference: {fileID: 0}
     - target: {fileID: 7478207193286842573, guid: d7b68d6b8553c3e47a52806ddb6e620a, type: 3}
       propertyPath: m_Layer

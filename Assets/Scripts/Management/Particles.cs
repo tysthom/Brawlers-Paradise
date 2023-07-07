@@ -34,9 +34,28 @@ public class Particles : MonoBehaviour
             yield return new WaitUntil(() => brawler.GetComponent<Animator>().GetBool("isPassiveStance") == false);
             GetComponent<ParticleSystem>().Stop();
         }
+        else if (name == "Health Boost Burst Particles(Clone)")
+        {
+            yield return new WaitForSeconds(3);
+        }
         else if (name == "Armor Lasting Particles(Clone)")
         {
             yield return new WaitUntil(() => brawler.GetComponent<Souvenirs>().hasArmour == false);
+            GetComponent<ParticleSystem>().Stop();
+        }
+        else if (name == "Speed Increase Lasting Particles(Clone)")
+        {
+            yield return new WaitUntil(() => brawler.GetComponent<Souvenirs>().hasSpeedBoost == false);
+            GetComponent<ParticleSystem>().Stop();
+        }
+        else if (name == "Poison Lasting Particles(Clone)")
+        {
+            yield return new WaitUntil(() => brawler.GetComponent<Souvenirs>().hasPoison == false);
+            GetComponent<ParticleSystem>().Stop();
+        }
+        else if (name == "Unkillable Lasting Particles(Clone)")
+        {
+            yield return new WaitUntil(() => brawler.GetComponent<Combat>().unkillable == false);
             GetComponent<ParticleSystem>().Stop();
         }
 

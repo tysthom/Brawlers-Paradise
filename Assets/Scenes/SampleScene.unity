@@ -1524,8 +1524,12 @@ MonoBehaviour:
   brawler2: {fileID: 0}
   karateOffensiveParticles: {fileID: 5858717172134639469, guid: 8d7c2aa52d33ec14a93793ccae353386, type: 3}
   karateDefensiveParticles: {fileID: 5858717172134639469, guid: f763f03317e539a4692013b71bba6f01, type: 3}
-  karatePassiceParticles: {fileID: 5858717172134639469, guid: d62ce8275e9f7c84b8a7831100e3b265, type: 3}
+  karatePassiceParticles: {fileID: 6257234070732462832, guid: bedc2552bcb588f458953318360b6ec5, type: 3}
+  healthBoostParticles: {fileID: 8147852041977623933, guid: 8c67ac9cb84176e4380053b1ce1c7795, type: 3}
   armorParticles: {fileID: 4973389518718938060, guid: dce3ccc2c95f3884fadd197fdfe8af20, type: 3}
+  speedIncreaseParticles: {fileID: 2027501938306881188, guid: ebee589f674148648af259d9ca71c423, type: 3}
+  poisonParticles: {fileID: 3835559175583213631, guid: fde9b342929e2924b88197c90ce76e05, type: 3}
+  unkillableParticles: {fileID: 2321674781594079936, guid: b1a606ee92b152844b5abb832e87f71c, type: 3}
 --- !u!1 &197373996
 GameObject:
   m_ObjectHideFlags: 0
@@ -2001,17 +2005,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1476887321840344350, guid: 18fdedaf12861de4ea3bddd5565cd110, type: 3}
   m_PrefabInstance: {fileID: 293379721}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &293578482 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1074600925, guid: 72dac294a9ea97f4cb6837a52a92a65e, type: 3}
-  m_PrefabInstance: {fileID: 1613182884}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &299953403
 GameObject:
   m_ObjectHideFlags: 0
@@ -3846,7 +3839,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502112829}
-  m_LocalRotation: {x: -0.000000009521172, y: 0.99130005, z: -0.13162142, w: -0.00000007170823}
+  m_LocalRotation: {x: -0.000000008508616, y: 0.99130005, z: -0.13162142, w: -0.00000006408221}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5943,7 +5936,7 @@ MonoBehaviour:
   hasDamageBoost: 0
   hasLifeSteal: 0
   hasDamageReduction: 0
-  souvenir: 1
+  souvenir: 5
 --- !u!114 &835227099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6657,7 +6650,7 @@ MonoBehaviour:
   sunscreenCooldownTime: 30
   speedMultiplier: 1.2
   speedBoostDuration: 10
-  coffeeCooldownTime: 15
+  coffeeCooldownTime: 25
   briefcasePrefab: {fileID: 6574686605682454763, guid: 49491aed62395ef4a8894df7bdcc1963, type: 3}
   briefcaseCooldownTime: 15
   ljMinHealthAmount: 0.2
@@ -9565,7 +9558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0dc2ef93580014f8ebf2fc26780d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameMode: 2
+  gameMode: 0
   playerPrefab: {fileID: 0}
   aiPrefab: {fileID: 7454506845584546906, guid: aab3a4d0f5b20894a91046ac24da77e3, type: 3}
   brawler1: {fileID: 0}
@@ -16947,10 +16940,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 560146491278166177, guid: aab3a4d0f5b20894a91046ac24da77e3, type: 3}
-      propertyPath: m_Name
-      value: Armour Fill
-      objectReference: {fileID: 0}
     - target: {fileID: 916211913074541671, guid: aab3a4d0f5b20894a91046ac24da77e3, type: 3}
       propertyPath: combatManagear
       value: 
@@ -17011,10 +17000,6 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1516857658}
-    - target: {fileID: 7071878014008450202, guid: aab3a4d0f5b20894a91046ac24da77e3, type: 3}
-      propertyPath: shieldBar
-      value: 
-      objectReference: {fileID: 293578482}
     - target: {fileID: 7071878014008450202, guid: aab3a4d0f5b20894a91046ac24da77e3, type: 3}
       propertyPath: healthRegenBar
       value: 

@@ -15,7 +15,11 @@ public class ParticleManager : MonoBehaviour
     public ParticleSystem karateOffensiveParticles;
     public ParticleSystem karateDefensiveParticles;
     public ParticleSystem karatePassiceParticles;
+    public ParticleSystem healthBoostParticles;
     public ParticleSystem armorParticles;
+    public ParticleSystem speedIncreaseParticles;
+    public ParticleSystem poisonParticles;
+    public ParticleSystem unkillableParticles;
 
 
     // Start is called before the first frame update
@@ -54,9 +58,37 @@ public class ParticleManager : MonoBehaviour
         StartCoroutine(p.GetComponent<Particles>().ParticlesDeletion(brawler));
     }
 
+    public void HealthBoostParticles(GameObject brawler)
+    {
+        ParticleSystem p = Instantiate(healthBoostParticles, brawler.transform.position, Quaternion.Euler(-90, 0, 0));
+        p.transform.SetParent(brawler.transform);
+        StartCoroutine(p.GetComponent<Particles>().ParticlesDeletion(brawler));
+    }
+
     public void ArmorParticles(GameObject brawler)
     {
         ParticleSystem p = Instantiate(armorParticles, brawler.transform.position, Quaternion.Euler(-90, 0, 0));
+        p.transform.SetParent(brawler.transform);
+        StartCoroutine(p.GetComponent<Particles>().ParticlesDeletion(brawler));
+    }
+
+    public void SpeedIncreaseParticles(GameObject brawler)
+    {
+        ParticleSystem p = Instantiate(speedIncreaseParticles, brawler.transform.position, Quaternion.Euler(-90, 0, 0));
+        p.transform.SetParent(brawler.transform);
+        StartCoroutine(p.GetComponent<Particles>().ParticlesDeletion(brawler));
+    }
+
+    public void PoisonParticles(GameObject brawler)
+    {
+        ParticleSystem p = Instantiate(poisonParticles, brawler.transform.position, Quaternion.Euler(-90, 0, 0));
+        p.transform.SetParent(brawler.transform);
+        StartCoroutine(p.GetComponent<Particles>().ParticlesDeletion(brawler));
+    }
+
+    public void UnkillableParticles(GameObject brawler)
+    {
+        ParticleSystem p = Instantiate(unkillableParticles, brawler.transform.position, Quaternion.Euler(-90, 0, 0));
         p.transform.SetParent(brawler.transform);
         StartCoroutine(p.GetComponent<Particles>().ParticlesDeletion(brawler));
     }
