@@ -3842,7 +3842,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502112829}
-  m_LocalRotation: {x: -0.000000009248913, y: 0.99130005, z: -0.13162142, w: -0.000000069657716}
+  m_LocalRotation: {x: -0.0000000032485292, y: 0.99130005, z: -0.13162142, w: -0.000000024466132}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5718,7 +5718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 4
+  fightStyle: 0
 --- !u!114 &835227091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8446,6 +8446,7 @@ GameObject:
   - component: {fileID: 1094746969}
   - component: {fileID: 1094746970}
   - component: {fileID: 1094746971}
+  - component: {fileID: 1094746972}
   m_Layer: 0
   m_Name: Character Manager
   m_TagString: Untagged
@@ -8518,6 +8519,8 @@ MonoBehaviour:
   useAppropriateOutfits: 1
   brawler1OutfitSelection: 3
   brawler2OutfitSelection: 7
+  brawler1Outfit: {fileID: 0}
+  brawler2Outfit: {fileID: 0}
   brawler1TargetMesh: {fileID: 0}
   brawler2TargetMesh: {fileID: 0}
   touristTargetMesh: {fileID: 0}
@@ -8563,6 +8566,21 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+--- !u!114 &1094746972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094746968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9c1a8aa0769b3344a78c91b69704542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  karateOutfit1Variations:
+  - {fileID: 1306059935378711384, guid: db654d14dfe679c498e80fa6a5a3b1c7, type: 3}
+  - {fileID: 1306059935378711384, guid: db654d14dfe679c498e80fa6a5a3b1c7, type: 3}
 --- !u!1 &1115101512
 GameObject:
   m_ObjectHideFlags: 0
@@ -9561,7 +9579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0dc2ef93580014f8ebf2fc26780d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameMode: 0
+  gameMode: 2
   playerPrefab: {fileID: 0}
   aiPrefab: {fileID: 7454506845584546906, guid: aab3a4d0f5b20894a91046ac24da77e3, type: 3}
   brawler1: {fileID: 0}

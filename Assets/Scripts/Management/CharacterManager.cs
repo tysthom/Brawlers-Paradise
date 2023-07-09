@@ -38,6 +38,8 @@ public class CharacterManager : MonoBehaviour
     public bool useAppropriateOutfits;
     public int brawler1OutfitSelection;
     public int brawler2OutfitSelection;
+    public GameObject brawler1Outfit;
+    public GameObject brawler2Outfit;
     public SkinnedMeshRenderer brawler1TargetMesh;
     public SkinnedMeshRenderer brawler2TargetMesh;
     public SkinnedMeshRenderer touristTargetMesh;
@@ -153,8 +155,11 @@ public class CharacterManager : MonoBehaviour
         {    
             if(brawler1.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.karate)
             {
-                brawler1OutfitSelection = Random.Range(0, 2);
-                holdBrawler1Outfit = new SkinnedMeshRenderer[outfits[brawler1OutfitSelection].transform.childCount];
+                brawler1OutfitSelection = Random.Range(0, 1);
+                brawler1Outfit = GetComponent<OutfitVariationManager>().OutfitVariations(FightStyle.fightStyles.karate,
+                    brawler1OutfitSelection);
+                holdBrawler1Outfit = new SkinnedMeshRenderer[brawler1Outfit.transform.childCount];
+
             } else if(brawler1.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.boxing)
             {
                 brawler1OutfitSelection = Random.Range(2, 4);
@@ -187,8 +192,8 @@ public class CharacterManager : MonoBehaviour
         
         for (int i = 0; i< outfits[brawler1OutfitSelection].transform.childCount; i++)
         {
-            setBrawler1Outfit[i] = outfits[brawler1OutfitSelection].transform.GetChild(i).GetComponent<SkinnedMeshRenderer>();
-            holdBrawler1Outfit[i] = Instantiate<SkinnedMeshRenderer>(outfits[brawler1OutfitSelection].transform.GetChild(i).GetComponent<SkinnedMeshRenderer>()); //Assigns instaniaited versions to new array to make changes only to this version
+            setBrawler1Outfit[i] = brawler1Outfit.transform.GetChild(i).GetComponent<SkinnedMeshRenderer>();
+            holdBrawler1Outfit[i] = Instantiate<SkinnedMeshRenderer>(setBrawler1Outfit[i]); //Assigns instaniaited versions to new array to make changes only to this version
 
             holdBrawler1Outfit[i].bones = brawler1TargetMesh.bones;
             holdBrawler1Outfit[i].rootBone = brawler1TargetMesh.rootBone;
