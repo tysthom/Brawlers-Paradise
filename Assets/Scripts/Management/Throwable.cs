@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Throwable : MonoBehaviour
 {
-    GameObject combatManagear;
+    GameObject combatManagear, souvenirsManager;
     public string previousTag;
     public GameObject holder;
 
     private void Awake()
     {
         combatManagear = GameObject.Find("Combat Manager");
+        souvenirsManager = GameObject.Find("Souvenir Manager");
     }
 
     private void Update()
@@ -36,8 +37,15 @@ public class Throwable : MonoBehaviour
                 }
                 else
                 {
-
-                    collision.gameObject.GetComponent<Flinch>().ReactionInitiation(100, combatManagear.GetComponent<CombatStats>().throwableDamage);
+                    if (holder.GetComponent<Souvenirs>().hasDamageBoost)
+                    {
+                        collision.gameObject.GetComponent<Flinch>().ReactionInitiation(100, combatManagear.GetComponent<CombatStats>().throwableDamage 
+                            * souvenirsManager.GetComponent<SouvenirsManager>().tDamageMultiplier);
+                    }
+                    else
+                    {
+                        collision.gameObject.GetComponent<Flinch>().ReactionInitiation(100, combatManagear.GetComponent<CombatStats>().throwableDamage);
+                    }
                 }
             }
             StartCoroutine(ResetThrowable(collision.gameObject));

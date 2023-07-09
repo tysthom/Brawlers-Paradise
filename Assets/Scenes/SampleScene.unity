@@ -1530,6 +1530,9 @@ MonoBehaviour:
   speedIncreaseParticles: {fileID: 2027501938306881188, guid: ebee589f674148648af259d9ca71c423, type: 3}
   poisonParticles: {fileID: 3835559175583213631, guid: fde9b342929e2924b88197c90ce76e05, type: 3}
   unkillableParticles: {fileID: 2321674781594079936, guid: b1a606ee92b152844b5abb832e87f71c, type: 3}
+  damageBoostParticles: {fileID: 1524892208329192347, guid: c1ed8124ec378e14f92ba49e14d95d6a, type: 3}
+  lifeStealParticles: {fileID: 7617430777457009194, guid: f359fc9bf7b7fcb4b92c438f0615ba67, type: 3}
+  damageReductionParticles: {fileID: 447816152364379586, guid: 597f32004c8f5164dbd28d7faa1fddfc, type: 3}
 --- !u!1 &197373996
 GameObject:
   m_ObjectHideFlags: 0
@@ -3839,7 +3842,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502112829}
-  m_LocalRotation: {x: -0.000000008508616, y: 0.99130005, z: -0.13162142, w: -0.00000006408221}
+  m_LocalRotation: {x: -0.000000009248913, y: 0.99130005, z: -0.13162142, w: -0.000000069657716}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5715,7 +5718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 2
+  fightStyle: 4
 --- !u!114 &835227091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5936,7 +5939,7 @@ MonoBehaviour:
   hasDamageBoost: 0
   hasLifeSteal: 0
   hasDamageReduction: 0
-  souvenir: 5
+  souvenir: 8
 --- !u!114 &835227099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6661,13 +6664,13 @@ MonoBehaviour:
   ratPoisonCooldownTime: 30
   tDamageMultiplier: 1.4
   tDuration: 10
-  tequilaCooldownTime: 20
+  tequilaCooldownTime: 30
   vipcHealthRecoveryAmount: 20
   vipcDuration: 10
-  vipcCooldownTime: 25
+  vipcCooldownTime: 35
   fDamageReductionPercentage: 0.5
   fDuration: 10
-  fCooldownTime: 15
+  fCooldownTime: 25
   medicineUsage: 5
   sunscreenUsage: 5
   coffeeUsage: 3
@@ -15292,8 +15295,8 @@ MonoBehaviour:
   counterAttackTime: 0.22
   throwableDamage: 65
   finisherDistance: 2.5
-  bounceBackForceAmount: 200
-  randomFightStyle: 0
+  bounceBackForceAmount: 500
+  randomFightStyle: 1
   aiDefendFrequency: 5
   aiBlockDodgeFrequency: 4
   aiContinuedAttackFrequency: 10

@@ -170,7 +170,7 @@ public class Souvenirs : MonoBehaviour
             {
                 StartCoroutine(LifeJacket());
             }
-            if (souvenir == souvenirs.tequila) //Damage Boost
+            if (souvenir == souvenirs.tequila) //Damage Boost for ALL damage (Throwables)
             {
                 StartCoroutine(Tequila());
             }
@@ -236,34 +236,37 @@ public class Souvenirs : MonoBehaviour
     {
         GetComponent<Combat>().unkillable = true;
         GetComponent<Health>().SubtractHealth(0); //Used to update health bar UI
+        StartCoroutine(CooldownTime(souvenirsManagerInstance.lifeJacketCooldownTime));
         particleManagerInstance.UnkillableParticles(gameObject);
         yield return new WaitForSeconds(souvenirsManagerInstance.ljDuration);
         GetComponent<Combat>().unkillable = false;
-        StartCoroutine(CooldownTime(souvenirsManagerInstance.lifeJacketCooldownTime));
     }
 
     IEnumerator Tequila()
     {
         hasDamageBoost = true;
+        StartCoroutine(CooldownTime(souvenirsManagerInstance.tequilaCooldownTime));
+        particleManagerInstance.DamageBoostParticles(gameObject);
         yield return new WaitForSeconds(souvenirsManagerInstance.tDuration);
         hasDamageBoost = false;
-        StartCoroutine(CooldownTime(souvenirsManagerInstance.tequilaCooldownTime));
     }
 
     IEnumerator VIPCard()
     {
         hasLifeSteal = true;
+        StartCoroutine(CooldownTime(souvenirsManagerInstance.vipcCooldownTime));
+        particleManagerInstance.LifeStealParticles(gameObject);
         yield return new WaitForSeconds(souvenirsManagerInstance.vipcDuration);
         hasLifeSteal = false;
-        StartCoroutine(CooldownTime(souvenirsManagerInstance.vipcCooldownTime));
     }
 
     IEnumerator Floaty()
     {
         hasDamageReduction = true;
+        StartCoroutine(CooldownTime(souvenirsManagerInstance.fCooldownTime));
+        particleManagerInstance.DamageReductionParticles(gameObject);
         yield return new WaitForSeconds(souvenirsManagerInstance.fDuration);
         hasDamageReduction = false;
-        StartCoroutine(CooldownTime(souvenirsManagerInstance.fCooldownTime));
     }
 
     public IEnumerator CooldownTime(float time)

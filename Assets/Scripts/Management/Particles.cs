@@ -58,6 +58,21 @@ public class Particles : MonoBehaviour
             yield return new WaitUntil(() => brawler.GetComponent<Combat>().unkillable == false);
             GetComponent<ParticleSystem>().Stop();
         }
+        else if (name == "Damage Boost Lasting Particles(Clone)")
+        {
+            yield return new WaitUntil(() => brawler.GetComponent<Souvenirs>().hasDamageBoost == false);
+            GetComponent<ParticleSystem>().Stop();
+        }
+        else if (name == "Life Steal Lasting Particles(Clone)")
+        {
+            yield return new WaitUntil(() => brawler.GetComponent<Souvenirs>().hasLifeSteal == false);
+            GetComponent<ParticleSystem>().Stop();
+        }
+        else if (name == "Damage Reduction Lasting Particles(Clone)")
+        {
+            yield return new WaitUntil(() => brawler.GetComponent<Souvenirs>().hasDamageReduction == false);
+            GetComponent<ParticleSystem>().Stop();
+        }
 
         yield return new WaitForSeconds(2);
         Destroy(gameObject);

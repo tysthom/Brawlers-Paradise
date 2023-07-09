@@ -20,6 +20,9 @@ public class ParticleManager : MonoBehaviour
     public ParticleSystem speedIncreaseParticles;
     public ParticleSystem poisonParticles;
     public ParticleSystem unkillableParticles;
+    public ParticleSystem damageBoostParticles;
+    public ParticleSystem lifeStealParticles;
+    public ParticleSystem damageReductionParticles;
 
 
     // Start is called before the first frame update
@@ -89,6 +92,27 @@ public class ParticleManager : MonoBehaviour
     public void UnkillableParticles(GameObject brawler)
     {
         ParticleSystem p = Instantiate(unkillableParticles, brawler.transform.position, Quaternion.Euler(-90, 0, 0));
+        p.transform.SetParent(brawler.transform);
+        StartCoroutine(p.GetComponent<Particles>().ParticlesDeletion(brawler));
+    }
+
+    public void DamageBoostParticles(GameObject brawler)
+    {
+        ParticleSystem p = Instantiate(damageBoostParticles, brawler.transform.position, Quaternion.Euler(-90, 0, 0));
+        p.transform.SetParent(brawler.transform);
+        StartCoroutine(p.GetComponent<Particles>().ParticlesDeletion(brawler));
+    }
+
+    public void LifeStealParticles(GameObject brawler)
+    {
+        ParticleSystem p = Instantiate(lifeStealParticles, brawler.transform.position, Quaternion.Euler(-90, 0, 0));
+        p.transform.SetParent(brawler.transform);
+        StartCoroutine(p.GetComponent<Particles>().ParticlesDeletion(brawler));
+    }
+
+    public void DamageReductionParticles(GameObject brawler)
+    {
+        ParticleSystem p = Instantiate(damageReductionParticles, brawler.transform.position, Quaternion.Euler(-90, 0, 0));
         p.transform.SetParent(brawler.transform);
         StartCoroutine(p.GetComponent<Particles>().ParticlesDeletion(brawler));
     }
