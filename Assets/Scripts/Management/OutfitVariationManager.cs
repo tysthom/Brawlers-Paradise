@@ -5,6 +5,7 @@ using UnityEngine;
 public class OutfitVariationManager : MonoBehaviour
 {
     public GameObject[] karateOutfit1Variations;
+    public GameObject[] karateOutfit2Variations;
 
     // Start is called before the first frame update
     void Start()
@@ -20,17 +21,12 @@ public class OutfitVariationManager : MonoBehaviour
 
     public GameObject OutfitVariations(FightStyle.fightStyles f, int outfitSelection)
     {
-        if(f == FightStyle.fightStyles.karate)
-        {
             if(outfitSelection == 0)
             {
                 return karateOutfit1Variations[Random.Range(0, karateOutfit1Variations.Length)];
             } else
             {
-                return null;
+                return karateOutfit2Variations[Random.Range(0, karateOutfit2Variations.Length)];
             }
-        }
-
-        return null;
     }
 }

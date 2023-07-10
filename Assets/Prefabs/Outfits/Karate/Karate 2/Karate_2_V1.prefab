@@ -450,7 +450,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4897626208170720275}
   m_Layer: 0
-  m_Name: Karate_2
+  m_Name: Karate_2_V1
   m_TagString: Outfit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -3842,7 +3842,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502112829}
-  m_LocalRotation: {x: -0.0000000032485292, y: 0.99130005, z: -0.13162142, w: -0.000000024466132}
+  m_LocalRotation: {x: -0.0000000032213134, y: 0.99130005, z: -0.13162142, w: -0.000000024261153}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8579,8 +8579,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   karateOutfit1Variations:
+  - {fileID: 2316150973540564897, guid: 3a2c0db2b7716e44e8b913abdf52f2b3, type: 3}
   - {fileID: 1306059935378711384, guid: db654d14dfe679c498e80fa6a5a3b1c7, type: 3}
-  - {fileID: 1306059935378711384, guid: db654d14dfe679c498e80fa6a5a3b1c7, type: 3}
+  - {fileID: 1812098865573308892, guid: 5ad6b8bf746f2ec4d97fc9cc9d40023d, type: 3}
+  - {fileID: 2020878061365485613, guid: 1f79b96e811e25c46a551f9cb8d87aac, type: 3}
+  - {fileID: 2447347379544307787, guid: bc7d70a129d79c64e80d986168bbcf52, type: 3}
+  karateOutfit2Variations:
+  - {fileID: 5241079162996319913, guid: e53747da2fa3bee4b8fe68d7550e35d0, type: 3}
+  - {fileID: 7265180372611724851, guid: 3d02ad60d0c10384fa9379482e089cc4, type: 3}
+  - {fileID: 8072614131304405824, guid: 4c076fc93782cff4d8b97185939dbb03, type: 3}
+  - {fileID: 8620768754805683636, guid: bbe72fa3f7dd90841a870bdb95a6315d, type: 3}
+  - {fileID: 7884351917898066410, guid: 796708714854b3f44b0eb7a626fe91f5, type: 3}
 --- !u!1 &1115101512
 GameObject:
   m_ObjectHideFlags: 0
