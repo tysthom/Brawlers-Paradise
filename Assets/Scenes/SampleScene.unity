@@ -5718,7 +5718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 0
+  fightStyle: 1
 --- !u!114 &835227091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8590,6 +8590,12 @@ MonoBehaviour:
   - {fileID: 8072614131304405824, guid: 4c076fc93782cff4d8b97185939dbb03, type: 3}
   - {fileID: 8620768754805683636, guid: bbe72fa3f7dd90841a870bdb95a6315d, type: 3}
   - {fileID: 7884351917898066410, guid: 796708714854b3f44b0eb7a626fe91f5, type: 3}
+  boxingOutfit1Variations:
+  - {fileID: 6310004904691892625, guid: 448b289fd1db0684791f8a211939852f, type: 3}
+  - {fileID: 8195417361514551327, guid: 9c8a795eb79b2974cac74d22f13727ea, type: 3}
+  - {fileID: 6412387228990328488, guid: ae90025b13c6d5940a4afc9d54ad5850, type: 3}
+  - {fileID: 1468537986876055058, guid: 8284a58978329c94b8a3600a54edd8db, type: 3}
+  - {fileID: 5872149613048190980, guid: 5db0884d3e105c64c8b06fb233f51390, type: 3}
 --- !u!1 &1115101512
 GameObject:
   m_ObjectHideFlags: 0
