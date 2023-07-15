@@ -3842,7 +3842,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502112829}
-  m_LocalRotation: {x: -0.000000008509063, y: 0.99130005, z: -0.13162142, w: -0.000000064085576}
+  m_LocalRotation: {x: -0.0000000032552225, y: 0.99130005, z: -0.13162142, w: -0.000000024516542}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5718,7 +5718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 1
+  fightStyle: 2
 --- !u!114 &835227091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8602,6 +8602,12 @@ MonoBehaviour:
   - {fileID: 4545710954375807484, guid: 09f45442e372f4f489617a4bf7b2fa70, type: 3}
   - {fileID: 680443577512965251, guid: a18be5571db282747866679eadc98b3a, type: 3}
   - {fileID: 1718730205211224265, guid: 17aea970cfd337a4aa148bd031cd37c6, type: 3}
+  mmaOutfit1Variations:
+  - {fileID: 7622105665765051881, guid: fcad545174f765242b46a9401f283685, type: 3}
+  - {fileID: 2295070360208277787, guid: c1e069eb8742ec84f9baeba33a22c00e, type: 3}
+  - {fileID: 7758391471297018582, guid: eef40b022194b3340a8430c2386f65e9, type: 3}
+  - {fileID: 7758391471297018582, guid: eef40b022194b3340a8430c2386f65e9, type: 3}
+  - {fileID: 7758391471297018582, guid: eef40b022194b3340a8430c2386f65e9, type: 3}
 --- !u!1 &1115101512
 GameObject:
   m_ObjectHideFlags: 0

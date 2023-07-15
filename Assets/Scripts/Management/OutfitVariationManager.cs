@@ -8,6 +8,7 @@ public class OutfitVariationManager : MonoBehaviour
     public GameObject[] karateOutfit2Variations;
     public GameObject[] boxingOutfit1Variations;
     public GameObject[] boxingOutfit2Variations;
+    public GameObject[] mmaOutfit1Variations;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,10 @@ public class OutfitVariationManager : MonoBehaviour
         else if (outfitSelection == 3)
         {
             return boxingOutfit2Variations[Random.Range(0, boxingOutfit2Variations.Length)];
+        }
+        else if (outfitSelection == 4)
+        {
+            return mmaOutfit1Variations[Random.Range(0, mmaOutfit1Variations.Length)];
         }
 
         return null;
