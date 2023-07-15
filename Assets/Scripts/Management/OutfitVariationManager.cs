@@ -9,6 +9,9 @@ public class OutfitVariationManager : MonoBehaviour
     public GameObject[] boxingOutfit1Variations;
     public GameObject[] boxingOutfit2Variations;
     public GameObject[] mmaOutfit1Variations;
+    public GameObject[] mmaOutfit2Variations;
+    public GameObject[] taekwondoOutfit1Variations;
+    public GameObject[] taekwondoOutfit2Variations;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +45,18 @@ public class OutfitVariationManager : MonoBehaviour
         else if (outfitSelection == 4)
         {
             return mmaOutfit1Variations[Random.Range(0, mmaOutfit1Variations.Length)];
+        }
+        else if (outfitSelection == 5)
+        {
+            return mmaOutfit2Variations[Random.Range(0, mmaOutfit2Variations.Length)];
+        }
+        else if (outfitSelection == 6)
+        {
+            return taekwondoOutfit1Variations[Random.Range(0, taekwondoOutfit1Variations.Length)];
+        }
+        else if (outfitSelection == 7)
+        {
+            return taekwondoOutfit2Variations[Random.Range(0, taekwondoOutfit2Variations.Length)];
         }
 
         return null;

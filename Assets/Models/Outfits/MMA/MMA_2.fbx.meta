@@ -3,7 +3,27 @@ guid: af981768509558a488baaca907033c13
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gloves
+    second: {fileID: 2100000, guid: 75575d29e9887184bbff2967cbde1c15, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gloves2
+    second: {fileID: 2100000, guid: f6ccfb8ca95f7b24a8b1debce394332f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shorts
+    second: {fileID: 2100000, guid: 09734e83718441240bdb4c914e0c778f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shorts2
+    second: {fileID: 2100000, guid: e0fb4f888bebe65488fa845b738e9c08, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -85,7 +105,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.012499999
+    globalScale: 1.25
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

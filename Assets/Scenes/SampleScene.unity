@@ -444,7 +444,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3788986796140432956, guid: 37f957f751178ac41ad55d8b812c1378, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3788986796140432956, guid: 37f957f751178ac41ad55d8b812c1378, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1839,7 +1839,7 @@ Transform:
   - {fileID: 432961007}
   - {fileID: 1428561179}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &262812083
 GameObject:
@@ -3842,7 +3842,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502112829}
-  m_LocalRotation: {x: -0.0000000032552225, y: 0.99130005, z: -0.13162142, w: -0.000000024516542}
+  m_LocalRotation: {x: -0.000000008565281, y: 0.99130005, z: -0.13162142, w: -0.00000006450898}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5718,7 +5718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 2
+  fightStyle: 3
 --- !u!114 &835227091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6068,7 +6068,7 @@ Transform:
   - {fileID: 1221004100}
   - {fileID: 404023287}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &835227107
 MonoBehaviour:
@@ -8605,9 +8605,27 @@ MonoBehaviour:
   mmaOutfit1Variations:
   - {fileID: 7622105665765051881, guid: fcad545174f765242b46a9401f283685, type: 3}
   - {fileID: 2295070360208277787, guid: c1e069eb8742ec84f9baeba33a22c00e, type: 3}
+  - {fileID: 25484530558537112, guid: 702810d7c781cae41a9d0e9cb4ddff3a, type: 3}
+  - {fileID: 1788389048642092999, guid: b0aeed84ec8bb5e41b0bd7894c04f913, type: 3}
   - {fileID: 7758391471297018582, guid: eef40b022194b3340a8430c2386f65e9, type: 3}
-  - {fileID: 7758391471297018582, guid: eef40b022194b3340a8430c2386f65e9, type: 3}
-  - {fileID: 7758391471297018582, guid: eef40b022194b3340a8430c2386f65e9, type: 3}
+  mmaOutfit2Variations:
+  - {fileID: 8511164671966218129, guid: 0c05caabe10f6f046a2d4c72d542d89b, type: 3}
+  - {fileID: 1089695601304227639, guid: fe29cd8d0be56f748836358fea884688, type: 3}
+  - {fileID: 994247583491750073, guid: ae38ed6460728b64d98eded6eea67e0d, type: 3}
+  - {fileID: 6238307355313654408, guid: 4b31a84fab6529c4cb61d785a4ebcbdb, type: 3}
+  - {fileID: 4571100240531881973, guid: a138101584893a04aa2a53cabca9f488, type: 3}
+  taekwondoOutfit1Variations:
+  - {fileID: 1341525287874481365, guid: 62b7b11775a3b624380536aa603ea369, type: 3}
+  - {fileID: 7283437877496909254, guid: b227b3a61281fcf48a36a3471b6fc0b8, type: 3}
+  - {fileID: 9157812485013717686, guid: 69441b29414e7914d8959160393b7809, type: 3}
+  - {fileID: 7915058356452585069, guid: 9a1e737ba07d32c4a87a6a8d1d30f521, type: 3}
+  - {fileID: 2223038496915236391, guid: b201c8cca2e4a4f47beb7086868aa0e6, type: 3}
+  taekwondoOutfit2Variations:
+  - {fileID: 4902637393758663884, guid: 4976ad1d8a036374090794801c026144, type: 3}
+  - {fileID: 1900226752395947831, guid: 294e71db52e16cd45aed95b730ae4e04, type: 3}
+  - {fileID: 4741021289724902230, guid: ec04712e94c250046a64b7f39652120d, type: 3}
+  - {fileID: 8838364752180426318, guid: df037edae8634c84fa1eefb39529499b, type: 3}
+  - {fileID: 1824599332714905747, guid: 8ef4c5d3edd1e6346a680f5ef9a51aa3, type: 3}
 --- !u!1 &1115101512
 GameObject:
   m_ObjectHideFlags: 0
@@ -17071,7 +17089,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3788986796140432956, guid: 37f957f751178ac41ad55d8b812c1378, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3788986796140432956, guid: 37f957f751178ac41ad55d8b812c1378, type: 3}
       propertyPath: m_LocalPosition.x

@@ -168,14 +168,16 @@ public class CharacterManager : MonoBehaviour
                 holdBrawler1Outfit = new SkinnedMeshRenderer[outfits[brawler1OutfitSelection].transform.childCount];
             } else if (brawler1.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.MMA)
             {
-                brawler1OutfitSelection = Random.Range(4, 5);
+                brawler1OutfitSelection = Random.Range(4, 6);
                 brawler1Outfit = GetComponent<OutfitVariationManager>().OutfitVariations(FightStyle.fightStyles.MMA,
                     brawler1OutfitSelection);
                 holdBrawler1Outfit = new SkinnedMeshRenderer[outfits[brawler1OutfitSelection].transform.childCount];
             }
             else if (brawler1.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.taekwondo)
             {
-                brawler1OutfitSelection = Random.Range(6, 8);
+                brawler1OutfitSelection = Random.Range(7, 8);
+                brawler1Outfit = GetComponent<OutfitVariationManager>().OutfitVariations(FightStyle.fightStyles.taekwondo,
+                    brawler1OutfitSelection);
                 holdBrawler1Outfit = new SkinnedMeshRenderer[outfits[brawler1OutfitSelection].transform.childCount];
             }
             else if (brawler1.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.kungFu)
