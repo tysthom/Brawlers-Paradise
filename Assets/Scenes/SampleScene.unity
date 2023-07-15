@@ -3842,7 +3842,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502112829}
-  m_LocalRotation: {x: -0.0000000032213134, y: 0.99130005, z: -0.13162142, w: -0.000000024261153}
+  m_LocalRotation: {x: -0.000000008509063, y: 0.99130005, z: -0.13162142, w: -0.000000064085576}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8596,6 +8596,12 @@ MonoBehaviour:
   - {fileID: 6412387228990328488, guid: ae90025b13c6d5940a4afc9d54ad5850, type: 3}
   - {fileID: 1468537986876055058, guid: 8284a58978329c94b8a3600a54edd8db, type: 3}
   - {fileID: 5872149613048190980, guid: 5db0884d3e105c64c8b06fb233f51390, type: 3}
+  boxingOutfit2Variations:
+  - {fileID: 3219369471398525267, guid: 052748e11b50be74a91d5a64b3d5e49e, type: 3}
+  - {fileID: 1005047900209282090, guid: a7990ec05ab3a2047bb1796e3b028193, type: 3}
+  - {fileID: 4545710954375807484, guid: 09f45442e372f4f489617a4bf7b2fa70, type: 3}
+  - {fileID: 680443577512965251, guid: a18be5571db282747866679eadc98b3a, type: 3}
+  - {fileID: 1718730205211224265, guid: 17aea970cfd337a4aa148bd031cd37c6, type: 3}
 --- !u!1 &1115101512
 GameObject:
   m_ObjectHideFlags: 0
