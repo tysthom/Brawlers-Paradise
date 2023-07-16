@@ -3842,7 +3842,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502112829}
-  m_LocalRotation: {x: -0.0000000092509405, y: 0.99130005, z: -0.13162142, w: -0.00000006967298}
+  m_LocalRotation: {x: -0.000000008508634, y: 0.99130005, z: -0.13162142, w: -0.00000006408234}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5718,7 +5718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 5
+  fightStyle: 0
 --- !u!114 &835227091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8578,6 +8578,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9c1a8aa0769b3344a78c91b69704542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  usingDevTool: 1
+  useOutfitColorVariations: 1
+  oufitColorVariationUsage: 7
   karateOutfit1Variations:
   - {fileID: 2316150973540564897, guid: 3a2c0db2b7716e44e8b913abdf52f2b3, type: 3}
   - {fileID: 1306059935378711384, guid: db654d14dfe679c498e80fa6a5a3b1c7, type: 3}
@@ -15340,7 +15343,7 @@ MonoBehaviour:
   brawler1SecondBAttackTime: 1.12
   brawler1SecondBAttackDistance: 7
   brawler1ThirdAttackTime: 1.12
-  brawler1ThirdAttackV1Distance: 7
+  brawler1ThirdAttackV1Distance: 5.66
   brawler1ThirdAttackV2Distance: 7
   brawler1ThirdAttackV3Distance: 7
   brawler1ThirdAttackV4Distance: 7

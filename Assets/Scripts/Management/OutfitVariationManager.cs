@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class OutfitVariationManager : MonoBehaviour
 {
+    public bool usingDevTool;
+    public bool useOutfitColorVariations;
+    [Range(0, 10)] public int oufitColorVariationUsage;
+
     public GameObject[] karateOutfit1Variations;
     public GameObject[] karateOutfit2Variations;
     public GameObject[] boxingOutfit1Variations;
@@ -32,12 +36,28 @@ public class OutfitVariationManager : MonoBehaviour
 
     public GameObject OutfitVariations(FightStyle.fightStyles f, int outfitSelection)
     {
+        int i = Random.Range(0, 11);
         if(outfitSelection == 0)
         {
-            return karateOutfit1Variations[Random.Range(0, karateOutfit1Variations.Length)];
+            if (usingDevTool && (!useOutfitColorVariations || i < oufitColorVariationUsage))
+            {
+                return karateOutfit1Variations[0];
+            }
+            else
+            {
+                return karateOutfit1Variations[Random.Range(0, karateOutfit1Variations.Length)];
+            }
+
         } else if (outfitSelection == 1)
         {
-            return karateOutfit2Variations[Random.Range(0, karateOutfit2Variations.Length)];
+            if (usingDevTool && (!useOutfitColorVariations || i < oufitColorVariationUsage))
+            {
+                return karateOutfit2Variations[0];
+            }
+            else
+            {
+                return karateOutfit2Variations[Random.Range(0, karateOutfit2Variations.Length)];
+            }
         }
         else if (outfitSelection == 2)
         {

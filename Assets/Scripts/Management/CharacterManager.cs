@@ -189,7 +189,7 @@ public class CharacterManager : MonoBehaviour
             }
             else if (brawler1.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.proWrestling)
             {
-                brawler1OutfitSelection = Random.Range(11, 12);
+                brawler1OutfitSelection = Random.Range(10, 12);
                 brawler1Outfit = GetComponent<OutfitVariationManager>().OutfitVariations(FightStyle.fightStyles.proWrestling,
                     brawler1OutfitSelection);
                 holdBrawler1Outfit = new SkinnedMeshRenderer[outfits[brawler1OutfitSelection].transform.childCount];
@@ -219,43 +219,63 @@ public class CharacterManager : MonoBehaviour
 
 
         SkinnedMeshRenderer[] setBrawler2Outfit = new SkinnedMeshRenderer[50];
-        SkinnedMeshRenderer[] holdBrawler2Outfit;
+        SkinnedMeshRenderer[] holdBrawler2Outfit = null;
 
         if (useAppropriateOutfits)
         {
             if (brawler2.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.karate)
             {
                 brawler2OutfitSelection = Random.Range(0, 2);
+                brawler2Outfit = GetComponent<OutfitVariationManager>().OutfitVariations(FightStyle.fightStyles.karate,
+                    brawler2OutfitSelection);
+                holdBrawler2Outfit = new SkinnedMeshRenderer[brawler2Outfit.transform.childCount];
             }
             else if (brawler2.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.boxing)
             {
                 brawler2OutfitSelection = Random.Range(2, 4);
+                brawler2Outfit = GetComponent<OutfitVariationManager>().OutfitVariations(FightStyle.fightStyles.boxing,
+                    brawler2OutfitSelection);
+                holdBrawler2Outfit = new SkinnedMeshRenderer[brawler2Outfit.transform.childCount];
             }
             else if (brawler2.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.MMA)
             {
                 brawler2OutfitSelection = Random.Range(4, 6);
+                brawler2Outfit = GetComponent<OutfitVariationManager>().OutfitVariations(FightStyle.fightStyles.MMA,
+                    brawler2OutfitSelection);
+                holdBrawler2Outfit = new SkinnedMeshRenderer[brawler2Outfit.transform.childCount];
             }
             else if (brawler2.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.taekwondo)
             {
                 brawler2OutfitSelection = Random.Range(6, 8);
+                brawler2Outfit = GetComponent<OutfitVariationManager>().OutfitVariations(FightStyle.fightStyles.taekwondo,
+                    brawler2OutfitSelection);
+                holdBrawler2Outfit = new SkinnedMeshRenderer[brawler2Outfit.transform.childCount];
             }
             else if (brawler2.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.kungFu)
             {
                 brawler2OutfitSelection = Random.Range(8, 10);
+                brawler2Outfit = GetComponent<OutfitVariationManager>().OutfitVariations(FightStyle.fightStyles.kungFu,
+                    brawler2OutfitSelection);
+                holdBrawler2Outfit = new SkinnedMeshRenderer[brawler2Outfit.transform.childCount];
             }
             else if (brawler2.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.proWrestling)
             {
                 brawler2OutfitSelection = Random.Range(10, 12);
+                brawler2Outfit = GetComponent<OutfitVariationManager>().OutfitVariations(FightStyle.fightStyles.proWrestling,
+                    brawler2OutfitSelection);
+                holdBrawler2Outfit = new SkinnedMeshRenderer[brawler2Outfit.transform.childCount];
             }
         }
-
-        holdBrawler2Outfit = new SkinnedMeshRenderer[outfits[brawler2OutfitSelection].transform.childCount];
+        else
+        {
+            holdBrawler2Outfit = new SkinnedMeshRenderer[outfits[brawler2OutfitSelection].transform.childCount];
+        }
 
 
         for (int i = 0; i < outfits[brawler2OutfitSelection].transform.childCount; i++)
         {
-            setBrawler2Outfit[i] = outfits[brawler2OutfitSelection].transform.GetChild(i).GetComponent<SkinnedMeshRenderer>();
-            holdBrawler2Outfit[i] = Instantiate<SkinnedMeshRenderer>(outfits[brawler2OutfitSelection].transform.GetChild(i).GetComponent<SkinnedMeshRenderer>()); //Assigns instaniaited versions to new array to make changes only to this version
+            setBrawler2Outfit[i] = brawler2Outfit.transform.GetChild(i).GetComponent<SkinnedMeshRenderer>();
+            holdBrawler2Outfit[i] = Instantiate<SkinnedMeshRenderer>(setBrawler2Outfit[i]); //Assigns instaniaited versions to new array to make changes only to this version
 
             holdBrawler2Outfit[i].bones = brawler2TargetMesh.bones;
             holdBrawler2Outfit[i].rootBone = brawler2TargetMesh.rootBone;
