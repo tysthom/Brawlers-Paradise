@@ -6,7 +6,32 @@ ModelImporter:
   - first:
       74: 2200736570788784969
     second: Armature|A-Idle
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pants
+    second: {fileID: 2100000, guid: b7a80875f60728744a4ec8422f598a87, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shirt
+    second: {fileID: 2100000, guid: 47a3b6b1c05f98247a1e559fa1f3bb6f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shirt2
+    second: {fileID: 2100000, guid: c2ce410cae9187049ab826c947cc03b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shoes
+    second: {fileID: 2100000, guid: 1d53f029ddca11944ba6a45fa9c8bc0c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shoes2
+    second: {fileID: 2100000, guid: 8177b789871ab67468c6bc9a5cdd9fb5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

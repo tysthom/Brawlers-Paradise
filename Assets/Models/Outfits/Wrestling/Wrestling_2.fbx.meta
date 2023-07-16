@@ -6,7 +6,37 @@ ModelImporter:
   - first:
       74: 2200736570788784969
     second: Armature|A-Idle
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Boots
+    second: {fileID: 2100000, guid: d9b94039e1e7c8242b89cc923d69727e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Boots2
+    second: {fileID: 2100000, guid: 90c4871fba2ca7a499e422f7e6481892, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Elbow Pads
+    second: {fileID: 2100000, guid: 4425af11f9af33742b5e574c18146818, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pants
+    second: {fileID: 2100000, guid: b57d93d8b6abd1f46b2d4416a34dd640, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pants2
+    second: {fileID: 2100000, guid: b213325467d139c48a9be51ccb5aba72, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pants3
+    second: {fileID: 2100000, guid: fe64381f957f9fd4f80656df7df5fba8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -88,7 +118,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.012499999
+    globalScale: 1.25
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

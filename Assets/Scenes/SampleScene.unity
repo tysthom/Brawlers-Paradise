@@ -3842,7 +3842,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502112829}
-  m_LocalRotation: {x: -0.000000008565281, y: 0.99130005, z: -0.13162142, w: -0.00000006450898}
+  m_LocalRotation: {x: -0.0000000092509405, y: 0.99130005, z: -0.13162142, w: -0.00000006967298}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5718,7 +5718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6594ad7817ff314998c816fee91489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightStyle: 3
+  fightStyle: 5
 --- !u!114 &835227091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8626,6 +8626,30 @@ MonoBehaviour:
   - {fileID: 4741021289724902230, guid: ec04712e94c250046a64b7f39652120d, type: 3}
   - {fileID: 8838364752180426318, guid: df037edae8634c84fa1eefb39529499b, type: 3}
   - {fileID: 1824599332714905747, guid: 8ef4c5d3edd1e6346a680f5ef9a51aa3, type: 3}
+  kungFuOutfit1Variations:
+  - {fileID: 4986216902109515861, guid: a967688de4930cf4098ac0ffeec35c47, type: 3}
+  - {fileID: 8659427106090653130, guid: e5b11238f5cebe64495cec18048322b2, type: 3}
+  - {fileID: 6382856384525112019, guid: 353365a6b4b398645b9ab4d2f11c2fdd, type: 3}
+  - {fileID: 683325754221816106, guid: 7d8145e3181988b45a133b74e63dc6c3, type: 3}
+  - {fileID: 4480489980040746271, guid: 507d77141347d4e49b5b92ecc6339d5f, type: 3}
+  kungFuOutfit2Variations:
+  - {fileID: 8435734323833475604, guid: 75b47a0e8cf860f4c813ec8ea3e355a5, type: 3}
+  - {fileID: 5837055494558648828, guid: 33c4a63b468d22f429c736ee66999521, type: 3}
+  - {fileID: 4775446193183490680, guid: c044e506d1263634ebeddaf660e7b03b, type: 3}
+  - {fileID: 5899878661755305886, guid: da44db316c5626d4db6bc53e5570c6ac, type: 3}
+  - {fileID: 7111076912376351044, guid: 7698d739cd76e34498c65ca3b5f16534, type: 3}
+  wrestlingOutfit1Variations:
+  - {fileID: 7939046934089733094, guid: f2b7c99c50a8cd542a770cc4583bb5ed, type: 3}
+  - {fileID: 3038407493478918430, guid: 9d117ce6a36dd83419b87b33e3f86079, type: 3}
+  - {fileID: 1342012890131626886, guid: da42d3853d589ab468377a55e1ab611b, type: 3}
+  - {fileID: 6346571014610415984, guid: 3f299cd70dac37347825c7ba4d4d371b, type: 3}
+  - {fileID: 83493396501154970, guid: b3d1446933f8e6b4894def67977e2fa2, type: 3}
+  wrestlingOutfit2Variations:
+  - {fileID: 9134391794506546230, guid: 43ed552f1a9c360439b8516fd485f8d5, type: 3}
+  - {fileID: 5913527029450805887, guid: 01eff327666a6794cb4bee88b2cfa313, type: 3}
+  - {fileID: 7061771795188730694, guid: e74eb5ba45d3784429ef9d7528855585, type: 3}
+  - {fileID: 8931538186177763826, guid: f438aaebc40d8df41ac043812df77304, type: 3}
+  - {fileID: 6500608469269546260, guid: 56aabda8b1d6b5b458803454a8b4328d, type: 3}
 --- !u!1 &1115101512
 GameObject:
   m_ObjectHideFlags: 0
