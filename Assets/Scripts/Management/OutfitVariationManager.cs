@@ -50,7 +50,7 @@ public class OutfitVariationManager : MonoBehaviour
 
         } else if (outfitSelection == 1)
         {
-            if (usingDevTool && (!useOutfitColorVariations || i < oufitColorVariationUsage))
+            if (usingDevTool || (!useOutfitColorVariations || i < oufitColorVariationUsage))
             {
                 return karateOutfit2Variations[0];
             }
@@ -61,43 +61,113 @@ public class OutfitVariationManager : MonoBehaviour
         }
         else if (outfitSelection == 2)
         {
-            return boxingOutfit1Variations[Random.Range(0, boxingOutfit1Variations.Length)];
+            if (usingDevTool || (!useOutfitColorVariations || i < oufitColorVariationUsage))
+            {
+                return boxingOutfit1Variations[0];
+            }
+            else
+            {
+                return boxingOutfit1Variations[Random.Range(0, boxingOutfit1Variations.Length)];
+            }
         }
         else if (outfitSelection == 3)
         {
-            return boxingOutfit2Variations[Random.Range(0, boxingOutfit2Variations.Length)];
+            if (usingDevTool || (!useOutfitColorVariations || i < oufitColorVariationUsage))
+            {
+                return boxingOutfit2Variations[0];
+            }
+            else
+            {
+                return boxingOutfit2Variations[Random.Range(0, boxingOutfit2Variations.Length)];
+            }
         }
         else if (outfitSelection == 4)
         {
-            return mmaOutfit1Variations[Random.Range(0, mmaOutfit1Variations.Length)];
+            if (usingDevTool || (!useOutfitColorVariations || i < oufitColorVariationUsage))
+            {
+                return mmaOutfit1Variations[0];
+            }
+            else
+            {
+                return mmaOutfit1Variations[Random.Range(0, mmaOutfit1Variations.Length)];
+            }
         }
         else if (outfitSelection == 5)
         {
-            return mmaOutfit2Variations[Random.Range(0, mmaOutfit2Variations.Length)];
+            if (usingDevTool || (!useOutfitColorVariations || i < oufitColorVariationUsage))
+            {
+                return mmaOutfit2Variations[0];
+            }
+            else
+            {
+                return mmaOutfit2Variations[Random.Range(0, mmaOutfit2Variations.Length)];
+            }
         }
         else if (outfitSelection == 6)
         {
-            return taekwondoOutfit1Variations[Random.Range(0, taekwondoOutfit1Variations.Length)];
+            if (usingDevTool || (!useOutfitColorVariations || i < oufitColorVariationUsage))
+            {
+                return taekwondoOutfit1Variations[0];
+            }
+            else
+            {
+                return taekwondoOutfit1Variations[Random.Range(0, taekwondoOutfit1Variations.Length)];
+            }
         }
         else if (outfitSelection == 7)
         {
-            return taekwondoOutfit2Variations[Random.Range(0, taekwondoOutfit2Variations.Length)];
+            if (usingDevTool || (!useOutfitColorVariations || i < oufitColorVariationUsage))
+            {
+                return taekwondoOutfit2Variations[0];
+            }
+            else
+            {
+                return taekwondoOutfit2Variations[Random.Range(0, taekwondoOutfit2Variations.Length)];
+            }
         }
         else if (outfitSelection == 8)
         {
-            return kungFuOutfit1Variations[Random.Range(0, kungFuOutfit1Variations.Length)];
+            if (usingDevTool || (!useOutfitColorVariations || i < oufitColorVariationUsage))
+            {
+                return kungFuOutfit1Variations[0];
+            }
+            else
+            {
+                return kungFuOutfit1Variations[Random.Range(0, kungFuOutfit1Variations.Length)];
+            }
         }
         else if (outfitSelection == 9)
         {
-            return kungFuOutfit2Variations[Random.Range(0, kungFuOutfit2Variations.Length)];
+            if (usingDevTool || (!useOutfitColorVariations || i < oufitColorVariationUsage))
+            {
+                return kungFuOutfit2Variations[0];
+            }
+            else
+            {
+                return kungFuOutfit2Variations[Random.Range(0, kungFuOutfit2Variations.Length)];
+            }
         }
         else if (outfitSelection == 10)
         {
-            return wrestlingOutfit1Variations[Random.Range(0, wrestlingOutfit1Variations.Length)];
+            if (usingDevTool && (!useOutfitColorVariations || i < oufitColorVariationUsage))
+            {
+                return wrestlingOutfit1Variations[0];
+            }
+            else
+            {
+                return wrestlingOutfit1Variations[Random.Range(0, wrestlingOutfit1Variations.Length)];
+            }
         }
         else if (outfitSelection == 11)
         {
-            return wrestlingOutfit2Variations[Random.Range(0, wrestlingOutfit2Variations.Length)];
+            if (usingDevTool || (!useOutfitColorVariations || i < oufitColorVariationUsage))
+            {
+                return wrestlingOutfit2Variations[0];
+            }
+            else
+            {
+                return wrestlingOutfit2Variations[Random.Range(0, wrestlingOutfit2Variations.Length)];
+            }
         }
 
         return null;
