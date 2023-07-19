@@ -3842,7 +3842,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502112829}
-  m_LocalRotation: {x: -0.0000000032213134, y: 0.99130005, z: -0.13162142, w: -0.000000024261153}
+  m_LocalRotation: {x: -0.000000009240491, y: 0.99130005, z: -0.13162142, w: -0.000000069594286}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8494,9 +8494,9 @@ MonoBehaviour:
   brawler2HairSelection: 3
   hairTypes:
   - {fileID: 0}
-  - {fileID: 2796143577932038464, guid: fe9ef632c8845a2409af73a87e9cf427, type: 3}
-  - {fileID: 8071425665945717096, guid: 44820617bd6661840a00097731a1314f, type: 3}
-  - {fileID: 4829580189524917900, guid: c7a8fbc0e8c03bc4c981fe535ba265a6, type: 3}
+  - {fileID: 4577598953910255863, guid: 555fb785daa62f348b970c12c91de199, type: 3}
+  - {fileID: 4771908086226444274, guid: ebdb2623bf5ac7246bf7e00e9e41ffa0, type: 3}
+  - {fileID: 1685525986602549490, guid: 4ffdcaf84edd22142956afd0f59044d1, type: 3}
   - {fileID: 2659415202614274411, guid: 5110f37a85b19e84389d131c63079e04, type: 3}
   brawler1HairColorSelction: 0
   brawler2HairColorSelction: 5
