@@ -3842,7 +3842,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502112829}
-  m_LocalRotation: {x: -0.000000009240491, y: 0.99130005, z: -0.13162142, w: -0.000000069594286}
+  m_LocalRotation: {x: -0.000000009521307, y: 0.99130005, z: -0.13162142, w: -0.00000007170924}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8491,13 +8491,18 @@ MonoBehaviour:
   touristHairHolder: {fileID: 0}
   touristSkin: {fileID: 0}
   brawler1HairSelection: 1
-  brawler2HairSelection: 3
+  brawler2HairSelection: 9
   hairTypes:
   - {fileID: 0}
   - {fileID: 4577598953910255863, guid: 555fb785daa62f348b970c12c91de199, type: 3}
   - {fileID: 4771908086226444274, guid: ebdb2623bf5ac7246bf7e00e9e41ffa0, type: 3}
   - {fileID: 1685525986602549490, guid: 4ffdcaf84edd22142956afd0f59044d1, type: 3}
-  - {fileID: 2659415202614274411, guid: 5110f37a85b19e84389d131c63079e04, type: 3}
+  - {fileID: 6073772866033663853, guid: ad2f10d4842fcfe4cbd6e3697e9530e4, type: 3}
+  - {fileID: 709821400746094861, guid: 2d7ac47811d2a924fb72b5588599f5bc, type: 3}
+  - {fileID: 5214972828230264526, guid: 11548bd8653c09248b864c6801467cd9, type: 3}
+  - {fileID: 5872088272999823909, guid: 213a9b15b4204544ebacf03e6af7e068, type: 3}
+  - {fileID: 8559539915045730251, guid: d1e344c6d7e1bc344b0e073f54b88c6e, type: 3}
+  - {fileID: 6261251212513513222, guid: c33a9d505640d7a49be6a627223613f5, type: 3}
   brawler1HairColorSelction: 0
   brawler2HairColorSelction: 5
   hairColor:
@@ -8508,7 +8513,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 225ed4419c585c74e946839a0a568d52, type: 2}
   - {fileID: 2100000, guid: cba9d6519ff2fe34c8e77bbde2dad2f1, type: 2}
   - {fileID: 2100000, guid: 49ce1f09b419c32448014183af6984db, type: 2}
-  brawler1SkinSelction: 1
+  brawler1SkinSelction: 2
   brawler2SkinSelction: 4
   skinColor:
   - {fileID: 2100000, guid: ad9ef9b149855c84cbcb5d6cbac492ab, type: 2}
@@ -8516,6 +8521,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8ead1c212bd4e4342aa56f929c05d630, type: 2}
   - {fileID: 2100000, guid: 00702574e07b52a42a80b8498fcd57a3, type: 2}
   - {fileID: 2100000, guid: 3a707d1d2008da74f8219f18d79bf05a, type: 2}
+  - {fileID: 2100000, guid: c058944ef1e3b8a4aa2ab6cd9e1dc64a, type: 2}
+  - {fileID: 2100000, guid: 082beb0ffcf9f254ebaecce918291180, type: 2}
   useAppropriateOutfits: 1
   brawler1OutfitSelection: 3
   brawler2OutfitSelection: 7
