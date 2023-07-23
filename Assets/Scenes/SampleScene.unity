@@ -3842,7 +3842,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502112829}
-  m_LocalRotation: {x: -0.0000000032213388, y: 0.99130005, z: -0.13162142, w: -0.000000024261354}
+  m_LocalRotation: {x: -0.0000000092509405, y: 0.99130005, z: -0.13162142, w: -0.00000006967298}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8503,7 +8503,7 @@ MonoBehaviour:
   - {fileID: 5872088272999823909, guid: 213a9b15b4204544ebacf03e6af7e068, type: 3}
   - {fileID: 8559539915045730251, guid: d1e344c6d7e1bc344b0e073f54b88c6e, type: 3}
   - {fileID: 6261251212513513222, guid: c33a9d505640d7a49be6a627223613f5, type: 3}
-  brawler1HairColorSelction: 8
+  brawler1HairColorSelction: 0
   brawler2HairColorSelction: 5
   hairColor:
   - {fileID: 2100000, guid: 64a2afa3936d6bd44a71153fe01c5434, type: 2}
@@ -8515,7 +8515,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 97a664ef0c50e3240bba831af6557639, type: 2}
   - {fileID: 2100000, guid: 49ce1f09b419c32448014183af6984db, type: 2}
   - {fileID: 2100000, guid: 1a96ccca61f138043a1bbebdf626097d, type: 2}
-  brawler1SkinSelction: 2
+  brawler1SkinSelction: 1
   brawler2SkinSelction: 4
   skinColor:
   - {fileID: 2100000, guid: ad9ef9b149855c84cbcb5d6cbac492ab, type: 2}
@@ -8591,7 +8591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9c1a8aa0769b3344a78c91b69704542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usingDevTool: 1
+  usingDevTool: 0
   useOutfitColorVariations: 1
   oufitColorVariationUsage: 7
   karateOutfit1Variations:
