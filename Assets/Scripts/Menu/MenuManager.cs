@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MenuManager : MonoBehaviour
 {
+
     public bool canMoveToNextMenu;
     public string currentMenu = "";
+    public GameObject eventSystem;
     public GameObject blackOut;
+
 
     [Header("Cameras")]
     public GameObject titleCamera;
@@ -15,6 +19,10 @@ public class MenuManager : MonoBehaviour
     [Header("Title Menu References")]
     public GameObject mainLogo;
     public GameObject startText;
+
+    [Header("Main Menu References")]
+    public GameObject mainMenu;
+    public GameObject playButton;
 
     private void Awake()
     {
@@ -47,7 +55,6 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-
     IEnumerator MainLogoTime(float t)
     {
         yield return new WaitForSeconds(t);
@@ -64,6 +71,7 @@ public class MenuManager : MonoBehaviour
         blackOut.GetComponent<Fade>().fadeIn = true;
         yield return new WaitForSeconds(blackOutTime);
         blackOut.GetComponent<Fade>().fadeOut = true;
+        MainMenu();
     }
 
     IEnumerator SwitchCameras(float waitTime, GameObject currentCamera, GameObject newCamera)
@@ -71,6 +79,12 @@ public class MenuManager : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         newCamera.SetActive(true);
         currentCamera.SetActive(false);
+    }
+
+    public void MainMenu()
+    {
+        mainMenu.SetActive(true);
+        eventSystem.GetComponent<EventSystem>().firstSelectedGameObject = playButton;
     }
 
 }
