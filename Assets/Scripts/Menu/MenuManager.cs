@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
@@ -22,7 +24,19 @@ public class MenuManager : MonoBehaviour
 
     [Header("Main Menu References")]
     public GameObject mainMenu;
-    public GameObject playButton;
+    public GameObject fightButton;
+
+    [Header("Fight Menu")]
+    public GameObject fightMenu;
+    public bool b1Side;
+    public bool b2Side;
+    public GameObject modeDropDown;
+    public string[] fightStyles = { "" };
+    bool canSwtichFightStyle;
+    public TextMeshProUGUI b1FightStyleText;
+    public TextMeshProUGUI b2FightStyleText;
+    int b1FightStyle = 0;
+    int b2FightStyle = 0;
 
     private void Awake()
     {
@@ -49,10 +63,31 @@ public class MenuManager : MonoBehaviour
                 startText.GetComponent<Fade>().fadeOut = true;
                 StartCoroutine(BlackOut(1, 3));
                 StartCoroutine(SwitchCameras(2, titleCamera, mainMenuCamera));
+                currentMenu = "Main Menu";
             }
 
             canMoveToNextMenu = false;
         }
+
+        float horizontal = Input.GetAxisRaw("Horizontal");
+
+        if(currentMenu == "Fight Menu")
+        {
+            if (canSwtichFightStyle)
+            {
+                if (horizontal > .75f)
+                {
+                    StartCoroutine(FightStyle("right"));
+                } 
+                else if (horizontal < -.75f)
+                {
+                    StartCoroutine(FightStyle("left"));
+                }
+            } 
+        }
+
+        b1FightStyleText.text = fightStyles[b1FightStyle];
+        b2FightStyleText.text = fightStyles[b2FightStyle];
     }
 
     IEnumerator MainLogoTime(float t)
@@ -72,6 +107,7 @@ public class MenuManager : MonoBehaviour
         yield return new WaitForSeconds(blackOutTime);
         blackOut.GetComponent<Fade>().fadeOut = true;
         MainMenu();
+        //canMoveToNextMenu = true;
     }
 
     IEnumerator SwitchCameras(float waitTime, GameObject currentCamera, GameObject newCamera)
@@ -79,12 +115,69 @@ public class MenuManager : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         newCamera.SetActive(true);
         currentCamera.SetActive(false);
+        canSwtichFightStyle = true;
     }
 
     public void MainMenu()
     {
         mainMenu.SetActive(true);
-        eventSystem.GetComponent<EventSystem>().firstSelectedGameObject = playButton;
+        eventSystem.GetComponent<EventSystem>().firstSelectedGameObject = fightButton;
     }
 
+    //FIGHT MENU
+
+    public void FightMenu() //Used when Fight button is pressed
+    {
+        StartCoroutine(FightMenuCoroutine());
+    }
+
+    public IEnumerator FightMenuCoroutine() //
+    {
+        currentMenu = "Fight Menu";
+        mainMenuCamera.GetComponent<SmoothDampCamera>().smoothDamp = true;
+        mainMenu.SetActive(false);
+        yield return new WaitForSeconds(1.5f);
+        fightMenu.SetActive(true);
+        eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(modeDropDown);
+        b1Side = true;
+        b2Side = false;
+    }
+
+    IEnumerator FightStyle(string dir)
+    {
+        canSwtichFightStyle = false;
+
+        if (b1Side)
+        {
+            if(dir == "right")
+            {
+                if (b1FightStyle == fightStyles.Length - 1)
+                {
+                    b1FightStyle = 0;
+                }
+                else
+                {
+                    b1FightStyle++;
+                }
+            }
+            else
+            {
+                if (b1FightStyle == 0)
+                {
+                    b1FightStyle = fightStyles.Length - 1;
+                }
+                else
+                {
+                    b1FightStyle--;
+                }
+            }
+        }
+        else
+        {
+
+        }
+
+        yield return new WaitForSeconds(.5f);
+        canSwtichFightStyle = true;
+    }
 }
