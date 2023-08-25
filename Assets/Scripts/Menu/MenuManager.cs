@@ -27,16 +27,25 @@ public class MenuManager : MonoBehaviour
     public GameObject fightButton;
 
     [Header("Fight Menu")]
+    GameObject currentSelected;
     public GameObject fightMenu;
     public bool b1Side;
     public bool b2Side;
+    //GAME MODE
     public GameObject modeDropDown;
+    //FIGHT STYLE
     public string[] fightStyles = { "" };
     bool canSwtichFightStyle;
     public TextMeshProUGUI b1FightStyleText;
     public TextMeshProUGUI b2FightStyleText;
-    int b1FightStyle = 0;
-    int b2FightStyle = 0;
+    public int b1FightStyle = 0;
+    public int b2FightStyle = 0;
+    //OUTFIT SELECTION
+    public enum outfitParts { };
+    public GameObject[] outfits;
+    public int b1OutfitSelection;
+    public int b2OutfitSelection;
+
 
     private void Awake()
     {
@@ -54,6 +63,8 @@ public class MenuManager : MonoBehaviour
 
     private void Update()
     {
+        currentSelected = EventSystem.current.currentSelectedGameObject;
+
         bool nextMenu = Input.GetButton("Pick Up");
         if (canMoveToNextMenu && nextMenu)
         {
@@ -73,7 +84,7 @@ public class MenuManager : MonoBehaviour
 
         if(currentMenu == "Fight Menu")
         {
-            if (canSwtichFightStyle)
+            if (canSwtichFightStyle && currentSelected.name == "B1 FightStyleSelection")
             {
                 if (horizontal > .75f)
                 {
@@ -83,11 +94,11 @@ public class MenuManager : MonoBehaviour
                 {
                     StartCoroutine(FightStyle("left"));
                 }
-            } 
-        }
+            }
 
-        b1FightStyleText.text = fightStyles[b1FightStyle];
-        b2FightStyleText.text = fightStyles[b2FightStyle];
+            b1FightStyleText.text = fightStyles[b1FightStyle];
+            b2FightStyleText.text = fightStyles[b2FightStyle];
+        }
     }
 
     IEnumerator MainLogoTime(float t)
