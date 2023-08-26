@@ -42,7 +42,9 @@ public class MenuManager : MonoBehaviour
     public int b2FightStyle = 0;
     //OUTFIT SELECTION
     public enum outfitParts { };
-    public GameObject[] outfits;
+    bool canSwitchOutfitSelection;
+    public TextMeshProUGUI b1OutfitSelectionText;
+    public TextMeshProUGUI b2OutfitSelectionText;
     public int b1OutfitSelection;
     public int b2OutfitSelection;
 
@@ -96,8 +98,23 @@ public class MenuManager : MonoBehaviour
                 }
             }
 
+            if(canSwitchOutfitSelection && currentSelected.name == "B1 OutfitSelection")
+            {
+                if (horizontal > .75f)
+                {
+                    StartCoroutine(OutfitSelection("right"));
+                }
+                else if (horizontal < -.75f)
+                {
+                    StartCoroutine(OutfitSelection("left"));
+                }
+            }
+
             b1FightStyleText.text = fightStyles[b1FightStyle];
             b2FightStyleText.text = fightStyles[b2FightStyle];
+
+            b1OutfitSelectionText.text = "" + b1OutfitSelection;
+            //b2OutfitSelectionText.text = "" + b2OutfitSelection;
         }
     }
 
@@ -127,6 +144,7 @@ public class MenuManager : MonoBehaviour
         newCamera.SetActive(true);
         currentCamera.SetActive(false);
         canSwtichFightStyle = true;
+        canSwitchOutfitSelection = true;
     }
 
     public void MainMenu()
@@ -190,5 +208,43 @@ public class MenuManager : MonoBehaviour
 
         yield return new WaitForSeconds(.5f);
         canSwtichFightStyle = true;
+    }
+
+    IEnumerator OutfitSelection(string dir)
+    {
+        canSwitchOutfitSelection = false;
+
+        if (b1Side)
+        {
+            if (dir == "right")
+            {
+                if (b1OutfitSelection == 2)
+                {
+                    b1OutfitSelection = 1;
+                }
+                else
+                {
+                    b1OutfitSelection++;
+                }
+            }
+            else
+            {
+                if (b1OutfitSelection == 1)
+                {
+                    b1OutfitSelection = 2;
+                }
+                else
+                {
+                    b1OutfitSelection--;
+                }
+            }
+        }
+        else
+        {
+
+        }
+
+        yield return new WaitForSeconds(.5f);
+        canSwitchOutfitSelection = true;
     }
 }
