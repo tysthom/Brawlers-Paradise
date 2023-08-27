@@ -16,10 +16,14 @@ public class BrawlerUpdates : MonoBehaviour
     [Header("Outfit Selection")]
     List<SkinnedMeshRenderer> setBrawler1Outfit = new List<SkinnedMeshRenderer>();
     List<SkinnedMeshRenderer> holdBrawler1Outfit = new List<SkinnedMeshRenderer>();
-    int len = 0; //Used for getting and creating children of outfits
+    List<SkinnedMeshRenderer> setBrawler2Outfit = new List<SkinnedMeshRenderer>();
+    List<SkinnedMeshRenderer> holdBrawler2Outfit = new List<SkinnedMeshRenderer>();
+    int lenb1 = 0; //Used for getting and creating children of outfits
+    int lenb2 = 0;
     public GameObject b1Outfit, b2Outfit;
     public GameObject[] outfits;
     public SkinnedMeshRenderer brawler1TargetMesh;
+    public SkinnedMeshRenderer brawler2TargetMesh;
     public GameObject[] karateOutfit1Variations;
     public GameObject[] karateOutfit2Variations;
     public GameObject[] boxingOutfit1Variations;
@@ -73,6 +77,7 @@ public class BrawlerUpdates : MonoBehaviour
         if (menuManagerInstance.b1FightStyle != b1FightStyleSelection || menuManagerInstance.b2FightStyle != b2FightStyleSelection)
         {
             brawler1.GetComponent<Animator>().runtimeAnimatorController = fightingTypeAnimators[menuManagerInstance.b1FightStyle];
+            brawler2.GetComponent<Animator>().runtimeAnimatorController = fightingTypeAnimators[menuManagerInstance.b2FightStyle];
         }
 
         if (menuManagerInstance.b1OutfitSelection != b1OutfitSelection || menuManagerInstance.b2OutfitSelection != b2OutfitSelection ||
@@ -80,7 +85,10 @@ public class BrawlerUpdates : MonoBehaviour
             menuManagerInstance.b1OutfitVariation != b1OutfitVariation || menuManagerInstance.b2OutfitVariation != b2OutfitVariation)
         {
 
-            for(int i = 0; i < holdBrawler1Outfit.Count; i++)
+
+
+            #region Brawler1 Outfit Selection
+            for (int i = 0; i < holdBrawler1Outfit.Count; i++)
             {
                 //Destroy(setBrawler1Outfit[i].gameObject);
                 Destroy(holdBrawler1Outfit[i].gameObject);
@@ -93,12 +101,12 @@ public class BrawlerUpdates : MonoBehaviour
                 if(menuManagerInstance.b1OutfitSelection == 1)
                 {
                     b1Outfit = karateOutfit1Variations[menuManagerInstance.b1OutfitVariation-1];
-                    len = 5;
+                    lenb1 = 5;
                 }
                 else
                 {
                     b1Outfit = karateOutfit2Variations[menuManagerInstance.b1OutfitVariation-1];
-                    len = 4;
+                    lenb1 = 4;
                 }
             }
                else if (brawler1.GetComponent<Animator>().runtimeAnimatorController == fightingTypeAnimators[1]) //Boxing
@@ -106,12 +114,12 @@ public class BrawlerUpdates : MonoBehaviour
                 if (menuManagerInstance.b1OutfitSelection == 1)
                 {
                     b1Outfit = boxingOutfit1Variations[menuManagerInstance.b1OutfitVariation - 1];
-                    len = 5;
+                    lenb1 = 5;
                 }
                 else
                 {
                     b1Outfit = boxingOutfit2Variations[menuManagerInstance.b1OutfitVariation - 1];
-                    len = 4;
+                    lenb1 = 4;
                 }
             }
             else if (brawler1.GetComponent<Animator>().runtimeAnimatorController == fightingTypeAnimators[2]) //MMA
@@ -119,12 +127,12 @@ public class BrawlerUpdates : MonoBehaviour
                 if (menuManagerInstance.b1OutfitSelection == 1)
                 {
                     b1Outfit = mmaOutfit1Variations[menuManagerInstance.b1OutfitVariation - 1];
-                    len = 3;
+                    lenb1 = 3;
                 }
                 else
                 {
                     b1Outfit = mmaOutfit2Variations[menuManagerInstance.b1OutfitVariation - 1];
-                    len = 2;
+                    lenb1 = 2;
                 }
             }
             else if (brawler1.GetComponent<Animator>().runtimeAnimatorController == fightingTypeAnimators[3]) //TKD
@@ -132,12 +140,12 @@ public class BrawlerUpdates : MonoBehaviour
                 if (menuManagerInstance.b1OutfitSelection == 1)
                 {
                     b1Outfit = taekwondoOutfit1Variations[menuManagerInstance.b1OutfitVariation - 1];
-                    len = 4;
+                    lenb1 = 4;
                 }
                 else
                 {
                     b1Outfit = taekwondoOutfit2Variations[menuManagerInstance.b1OutfitVariation - 1];
-                    len = 4;
+                    lenb1 = 4;
                 }
             }
             else if (brawler1.GetComponent<Animator>().runtimeAnimatorController == fightingTypeAnimators[4]) //Kung Fu
@@ -145,12 +153,12 @@ public class BrawlerUpdates : MonoBehaviour
                 if (menuManagerInstance.b1OutfitSelection == 1)
                 {
                     b1Outfit = kungFuOutfit1Variations[menuManagerInstance.b1OutfitVariation - 1];
-                    len = 2;
+                    lenb1 = 2;
                 }
                 else
                 {
                     b1Outfit = kungFuOutfit2Variations[menuManagerInstance.b1OutfitVariation - 1];
-                    len = 3;
+                    lenb1 = 3;
                 }
             }
             else if (brawler1.GetComponent<Animator>().runtimeAnimatorController == fightingTypeAnimators[5]) //Wrestling
@@ -158,31 +166,130 @@ public class BrawlerUpdates : MonoBehaviour
                 if (menuManagerInstance.b1OutfitSelection == 1)
                 {
                     b1Outfit = wrestlingOutfit1Variations[menuManagerInstance.b1OutfitVariation - 1];
-                    len = 3;
+                    lenb1 = 3;
                 }
                 else
                 {
                     b1Outfit = wrestlingOutfit2Variations[menuManagerInstance.b1OutfitVariation - 1];
-                    len = 2;
+                    lenb1 = 2;
                 }
             }
 
-
-            for (int i = 0; i <= len; i++) 
+            for (int i = 0; i <= lenb1; i++)
             {
-                  setBrawler1Outfit.Add(b1Outfit.transform.GetChild(i).GetComponent<SkinnedMeshRenderer>());
-                    holdBrawler1Outfit.Add(Instantiate(setBrawler1Outfit[i])); //Assigns instaniaited versions to new array to make changes only to this version
-                    holdBrawler1Outfit[i].bones = brawler1TargetMesh.bones;
-                    holdBrawler1Outfit[i].rootBone = brawler1TargetMesh.rootBone;
+                setBrawler1Outfit.Add(b1Outfit.transform.GetChild(i).GetComponent<SkinnedMeshRenderer>());
+                holdBrawler1Outfit.Add(Instantiate(setBrawler1Outfit[i])); //Assigns instaniaited versions to new array to make changes only to this version
+                holdBrawler1Outfit[i].bones = brawler1TargetMesh.bones;
+                holdBrawler1Outfit[i].rootBone = brawler1TargetMesh.rootBone;
 
+                if (holdBrawler1Outfit[i].GetComponent<Cloth>() != null)
+                {
+                    holdBrawler1Outfit[i].GetComponent<Cloth>().enabled = true;
+                }
+            }
+            #endregion
 
+            #region Brawler2 Outfit Selection
+            for (int i = 0; i < holdBrawler2Outfit.Count; i++)
+            {
+                //Destroy(setBrawler1Outfit[i].gameObject);
+                Destroy(holdBrawler2Outfit[i].gameObject);
+            }
+            setBrawler2Outfit.Clear();
+            holdBrawler2Outfit.Clear();
 
-                    if (holdBrawler1Outfit[i].GetComponent<Cloth>() != null)
-                    {
-                        holdBrawler1Outfit[i].GetComponent<Cloth>().enabled = true;
-                    }
+            if (brawler2.GetComponent<Animator>().runtimeAnimatorController == fightingTypeAnimators[0]) //Karate
+            {
+                if (menuManagerInstance.b2OutfitSelection == 1)
+                {
+                    b2Outfit = karateOutfit1Variations[menuManagerInstance.b2OutfitVariation - 1];
+                    lenb2 = 5;
+                }
+                else
+                {
+                    b2Outfit = karateOutfit2Variations[menuManagerInstance.b2OutfitVariation - 1];
+                    lenb2 = 4;
+                }
+            }
+            else if (brawler2.GetComponent<Animator>().runtimeAnimatorController == fightingTypeAnimators[1]) //Boxing
+            {
+                if (menuManagerInstance.b2OutfitSelection == 1)
+                {
+                    b2Outfit = boxingOutfit1Variations[menuManagerInstance.b2OutfitVariation - 1];
+                    lenb2 = 5;
+                }
+                else
+                {
+                    b2Outfit = boxingOutfit2Variations[menuManagerInstance.b2OutfitVariation - 1];
+                    lenb2 = 4;
+                }
+            }
+            else if (brawler2.GetComponent<Animator>().runtimeAnimatorController == fightingTypeAnimators[2]) //MMA
+            {
+                if (menuManagerInstance.b2OutfitSelection == 1)
+                {
+                    b2Outfit = mmaOutfit1Variations[menuManagerInstance.b2OutfitVariation - 1];
+                    lenb2 = 3;
+                }
+                else
+                {
+                    b2Outfit = mmaOutfit2Variations[menuManagerInstance.b2OutfitVariation - 1];
+                    lenb2 = 2;
+                }
+            }
+            else if (brawler2.GetComponent<Animator>().runtimeAnimatorController == fightingTypeAnimators[3]) //TKD
+            {
+                if (menuManagerInstance.b2OutfitSelection == 1)
+                {
+                    b2Outfit = taekwondoOutfit1Variations[menuManagerInstance.b2OutfitVariation - 1];
+                    lenb2 = 4;
+                }
+                else
+                {
+                    b2Outfit = taekwondoOutfit2Variations[menuManagerInstance.b2OutfitVariation - 1];
+                    lenb2 = 4;
+                }
+            }
+            else if (brawler2.GetComponent<Animator>().runtimeAnimatorController == fightingTypeAnimators[4]) //Kung Fu
+            {
+                if (menuManagerInstance.b2OutfitSelection == 1)
+                {
+                    b2Outfit = kungFuOutfit1Variations[menuManagerInstance.b2OutfitVariation - 1];
+                    lenb2 = 2;
+                }
+                else
+                {
+                    b2Outfit = kungFuOutfit2Variations[menuManagerInstance.b2OutfitVariation - 1];
+                    lenb2 = 3;
+                }
+            }
+            else if (brawler2.GetComponent<Animator>().runtimeAnimatorController == fightingTypeAnimators[5]) //Wrestling
+            {
+                if (menuManagerInstance.b2OutfitSelection == 1)
+                {
+                    b2Outfit = wrestlingOutfit1Variations[menuManagerInstance.b2OutfitVariation - 1];
+                    lenb2 = 3;
+                }
+                else
+                {
+                    b2Outfit = wrestlingOutfit2Variations[menuManagerInstance.b2OutfitVariation - 1];
+                    lenb2 = 2;
+                }
             }
 
+            for (int i = 0; i <= lenb2; i++)
+            {
+                setBrawler2Outfit.Add(b2Outfit.transform.GetChild(i).GetComponent<SkinnedMeshRenderer>());
+                holdBrawler2Outfit.Add(Instantiate(setBrawler2Outfit[i])); //Assigns instaniaited versions to new array to make changes only to this version
+                holdBrawler2Outfit[i].bones = brawler2TargetMesh.bones;
+                holdBrawler2Outfit[i].rootBone = brawler2TargetMesh.rootBone;
+
+                if (holdBrawler2Outfit[i].GetComponent<Cloth>() != null)
+                {
+                    holdBrawler2Outfit[i].GetComponent<Cloth>().enabled = true;
+                }
+            }
+            #endregion
         }
 
         if(b1HairType != menuManagerInstance.b1HairType || b2HairType != menuManagerInstance.b2HairType)
@@ -194,6 +301,14 @@ public class BrawlerUpdates : MonoBehaviour
             {
                 b1CurrentHair = Instantiate(hairStyles[menuManagerInstance.b1HairType-1], b1HairHolder.transform);
             }
+
+            if (b2CurrentHair != null)
+                Destroy(b2CurrentHair);
+
+            if (menuManagerInstance.b2HairType != 1)
+            {
+                b2CurrentHair = Instantiate(hairStyles[menuManagerInstance.b2HairType - 1], b2HairHolder.transform);
+            }
         }
 
         if(b1HairColor != menuManagerInstance.b1HairColor || b2HairColor != menuManagerInstance.b2HairColor ||
@@ -203,11 +318,18 @@ public class BrawlerUpdates : MonoBehaviour
             {
                 b1CurrentHair.GetComponent<MeshRenderer>().material = hairColors[menuManagerInstance.b1HairColor - 1];
             }
+
+            if (menuManagerInstance.b2HairType != 1)
+            {
+                b2CurrentHair.GetComponent<MeshRenderer>().material = hairColors[menuManagerInstance.b2HairColor - 1];
+            }
         }
 
         if(b1SkinColor != menuManagerInstance.b1SkinColor || b2SkinColor != menuManagerInstance.b2SkinColor)
         {
             brawler1TargetMesh.GetComponent<SkinnedMeshRenderer>().material = skinColors[menuManagerInstance.b1SkinColor - 1];
+
+            brawler2TargetMesh.GetComponent<SkinnedMeshRenderer>().material = skinColors[menuManagerInstance.b2SkinColor - 1];
         }
 
         b1FightStyleSelection = menuManagerInstance.b1FightStyle;

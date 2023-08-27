@@ -27,10 +27,12 @@ public class MenuManager : MonoBehaviour
     public GameObject fightButton;
 
     [Header("Fight Menu")]
-    GameObject currentSelected;
     public GameObject fightMenu;
+    GameObject currentSelected;
     public bool b1Side;
     public bool b2Side;
+    public GameObject[] b1MenuSide;
+    public GameObject[] b2MenuSide;
     //GAME MODE
     public GameObject modeDropDown;
     //FIGHT STYLE
@@ -87,9 +89,13 @@ public class MenuManager : MonoBehaviour
 
     private void Update()
     {
-        currentSelected = EventSystem.current.currentSelectedGameObject;
+        currentSelected = eventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().currentSelectedGameObject;
 
         bool nextMenu = Input.GetButton("Pick Up");
+        bool switchB1Side = Input.GetButtonDown("Secondary Special");
+        bool switchB2Side = Input.GetButtonDown("Primary Special");
+        
+
         if (canMoveToNextMenu && nextMenu)
         {
             if (currentMenu == "Title Menu")
@@ -106,21 +112,80 @@ public class MenuManager : MonoBehaviour
 
         float horizontal = Input.GetAxisRaw("Horizontal");
 
-        if(currentMenu == "Fight Menu")
+        if (currentMenu == "Fight Menu")
         {
-            if (canSwtichFightStyle && currentSelected.name == "B1 FightStyleSelection")
+            if (switchB1Side)
+            {
+                if (currentSelected.name == "B2 FightStyleSelection")
+                {
+                    eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(b1MenuSide[0]);
+                }
+                else if (currentSelected.name == "B2 OutfitSelection")
+                {
+                    eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(b1MenuSide[1]);
+                }
+                else if (currentSelected.name == "B2 OutfitVariation")
+                {
+                    eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(b1MenuSide[2]);
+                }
+                else if (currentSelected.name == "B2 HairTypeSelection")
+                {
+                    eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(b1MenuSide[3]);
+                }
+                else if (currentSelected.name == "B2 HairColorSelection")
+                {
+                    eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(b1MenuSide[4]);
+                }
+                else if (currentSelected.name == "B2 SkinColorSelection")
+                {
+                    eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(b1MenuSide[5]);
+                }
+
+                b1Side = true;
+                b2Side = false;
+            } else if (switchB2Side)
+            {
+                if (currentSelected.name == "B1 FightStyleSelection")
+                {
+                    eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(b2MenuSide[0]);
+                } else if(currentSelected.name == "B1 OutfitSelection")
+                {
+                    eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(b2MenuSide[1]);
+                }
+                else if (currentSelected.name == "B1 OutfitVariation")
+                {
+                    eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(b2MenuSide[2]);
+                }
+                else if (currentSelected.name == "B1 HairTypeSelection")
+                {
+                    eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(b2MenuSide[3]);
+                }
+                else if (currentSelected.name == "B1 HairColorSelection")
+                {
+                    eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(b2MenuSide[4]);
+                }
+                else if (currentSelected.name == "B1 SkinColorSelection")
+                {
+                    eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(b2MenuSide[5]);
+                }
+
+                b2Side = true;
+                b1Side = false;
+            }
+
+            if (canSwtichFightStyle && (currentSelected.name == "B1 FightStyleSelection" || currentSelected.name == "B2 FightStyleSelection"))
             {
                 if (horizontal > .75f)
                 {
                     StartCoroutine(FightStyle("right"));
-                } 
+                }
                 else if (horizontal < -.75f)
                 {
                     StartCoroutine(FightStyle("left"));
                 }
             }
 
-            if(canSwitchOutfitSelection && currentSelected.name == "B1 OutfitSelection")
+            if (canSwitchOutfitSelection && (currentSelected.name == "B1 OutfitSelection" || currentSelected.name == "B2 OutfitSelection"))
             {
                 if (horizontal > .75f)
                 {
@@ -132,7 +197,7 @@ public class MenuManager : MonoBehaviour
                 }
             }
 
-            if (canSwitchOutfitVariation && currentSelected.name == "B1 OutfitVariation")
+            if (canSwitchOutfitVariation && (currentSelected.name == "B1 OutfitVariation" || currentSelected.name == "B2 OutfitVariation"))
             {
                 if (horizontal > .75f)
                 {
@@ -144,7 +209,7 @@ public class MenuManager : MonoBehaviour
                 }
             }
 
-            if (canSwitchHairType && currentSelected.name == "B1 HairTypeSelection")
+            if (canSwitchHairType && (currentSelected.name == "B1 HairTypeSelection" || currentSelected.name == "B2 HairTypeSelection"))
             {
                 if (horizontal > .75f)
                 {
@@ -156,7 +221,7 @@ public class MenuManager : MonoBehaviour
                 }
             }
 
-            if (canSwitchHairColor && currentSelected.name == "B1 HairColorSelection")
+            if (canSwitchHairColor && (currentSelected.name == "B1 HairColorSelection" || currentSelected.name == "B2 HairColorSelection"))
             {
                 if (horizontal > .75f)
                 {
@@ -168,7 +233,7 @@ public class MenuManager : MonoBehaviour
                 }
             }
 
-            if (canSwitchSkinColor && currentSelected.name == "B1 SkinColorSelection")
+            if (canSwitchSkinColor && (currentSelected.name == "B1 SkinColorSelection" || currentSelected.name == "B2 SkinColorSelection"))
             {
                 if (horizontal > .75f)
                 {
@@ -184,15 +249,19 @@ public class MenuManager : MonoBehaviour
             b2FightStyleText.text = fightStyles[b2FightStyle];
 
             b1OutfitSelectionText.text = "" + b1OutfitSelection;
-            //b2OutfitSelectionText.text = "" + b2OutfitSelection;
+            b2OutfitSelectionText.text = "" + b2OutfitSelection;
 
             b1OutfitVariationText.text = "" + b1OutfitVariation;
+            b2OutfitVariationText.text = "" + b2OutfitVariation;
 
             b1HairTypeText.text = "" + b1HairType;
+            b2HairTypeText.text = "" + b2HairType;
 
             b1HairColorIndicator.GetComponent<Image>().color = fightMenu.GetComponent<BrawlerUpdates>().hairColors[b1HairColor - 1].color;
+            b2HairColorIndicator.GetComponent<Image>().color = fightMenu.GetComponent<BrawlerUpdates>().hairColors[b2HairColor - 1].color;
 
             b1SkinColorIndicator.GetComponent<Image>().color = fightMenu.GetComponent<BrawlerUpdates>().skinColors[b1SkinColor - 1].color;
+            b2SkinColorIndicator.GetComponent<Image>().color = fightMenu.GetComponent<BrawlerUpdates>().skinColors[b2SkinColor - 1].color;
         }
     }
 
@@ -285,7 +354,28 @@ public class MenuManager : MonoBehaviour
         }
         else
         {
-
+            if (dir == "right")
+            {
+                if (b2FightStyle == fightStyles.Length - 1)
+                {
+                    b2FightStyle = 0;
+                }
+                else
+                {
+                    b2FightStyle++;
+                }
+            }
+            else
+            {
+                if (b2FightStyle == 0)
+                {
+                    b2FightStyle = fightStyles.Length - 1;
+                }
+                else
+                {
+                    b2FightStyle--;
+                }
+            }
         }
 
         yield return new WaitForSeconds(.5f);
@@ -323,7 +413,28 @@ public class MenuManager : MonoBehaviour
         }
         else
         {
-
+            if (dir == "right")
+            {
+                if (b2OutfitSelection == 2)
+                {
+                    b2OutfitSelection = 1;
+                }
+                else
+                {
+                    b2OutfitSelection++;
+                }
+            }
+            else
+            {
+                if (b2OutfitSelection == 1)
+                {
+                    b2OutfitSelection = 2;
+                }
+                else
+                {
+                    b2OutfitSelection--;
+                }
+            }
         }
 
         yield return new WaitForSeconds(.5f);
@@ -361,7 +472,28 @@ public class MenuManager : MonoBehaviour
         }
         else
         {
-
+            if (dir == "right")
+            {
+                if (b2OutfitVariation == 5)
+                {
+                    b2OutfitVariation = 1;
+                }
+                else
+                {
+                    b2OutfitVariation++;
+                }
+            }
+            else
+            {
+                if (b2OutfitVariation == 1)
+                {
+                    b2OutfitVariation = 5;
+                }
+                else
+                {
+                    b2OutfitVariation--;
+                }
+            }
         }
 
         yield return new WaitForSeconds(.5f);
@@ -399,7 +531,28 @@ public class MenuManager : MonoBehaviour
         }
         else
         {
-
+            if (dir == "right")
+            {
+                if (b2HairType == 10)
+                {
+                    b2HairType = 1;
+                }
+                else
+                {
+                    b2HairType++;
+                }
+            }
+            else
+            {
+                if (b2HairType == 1)
+                {
+                    b2HairType = 10;
+                }
+                else
+                {
+                    b2HairType--;
+                }
+            }
         }
 
         yield return new WaitForSeconds(.5f);
@@ -437,7 +590,28 @@ public class MenuManager : MonoBehaviour
         }
         else
         {
-
+            if (dir == "right")
+            {
+                if (b2HairColor == 9)
+                {
+                    b2HairColor = 1;
+                }
+                else
+                {
+                    b2HairColor++;
+                }
+            }
+            else
+            {
+                if (b2HairColor == 1)
+                {
+                    b2HairColor = 9;
+                }
+                else
+                {
+                    b2HairColor--;
+                }
+            }
         }
 
         yield return new WaitForSeconds(.5f);
@@ -475,7 +649,28 @@ public class MenuManager : MonoBehaviour
         }
         else
         {
-
+            if (dir == "right")
+            {
+                if (b2SkinColor == 11)
+                {
+                    b2SkinColor = 1;
+                }
+                else
+                {
+                    b2SkinColor++;
+                }
+            }
+            else
+            {
+                if (b2SkinColor == 1)
+                {
+                    b2SkinColor = 11;
+                }
+                else
+                {
+                    b2SkinColor--;
+                }
+            }
         }
 
         yield return new WaitForSeconds(.5f);
