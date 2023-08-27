@@ -3201,7 +3201,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502112829}
-  m_LocalRotation: {x: -0.000000008285398, y: 0.99130005, z: -0.13162142, w: -0.00000006240106}
+  m_LocalRotation: {x: -0.000000008565174, y: 0.99130005, z: -0.13162142, w: -0.00000006450817}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6362,8 +6362,8 @@ MonoBehaviour:
   brawler2TargetMesh: {fileID: 0}
   touristTargetMesh: {fileID: 0}
   outfits:
-  - {fileID: 7568358248482110414, guid: afbfe773160ba9247bd409a99f0e51b0, type: 3}
-  - {fileID: 1848720861433907562, guid: 5a239d981b4c8d447a2724f47aaf90c2, type: 3}
+  - {fileID: 2761805074209858485, guid: b7ae7aa290a0398499e034fe7925c6ea, type: 3}
+  - {fileID: 3259576997682084446, guid: 175299abaadedce45bd96c00154e9e32, type: 3}
   - {fileID: 6310004904691892625, guid: 448b289fd1db0684791f8a211939852f, type: 3}
   - {fileID: 3219369471398525267, guid: 052748e11b50be74a91d5a64b3d5e49e, type: 3}
   - {fileID: 7622105665765051881, guid: fcad545174f765242b46a9401f283685, type: 3}
@@ -6419,13 +6419,13 @@ MonoBehaviour:
   useOutfitColorVariations: 1
   oufitColorVariationUsage: 7
   karateOutfit1Variations:
-  - {fileID: 7568358248482110414, guid: afbfe773160ba9247bd409a99f0e51b0, type: 3}
+  - {fileID: 2761805074209858485, guid: b7ae7aa290a0398499e034fe7925c6ea, type: 3}
   - {fileID: 1306059935378711384, guid: db654d14dfe679c498e80fa6a5a3b1c7, type: 3}
   - {fileID: 1812098865573308892, guid: 5ad6b8bf746f2ec4d97fc9cc9d40023d, type: 3}
   - {fileID: 2020878061365485613, guid: 1f79b96e811e25c46a551f9cb8d87aac, type: 3}
   - {fileID: 2447347379544307787, guid: bc7d70a129d79c64e80d986168bbcf52, type: 3}
   karateOutfit2Variations:
-  - {fileID: 1848720861433907562, guid: 5a239d981b4c8d447a2724f47aaf90c2, type: 3}
+  - {fileID: 3259576997682084446, guid: 175299abaadedce45bd96c00154e9e32, type: 3}
   - {fileID: 7265180372611724851, guid: 3d02ad60d0c10384fa9379482e089cc4, type: 3}
   - {fileID: 8072614131304405824, guid: 4c076fc93782cff4d8b97185939dbb03, type: 3}
   - {fileID: 8620768754805683636, guid: bbe72fa3f7dd90841a870bdb95a6315d, type: 3}
@@ -12778,63 +12778,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8f42cc192eb47546a7379d43bfdf1d2, type: 3}
---- !u!1001 &3186561099792656439
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1363510384709800912, guid: 5a239d981b4c8d447a2724f47aaf90c2, type: 3}
-      propertyPath: m_RootOrder
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 1363510384709800912, guid: 5a239d981b4c8d447a2724f47aaf90c2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1363510384709800912, guid: 5a239d981b4c8d447a2724f47aaf90c2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1363510384709800912, guid: 5a239d981b4c8d447a2724f47aaf90c2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1363510384709800912, guid: 5a239d981b4c8d447a2724f47aaf90c2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1363510384709800912, guid: 5a239d981b4c8d447a2724f47aaf90c2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1363510384709800912, guid: 5a239d981b4c8d447a2724f47aaf90c2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1363510384709800912, guid: 5a239d981b4c8d447a2724f47aaf90c2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1363510384709800912, guid: 5a239d981b4c8d447a2724f47aaf90c2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1363510384709800912, guid: 5a239d981b4c8d447a2724f47aaf90c2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1363510384709800912, guid: 5a239d981b4c8d447a2724f47aaf90c2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1848720861433907562, guid: 5a239d981b4c8d447a2724f47aaf90c2, type: 3}
-      propertyPath: m_Name
-      value: Karate-Outfit2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5a239d981b4c8d447a2724f47aaf90c2, type: 3}
 --- !u!1001 &3216698387158205525
 PrefabInstance:
   m_ObjectHideFlags: 0

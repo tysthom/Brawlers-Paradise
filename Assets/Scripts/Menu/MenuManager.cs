@@ -41,13 +41,35 @@ public class MenuManager : MonoBehaviour
     public int b1FightStyle = 0;
     public int b2FightStyle = 0;
     //OUTFIT SELECTION
-    public enum outfitParts { };
     bool canSwitchOutfitSelection;
     public TextMeshProUGUI b1OutfitSelectionText;
     public TextMeshProUGUI b2OutfitSelectionText;
     public int b1OutfitSelection;
     public int b2OutfitSelection;
-
+    //OUTFIT VARIATION
+    bool canSwitchOutfitVariation;
+    public TextMeshProUGUI b1OutfitVariationText;
+    public TextMeshProUGUI b2OutfitVariationText;
+    public int b1OutfitVariation;
+    public int b2OutfitVariation;
+    //HAIR TYPE
+    bool canSwitchHairType;
+    public TextMeshProUGUI b1HairTypeText;
+    public TextMeshProUGUI b2HairTypeText;
+    public int b1HairType;
+    public int b2HairType;
+    //HAIR COLOR
+    bool canSwitchHairColor;
+    public Image b1HairColorIndicator;
+    public Image b2HairColorIndicator;
+    public int b1HairColor;
+    public int b2HairColor;
+    //SKIN COLOR
+    bool canSwitchSkinColor;
+    public Image b1SkinColorIndicator;
+    public Image b2SkinColorIndicator;
+    public int b1SkinColor;
+    public int b2SkinColor;
 
     private void Awake()
     {
@@ -110,11 +132,67 @@ public class MenuManager : MonoBehaviour
                 }
             }
 
+            if (canSwitchOutfitVariation && currentSelected.name == "B1 OutfitVariation")
+            {
+                if (horizontal > .75f)
+                {
+                    StartCoroutine(OutfitVariation("right"));
+                }
+                else if (horizontal < -.75f)
+                {
+                    StartCoroutine(OutfitVariation("left"));
+                }
+            }
+
+            if (canSwitchHairType && currentSelected.name == "B1 HairTypeSelection")
+            {
+                if (horizontal > .75f)
+                {
+                    StartCoroutine(HairType("right"));
+                }
+                else if (horizontal < -.75f)
+                {
+                    StartCoroutine(HairType("left"));
+                }
+            }
+
+            if (canSwitchHairColor && currentSelected.name == "B1 HairColorSelection")
+            {
+                if (horizontal > .75f)
+                {
+                    StartCoroutine(HairColor("right"));
+                }
+                else if (horizontal < -.75f)
+                {
+                    StartCoroutine(HairColor("left"));
+                }
+            }
+
+            if (canSwitchSkinColor && currentSelected.name == "B1 SkinColorSelection")
+            {
+                if (horizontal > .75f)
+                {
+                    StartCoroutine(SkinColor("right"));
+                }
+                else if (horizontal < -.75f)
+                {
+                    StartCoroutine(SkinColor("left"));
+                }
+            }
+
             b1FightStyleText.text = fightStyles[b1FightStyle];
             b2FightStyleText.text = fightStyles[b2FightStyle];
 
             b1OutfitSelectionText.text = "" + b1OutfitSelection;
             //b2OutfitSelectionText.text = "" + b2OutfitSelection;
+
+            b1OutfitVariationText.text = "" + b1OutfitVariation;
+
+            b1HairTypeText.text = "" + b1HairType;
+
+            b1HairColorIndicator.GetComponent<Image>().color = fightMenu.GetComponent<BrawlerUpdates>().hairColors[b1HairColor - 1].color;
+
+            b1SkinColorIndicator.GetComponent<Image>().color = fightMenu.GetComponent<BrawlerUpdates>().skinColors[b1SkinColor - 1].color;
         }
     }
 
@@ -145,6 +223,10 @@ public class MenuManager : MonoBehaviour
         currentCamera.SetActive(false);
         canSwtichFightStyle = true;
         canSwitchOutfitSelection = true;
+        canSwitchOutfitVariation = true;
+        canSwitchHairType = true;
+        canSwitchHairColor = true;
+        canSwitchSkinColor = true;
     }
 
     public void MainMenu()
@@ -246,5 +328,157 @@ public class MenuManager : MonoBehaviour
 
         yield return new WaitForSeconds(.5f);
         canSwitchOutfitSelection = true;
+    }
+
+    IEnumerator OutfitVariation(string dir)
+    {
+        canSwitchOutfitVariation = false;
+
+        if (b1Side)
+        {
+            if (dir == "right")
+            {
+                if (b1OutfitVariation == 5)
+                {
+                    b1OutfitVariation = 1;
+                }
+                else
+                {
+                    b1OutfitVariation++;
+                }
+            }
+            else
+            {
+                if (b1OutfitVariation == 1)
+                {
+                    b1OutfitVariation = 5;
+                }
+                else
+                {
+                    b1OutfitVariation--;
+                }
+            }
+        }
+        else
+        {
+
+        }
+
+        yield return new WaitForSeconds(.5f);
+        canSwitchOutfitVariation = true;
+    }
+
+    IEnumerator HairType(string dir)
+    {
+        canSwitchHairType = false;
+
+        if (b1Side)
+        {
+            if (dir == "right")
+            {
+                if (b1HairType == 10)
+                {
+                    b1HairType = 1;
+                }
+                else
+                {
+                    b1HairType++;
+                }
+            }
+            else
+            {
+                if (b1HairType == 1)
+                {
+                    b1HairType = 10;
+                }
+                else
+                {
+                    b1HairType--;
+                }
+            }
+        }
+        else
+        {
+
+        }
+
+        yield return new WaitForSeconds(.5f);
+        canSwitchHairType = true;
+    }
+
+    IEnumerator HairColor(string dir)
+    {
+        canSwitchHairColor = false;
+
+        if (b1Side)
+        {
+            if (dir == "right")
+            {
+                if (b1HairColor == 9)
+                {
+                    b1HairColor = 1;
+                }
+                else
+                {
+                    b1HairColor++;
+                }
+            }
+            else
+            {
+                if (b1HairColor == 1)
+                {
+                    b1HairColor = 9;
+                }
+                else
+                {
+                    b1HairColor--;
+                }
+            }
+        }
+        else
+        {
+
+        }
+
+        yield return new WaitForSeconds(.5f);
+        canSwitchHairColor = true;
+    }
+
+    IEnumerator SkinColor(string dir)
+    {
+        canSwitchSkinColor = false;
+
+        if (b1Side)
+        {
+            if (dir == "right")
+            {
+                if (b1SkinColor == 11)
+                {
+                    b1SkinColor = 1;
+                }
+                else
+                {
+                    b1SkinColor++;
+                }
+            }
+            else
+            {
+                if (b1SkinColor == 1)
+                {
+                    b1SkinColor = 11;
+                }
+                else
+                {
+                    b1SkinColor--;
+                }
+            }
+        }
+        else
+        {
+
+        }
+
+        yield return new WaitForSeconds(.5f);
+        canSwitchSkinColor = true;
     }
 }
