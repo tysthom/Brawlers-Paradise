@@ -114,6 +114,12 @@ public class MenuManager : MonoBehaviour
 
         if (currentMenu == "Fight Menu")
         {
+            if(currentSelected.name == "Mode Dropdown" || currentSelected.name == "Difficulty Dropdown")
+            {
+                b1Side = true;
+                b2Side = false;
+            }
+
             if (switchB1Side)
             {
                 if (currentSelected.name == "B2 FightStyleSelection")
@@ -273,6 +279,9 @@ public class MenuManager : MonoBehaviour
         startText.GetComponent<Fade>().fadeIn = true;
         yield return new WaitForSeconds(1.5f);
         canMoveToNextMenu = true;
+
+        fightMenu.GetComponent<BrawlerUpdates>().brawler1.transform.position += new Vector3(0, 0, -10);
+        fightMenu.GetComponent<BrawlerUpdates>().brawler2.transform.position += new Vector3(0, 0, -10);
     }
 
     IEnumerator BlackOut(float waitTime, float blackOutTime)
@@ -314,6 +323,7 @@ public class MenuManager : MonoBehaviour
     public IEnumerator FightMenuCoroutine() //
     {
         currentMenu = "Fight Menu";
+        
         mainMenuCamera.GetComponent<SmoothDampCamera>().smoothDamp = true;
         mainMenu.SetActive(false);
         yield return new WaitForSeconds(1.5f);
@@ -321,6 +331,8 @@ public class MenuManager : MonoBehaviour
         eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(modeDropDown);
         b1Side = true;
         b2Side = false;
+        fightMenu.GetComponent<BrawlerUpdates>().brawler1.transform.position += new Vector3(0, 0, 10);
+        fightMenu.GetComponent<BrawlerUpdates>().brawler2.transform.position += new Vector3(0, 0, 10);
     }
 
     IEnumerator FightStyle(string dir)

@@ -10,8 +10,8 @@ public class BrawlerUpdates : MonoBehaviour
 
     [Header("Fight Style Selection")]
     public RuntimeAnimatorController[] fightingTypeAnimators;
-    int b1FightStyleSelection = 0;
-    int b2FightStyleSelection = 0;
+    int b1FightStyleSelection = -1;
+    int b2FightStyleSelection = -1;
 
     [Header("Outfit Selection")]
     List<SkinnedMeshRenderer> setBrawler1Outfit = new List<SkinnedMeshRenderer>();
@@ -102,11 +102,13 @@ public class BrawlerUpdates : MonoBehaviour
                 {
                     b1Outfit = karateOutfit1Variations[menuManagerInstance.b1OutfitVariation-1];
                     lenb1 = 5;
+                    Outfit1(brawler1TargetMesh);
                 }
                 else
                 {
                     b1Outfit = karateOutfit2Variations[menuManagerInstance.b1OutfitVariation-1];
                     lenb1 = 4;
+                    Outfit2(brawler1TargetMesh);
                 }
             }
                else if (brawler1.GetComponent<Animator>().runtimeAnimatorController == fightingTypeAnimators[1]) //Boxing
@@ -115,11 +117,13 @@ public class BrawlerUpdates : MonoBehaviour
                 {
                     b1Outfit = boxingOutfit1Variations[menuManagerInstance.b1OutfitVariation - 1];
                     lenb1 = 5;
+                    Outfit3(brawler1TargetMesh, brawler1);
                 }
                 else
                 {
                     b1Outfit = boxingOutfit2Variations[menuManagerInstance.b1OutfitVariation - 1];
                     lenb1 = 4;
+                    Outfit4(brawler1TargetMesh, brawler1);
                 }
             }
             else if (brawler1.GetComponent<Animator>().runtimeAnimatorController == fightingTypeAnimators[2]) //MMA
@@ -128,11 +132,13 @@ public class BrawlerUpdates : MonoBehaviour
                 {
                     b1Outfit = mmaOutfit1Variations[menuManagerInstance.b1OutfitVariation - 1];
                     lenb1 = 3;
+                    Outfit5(brawler1TargetMesh);
                 }
                 else
                 {
                     b1Outfit = mmaOutfit2Variations[menuManagerInstance.b1OutfitVariation - 1];
                     lenb1 = 2;
+                    Outfit6(brawler1TargetMesh);
                 }
             }
             else if (brawler1.GetComponent<Animator>().runtimeAnimatorController == fightingTypeAnimators[3]) //TKD
@@ -141,11 +147,13 @@ public class BrawlerUpdates : MonoBehaviour
                 {
                     b1Outfit = taekwondoOutfit1Variations[menuManagerInstance.b1OutfitVariation - 1];
                     lenb1 = 4;
+                    Outfit7(brawler1TargetMesh);
                 }
                 else
                 {
                     b1Outfit = taekwondoOutfit2Variations[menuManagerInstance.b1OutfitVariation - 1];
                     lenb1 = 4;
+                    Outfit8(brawler1TargetMesh);
                 }
             }
             else if (brawler1.GetComponent<Animator>().runtimeAnimatorController == fightingTypeAnimators[4]) //Kung Fu
@@ -154,11 +162,13 @@ public class BrawlerUpdates : MonoBehaviour
                 {
                     b1Outfit = kungFuOutfit1Variations[menuManagerInstance.b1OutfitVariation - 1];
                     lenb1 = 2;
+                    Outfit9(brawler1TargetMesh);
                 }
                 else
                 {
                     b1Outfit = kungFuOutfit2Variations[menuManagerInstance.b1OutfitVariation - 1];
                     lenb1 = 3;
+                    Outfit10(brawler1TargetMesh);
                 }
             }
             else if (brawler1.GetComponent<Animator>().runtimeAnimatorController == fightingTypeAnimators[5]) //Wrestling
@@ -167,11 +177,13 @@ public class BrawlerUpdates : MonoBehaviour
                 {
                     b1Outfit = wrestlingOutfit1Variations[menuManagerInstance.b1OutfitVariation - 1];
                     lenb1 = 3;
+                    Outfit11(brawler1TargetMesh);
                 }
                 else
                 {
                     b1Outfit = wrestlingOutfit2Variations[menuManagerInstance.b1OutfitVariation - 1];
                     lenb1 = 2;
+                    Outfit12(brawler1TargetMesh);
                 }
             }
 
@@ -204,11 +216,13 @@ public class BrawlerUpdates : MonoBehaviour
                 {
                     b2Outfit = karateOutfit1Variations[menuManagerInstance.b2OutfitVariation - 1];
                     lenb2 = 5;
+                    Outfit1(brawler2TargetMesh);
                 }
                 else
                 {
                     b2Outfit = karateOutfit2Variations[menuManagerInstance.b2OutfitVariation - 1];
                     lenb2 = 4;
+                    Outfit2(brawler2TargetMesh);
                 }
             }
             else if (brawler2.GetComponent<Animator>().runtimeAnimatorController == fightingTypeAnimators[1]) //Boxing
@@ -217,11 +231,13 @@ public class BrawlerUpdates : MonoBehaviour
                 {
                     b2Outfit = boxingOutfit1Variations[menuManagerInstance.b2OutfitVariation - 1];
                     lenb2 = 5;
+                    Outfit3(brawler2TargetMesh, brawler2);
                 }
                 else
                 {
                     b2Outfit = boxingOutfit2Variations[menuManagerInstance.b2OutfitVariation - 1];
                     lenb2 = 4;
+                    Outfit4(brawler2TargetMesh, brawler2);
                 }
             }
             else if (brawler2.GetComponent<Animator>().runtimeAnimatorController == fightingTypeAnimators[2]) //MMA
@@ -230,11 +246,13 @@ public class BrawlerUpdates : MonoBehaviour
                 {
                     b2Outfit = mmaOutfit1Variations[menuManagerInstance.b2OutfitVariation - 1];
                     lenb2 = 3;
+                    Outfit5(brawler2TargetMesh);
                 }
                 else
                 {
                     b2Outfit = mmaOutfit2Variations[menuManagerInstance.b2OutfitVariation - 1];
                     lenb2 = 2;
+                    Outfit6(brawler2TargetMesh);
                 }
             }
             else if (brawler2.GetComponent<Animator>().runtimeAnimatorController == fightingTypeAnimators[3]) //TKD
@@ -243,11 +261,13 @@ public class BrawlerUpdates : MonoBehaviour
                 {
                     b2Outfit = taekwondoOutfit1Variations[menuManagerInstance.b2OutfitVariation - 1];
                     lenb2 = 4;
+                    Outfit7(brawler2TargetMesh);
                 }
                 else
                 {
                     b2Outfit = taekwondoOutfit2Variations[menuManagerInstance.b2OutfitVariation - 1];
                     lenb2 = 4;
+                    Outfit8(brawler2TargetMesh);
                 }
             }
             else if (brawler2.GetComponent<Animator>().runtimeAnimatorController == fightingTypeAnimators[4]) //Kung Fu
@@ -256,11 +276,13 @@ public class BrawlerUpdates : MonoBehaviour
                 {
                     b2Outfit = kungFuOutfit1Variations[menuManagerInstance.b2OutfitVariation - 1];
                     lenb2 = 2;
+                    Outfit9(brawler2TargetMesh);
                 }
                 else
                 {
                     b2Outfit = kungFuOutfit2Variations[menuManagerInstance.b2OutfitVariation - 1];
                     lenb2 = 3;
+                    Outfit10(brawler2TargetMesh);
                 }
             }
             else if (brawler2.GetComponent<Animator>().runtimeAnimatorController == fightingTypeAnimators[5]) //Wrestling
@@ -269,11 +291,13 @@ public class BrawlerUpdates : MonoBehaviour
                 {
                     b2Outfit = wrestlingOutfit1Variations[menuManagerInstance.b2OutfitVariation - 1];
                     lenb2 = 3;
+                    Outfit11(brawler2TargetMesh);
                 }
                 else
                 {
                     b2Outfit = wrestlingOutfit2Variations[menuManagerInstance.b2OutfitVariation - 1];
                     lenb2 = 2;
+                    Outfit12(brawler2TargetMesh);
                 }
             }
 
@@ -346,5 +370,249 @@ public class BrawlerUpdates : MonoBehaviour
 
         b1HairColor = menuManagerInstance.b1HairColor;
         b2HairColor = menuManagerInstance.b2HairColor;
+    }
+
+    void Outfit1(SkinnedMeshRenderer skin) //Karate Outfit 1
+    {
+        skin.SetBlendShapeWeight(0, 0); //Neck
+        skin.SetBlendShapeWeight(1, 0); //Right Shoulder
+        skin.SetBlendShapeWeight(2, 0); //Left Shoulder
+        skin.SetBlendShapeWeight(3, 0); //Right Upper Arm
+        skin.SetBlendShapeWeight(4, 0); //Left Upper Arm
+        skin.SetBlendShapeWeight(5, 0); //Right Lower Arm
+        skin.SetBlendShapeWeight(6, 0); //Left Lower Arm
+        skin.SetBlendShapeWeight(7, 0); //Chest
+        skin.SetBlendShapeWeight(8, 0); //Back
+        skin.SetBlendShapeWeight(9, 30); //Stomach
+        skin.SetBlendShapeWeight(10, 100); //Waist
+        skin.SetBlendShapeWeight(11, 50); //Pelivs
+        skin.SetBlendShapeWeight(12, 80); //Butt
+        skin.SetBlendShapeWeight(13, 50); //Thighes
+        skin.SetBlendShapeWeight(14, 0); //Calves
+        skin.SetBlendShapeWeight(15, 20); //Feet
+    }
+
+    void Outfit2(SkinnedMeshRenderer skin) //Karate Outfit 2
+    {
+        skin.SetBlendShapeWeight(0, 0); //Neck
+        skin.SetBlendShapeWeight(1, 0); //Right Shoulder
+        skin.SetBlendShapeWeight(2, 0); //Left Shoulder
+        skin.SetBlendShapeWeight(3, 0); //Right Upper Arm
+        skin.SetBlendShapeWeight(4, 0); //Left Upper Arm
+        skin.SetBlendShapeWeight(5, 0); //Right Lower Arm
+        skin.SetBlendShapeWeight(6, 0); //Left Lower Arm
+        skin.SetBlendShapeWeight(7, 10); //Chest
+        skin.SetBlendShapeWeight(8, 0); //Back
+        skin.SetBlendShapeWeight(9, 30); //Stomach
+        skin.SetBlendShapeWeight(10, 100); //Waist
+        skin.SetBlendShapeWeight(11, 30); //Pelivs
+        skin.SetBlendShapeWeight(12, 80); //Butt
+        skin.SetBlendShapeWeight(13, 70); //Thighes
+        skin.SetBlendShapeWeight(14, 0); //Calves
+        skin.SetBlendShapeWeight(15, 0); //Feet
+    }
+
+    void Outfit3(SkinnedMeshRenderer skin, GameObject brawler) //Boxing Outfit 1
+    {
+        brawler.GetComponent<Animator>().SetLayerWeight(1, 1);
+
+        skin.SetBlendShapeWeight(0, 0); //Neck
+        skin.SetBlendShapeWeight(1, 0); //Right Shoulder
+        skin.SetBlendShapeWeight(2, 0); //Left Shoulder
+        skin.SetBlendShapeWeight(3, 0); //Right Upper Arm
+        skin.SetBlendShapeWeight(4, 0); //Left Upper Arm
+        skin.SetBlendShapeWeight(5, 0); //Right Lower Arm
+        skin.SetBlendShapeWeight(6, 0); //Left Lower Arm
+        skin.SetBlendShapeWeight(7, 0); //Chest
+        skin.SetBlendShapeWeight(8, 0); //Back
+        skin.SetBlendShapeWeight(9, 25); //Stomach
+        skin.SetBlendShapeWeight(10, 50); //Waist
+        skin.SetBlendShapeWeight(11, 0); //Pelivs
+        skin.SetBlendShapeWeight(12, 75); //Butt
+        skin.SetBlendShapeWeight(13, 30); //Thighes
+        skin.SetBlendShapeWeight(14, 0); //Calves
+        skin.SetBlendShapeWeight(15, 50); //Feet
+    }
+
+    void Outfit4(SkinnedMeshRenderer skin, GameObject brawler) //Boxing Outfit 2
+    {
+        brawler.GetComponent<Animator>().SetLayerWeight(1, 1);
+
+        skin.SetBlendShapeWeight(0, 0); //Neck
+        skin.SetBlendShapeWeight(1, 0); //Right Shoulder
+        skin.SetBlendShapeWeight(2, 0); //Left Shoulder
+        skin.SetBlendShapeWeight(3, 0); //Right Upper Arm
+        skin.SetBlendShapeWeight(4, 0); //Left Upper Arm
+        skin.SetBlendShapeWeight(5, 0); //Right Lower Arm
+        skin.SetBlendShapeWeight(6, 0); //Left Lower Arm
+        skin.SetBlendShapeWeight(7, 0); //Chest
+        skin.SetBlendShapeWeight(8, 0); //Back
+        skin.SetBlendShapeWeight(9, 0); //Stomach
+        skin.SetBlendShapeWeight(10, 40); //Waist
+        skin.SetBlendShapeWeight(11, 20); //Pelivs
+        skin.SetBlendShapeWeight(12, 100); //Butt
+        skin.SetBlendShapeWeight(13, 40); //Thighes
+        skin.SetBlendShapeWeight(14, 0); //Calves
+        skin.SetBlendShapeWeight(15, 30); //Feet
+    }
+
+    void Outfit5(SkinnedMeshRenderer skin) //MMA Outfit 1
+    {
+        skin.SetBlendShapeWeight(0, 0); //Neck
+        skin.SetBlendShapeWeight(1, 0); //Right Shoulder
+        skin.SetBlendShapeWeight(2, 0); //Left Shoulder
+        skin.SetBlendShapeWeight(3, 0); //Right Upper Arm
+        skin.SetBlendShapeWeight(4, 0); //Left Upper Arm
+        skin.SetBlendShapeWeight(5, 0); //Right Lower Arm
+        skin.SetBlendShapeWeight(6, 0); //Left Lower Arm
+        skin.SetBlendShapeWeight(7, 0); //Chest
+        skin.SetBlendShapeWeight(8, 0); //Back
+        skin.SetBlendShapeWeight(9, 0); //Stomach
+        skin.SetBlendShapeWeight(10, 35); //Waist
+        skin.SetBlendShapeWeight(11, 20); //Pelivs
+        skin.SetBlendShapeWeight(12, 100); //Butt
+        skin.SetBlendShapeWeight(13, 0); //Thighes
+        skin.SetBlendShapeWeight(14, 0); //Calves
+        skin.SetBlendShapeWeight(15, 0); //Feet
+    }
+
+    void Outfit6(SkinnedMeshRenderer skin) //MMA Outfit 2
+    {
+        skin.SetBlendShapeWeight(0, 0); //Neck
+        skin.SetBlendShapeWeight(1, 0); //Right Shoulder
+        skin.SetBlendShapeWeight(2, 0); //Left Shoulder
+        skin.SetBlendShapeWeight(3, 0); //Right Upper Arm
+        skin.SetBlendShapeWeight(4, 0); //Left Upper Arm
+        skin.SetBlendShapeWeight(5, 0); //Right Lower Arm
+        skin.SetBlendShapeWeight(6, 0); //Left Lower Arm
+        skin.SetBlendShapeWeight(7, 0); //Chest
+        skin.SetBlendShapeWeight(8, 0); //Back
+        skin.SetBlendShapeWeight(9, 0); //Stomach
+        skin.SetBlendShapeWeight(10, 25); //Waist
+        skin.SetBlendShapeWeight(11, 0); //Pelivs
+        skin.SetBlendShapeWeight(12, 25); //Butt
+        skin.SetBlendShapeWeight(13, 0); //Thighes
+        skin.SetBlendShapeWeight(14, 0); //Calves
+        skin.SetBlendShapeWeight(15, 0); //Feet
+    }
+
+    void Outfit7(SkinnedMeshRenderer skin) //TKD Outfit 1
+    {
+        skin.SetBlendShapeWeight(0, 0); //Neck
+        skin.SetBlendShapeWeight(1, 0); //Right Shoulder
+        skin.SetBlendShapeWeight(2, 0); //Left Shoulder
+        skin.SetBlendShapeWeight(3, 0); //Right Upper Arm
+        skin.SetBlendShapeWeight(4, 0); //Left Upper Arm
+        skin.SetBlendShapeWeight(5, 0); //Right Lower Arm
+        skin.SetBlendShapeWeight(6, 0); //Left Lower Arm
+        skin.SetBlendShapeWeight(7, 0); //Chest
+        skin.SetBlendShapeWeight(8, 0); //Back
+        skin.SetBlendShapeWeight(9, 100); //Stomach
+        skin.SetBlendShapeWeight(10, 100); //Waist
+        skin.SetBlendShapeWeight(11, 100); //Pelivs
+        skin.SetBlendShapeWeight(12, 100); //Butt
+        skin.SetBlendShapeWeight(13, 100); //Thighes
+        skin.SetBlendShapeWeight(14, 0); //Calves
+        skin.SetBlendShapeWeight(15, 0); //Feet
+    }
+
+    void Outfit8(SkinnedMeshRenderer skin) //TKD Outfit 2
+    {
+        skin.SetBlendShapeWeight(0, 0); //Neck
+        skin.SetBlendShapeWeight(1, 0); //Right Shoulder
+        skin.SetBlendShapeWeight(2, 0); //Left Shoulder
+        skin.SetBlendShapeWeight(3, 0); //Right Upper Arm
+        skin.SetBlendShapeWeight(4, 0); //Left Upper Arm
+        skin.SetBlendShapeWeight(5, 0); //Right Lower Arm
+        skin.SetBlendShapeWeight(6, 0); //Left Lower Arm
+        skin.SetBlendShapeWeight(7, 20); //Chest
+        skin.SetBlendShapeWeight(8, 0); //Back
+        skin.SetBlendShapeWeight(9, 100); //Stomach
+        skin.SetBlendShapeWeight(10, 100); //Waist
+        skin.SetBlendShapeWeight(11, 100); //Pelivs
+        skin.SetBlendShapeWeight(12, 100); //Butt
+        skin.SetBlendShapeWeight(13, 0); //Thighes
+        skin.SetBlendShapeWeight(14, 0); //Calves
+        skin.SetBlendShapeWeight(15, 0); //Feet
+    }
+
+    void Outfit9(SkinnedMeshRenderer skin) //Kung Fu 
+    {
+        skin.SetBlendShapeWeight(0, 0); //Neck
+        skin.SetBlendShapeWeight(1, 0); //Right Shoulder
+        skin.SetBlendShapeWeight(2, 0); //Left Shoulder
+        skin.SetBlendShapeWeight(3, 0); //Right Upper Arm
+        skin.SetBlendShapeWeight(4, 0); //Left Upper Arm
+        skin.SetBlendShapeWeight(5, 0); //Right Lower Arm
+        skin.SetBlendShapeWeight(6, 0); //Left Lower Arm
+        skin.SetBlendShapeWeight(7, 0); //Chest
+        skin.SetBlendShapeWeight(8, 0); //Back
+        skin.SetBlendShapeWeight(9, 100); //Stomach
+        skin.SetBlendShapeWeight(10, 100); //Waist
+        skin.SetBlendShapeWeight(11, 0); //Pelivs
+        skin.SetBlendShapeWeight(12, 0); //Butt
+        skin.SetBlendShapeWeight(13, 0); //Thighes
+        skin.SetBlendShapeWeight(14, 0); //Calves
+        skin.SetBlendShapeWeight(15, 100); //Feet
+    }
+
+    void Outfit10(SkinnedMeshRenderer skin) //Kung Fu 2 
+    {
+        skin.SetBlendShapeWeight(0, 0); //Neck
+        skin.SetBlendShapeWeight(1, 0); //Right Shoulder
+        skin.SetBlendShapeWeight(2, 0); //Left Shoulder
+        skin.SetBlendShapeWeight(3, 0); //Right Upper Arm
+        skin.SetBlendShapeWeight(4, 0); //Left Upper Arm
+        skin.SetBlendShapeWeight(5, 0); //Right Lower Arm
+        skin.SetBlendShapeWeight(6, 0); //Left Lower Arm
+        skin.SetBlendShapeWeight(7, 0); //Chest
+        skin.SetBlendShapeWeight(8, 75); //Back
+        skin.SetBlendShapeWeight(9, 100); //Stomach
+        skin.SetBlendShapeWeight(10, 100); //Waist
+        skin.SetBlendShapeWeight(11, 0); //Pelivs
+        skin.SetBlendShapeWeight(12, 0); //Butt
+        skin.SetBlendShapeWeight(13, 0); //Thighes
+        skin.SetBlendShapeWeight(14, 0); //Calves
+        skin.SetBlendShapeWeight(15, 15); //Feet
+    }
+
+    void Outfit11(SkinnedMeshRenderer skin) //Wrestling 1
+    {
+        skin.SetBlendShapeWeight(0, 0); //Neck
+        skin.SetBlendShapeWeight(1, 0); //Right Shoulder
+        skin.SetBlendShapeWeight(2, 0); //Left Shoulder
+        skin.SetBlendShapeWeight(3, 0); //Right Upper Arm
+        skin.SetBlendShapeWeight(4, 0); //Left Upper Arm
+        skin.SetBlendShapeWeight(5, 0); //Right Lower Arm
+        skin.SetBlendShapeWeight(6, 0); //Left Lower Arm
+        skin.SetBlendShapeWeight(7, 0); //Chest
+        skin.SetBlendShapeWeight(8, 0); //Back
+        skin.SetBlendShapeWeight(9, 0); //Stomach
+        skin.SetBlendShapeWeight(10, 0); //Waist
+        skin.SetBlendShapeWeight(11, 10); //Pelivs
+        skin.SetBlendShapeWeight(12, 0); //Butt
+        skin.SetBlendShapeWeight(13, 0); //Thighes
+        skin.SetBlendShapeWeight(14, 0); //Calves
+        skin.SetBlendShapeWeight(15, 0); //Feet
+    }
+
+    void Outfit12(SkinnedMeshRenderer skin) //Wrestling 2
+    {
+        skin.SetBlendShapeWeight(0, 0); //Neck
+        skin.SetBlendShapeWeight(1, 0); //Right Shoulder
+        skin.SetBlendShapeWeight(2, 0); //Left Shoulder
+        skin.SetBlendShapeWeight(3, 0); //Right Upper Arm
+        skin.SetBlendShapeWeight(4, 0); //Left Upper Arm
+        skin.SetBlendShapeWeight(5, 0); //Right Lower Arm
+        skin.SetBlendShapeWeight(6, 0); //Left Lower Arm
+        skin.SetBlendShapeWeight(7, 0); //Chest
+        skin.SetBlendShapeWeight(8, 0); //Back
+        skin.SetBlendShapeWeight(9, 0); //Stomach
+        skin.SetBlendShapeWeight(10, 0); //Waist
+        skin.SetBlendShapeWeight(11, 0); //Pelivs
+        skin.SetBlendShapeWeight(12, 0); //Butt
+        skin.SetBlendShapeWeight(13, 0); //Thighes
+        skin.SetBlendShapeWeight(14, 0); //Calves
+        skin.SetBlendShapeWeight(15, 0); //Feet
     }
 }

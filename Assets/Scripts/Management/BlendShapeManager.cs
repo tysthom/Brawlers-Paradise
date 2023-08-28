@@ -38,35 +38,35 @@ public class BlendShapeManager : MonoBehaviour
         }
         else if (outfitSelection == 4)
         {
-            Outfit5(skin, brawler);
+            Outfit5(skin);
         }
         else if (outfitSelection == 5)
         {
-            Outfit6(skin, brawler);
+            Outfit6(skin);
         }
         else if (outfitSelection == 6)
         {
-            Outfit7(skin, brawler);
+            Outfit7(skin);
         }
         else if (outfitSelection == 7)
         {
-            Outfit8(skin, brawler);
+            Outfit8(skin);
         }
         else if (outfitSelection == 8)
         {
-            Outfit9(skin, brawler);
+            Outfit9(skin);
         }
         else if (outfitSelection == 9)
         {
-            Outfit10(skin, brawler);
+            Outfit10(skin);
         }
         else if (outfitSelection == 10)
         {
-            Outfit11(skin, brawler);
+            Outfit11(skin);
         }
         else if (outfitSelection == 11)
         {
-            Outfit12(skin, brawler);
+            Outfit12(skin);
         }
     }
 
@@ -171,7 +171,7 @@ public class BlendShapeManager : MonoBehaviour
         skin.SetBlendShapeWeight(15, 30); //Feet
     }
 
-    void Outfit5(SkinnedMeshRenderer skin, GameObject brawler) //MMA Outfit 1
+    void Outfit5(SkinnedMeshRenderer skin) //MMA Outfit 1
     {
         skin.SetBlendShapeWeight(0, 0); //Neck
         skin.SetBlendShapeWeight(1, 0); //Right Shoulder
@@ -191,7 +191,7 @@ public class BlendShapeManager : MonoBehaviour
         skin.SetBlendShapeWeight(15, 0); //Feet
     }
 
-    void Outfit6(SkinnedMeshRenderer skin, GameObject brawler) //MMA Outfit 2
+    void Outfit6(SkinnedMeshRenderer skin) //MMA Outfit 2
     {
         skin.SetBlendShapeWeight(0, 0); //Neck
         skin.SetBlendShapeWeight(1, 0); //Right Shoulder
@@ -211,7 +211,7 @@ public class BlendShapeManager : MonoBehaviour
         skin.SetBlendShapeWeight(15, 0); //Feet
     }
 
-    void Outfit7(SkinnedMeshRenderer skin, GameObject brawler) //TKD Outfit 1
+    void Outfit7(SkinnedMeshRenderer skin) //TKD Outfit 1
     {
         skin.SetBlendShapeWeight(0, 0); //Neck
         skin.SetBlendShapeWeight(1, 0); //Right Shoulder
@@ -231,7 +231,7 @@ public class BlendShapeManager : MonoBehaviour
         skin.SetBlendShapeWeight(15, 0); //Feet
     }
 
-    void Outfit8(SkinnedMeshRenderer skin, GameObject brawler) //TKD Outfit 2
+    void Outfit8(SkinnedMeshRenderer skin) //TKD Outfit 2
     {
         skin.SetBlendShapeWeight(0, 0); //Neck
         skin.SetBlendShapeWeight(1, 0); //Right Shoulder
@@ -251,7 +251,7 @@ public class BlendShapeManager : MonoBehaviour
         skin.SetBlendShapeWeight(15, 0); //Feet
     }
 
-    void Outfit9(SkinnedMeshRenderer skin, GameObject brawler) //Kung Fu 
+    void Outfit9(SkinnedMeshRenderer skin) //Kung Fu 
     {
         skin.SetBlendShapeWeight(0, 0); //Neck
         skin.SetBlendShapeWeight(1, 0); //Right Shoulder
@@ -271,7 +271,7 @@ public class BlendShapeManager : MonoBehaviour
         skin.SetBlendShapeWeight(15, 100); //Feet
     }
 
-    void Outfit10(SkinnedMeshRenderer skin, GameObject brawler) //Kung Fu 2 
+    void Outfit10(SkinnedMeshRenderer skin) //Kung Fu 2 
     {
         skin.SetBlendShapeWeight(0, 0); //Neck
         skin.SetBlendShapeWeight(1, 0); //Right Shoulder
@@ -291,7 +291,7 @@ public class BlendShapeManager : MonoBehaviour
         skin.SetBlendShapeWeight(15, 15); //Feet
     }
 
-    void Outfit11(SkinnedMeshRenderer skin, GameObject brawler) //Wrestling 1
+    void Outfit11(SkinnedMeshRenderer skin) //Wrestling 1
     {
         skin.SetBlendShapeWeight(0, 0); //Neck
         skin.SetBlendShapeWeight(1, 0); //Right Shoulder
@@ -311,7 +311,7 @@ public class BlendShapeManager : MonoBehaviour
         skin.SetBlendShapeWeight(15, 0); //Feet
     }
 
-    void Outfit12(SkinnedMeshRenderer skin, GameObject brawler) //Wrestling 2
+    void Outfit12(SkinnedMeshRenderer skin) //Wrestling 2
     {
         skin.SetBlendShapeWeight(0, 0); //Neck
         skin.SetBlendShapeWeight(1, 0); //Right Shoulder
