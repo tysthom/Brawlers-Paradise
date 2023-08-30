@@ -63,6 +63,9 @@ public class BrawlerUpdates : MonoBehaviour
     public int b1SkinColor;
     public int b2SkinColor;
 
+    [Header("Names")]
+    public string[] names;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -355,6 +358,7 @@ public class BrawlerUpdates : MonoBehaviour
 
             brawler2TargetMesh.GetComponent<SkinnedMeshRenderer>().material = skinColors[menuManagerInstance.b2SkinColor - 1];
         }
+
 
         b1FightStyleSelection = menuManagerInstance.b1FightStyle;
         b2FightStyleSelection = menuManagerInstance.b2FightStyle;

@@ -8,7 +8,7 @@ using TMPro;
 public class MenuManager : MonoBehaviour
 {
 
-    public bool canMoveToNextMenu;
+    public bool canChangeMenu;
     public string currentMenu = "";
     public GameObject eventSystem;
     public GameObject blackOut;
@@ -16,7 +16,7 @@ public class MenuManager : MonoBehaviour
 
     [Header("Cameras")]
     public GameObject titleCamera;
-    public GameObject mainMenuCamera;
+    public GameObject menuCamera;
 
     [Header("Title Menu References")]
     public GameObject mainLogo;
@@ -36,6 +36,7 @@ public class MenuManager : MonoBehaviour
     //GAME MODE
     public GameObject modeDropDown;
     //FIGHT STYLE
+    public GameObject b1FightStyleButton;
     public string[] fightStyles = { "" };
     bool canSwtichFightStyle;
     public TextMeshProUGUI b1FightStyleText;
@@ -72,6 +73,12 @@ public class MenuManager : MonoBehaviour
     public Image b2SkinColorIndicator;
     public int b1SkinColor;
     public int b2SkinColor;
+    //NAME
+    bool canSwitchName;
+    public TextMeshProUGUI b1NameText;
+    public TextMeshProUGUI b2NameText;
+    public int b1NameSelection;
+    public int b2NameSelection;
 
     private void Awake()
     {
@@ -91,30 +98,31 @@ public class MenuManager : MonoBehaviour
     {
         currentSelected = eventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().currentSelectedGameObject;
 
-        bool nextMenu = Input.GetButton("Pick Up");
+        bool bButton = Input.GetButton("Pick Up");
         bool switchB1Side = Input.GetButtonDown("Secondary Special");
         bool switchB2Side = Input.GetButtonDown("Primary Special");
-        
+        bool xButton = Input.GetButtonDown("Attack");
 
-        if (canMoveToNextMenu && nextMenu)
+
+        if (canChangeMenu && bButton)
         {
             if (currentMenu == "Title Menu")
             {
                 mainLogo.GetComponent<Fade>().fadeOut = true;
                 startText.GetComponent<Fade>().fadeOut = true;
                 StartCoroutine(BlackOut(1, 3));
-                StartCoroutine(SwitchCameras(2, titleCamera, mainMenuCamera));
+                StartCoroutine(SwitchCameras(2, titleCamera, menuCamera));
                 currentMenu = "Main Menu";
             }
 
-            canMoveToNextMenu = false;
+            canChangeMenu = false;
         }
 
         float horizontal = Input.GetAxisRaw("Horizontal");
 
         if (currentMenu == "Fight Menu")
         {
-            if(currentSelected.name == "Mode Dropdown" || currentSelected.name == "Difficulty Dropdown")
+            if(currentSelected.name == "Fight Options Button")
             {
                 b1Side = true;
                 b2Side = false;
@@ -146,6 +154,10 @@ public class MenuManager : MonoBehaviour
                 {
                     eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(b1MenuSide[5]);
                 }
+                else if (currentSelected.name == "B2 NameSelection")
+                {
+                    eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(b1MenuSide[6]);
+                }
 
                 b1Side = true;
                 b2Side = false;
@@ -174,9 +186,18 @@ public class MenuManager : MonoBehaviour
                 {
                     eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(b2MenuSide[5]);
                 }
+                else if (currentSelected.name == "B1 NameSelection")
+                {
+                    eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(b2MenuSide[6]);
+                }
 
                 b2Side = true;
                 b1Side = false;
+            }
+
+            if (xButton)
+            {
+                RandomizeBrawler();
             }
 
             if (canSwtichFightStyle && (currentSelected.name == "B1 FightStyleSelection" || currentSelected.name == "B2 FightStyleSelection"))
@@ -251,6 +272,18 @@ public class MenuManager : MonoBehaviour
                 }
             }
 
+            if (canSwitchName && (currentSelected.name == "B1 NameSelection" || currentSelected.name == "B2 NameSelection"))
+            {
+                if (horizontal > .75f)
+                {
+                    StartCoroutine(Name("right"));
+                }
+                else if (horizontal < -.75f)
+                {
+                    StartCoroutine(Name("left"));
+                }
+            }
+
             b1FightStyleText.text = fightStyles[b1FightStyle];
             b2FightStyleText.text = fightStyles[b2FightStyle];
 
@@ -268,6 +301,9 @@ public class MenuManager : MonoBehaviour
 
             b1SkinColorIndicator.GetComponent<Image>().color = fightMenu.GetComponent<BrawlerUpdates>().skinColors[b1SkinColor - 1].color;
             b2SkinColorIndicator.GetComponent<Image>().color = fightMenu.GetComponent<BrawlerUpdates>().skinColors[b2SkinColor - 1].color;
+
+            b1NameText.text = "" + fightMenu.GetComponent<BrawlerUpdates>().names[b1NameSelection];
+            b2NameText.text = "" + fightMenu.GetComponent<BrawlerUpdates>().names[b2NameSelection];
         }
     }
 
@@ -278,7 +314,7 @@ public class MenuManager : MonoBehaviour
         yield return new WaitForSeconds(t);
         startText.GetComponent<Fade>().fadeIn = true;
         yield return new WaitForSeconds(1.5f);
-        canMoveToNextMenu = true;
+        canChangeMenu = true;
 
         fightMenu.GetComponent<BrawlerUpdates>().brawler1.transform.position += new Vector3(0, 0, -10);
         fightMenu.GetComponent<BrawlerUpdates>().brawler2.transform.position += new Vector3(0, 0, -10);
@@ -305,6 +341,7 @@ public class MenuManager : MonoBehaviour
         canSwitchHairType = true;
         canSwitchHairColor = true;
         canSwitchSkinColor = true;
+        canSwitchName = true;
     }
 
     public void MainMenu()
@@ -324,17 +361,37 @@ public class MenuManager : MonoBehaviour
     {
         currentMenu = "Fight Menu";
         
-        mainMenuCamera.GetComponent<SmoothDampCamera>().smoothDamp = true;
+        menuCamera.GetComponent<SmoothDampCamera>().smoothDamp = true;
         mainMenu.SetActive(false);
         yield return new WaitForSeconds(1.5f);
         fightMenu.SetActive(true);
-        eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(modeDropDown);
+        eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(b1FightStyleButton);
         b1Side = true;
         b2Side = false;
         fightMenu.GetComponent<BrawlerUpdates>().brawler1.transform.position += new Vector3(0, 0, 10);
         fightMenu.GetComponent<BrawlerUpdates>().brawler2.transform.position += new Vector3(0, 0, 10);
+        canChangeMenu = true;
     }
 
+    public void FightOptionsMenu()
+    {
+        StartCoroutine(FightOptionsMenuCoroutine());
+    }
+
+    IEnumerator FightOptionsMenuCoroutine()
+    {
+        currentMenu = "Fight Options Menu";
+
+        menuCamera.GetComponent<SmoothDampCamera>().smoothDamp = true;
+        fightMenu.SetActive(false);
+        yield return new WaitForSeconds(1.5f);
+        canChangeMenu = true;
+    }
+
+
+
+
+    #region Fight Menu Options
     IEnumerator FightStyle(string dir)
     {
         canSwtichFightStyle = false;
@@ -688,4 +745,93 @@ public class MenuManager : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         canSwitchSkinColor = true;
     }
+
+    IEnumerator Name(string dir)
+    {
+        canSwitchName = false;
+
+        if (b1Side)
+        {
+            if (dir == "right")
+            {
+                if (b1NameSelection == fightMenu.GetComponent<BrawlerUpdates>().names.Length-1)
+                {
+                    b1NameSelection = 0;
+                }
+                else
+                {
+                    b1NameSelection++;
+                }
+            }
+            else
+            {
+                if (b1NameSelection == 0)
+                {
+                    b1NameSelection = fightMenu.GetComponent<BrawlerUpdates>().names.Length - 1;
+                }
+                else
+                {
+                    b1NameSelection--;
+                }
+            }
+        }
+        else
+        {
+            if (dir == "right")
+            {
+                if (b2NameSelection == fightMenu.GetComponent<BrawlerUpdates>().names.Length - 1)
+                {
+                    b2NameSelection = 0;
+                }
+                else
+                {
+                    b2NameSelection++;
+                }
+            }
+            else
+            {
+                if (b2NameSelection == 0)
+                {
+                    b2NameSelection = fightMenu.GetComponent<BrawlerUpdates>().names.Length - 1;
+                }
+                else
+                {
+                    b2NameSelection--;
+                }
+            }
+        }
+
+        yield return new WaitForSeconds(.5f);
+        canSwitchName = true;
+    }
+
+    void RandomizeBrawler()
+    {
+        if (b1Side)
+        {
+            b1FightStyle = Random.Range(0, fightMenu.GetComponent<BrawlerUpdates>().fightingTypeAnimators.Length);
+            b1OutfitSelection = Random.Range(1, 3);
+            b1OutfitVariation = Random.Range(1, fightMenu.GetComponent<BrawlerUpdates>().karateOutfit1Variations.Length+1);
+            b1HairType = Random.Range(1, fightMenu.GetComponent<BrawlerUpdates>().hairStyles.Length+1);
+            b1HairColor = Random.Range(1, fightMenu.GetComponent<BrawlerUpdates>().hairColors.Length+1);
+            b1SkinColor = Random.Range(1, fightMenu.GetComponent<BrawlerUpdates>().skinColors.Length+1);
+            b1NameSelection = Random.Range(0, fightMenu.GetComponent<BrawlerUpdates>().names.Length);
+        }
+        else
+        {
+            b2FightStyle = Random.Range(0, fightMenu.GetComponent<BrawlerUpdates>().fightingTypeAnimators.Length);
+            b2OutfitSelection = Random.Range(1, 3);
+            b2OutfitVariation = Random.Range(1, fightMenu.GetComponent<BrawlerUpdates>().karateOutfit1Variations.Length + 1);
+            b2HairType = Random.Range(1, fightMenu.GetComponent<BrawlerUpdates>().hairStyles.Length + 1);
+            b2HairColor = Random.Range(1, fightMenu.GetComponent<BrawlerUpdates>().hairColors.Length + 1);
+            b2SkinColor = Random.Range(1, fightMenu.GetComponent<BrawlerUpdates>().skinColors.Length + 1);
+            b2NameSelection = Random.Range(0, fightMenu.GetComponent<BrawlerUpdates>().names.Length);
+        }
+
+
+    }
+
+    #endregion
+
+
 }
