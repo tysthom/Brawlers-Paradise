@@ -37,7 +37,17 @@ public class MenuManager : MonoBehaviour
     public GameObject modeDropDown;
     //FIGHT STYLE
     public GameObject b1FightStyleButton;
+    public GameObject b1FightStyleStats;
+    public GameObject b2FightStyleStats;
     public string[] fightStyles = { "" };
+    public GameObject[] b1StatsBars = new GameObject[5];
+    public GameObject[] b2StatsBars = new GameObject[5];
+    float[] karateStats = { 3, 3, 4, 2, 2 };
+    float[] boxingStats = { 5, 4, 1, 1, 3 };
+    float[] mmaStats = { 4, 5, 2, 3, 3 };
+    float[] tkdStats = { 2, 4, 5, 3, 2 };
+    float[] kungFuStats = { 4, 2, 3, 5, 2 };
+    float[] wrestlingStats = { 1, 5, 3, 5, 3 };
     bool canSwtichFightStyle;
     public TextMeshProUGUI b1FightStyleText;
     public TextMeshProUGUI b2FightStyleText;
@@ -200,16 +210,29 @@ public class MenuManager : MonoBehaviour
                 RandomizeBrawler();
             }
 
-            if (canSwtichFightStyle && (currentSelected.name == "B1 FightStyleSelection" || currentSelected.name == "B2 FightStyleSelection"))
+            if (currentSelected.name == "B1 FightStyleSelection" || currentSelected.name == "B2 FightStyleSelection")
             {
-                if (horizontal > .75f)
+                if (canSwtichFightStyle)
                 {
-                    StartCoroutine(FightStyle("right"));
+                    if (horizontal > .75f)
+                    {
+                        StartCoroutine(FightStyle("right"));
+                    }
+                    else if (horizontal < -.75f)
+                    {
+                        StartCoroutine(FightStyle("left"));
+                    }
                 }
-                else if (horizontal < -.75f)
-                {
-                    StartCoroutine(FightStyle("left"));
-                }
+
+                b1FightStyleStats.SetActive(true);
+                b2FightStyleStats.SetActive(true);
+                BrawlerStatsBars();
+
+            }
+            else
+            {
+                b1FightStyleStats.SetActive(false);
+                b2FightStyleStats.SetActive(false);
             }
 
             if (canSwitchOutfitSelection && (currentSelected.name == "B1 OutfitSelection" || currentSelected.name == "B2 OutfitSelection"))
@@ -449,6 +472,108 @@ public class MenuManager : MonoBehaviour
 
         yield return new WaitForSeconds(.5f);
         canSwtichFightStyle = true;
+    }
+
+    void BrawlerStatsBars()
+    {
+        if(b1FightStyle == 0)
+        {
+            b1StatsBars[0].GetComponent<Image>().fillAmount = karateStats[0] / 5;
+            b1StatsBars[1].GetComponent<Image>().fillAmount = karateStats[1] / 5;
+            b1StatsBars[2].GetComponent<Image>().fillAmount = karateStats[2] / 5;
+            b1StatsBars[3].GetComponent<Image>().fillAmount = karateStats[3] / 5;
+            b1StatsBars[4].GetComponent<Image>().fillAmount = karateStats[4] / 5;
+        } 
+        else if (b1FightStyle == 1)
+        {
+            b1StatsBars[0].GetComponent<Image>().fillAmount = boxingStats[0] / 5;
+            b1StatsBars[1].GetComponent<Image>().fillAmount = boxingStats[1] / 5;
+            b1StatsBars[2].GetComponent<Image>().fillAmount = boxingStats[2] / 5;
+            b1StatsBars[3].GetComponent<Image>().fillAmount = boxingStats[3] / 5;
+            b1StatsBars[4].GetComponent<Image>().fillAmount = boxingStats[4] / 5;
+        }
+        else if (b1FightStyle == 2)
+        {
+            b1StatsBars[0].GetComponent<Image>().fillAmount = mmaStats[0] / 5;
+            b1StatsBars[1].GetComponent<Image>().fillAmount = mmaStats[1] / 5;
+            b1StatsBars[2].GetComponent<Image>().fillAmount = mmaStats[2] / 5;
+            b1StatsBars[3].GetComponent<Image>().fillAmount = mmaStats[3] / 5;
+            b1StatsBars[4].GetComponent<Image>().fillAmount = mmaStats[4] / 5;
+        }
+        else if (b1FightStyle == 3)
+        {
+            b1StatsBars[0].GetComponent<Image>().fillAmount = tkdStats[0] / 5;
+            b1StatsBars[1].GetComponent<Image>().fillAmount = tkdStats[1] / 5;
+            b1StatsBars[2].GetComponent<Image>().fillAmount = tkdStats[2] / 5;
+            b1StatsBars[3].GetComponent<Image>().fillAmount = tkdStats[3] / 5;
+            b1StatsBars[4].GetComponent<Image>().fillAmount = tkdStats[4] / 5;
+        }
+        else if (b1FightStyle == 4)
+        {
+            b1StatsBars[0].GetComponent<Image>().fillAmount = kungFuStats[0] / 5;
+            b1StatsBars[1].GetComponent<Image>().fillAmount = kungFuStats[1] / 5;
+            b1StatsBars[2].GetComponent<Image>().fillAmount = kungFuStats[2] / 5;
+            b1StatsBars[3].GetComponent<Image>().fillAmount = kungFuStats[3] / 5;
+            b1StatsBars[4].GetComponent<Image>().fillAmount = kungFuStats[4] / 5;
+        }
+        else if (b1FightStyle == 5)
+        {
+            b1StatsBars[0].GetComponent<Image>().fillAmount = wrestlingStats[0] / 5;
+            b1StatsBars[1].GetComponent<Image>().fillAmount = wrestlingStats[1] / 5;
+            b1StatsBars[2].GetComponent<Image>().fillAmount = wrestlingStats[2] / 5;
+            b1StatsBars[3].GetComponent<Image>().fillAmount = wrestlingStats[3] / 5;
+            b1StatsBars[4].GetComponent<Image>().fillAmount = wrestlingStats[4] / 5;
+        }
+
+
+        if (b2FightStyle == 0)
+        {
+            b2StatsBars[0].GetComponent<Image>().fillAmount = karateStats[0] / 5;
+            b2StatsBars[1].GetComponent<Image>().fillAmount = karateStats[1] / 5;
+            b2StatsBars[2].GetComponent<Image>().fillAmount = karateStats[2] / 5;
+            b2StatsBars[3].GetComponent<Image>().fillAmount = karateStats[3] / 5;
+            b2StatsBars[4].GetComponent<Image>().fillAmount = karateStats[4] / 5;
+        }
+        else if (b2FightStyle == 1)
+        {
+            b2StatsBars[0].GetComponent<Image>().fillAmount = boxingStats[0] / 5;
+            b2StatsBars[1].GetComponent<Image>().fillAmount = boxingStats[1] / 5;
+            b2StatsBars[2].GetComponent<Image>().fillAmount = boxingStats[2] / 5;
+            b2StatsBars[3].GetComponent<Image>().fillAmount = boxingStats[3] / 5;
+            b2StatsBars[4].GetComponent<Image>().fillAmount = boxingStats[4] / 5;
+        }
+        else if (b2FightStyle == 2)
+        {
+            b2StatsBars[0].GetComponent<Image>().fillAmount = mmaStats[0] / 5;
+            b2StatsBars[1].GetComponent<Image>().fillAmount = mmaStats[1] / 5;
+            b2StatsBars[2].GetComponent<Image>().fillAmount = mmaStats[2] / 5;
+            b2StatsBars[3].GetComponent<Image>().fillAmount = mmaStats[3] / 5;
+            b2StatsBars[4].GetComponent<Image>().fillAmount = mmaStats[4] / 5;
+        }
+        else if (b2FightStyle == 3)
+        {
+            b2StatsBars[0].GetComponent<Image>().fillAmount = tkdStats[0] / 5;
+            b2StatsBars[1].GetComponent<Image>().fillAmount = tkdStats[1] / 5;
+            b2StatsBars[2].GetComponent<Image>().fillAmount = tkdStats[2] / 5;
+            b2StatsBars[3].GetComponent<Image>().fillAmount = tkdStats[3] / 5;
+            b2StatsBars[4].GetComponent<Image>().fillAmount = tkdStats[4] / 5;
+        }
+        else if (b2FightStyle == 4)
+        {
+            b2StatsBars[0].GetComponent<Image>().fillAmount = kungFuStats[0] / 5;
+            b2StatsBars[1].GetComponent<Image>().fillAmount = kungFuStats[1] / 5;
+            b2StatsBars[2].GetComponent<Image>().fillAmount = kungFuStats[2] / 5;
+            b2StatsBars[3].GetComponent<Image>().fillAmount = kungFuStats[3] / 5;
+            b2StatsBars[4].GetComponent<Image>().fillAmount = kungFuStats[4] / 5;
+        }
+        else if (b2FightStyle == 5)
+        {
+            b2StatsBars[0].GetComponent<Image>().fillAmount = wrestlingStats[0] / 5;
+            b2StatsBars[1].GetComponent<Image>().fillAmount = wrestlingStats[1] / 5;
+            b2StatsBars[2].GetComponent<Image>().fillAmount = wrestlingStats[2] / 5;
+            b2StatsBars[3].GetComponent<Image>().fillAmount = wrestlingStats[3] / 5;
+            b2StatsBars[4].GetComponent<Image>().fillAmount = wrestlingStats[4] / 5;
+        }
     }
 
     IEnumerator OutfitSelection(string dir)
