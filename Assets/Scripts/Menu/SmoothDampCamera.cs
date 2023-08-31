@@ -28,7 +28,7 @@ public class SmoothDampCamera : MonoBehaviour
                 if (Vector3.Distance(transform.position, fightMenuTarget.position) < .01)
                     smoothDamp = false;
             } 
-            else if(menuManager.GetComponent<MenuManager>().currentMenu == "Fight Options Menu")
+            else if(menuManager.GetComponent<MenuManager>().currentMenu == "Something Else")
             {
                 transform.position = Vector3.SmoothDamp(transform.position, fightOptionsMenuTarget.position, ref velocity, speed * Time.deltaTime);
                 if (Vector3.Distance(transform.position, fightOptionsMenuTarget.position) < .01)

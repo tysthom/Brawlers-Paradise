@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public class GrowingText : MonoBehaviour
 {
-    public int largeScaleSize = 3;
+    public float largeScaleSize = 3;
     float normalScaleSize;
     GameObject currentSelected;
     GameObject eventSystem;

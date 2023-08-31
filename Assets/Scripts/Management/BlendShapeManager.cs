@@ -22,51 +22,70 @@ public class BlendShapeManager : MonoBehaviour
 
     public void AssignBlendShape(SkinnedMeshRenderer skin, int outfitSelection, GameObject brawler)
     {
-        if(outfitSelection == 0)
+        if(brawler.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.karate)
         {
-            Outfit1(skin);
-        } else if(outfitSelection == 1) 
+            if(outfitSelection == 1)
+            {
+                Outfit1(skin);
+            }
+            else
+            {
+                Outfit2(skin);
+            }
+        } else if (brawler.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.boxing)
         {
-            Outfit2(skin);
-        } else if(outfitSelection == 2)
-        {
-            Outfit3(skin, brawler);
+            if (outfitSelection == 1)
+            {
+                Outfit3(skin, brawler);
+            }
+            else
+            {
+                Outfit4(skin, brawler);
+            }
         }
-        else if (outfitSelection == 3) 
+        else if (brawler.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.MMA)
         {
-            Outfit4(skin, brawler);
+            if (outfitSelection == 1)
+            {
+                Outfit5(skin);
+            }
+            else
+            {
+                Outfit6(skin);
+            }
         }
-        else if (outfitSelection == 4)
+        else if (brawler.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.taekwondo)
         {
-            Outfit5(skin);
+            if (outfitSelection == 1)
+            {
+                Outfit7(skin);
+            }
+            else
+            {
+                Outfit8(skin);
+            }
         }
-        else if (outfitSelection == 5)
+        else if (brawler.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.kungFu)
         {
-            Outfit6(skin);
+            if (outfitSelection == 1)
+            {
+                Outfit9(skin);
+            }
+            else
+            {
+                Outfit10(skin);
+            }
         }
-        else if (outfitSelection == 6)
+        else if (brawler.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.proWrestling)
         {
-            Outfit7(skin);
-        }
-        else if (outfitSelection == 7)
-        {
-            Outfit8(skin);
-        }
-        else if (outfitSelection == 8)
-        {
-            Outfit9(skin);
-        }
-        else if (outfitSelection == 9)
-        {
-            Outfit10(skin);
-        }
-        else if (outfitSelection == 10)
-        {
-            Outfit11(skin);
-        }
-        else if (outfitSelection == 11)
-        {
-            Outfit12(skin);
+            if (outfitSelection == 1)
+            {
+                Outfit11(skin);
+            }
+            else
+            {
+                Outfit12(skin);
+            }
         }
     }
 

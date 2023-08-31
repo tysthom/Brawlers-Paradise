@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UniversalFight : MonoBehaviour
 {
+    public static bool usingMenuData = true;
     public bool fight;
 
     public void Update()

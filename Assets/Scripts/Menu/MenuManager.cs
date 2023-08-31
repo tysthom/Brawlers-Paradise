@@ -90,6 +90,16 @@ public class MenuManager : MonoBehaviour
     public int b1NameSelection;
     public int b2NameSelection;
 
+    [Header("Fight Options Menu")]
+    public GameObject fightOptionsMenu;
+    //SOUVENIRS
+    public GameObject b1SouvenirSouvenirButton;
+    bool canSwitchSouvenir;
+    public TextMeshProUGUI b1SouvenirText;
+    public TextMeshProUGUI b2SouvenirText;
+    public int b1SouvenirSelection;
+    public int b2SouvenirSelection;
+
     private void Awake()
     {
         mainLogo.GetComponent<CanvasGroup>().alpha = 0;
@@ -130,9 +140,9 @@ public class MenuManager : MonoBehaviour
 
         float horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (currentMenu == "Fight Menu")
+        if (currentMenu == "Fight Menu" || currentMenu == "Fight Options Menu")
         {
-            if(currentSelected.name == "Fight Options Button")
+            if(currentSelected.name == "Fight Options Button" || currentSelected.name == "Mode Dropdown")
             {
                 b1Side = true;
                 b2Side = false;
@@ -168,6 +178,10 @@ public class MenuManager : MonoBehaviour
                 {
                     eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(b1MenuSide[6]);
                 }
+                else if (currentSelected.name == "B2 SouvenirSelection")
+                {
+                    eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(b1MenuSide[7]);
+                }
 
                 b1Side = true;
                 b2Side = false;
@@ -199,6 +213,10 @@ public class MenuManager : MonoBehaviour
                 else if (currentSelected.name == "B1 NameSelection")
                 {
                     eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(b2MenuSide[6]);
+                }
+                else if (currentSelected.name == "B1 SouvenirSelection")
+                {
+                    eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(b2MenuSide[7]);
                 }
 
                 b2Side = true;
@@ -307,26 +325,53 @@ public class MenuManager : MonoBehaviour
                 }
             }
 
+            if (canSwitchSouvenir && (currentSelected.name == "B1 SouvenirSelection" || currentSelected.name == "B2 SouvenirSelection"))
+            {
+                if (horizontal > .75f)
+                {
+                    StartCoroutine(Souvenir("right"));
+                }
+                else if (horizontal < -.75f)
+                {
+                    StartCoroutine(Souvenir("left"));
+                }
+            }
+
             b1FightStyleText.text = fightStyles[b1FightStyle];
             b2FightStyleText.text = fightStyles[b2FightStyle];
+            StateNameController.b1MainFightStyleSelection = b1FightStyle;
+            StateNameController.b2MainFightStyleSelection = b2FightStyle;
 
             b1OutfitSelectionText.text = "" + b1OutfitSelection;
             b2OutfitSelectionText.text = "" + b2OutfitSelection;
+            StateNameController.b1MainOutfit = b1OutfitSelection;
+            StateNameController.b2MainOutfit = b1OutfitSelection;
 
             b1OutfitVariationText.text = "" + b1OutfitVariation;
             b2OutfitVariationText.text = "" + b2OutfitVariation;
+            StateNameController.b1MainOutfitVariation = b1OutfitVariation;
+            StateNameController.b2MainOutfitVariation = b2OutfitVariation;
 
             b1HairTypeText.text = "" + b1HairType;
             b2HairTypeText.text = "" + b2HairType;
+            StateNameController.b1MainHairType = b1HairType;
+            StateNameController.b2MainHairType = b2HairType;
 
             b1HairColorIndicator.GetComponent<Image>().color = fightMenu.GetComponent<BrawlerUpdates>().hairColors[b1HairColor - 1].color;
             b2HairColorIndicator.GetComponent<Image>().color = fightMenu.GetComponent<BrawlerUpdates>().hairColors[b2HairColor - 1].color;
+            StateNameController.b1MainHairColor = b1HairColor;
+            StateNameController.b2MainHairColor = b2HairColor;
 
             b1SkinColorIndicator.GetComponent<Image>().color = fightMenu.GetComponent<BrawlerUpdates>().skinColors[b1SkinColor - 1].color;
             b2SkinColorIndicator.GetComponent<Image>().color = fightMenu.GetComponent<BrawlerUpdates>().skinColors[b2SkinColor - 1].color;
+            StateNameController.b1MainSkinColor = b1SkinColor;
+            StateNameController.b2MainSkinColor = b2SkinColor;
 
             b1NameText.text = "" + fightMenu.GetComponent<BrawlerUpdates>().names[b1NameSelection];
             b2NameText.text = "" + fightMenu.GetComponent<BrawlerUpdates>().names[b2NameSelection];
+
+            b1SouvenirText.text = "" + fightOptionsMenu.GetComponent<FightOptionsMenu>().souvniers[b1SouvenirSelection];
+            b2SouvenirText.text = "" + fightOptionsMenu.GetComponent<FightOptionsMenu>().souvniers[b2SouvenirSelection];
         }
     }
 
@@ -405,10 +450,20 @@ public class MenuManager : MonoBehaviour
     {
         currentMenu = "Fight Options Menu";
 
-        menuCamera.GetComponent<SmoothDampCamera>().smoothDamp = true;
+        //menuCamera.GetComponent<SmoothDampCamera>().smoothDamp = true;
         fightMenu.SetActive(false);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(.75f);
+        fightOptionsMenu.SetActive(true);
+        eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(b1SouvenirSouvenirButton);
+        b1Side = true;
+        b2Side = false;
+        canSwitchSouvenir = true;
         canChangeMenu = true;
+    }
+
+    public void FIGHT()
+    {
+
     }
 
 
@@ -958,5 +1013,63 @@ public class MenuManager : MonoBehaviour
 
     #endregion
 
+    IEnumerator Souvenir(string dir)
+    {
+        canSwitchSouvenir = false;
+
+        if (b1Side)
+        {
+            if (dir == "right")
+            {
+                if (b1SouvenirSelection == fightOptionsMenu.GetComponent<FightOptionsMenu>().souvniers.Length - 1)
+                {
+                    b1SouvenirSelection = 0;
+                }
+                else
+                {
+                    b1SouvenirSelection++;
+                }
+            }
+            else
+            {
+                if (b1SouvenirSelection == 0)
+                {
+                    b1SouvenirSelection = fightOptionsMenu.GetComponent<FightOptionsMenu>().souvniers.Length - 1;
+                }
+                else
+                {
+                    b1SouvenirSelection--;
+                }
+            }
+        }
+        else
+        {
+            if (dir == "right")
+            {
+                if (b2SouvenirSelection == fightOptionsMenu.GetComponent<FightOptionsMenu>().souvniers.Length - 1)
+                {
+                    b2SouvenirSelection = 0;
+                }
+                else
+                {
+                    b2SouvenirSelection++;
+                }
+            }
+            else
+            {
+                if (b2SouvenirSelection == 0)
+                {
+                    b2SouvenirSelection = fightOptionsMenu.GetComponent<FightOptionsMenu>().souvniers.Length - 1;
+                }
+                else
+                {
+                    b2SouvenirSelection--;
+                }
+            }
+        }
+
+        yield return new WaitForSeconds(.5f);
+        canSwitchSouvenir = true;
+    }
 
 }
