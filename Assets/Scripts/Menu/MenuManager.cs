@@ -105,6 +105,8 @@ public class MenuManager : MonoBehaviour
         mainLogo.GetComponent<CanvasGroup>().alpha = 0;
         startText.GetComponent<CanvasGroup>().alpha = 0;
         currentMenu = "Title Menu";
+        //GetComponent<SaveData>().SaveBrawler();
+        GetComponent<SaveData>().LoadBrawler();
     }
 
     // Start is called before the first frame update
@@ -345,7 +347,7 @@ public class MenuManager : MonoBehaviour
             b1OutfitSelectionText.text = "" + b1OutfitSelection;
             b2OutfitSelectionText.text = "" + b2OutfitSelection;
             StateNameController.b1MainOutfit = b1OutfitSelection;
-            StateNameController.b2MainOutfit = b1OutfitSelection;
+            StateNameController.b2MainOutfit = b2OutfitSelection;
 
             b1OutfitVariationText.text = "" + b1OutfitVariation;
             b2OutfitVariationText.text = "" + b2OutfitVariation;

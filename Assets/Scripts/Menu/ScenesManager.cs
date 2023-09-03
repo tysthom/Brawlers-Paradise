@@ -20,6 +20,7 @@ public class ScenesManager : MonoBehaviour
 
     public void LoadDojo()
     {
+        GameObject.Find("Menu Manager").GetComponent<SaveData>().SaveBrawler();
         SceneManager.LoadScene(Scene.Dojo.ToString());
     }
 
