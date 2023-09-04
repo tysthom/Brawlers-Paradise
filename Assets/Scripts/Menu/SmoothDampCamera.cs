@@ -6,7 +6,8 @@ public class SmoothDampCamera : MonoBehaviour
 {
 
     public bool smoothDamp;
-    public Transform fightMenuTarget, fightOptionsMenuTarget;
+    public bool mainMenuPos, fightMenuPos;
+    public Transform mainMenuTarget, fightMenuTarget;
     public float speed = 1;
     Vector3 velocity = Vector3.zero;
     GameObject menuManager;
@@ -22,17 +23,22 @@ public class SmoothDampCamera : MonoBehaviour
     {
         if (smoothDamp)
         {
-            if(menuManager.GetComponent<MenuManager>().currentMenu == "Fight Menu")
+            if (mainMenuPos)
             {
                 transform.position = Vector3.SmoothDamp(transform.position, fightMenuTarget.position, ref velocity, speed * Time.deltaTime);
-                if (Vector3.Distance(transform.position, fightMenuTarget.position) < .01)
-                    smoothDamp = false;
-            } 
-            else if(menuManager.GetComponent<MenuManager>().currentMenu == "Something Else")
+                if (Vector3.Distance(transform.position, fightMenuTarget.position) <= .03f)
+                {
+                    smoothDamp = false; fightMenuPos = true; mainMenuPos = false;
+                }
+            }
+            else if (fightMenuPos)
             {
-                transform.position = Vector3.SmoothDamp(transform.position, fightOptionsMenuTarget.position, ref velocity, speed * Time.deltaTime);
-                if (Vector3.Distance(transform.position, fightOptionsMenuTarget.position) < .01)
-                    smoothDamp = false;
+
+                transform.position = Vector3.SmoothDamp(transform.position, mainMenuTarget.position, ref velocity, speed * Time.deltaTime);
+                if (Vector3.Distance(transform.position, mainMenuTarget.position) <= .03f)
+                {
+                    smoothDamp = false; fightMenuPos = false; mainMenuPos = true;
+                }
             }
         }
     }

@@ -81,20 +81,109 @@ public class SouvenirsManager : MonoBehaviour
 
     private void Start()
     {
-        if (souvenirsAllowed) //Assigns random souvenir if no souvenir is assigned already
+        if (UniversalFight.usingMenuData)
         {
-            if(idManagerInstance.brawler1.GetComponent<Souvenirs>().souvenir == Souvenirs.souvenirs.none)
+            if(StateNameController.b1MainSouvenirSelection == 0)
             {
-                AssignRandomSouvenir(idManagerInstance.brawler1);
-                AssignSouvenirIcon(idManagerInstance.brawler1);
+                idManagerInstance.brawler1.GetComponent<Souvenirs>().souvenir = Souvenirs.souvenirs.medicine;
             }
-            if (idManagerInstance.brawler2.GetComponent<Souvenirs>().souvenir == Souvenirs.souvenirs.none)
+            else if (StateNameController.b1MainSouvenirSelection == 1)
             {
-                AssignRandomSouvenir(idManagerInstance.brawler2);
-                AssignSouvenirIcon(idManagerInstance.brawler2);
+                idManagerInstance.brawler1.GetComponent<Souvenirs>().souvenir = Souvenirs.souvenirs.sunscreen;
+            }
+            else if (StateNameController.b1MainSouvenirSelection == 2)
+            {
+                idManagerInstance.brawler1.GetComponent<Souvenirs>().souvenir = Souvenirs.souvenirs.coffee;
+            }
+            else if (StateNameController.b1MainSouvenirSelection == 3)
+            {
+                idManagerInstance.brawler1.GetComponent<Souvenirs>().souvenir = Souvenirs.souvenirs.briefcase;
+            }
+            else if (StateNameController.b1MainSouvenirSelection == 4)
+            {
+                idManagerInstance.brawler1.GetComponent<Souvenirs>().souvenir = Souvenirs.souvenirs.lifeJacket;
+            }
+            else if (StateNameController.b1MainSouvenirSelection == 5)
+            {
+                idManagerInstance.brawler1.GetComponent<Souvenirs>().souvenir = Souvenirs.souvenirs.ratPoison;
+            }
+            else if (StateNameController.b1MainSouvenirSelection == 6)
+            {
+                idManagerInstance.brawler1.GetComponent<Souvenirs>().souvenir = Souvenirs.souvenirs.tequila;
+            }
+            else if (StateNameController.b1MainSouvenirSelection == 7)
+            {
+                idManagerInstance.brawler1.GetComponent<Souvenirs>().souvenir = Souvenirs.souvenirs.vipCard;
+            }
+            else if (StateNameController.b1MainSouvenirSelection == 8)
+            {
+                idManagerInstance.brawler1.GetComponent<Souvenirs>().souvenir = Souvenirs.souvenirs.floaty;
+            }
+            else if (StateNameController.b1MainSouvenirSelection == 9)
+            {
+                idManagerInstance.brawler1.GetComponent<Souvenirs>().souvenir = Souvenirs.souvenirs.none;
+            }
+
+
+            if (StateNameController.b2MainSouvenirSelection == 0)
+            {
+                idManagerInstance.brawler2.GetComponent<Souvenirs>().souvenir = Souvenirs.souvenirs.medicine;
+            }
+            else if (StateNameController.b2MainSouvenirSelection == 1)
+            {
+                idManagerInstance.brawler2.GetComponent<Souvenirs>().souvenir = Souvenirs.souvenirs.sunscreen;
+            }
+            else if (StateNameController.b2MainSouvenirSelection == 2)
+            {
+                idManagerInstance.brawler2.GetComponent<Souvenirs>().souvenir = Souvenirs.souvenirs.coffee;
+            }
+            else if (StateNameController.b2MainSouvenirSelection == 3)
+            {
+                idManagerInstance.brawler2.GetComponent<Souvenirs>().souvenir = Souvenirs.souvenirs.briefcase;
+            }
+            else if (StateNameController.b2MainSouvenirSelection == 4)
+            {
+                idManagerInstance.brawler2.GetComponent<Souvenirs>().souvenir = Souvenirs.souvenirs.lifeJacket;
+            }
+            else if (StateNameController.b2MainSouvenirSelection == 5)
+            {
+                idManagerInstance.brawler2.GetComponent<Souvenirs>().souvenir = Souvenirs.souvenirs.ratPoison;
+            }
+            else if (StateNameController.b2MainSouvenirSelection == 6)
+            {
+                idManagerInstance.brawler2.GetComponent<Souvenirs>().souvenir = Souvenirs.souvenirs.tequila;
+            }
+            else if (StateNameController.b2MainSouvenirSelection == 7)
+            {
+                idManagerInstance.brawler2.GetComponent<Souvenirs>().souvenir = Souvenirs.souvenirs.vipCard;
+            }
+            else if (StateNameController.b2MainSouvenirSelection == 8)
+            {
+                idManagerInstance.brawler2.GetComponent<Souvenirs>().souvenir = Souvenirs.souvenirs.floaty;
+            }
+            else if (StateNameController.b2MainSouvenirSelection == 9)
+            {
+                idManagerInstance.brawler2.GetComponent<Souvenirs>().souvenir = Souvenirs.souvenirs.none;
+            }
+
+            AssignSouvenirIcon(idManagerInstance.brawler1);
+        }
+        else
+        {
+            if (souvenirsAllowed) //Assigns random souvenir if no souvenir is assigned already
+            {
+                if (idManagerInstance.brawler1.GetComponent<Souvenirs>().souvenir == Souvenirs.souvenirs.none)
+                {
+                    //AssignRandomSouvenir(idManagerInstance.brawler1);
+                    AssignSouvenirIcon(idManagerInstance.brawler1);
+                }
+                if (idManagerInstance.brawler2.GetComponent<Souvenirs>().souvenir == Souvenirs.souvenirs.none)
+                {
+                    AssignRandomSouvenir(idManagerInstance.brawler2);
+                    AssignSouvenirIcon(idManagerInstance.brawler2);
+                }
             }
         }
-
         
     }
 

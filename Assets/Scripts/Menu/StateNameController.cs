@@ -10,6 +10,8 @@ public class StateNameController : MonoBehaviour
     public static int b1MainHairType;
     public static int b1MainHairColor;
     public static int b1MainSkinColor;
+    public static int b1MainNameSelection;
+    public static int b1MainSouvenirSelection;
 
     public static int b2MainFightStyleSelection;
     public static int b2MainOutfit;
@@ -17,4 +19,6 @@ public class StateNameController : MonoBehaviour
     public static int b2MainHairType;
     public static int b2MainHairColor;
     public static int b2MainSkinColor;
+    public static int b2MainNameSelection;
+    public static int b2MainSouvenirSelection;
 }

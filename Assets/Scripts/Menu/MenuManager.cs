@@ -120,24 +120,28 @@ public class MenuManager : MonoBehaviour
     {
         currentSelected = eventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().currentSelectedGameObject;
 
-        bool bButton = Input.GetButton("Pick Up");
+        bool aButton = Input.GetButton("Pick Up");
         bool switchB1Side = Input.GetButtonDown("Secondary Special");
         bool switchB2Side = Input.GetButtonDown("Primary Special");
         bool xButton = Input.GetButtonDown("Attack");
+        bool bButton = Input.GetButtonDown("Dodge");
 
 
-        if (canChangeMenu && bButton)
+        if (canChangeMenu)
         {
-            if (currentMenu == "Title Menu")
+            if (aButton)
             {
-                mainLogo.GetComponent<Fade>().fadeOut = true;
-                startText.GetComponent<Fade>().fadeOut = true;
-                StartCoroutine(BlackOut(1, 3));
-                StartCoroutine(SwitchCameras(2, titleCamera, menuCamera));
-                currentMenu = "Main Menu";
+                if (currentMenu == "Title Menu")
+                {
+                    mainLogo.GetComponent<Fade>().fadeOut = true;
+                    startText.GetComponent<Fade>().fadeOut = true;
+                    StartCoroutine(BlackOut(1, 3, 1));
+                    StartCoroutine(SwitchCameras(2, titleCamera, menuCamera));
+                } 
+            } else if (bButton)
+            {
+                StartCoroutine(Back());
             }
-
-            canChangeMenu = false;
         }
 
         float horizontal = Input.GetAxisRaw("Horizontal");
@@ -227,7 +231,14 @@ public class MenuManager : MonoBehaviour
 
             if (xButton)
             {
-                RandomizeBrawler();
+                if(currentMenu == "Fight Menu")
+                {
+                    RandomizeBrawler();
+                }
+                else if(currentMenu == "Fight Options Menu")
+                {
+                    RandomizeSouvenir();
+                }
             }
 
             if (currentSelected.name == "B1 FightStyleSelection" || currentSelected.name == "B2 FightStyleSelection")
@@ -371,9 +382,32 @@ public class MenuManager : MonoBehaviour
 
             b1NameText.text = "" + fightMenu.GetComponent<BrawlerUpdates>().names[b1NameSelection];
             b2NameText.text = "" + fightMenu.GetComponent<BrawlerUpdates>().names[b2NameSelection];
+            StateNameController.b1MainNameSelection = b1NameSelection;
+            StateNameController.b2MainNameSelection = b2NameSelection;
 
             b1SouvenirText.text = "" + fightOptionsMenu.GetComponent<FightOptionsMenu>().souvniers[b1SouvenirSelection];
             b2SouvenirText.text = "" + fightOptionsMenu.GetComponent<FightOptionsMenu>().souvniers[b2SouvenirSelection];
+            StateNameController.b1MainSouvenirSelection = b1SouvenirSelection;
+            StateNameController.b2MainSouvenirSelection = b2SouvenirSelection;
+        }
+    }
+
+    IEnumerator Back()
+    {
+        if(currentMenu == "Fight Menu")
+        {
+            menuCamera.GetComponent<SmoothDampCamera>().smoothDamp = true;
+            fightMenu.SetActive(false);
+            yield return new WaitForSeconds(1.5f);
+
+            MainMenu();
+        } 
+        else if(currentMenu == "Fight Options Menu")
+        {
+            fightOptionsMenu.SetActive(false);
+            yield return new WaitForSeconds(.5f);
+
+            StartCoroutine(FightMenuCoroutine(.25f));
         }
     }
 
@@ -383,21 +417,25 @@ public class MenuManager : MonoBehaviour
         mainLogo.GetComponent<Fade>().fadeIn = true;
         yield return new WaitForSeconds(t);
         startText.GetComponent<Fade>().fadeIn = true;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         canChangeMenu = true;
 
         fightMenu.GetComponent<BrawlerUpdates>().brawler1.transform.position += new Vector3(0, 0, -10);
         fightMenu.GetComponent<BrawlerUpdates>().brawler2.transform.position += new Vector3(0, 0, -10);
     }
 
-    IEnumerator BlackOut(float waitTime, float blackOutTime)
+    IEnumerator BlackOut(float waitTime, float blackOutTime, float menuActivationWait)
     {
         yield return new WaitForSeconds(waitTime);
         blackOut.GetComponent<Fade>().fadeIn = true;
         yield return new WaitForSeconds(blackOutTime);
         blackOut.GetComponent<Fade>().fadeOut = true;
-        MainMenu();
-        //canMoveToNextMenu = true;
+        yield return new WaitForSeconds(menuActivationWait);
+        if(currentMenu == "Title Menu")
+        {
+            MainMenu();
+        }
+        canChangeMenu = true;
     }
 
     IEnumerator SwitchCameras(float waitTime, GameObject currentCamera, GameObject newCamera)
@@ -416,43 +454,56 @@ public class MenuManager : MonoBehaviour
 
     public void MainMenu()
     {
+        currentMenu = "Main Menu";
         mainMenu.SetActive(true);
-        eventSystem.GetComponent<EventSystem>().firstSelectedGameObject = fightButton;
+        eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(fightButton);
     }
 
     //FIGHT MENU
-
     public void FightMenu() //Used when Fight button is pressed
     {
-        StartCoroutine(FightMenuCoroutine());
+        if (canChangeMenu)
+        {
+            menuCamera.GetComponent<SmoothDampCamera>().smoothDamp = true;
+            StartCoroutine(FightMenuCoroutine(1.5f));
+        }
     }
 
-    public IEnumerator FightMenuCoroutine() //
+    public IEnumerator FightMenuCoroutine(float time)
     {
         currentMenu = "Fight Menu";
         
-        menuCamera.GetComponent<SmoothDampCamera>().smoothDamp = true;
+        canChangeMenu = false;
         mainMenu.SetActive(false);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(time);
         fightMenu.SetActive(true);
         eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(b1FightStyleButton);
         b1Side = true;
         b2Side = false;
-        fightMenu.GetComponent<BrawlerUpdates>().brawler1.transform.position += new Vector3(0, 0, 10);
-        fightMenu.GetComponent<BrawlerUpdates>().brawler2.transform.position += new Vector3(0, 0, 10);
+        fightMenu.GetComponent<BrawlerUpdates>().brawler1.transform.position = 
+            new Vector3(fightMenu.GetComponent<BrawlerUpdates>().brawler1.transform.position.x, 
+            fightMenu.GetComponent<BrawlerUpdates>().brawler1.transform.position.y, -1.26f);
+
+        fightMenu.GetComponent<BrawlerUpdates>().brawler2.transform.position =
+            new Vector3(fightMenu.GetComponent<BrawlerUpdates>().brawler2.transform.position.x,
+            fightMenu.GetComponent<BrawlerUpdates>().brawler2.transform.position.y, -1.26f);
+
         canChangeMenu = true;
     }
 
     public void FightOptionsMenu()
     {
-        StartCoroutine(FightOptionsMenuCoroutine());
+        if (canChangeMenu)
+        {
+            StartCoroutine(FightOptionsMenuCoroutine());
+        }
     }
 
     IEnumerator FightOptionsMenuCoroutine()
     {
         currentMenu = "Fight Options Menu";
 
-        //menuCamera.GetComponent<SmoothDampCamera>().smoothDamp = true;
+        canChangeMenu = false;
         fightMenu.SetActive(false);
         yield return new WaitForSeconds(.75f);
         fightOptionsMenu.SetActive(true);
@@ -463,15 +514,8 @@ public class MenuManager : MonoBehaviour
         canChangeMenu = true;
     }
 
-    public void FIGHT()
-    {
 
-    }
-
-
-
-
-    #region Fight Menu Options
+    #region Fight Menu
     IEnumerator FightStyle(string dir)
     {
         canSwtichFightStyle = false;
@@ -1072,6 +1116,18 @@ public class MenuManager : MonoBehaviour
 
         yield return new WaitForSeconds(.5f);
         canSwitchSouvenir = true;
+    }
+
+    void RandomizeSouvenir()
+    {
+        if (b1Side)
+        {
+            b1SouvenirSelection = Random.Range(0, fightOptionsMenu.GetComponent<FightOptionsMenu>().souvniers.Length);
+        }
+        else if (b2Side)
+        {
+            b2SouvenirSelection = Random.Range(0, fightOptionsMenu.GetComponent<FightOptionsMenu>().souvniers.Length);
+        }
     }
 
 }
