@@ -23,6 +23,22 @@ public class IdManagear : MonoBehaviour
     {
         spawnPositions = GameObject.FindGameObjectsWithTag("Spawners");
 
+        if (UniversalFight.usingMenuData)
+        {
+            if(StateNameController.gameModeSelection == 0)
+            {
+                gameMode = mode.training;
+            } 
+            else if (StateNameController.gameModeSelection == 1)
+            {
+                gameMode = mode.playerVsAi;
+            }
+            else
+            {
+                gameMode = mode.AiVsAi;
+            }
+        }
+
         if (gameMode == mode.playerVsAi || gameMode == mode.training)
         {
            GameObject ai1 = Instantiate(aiPrefab, spawnPositions[0].transform);

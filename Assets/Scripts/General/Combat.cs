@@ -1582,6 +1582,11 @@ public class Combat : MonoBehaviour
         anim.SetInteger("State", 0);
     }
 
+    public void ShowboatComplete()
+    {
+        StartCoroutine(gameManager.GetComponent<PostGame>().ShowboatCompleteCoroutine());
+    }
+
     void Emergency()
     {
         if(isAttacking && anim.GetInteger("State") == 2)

@@ -156,7 +156,7 @@ public class Souvenirs : MonoBehaviour
             {
                 StartCoroutine(Coffee());
             }
-            if (souvenir == souvenirs.briefcase) //Throwable
+            if (souvenir == souvenirs.briefcase && StateNameController.throwableSelection == 0) //Throwable
             {
                 Briefcase();
             }

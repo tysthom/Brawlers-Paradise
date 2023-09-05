@@ -301,7 +301,8 @@ public class AiBehavior : MonoBehaviour
                 {
                     isWaitingToAttack = false;
                     int i = Random.Range(1, 10);
-                    if (i <= combatManagear.GetComponent<CombatStats>().aiThrowableFrequency && !enemy.GetComponent<Flinch>().isSurrendering) //Performs throwing attack instead of basic attack
+                    if (i <= combatManagear.GetComponent<CombatStats>().aiThrowableFrequency && !enemy.GetComponent<Flinch>().isSurrendering
+                        && StateNameController.throwableSelection == 0) //Performs throwing attack instead of basic attack
                     {
                         int b = Random.Range(1, 10);
                         if (GetComponent<Souvenirs>().souvenir == Souvenirs.souvenirs.briefcase && GetComponent<Souvenirs>().canUseSouvenir

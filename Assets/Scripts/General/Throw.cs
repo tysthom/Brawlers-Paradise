@@ -54,7 +54,8 @@ public class Throw : MonoBehaviour
 
             if (closestThrowable != null && closestThrowable.tag == "Throwable" && currentThrowable == null 
                 && Vector3.Distance(transform.position, closestThrowable.transform.position) < GetComponent<Movement>().pickUpRange
-                && !GetComponent<Combat>().inCombat && !GetComponent<Flinch>().isReacting && !GetComponent<Death>().dead && !GetComponent<Combat>().enemy.GetComponent<Death>().dead)
+                && !GetComponent<Combat>().inCombat && !GetComponent<Flinch>().isReacting && !GetComponent<Death>().dead && !GetComponent<Combat>().enemy.GetComponent<Death>().dead
+                && StateNameController.throwableSelection == 0)
             {
                 if(hudManagerInstance.hudType != HUDManager.hud.none)
                     pickupIcon.SetActive(true);

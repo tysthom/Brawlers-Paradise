@@ -14,6 +14,9 @@ public class FightOptionsMenu : MonoBehaviour
     public string[] souvniers = { "Medicine", "Sunscreen", "Coffee", "Briefcase", "Rat Poison", "Life Jacket", "Tequila",
         "VIP Card", "Floaty", "None"};
 
+    [Header("Throwable")]
+    public bool throwableAllowed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,5 +34,7 @@ public class FightOptionsMenu : MonoBehaviour
 
         b1SouvenirSelection = menuManagerInstance.b1SouvenirSelection;
         b2SouvenirSelection = menuManagerInstance.b2SouvenirSelection;
+
+        throwableAllowed = menuManagerInstance.throwableAllowed;
     }
 }

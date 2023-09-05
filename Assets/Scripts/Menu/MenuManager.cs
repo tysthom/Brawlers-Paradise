@@ -99,6 +99,15 @@ public class MenuManager : MonoBehaviour
     public TextMeshProUGUI b2SouvenirText;
     public int b1SouvenirSelection;
     public int b2SouvenirSelection;
+    //GAME MODE
+    public TMP_Dropdown gameModeDropDown;
+    public int gameModeSelection;
+    //DIFFICULTY
+    public TMP_Dropdown difficultyDropdown;
+    public int difficultySelection;
+    //THROWABLE
+    public Toggle throwableToggle;
+    public bool throwableAllowed;
 
     private void Awake()
     {
@@ -113,7 +122,6 @@ public class MenuManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(MainLogoTime(2));
-
     }
 
     private void Update()
@@ -133,6 +141,7 @@ public class MenuManager : MonoBehaviour
             {
                 if (currentMenu == "Title Menu")
                 {
+                    canChangeMenu = false;
                     mainLogo.GetComponent<Fade>().fadeOut = true;
                     startText.GetComponent<Fade>().fadeOut = true;
                     StartCoroutine(BlackOut(1, 3, 1));
@@ -350,6 +359,20 @@ public class MenuManager : MonoBehaviour
                 }
             }
 
+            gameModeSelection = gameModeDropDown.value;
+            difficultySelection = difficultyDropdown.value;
+
+            if(throwableToggle.isOn == true)
+            {
+                throwableAllowed = true;
+                StateNameController.throwableSelection = 0;
+            }
+            else
+            {
+                throwableAllowed = false;
+                StateNameController.throwableSelection = 1;
+            }
+
             b1FightStyleText.text = fightStyles[b1FightStyle];
             b2FightStyleText.text = fightStyles[b2FightStyle];
             StateNameController.b1MainFightStyleSelection = b1FightStyle;
@@ -385,10 +408,16 @@ public class MenuManager : MonoBehaviour
             StateNameController.b1MainNameSelection = b1NameSelection;
             StateNameController.b2MainNameSelection = b2NameSelection;
 
+            StateNameController.b1Name = "" + fightMenu.GetComponent<BrawlerUpdates>().names[b1NameSelection];
+            StateNameController.b2Name = "" + fightMenu.GetComponent<BrawlerUpdates>().names[b2NameSelection];
+
             b1SouvenirText.text = "" + fightOptionsMenu.GetComponent<FightOptionsMenu>().souvniers[b1SouvenirSelection];
             b2SouvenirText.text = "" + fightOptionsMenu.GetComponent<FightOptionsMenu>().souvniers[b2SouvenirSelection];
             StateNameController.b1MainSouvenirSelection = b1SouvenirSelection;
             StateNameController.b2MainSouvenirSelection = b2SouvenirSelection;
+
+            StateNameController.gameModeSelection = gameModeSelection;
+            StateNameController.difficultySelection = difficultySelection;
         }
     }
 

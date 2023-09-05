@@ -87,7 +87,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
       in configuration does not match rotation in animation file:\n\t'Elbow.L' :
-      rotation error = 21.775162 deg\n\t'Elbow.R' : rotation error = 21.775145 deg\n"
+      rotation error = 45.047169 deg\n\t'Elbow.R' : rotation error = 3.049446 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Armature|Guardbreaker' has import animation
       warnings that might lower retargeting quality:\nNote: Activate translation
@@ -168,11 +168,12 @@ ModelImporter:
       discarded.\n\t'Pinky1.R' has translation animation that will be discarded.\n\nClip
       'Armature|Kung Fu Combat Idle' has import animation warnings that might lower
       retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
-      quality.\n\t'Elbow.R' is inbetween humanoid transforms and has rotation animation
-      that will be discarded.\n\nClip 'Armature|Kung Fu Eye Poke' has import animation
-      warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'Elbow.L' is inbetween humanoid
-      transforms and has rotation animation that will be discarded.\n\t'Shoulder.R'
+      quality.\n\t'Elbow.L' is inbetween humanoid transforms and has rotation animation
+      that will be discarded.\n\t'Elbow.R' is inbetween humanoid transforms and has
+      rotation animation that will be discarded.\n\nClip 'Armature|Kung Fu Eye Poke'
+      has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'Elbow.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Shoulder.R'
       has translation animation that will be discarded.\n\t'Elbow.R' is inbetween
       humanoid transforms and has rotation animation that will be discarded.\n\nClip
       'Armature|Kung Fu Finisher' has import animation warnings that might lower
@@ -965,7 +966,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.7929985
+        functionName: ShowboatComplete
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
