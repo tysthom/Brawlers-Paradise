@@ -10,6 +10,9 @@ public class Throw : MonoBehaviour
     public GameObject handHold;
     public GameObject ballLaunchPosition;
     public GameObject pickupIcon;
+    GameObject gameManager;
+    IdManagear idManagerInstance;
+    ResultStats resultStatsInstance;
     GameObject hudManager;
     HUDManager hudManagerInstance;
     Collider[] throwablesInRange;
@@ -29,6 +32,8 @@ public class Throw : MonoBehaviour
 
     void Start()
     {
+        gameManager = GameObject.Find("Game Manager");
+        resultStatsInstance = gameManager.GetComponent<ResultStats>();
         hudManager = GameObject.Find("HUD Manager");
         hudManagerInstance = hudManager.GetComponent<HUDManager>();
     }
@@ -231,6 +236,9 @@ public class Throw : MonoBehaviour
         {
             GetComponent<Souvenirs>().canUseSouvenir = true;
         }
-        
+
+        Debug.Log("Throw");
+        resultStatsInstance.ThrowablesUsed(gameObject);
+
     }
 }

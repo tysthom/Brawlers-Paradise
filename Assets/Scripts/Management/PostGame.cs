@@ -58,12 +58,24 @@ public class PostGame : MonoBehaviour
         eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(playAgainButton);
     }
 
-    public void MainMenu()
+    public void PlayAgain()
     {
-        StartCoroutine(LoadMainMenu());
+        blackOut.GetComponent<Fade>().fadeIn = true;
+        StartCoroutine(PlayAgainCoroutine());
     }
 
-    IEnumerator LoadMainMenu()
+    IEnumerator PlayAgainCoroutine()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(Scene.Dojo.ToString());
+    }
+
+    public void MainMenu()
+    {
+        StartCoroutine(MainMenuCoroutine());
+    }
+
+    IEnumerator MainMenuCoroutine()
     {
         StateNameController.useMainMenu = false;
         blackOut.GetComponent<Fade>().fadeIn = true;

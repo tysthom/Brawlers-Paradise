@@ -148,6 +148,8 @@ public class Health : MonoBehaviour
             {
                 health -= damageAmount;
             }
+            gameManager.GetComponent<ResultStats>().DamageInflicted(gameObject, damageAmount);
+
             regenHealth = health + ((maxHealth - health) * .2f);
 
             if (regenHealth > previousHealth)
@@ -193,7 +195,8 @@ public class Health : MonoBehaviour
                 if (health > 0)
                 {
                     health -= damageAmount;
-                    if(health <= 0)
+                    gameManager.GetComponent<ResultStats>().DamageInflicted(gameObject, damageAmount);
+                    if (health <= 0)
                     {
                         health = 5;
                     }
@@ -213,7 +216,8 @@ public class Health : MonoBehaviour
     {
         regenHealth += amount;
         health += amount;
-        if(health > maxHealth)
+        gameManager.GetComponent<ResultStats>().HealthRecovered(gameObject, amount);
+        if (health > maxHealth)
         {
             health = maxHealth;
         }
@@ -230,6 +234,7 @@ public class Health : MonoBehaviour
         while (health < regenHealth)
         {
             health += maxHealth / 100;
+            gameManager.GetComponent<ResultStats>().HealthRecovered(gameObject, (maxHealth / 100));
             yield return new WaitForSeconds(.5f);
         }
         regen = null;
@@ -246,6 +251,7 @@ public class Health : MonoBehaviour
             {
                 regenHealth += fightStyleManager.GetComponent<KarateStats>().karateHealthRecoveryAmount;
                 health += fightStyleManager.GetComponent<KarateStats>().karateHealthRecoveryAmount;
+                gameManager.GetComponent<ResultStats>().HealthRecovered(gameObject, fightStyleManager.GetComponent<KarateStats>().karateHealthRecoveryAmount);
                 yield return new WaitForSeconds(fightStyleManager.GetComponent<KarateStats>().karateRegenHealthWaitTime);
             }
 

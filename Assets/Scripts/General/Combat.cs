@@ -1006,7 +1006,7 @@ public class Combat : MonoBehaviour
             {
                 GetComponent<CoroutineManager>().CancelCoroutines(basicAttack);
 
-                resultStatsInstance.TotalAttacks(idManagerInstance.brawler1);
+                resultStatsInstance.BasicTotalAttacks(idManagerInstance.brawler1);
                 //canUseTechnique = false;
                 anim.SetInteger("State", state);
                 isAttacking = true;
@@ -1032,11 +1032,11 @@ public class Combat : MonoBehaviour
                 {
                     if (idManagerInstance.brawler1 == gameObject)
                     {
-                        resultStatsInstance.TotalAttacks(idManagerInstance.brawler1);
+                        resultStatsInstance.BasicTotalAttacks(idManagerInstance.brawler1);
                     }
                     else if (idManagerInstance.brawler2 == gameObject)
                     {
-                        resultStatsInstance.TotalAttacks(idManagerInstance.brawler2);
+                        resultStatsInstance.BasicTotalAttacks(idManagerInstance.brawler2);
                     }
                     anim.SetInteger("State", state);
                     isAttacking = true;
@@ -1191,6 +1191,17 @@ public class Combat : MonoBehaviour
             }
             else
             {
+                #region RESULT STATS
+                if (idManagerInstance.brawler1 == gameObject) //RESULT STATS
+                {
+                    resultStatsInstance.BasicAttacksLanded(idManagerInstance.brawler1);
+                }
+                else if (idManagerInstance.brawler2 == gameObject)
+                {
+                    resultStatsInstance.BasicAttacksLanded(idManagerInstance.brawler2);
+                }
+                #endregion
+
                 if (!enemy.GetComponent<Combat>().invulnerable)
                 {
                     int enemyDefend = Random.Range(1, 10);
@@ -1276,6 +1287,17 @@ public class Combat : MonoBehaviour
                 }
                 else
                 {
+                    #region RESULT STATS
+                    if (idManagerInstance.brawler1 == gameObject) //RESULT STATS
+                    {
+                        resultStatsInstance.BasicAttacksLanded(idManagerInstance.brawler1);
+                    }
+                    else if (idManagerInstance.brawler2 == gameObject)
+                    {
+                        resultStatsInstance.BasicAttacksLanded(idManagerInstance.brawler2);
+                    }
+                    #endregion
+
                     if (!enemy.GetComponent<Combat>().invulnerable)
                     {
                         if (enemy.tag == "Enemy") //Attacks to enemy Ai

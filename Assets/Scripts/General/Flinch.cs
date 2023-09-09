@@ -205,17 +205,6 @@ public class Flinch : MonoBehaviour
                 }
             }
 
-            #region RESULT STATS
-            if (idManagerInstance.brawler1 == GetComponent<Combat>().enemy) //RESULT STATS
-            {
-                resultStatsInstance.AttacksLanded(idManagerInstance.brawler1);
-            }
-            else if (idManagerInstance.brawler2 == GetComponent<Combat>().enemy)
-            {
-                resultStatsInstance.AttacksLanded(idManagerInstance.brawler2);
-            }
-            #endregion
-
             if (isFlinching)
             {
                 if (GetComponent<Combat>().enemy.GetComponent<Souvenirs>().hasPoison)
@@ -399,16 +388,6 @@ public class Flinch : MonoBehaviour
 
         anim.SetBool("canTransition", true);
         anim.SetInteger("State", s);
-        #region RESULT STATS
-        if (idManagerInstance.brawler1 == GetComponent<Combat>().enemy) //RESULT STATS
-        {
-            resultStatsInstance.AttacksLanded(idManagerInstance.brawler1);
-        }
-        else if (idManagerInstance.brawler2 == GetComponent<Combat>().enemy)
-        {
-            resultStatsInstance.AttacksLanded(idManagerInstance.brawler2);
-        }
-        #endregion
 
         yield return new WaitForSeconds(.5f);
         anim.SetBool("canTransition", false);

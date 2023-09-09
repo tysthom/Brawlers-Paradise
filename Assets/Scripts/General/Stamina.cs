@@ -94,6 +94,7 @@ public class Stamina : MonoBehaviour
         if (stamina > 0)
         {
             stamina -= staminaAmount;
+            gameManager.GetComponent<ResultStats>().StaminaUsed(gameObject, staminaAmount);
         }
 
         if (regen != null)

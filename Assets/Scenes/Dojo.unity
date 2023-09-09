@@ -3498,7 +3498,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502112829}
-  m_LocalRotation: {x: -0.000000008285611, y: 0.99130005, z: -0.13162142, w: -0.00000006240266}
+  m_LocalRotation: {x: -0.0000000032282843, y: 0.99130005, z: -0.13162142, w: -0.000000024313655}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7597,14 +7597,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48234f543399e94ca6918f8fb32482c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  b1TotalAttacks: 0
-  b1AttacksLanded: 0
+  b1TotalBasicAttacks: 0
+  b1BasicAttacksLanded: 0
   b1AttacksMissed: 0
   b1DamageInflicted: 0
   b1HealthRecoverd: 0
   b1StaminaUsed: 0
-  b2TotalAttacks: 0
-  b2AttacksLanded: 0
+  b2TotalBasicAttacks: 0
+  b2BasicAttacksLanded: 0
   b2AttacksMissed: 0
   b2DamageInflicted: 0
   b2HealthRecoverd: 0
@@ -7650,6 +7650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6322e5fb4fb971f4ba5f34023c2317f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blackOut: {fileID: 1396130540}
   countDownText: {fileID: 201833104}
 --- !u!1 &1211467494
 GameObject:
@@ -9720,7 +9721,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1452041411}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1209302672}
+        m_TargetAssemblyTypeName: PostGame, Assembly-CSharp
+        m_MethodName: PlayAgain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1452041411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12568,7 +12581,7 @@ MonoBehaviour:
   brawler1ForthAttackTime: 1.12
   brawler1ForthAttackV1Distance: 5
   brawler1ForthAttackV2Distance: 2
-  brawler2AttackDamage: 500
+  brawler2AttackDamage: 50
   brawler2FirstAttackTime: 0.5
   brawler2FirstAttackDistance: 5
   brawler2SecondAAttackTime: 0.9
