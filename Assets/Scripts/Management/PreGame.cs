@@ -29,6 +29,7 @@ public class PreGame : MonoBehaviour
 
         countDownText.text = "FIGHT";
         UniversalFight.fight = true;
+        StartCoroutine(GetComponent<UniversalFight>().Timing());
 
         yield return new WaitForSeconds(.5f);
         countDownText.GetComponent<Fade>().fadeOut = true;

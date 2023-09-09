@@ -20,6 +20,7 @@ public class PostGame : MonoBehaviour
     [Header("Match Stats Menu")]
     bool b1Side = true;
     bool b2Side = false;
+    int minutes = 0;
     public GameObject matchStatsMenu;
     public TextMeshProUGUI brawlerName;
     public TextMeshProUGUI matchTime;
@@ -84,6 +85,12 @@ public class PostGame : MonoBehaviour
 
     public IEnumerator ShowboatCompleteCoroutine()
     {
+        for (int min = 0; UniversalFight.matchTime > 60; min++)
+        {
+            UniversalFight.matchTime -= 60;
+            minutes++;
+        }
+
         resultStatsInstance.b1BasicAttackPercentage = (int)((resultStatsInstance.b1BasicAttacksLanded / resultStatsInstance.b1TotalBasicAttacks) * 100);
         resultStatsInstance.b2BasicAttackPercentage = (int)((resultStatsInstance.b2BasicAttacksLanded / resultStatsInstance.b2TotalBasicAttacks) * 100);
 
@@ -137,7 +144,8 @@ public class PostGame : MonoBehaviour
         }
 
         matchStatsMenu.SetActive(true);
-        matchTime.text = "Work In Progress";
+
+        matchTime.text = minutes + ":" + UniversalFight.matchTime;
         if (b1Side)
         {
             if(UniversalFight.usingMenuData)

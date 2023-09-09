@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class ScenesManager : MonoBehaviour
 {
     public static ScenesManager Instance;
+    public GameObject blackOut;
 
     private void Awake()
     {
@@ -21,6 +22,13 @@ public class ScenesManager : MonoBehaviour
     public void LoadDojo()
     {
         GameObject.Find("Menu Manager").GetComponent<SaveData>().SaveBrawler();
+        StartCoroutine(LoadingDojo());
+    }
+
+    IEnumerator LoadingDojo()
+    {
+        blackOut.GetComponent<Fade>().fadeIn = true;
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene(Scene.Dojo.ToString());
     }
 
