@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class StateNameController : MonoBehaviour
 {
+    public static bool useMainMenu = true;
+
     public static int b1MainFightStyleSelection;
     public static int b1MainOutfit;
     public static int b1MainOutfitVariation;

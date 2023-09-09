@@ -72,7 +72,7 @@ public class Movement : MonoBehaviour
 
         GetComponent<BoxCollider>().enabled = true;
 
-        if(!gameManager.GetComponent<UniversalFight>().fight) { return; }
+        if(!UniversalFight.fight) { return; }
 
         if (GetComponent<Combat>().inCombat) { return; }
         //if (GetComponent<Combat>().isCounterAttacking) { return; }

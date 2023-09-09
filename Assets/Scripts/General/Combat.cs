@@ -159,7 +159,7 @@ public class Combat : MonoBehaviour
 
     void Update()
     {
-        if (!gameManager.GetComponent<UniversalFight>().fight || winner) { return; }
+        if (!UniversalFight.fight || winner) { return; }
 
         if (tag == "Tourist")
         {
@@ -1569,7 +1569,7 @@ public class Combat : MonoBehaviour
 
         anim.SetInteger("State", 1000);
 
-        gameManager.GetComponent<UniversalFight>().fight = false;
+        UniversalFight.fight = false;
         gameManager.GetComponent<IdManagear>().playerCamera.enabled = false;
         gameManager.GetComponent<IdManagear>().spectatorCamera.enabled = false;
         gameManager.GetComponent<IdManagear>().winnerCamera.enabled = true;

@@ -28,7 +28,7 @@ public class Minimalist : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (!gameManager.GetComponent<UniversalFight>().fight)
+        if (!UniversalFight.fight)
         {
             GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
         }

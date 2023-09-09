@@ -4,14 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class PostGame : MonoBehaviour
 {
     [Header("Post-Game")]
     public GameObject eventSystem;
+    public GameObject blackOut;
     public TextMeshProUGUI winnerText;
     public GameObject postGameMenu;
     public GameObject playAgainButton;
+
+    public enum Scene
+    {
+        MainMenu,
+        Dojo
+    }
 
     private void Awake()
     {
@@ -48,5 +56,18 @@ public class PostGame : MonoBehaviour
 
         postGameMenu.SetActive(true);
         eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(playAgainButton);
+    }
+
+    public void MainMenu()
+    {
+        StartCoroutine(LoadMainMenu());
+    }
+
+    IEnumerator LoadMainMenu()
+    {
+        StateNameController.useMainMenu = false;
+        blackOut.GetComponent<Fade>().fadeIn = true;
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(Scene.MainMenu.ToString());
     }
 }

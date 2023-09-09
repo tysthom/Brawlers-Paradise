@@ -29,7 +29,7 @@ public class ClassicBars : MonoBehaviour
 
     private void Update()
     {
-        if (!gameManager.GetComponent<UniversalFight>().fight) 
+        if (!UniversalFight.fight) 
         {
             GetComponent<RectTransform>().localScale = new Vector3(0,0,0);
         } 

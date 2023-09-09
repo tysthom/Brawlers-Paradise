@@ -12,7 +12,7 @@ public class MenuManager : MonoBehaviour
     public string currentMenu = "";
     public GameObject eventSystem;
     public GameObject blackOut;
-
+    bool useMainMenu;
 
     [Header("Cameras")]
     public GameObject titleCamera;
@@ -111,16 +111,33 @@ public class MenuManager : MonoBehaviour
 
     private void Awake()
     {
-        mainLogo.GetComponent<CanvasGroup>().alpha = 0;
-        startText.GetComponent<CanvasGroup>().alpha = 0;
-        currentMenu = "Title Menu";
-        //GetComponent<SaveData>().SaveBrawler();
+        useMainMenu = StateNameController.useMainMenu;
+
+        if (useMainMenu)
+        {
+            mainLogo.GetComponent<CanvasGroup>().alpha = 0;
+            startText.GetComponent<CanvasGroup>().alpha = 0;
+            currentMenu = "Title Menu";
+            //GetComponent<SaveData>().SaveBrawler();
+        }
+        else
+        {
+            blackOut.GetComponent<CanvasGroup>().alpha = 1;
+            blackOut.GetComponent<Fade>().fadeOut = true;
+            canChangeMenu = true;
+            StartCoroutine(SwitchCameras(0, titleCamera, menuCamera));
+            MainMenu();
+        }
+
+        fightMenu.GetComponent<BrawlerUpdates>().brawler1.transform.position += new Vector3(0, 0, -10);
+        fightMenu.GetComponent<BrawlerUpdates>().brawler2.transform.position += new Vector3(0, 0, -10);
         GetComponent<SaveData>().LoadBrawler();
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        if(useMainMenu)
         StartCoroutine(MainLogoTime(2));
     }
 
@@ -133,7 +150,6 @@ public class MenuManager : MonoBehaviour
         bool switchB2Side = Input.GetButtonDown("Primary Special");
         bool xButton = Input.GetButtonDown("Attack");
         bool bButton = Input.GetButtonDown("Dodge");
-
 
         if (canChangeMenu)
         {
@@ -448,9 +464,6 @@ public class MenuManager : MonoBehaviour
         startText.GetComponent<Fade>().fadeIn = true;
         yield return new WaitForSeconds(1f);
         canChangeMenu = true;
-
-        fightMenu.GetComponent<BrawlerUpdates>().brawler1.transform.position += new Vector3(0, 0, -10);
-        fightMenu.GetComponent<BrawlerUpdates>().brawler2.transform.position += new Vector3(0, 0, -10);
     }
 
     IEnumerator BlackOut(float waitTime, float blackOutTime, float menuActivationWait)
