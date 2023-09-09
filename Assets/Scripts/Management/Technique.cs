@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Technique : MonoBehaviour
 {
+    GameObject gameManager;
+    ResultStats resultStatsInstance;
     GameObject particleManager;
 
     private void Start()
     {
+        gameManager = GameObject.Find("Game Manager");
+        resultStatsInstance = gameManager.GetComponent<ResultStats>();
         particleManager = GameObject.Find("Particle Manager");
     }
 
@@ -29,7 +33,6 @@ public class Technique : MonoBehaviour
                 GetComponent<Combat>().stretch = StartCoroutine(GetComponent<Combat>().Stretch());
             }  else if(brawler.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.kungFu)
             {
-                Debug.Log("Eye Poke");
                 GetComponent<Combat>().eyePoke = StartCoroutine(GetComponent<Combat>().EyePoke());
             }  else if(brawler.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.proWrestling)
             {
@@ -68,6 +71,8 @@ public class Technique : MonoBehaviour
         {
             Debug.Log("Stance Issue!!");
         }
+
+        resultStatsInstance.TechniqueUsage(gameObject);
 
         b.GetComponent<Combat>().stanceCooldown = true;
         yield return new WaitForSeconds(.5f);

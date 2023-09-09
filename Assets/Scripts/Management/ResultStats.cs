@@ -11,15 +11,14 @@ public class ResultStats : MonoBehaviour
     [Header("Brawler1")]
     public float b1TotalBasicAttacks;
     public float b1BasicAttacksLanded;
-    public float b1AttacksMissed;
+    public float b1BasicAttackPercentage;
     public float b1DamageInflicted;
     public float b1HealthRecoverd;
     public float b1StaminaUsed;
-    public float b1ThrowablesUsed;
-
     public float b1DodgesPerformed;
-    public float b1techniqueUsage;
-    public float b1souvenirUsage;
+    public float b1ThrowablesUsed;
+    public float b1TechniqueUsage;
+    public float b1SouvenirUsage;
 
     //public float match time;
 
@@ -28,11 +27,14 @@ public class ResultStats : MonoBehaviour
     [Header("Brawler2")]
     public float b2TotalBasicAttacks;
     public float b2BasicAttacksLanded;
-    public float b2AttacksMissed;
+    public float b2BasicAttackPercentage;
     public float b2DamageInflicted;
     public float b2HealthRecoverd;
     public float b2StaminaUsed;
+    public float b2DodgesPerformed;
     public float b2ThrowablesUsed;
+    public float b2TechniqueUsage;
+    public float b2SouvenirUsage;
 
     private void Awake()
     {
@@ -99,6 +101,18 @@ public class ResultStats : MonoBehaviour
         }
     }
 
+    public void DodgesPerformed(GameObject brawler)
+    {
+        if (brawler == idManagerInstance.brawler1)
+        {
+            b1DodgesPerformed++;
+        }
+        else if (brawler == idManagerInstance.brawler2)
+        {
+            b2DodgesPerformed++;
+        }
+    }
+
     public void ThrowablesUsed(GameObject brawler)
     {
         if (brawler == idManagerInstance.brawler1)
@@ -108,6 +122,30 @@ public class ResultStats : MonoBehaviour
         else if (brawler == idManagerInstance.brawler2)
         {
             b2ThrowablesUsed++;
+        }
+    }
+
+    public void TechniqueUsage(GameObject brawler)
+    {
+        if (brawler == idManagerInstance.brawler1)
+        {
+            b1TechniqueUsage++;
+        }
+        else if (brawler == idManagerInstance.brawler2)
+        {
+            b2TechniqueUsage++;
+        }
+    }
+
+    public void SouvenirUsage(GameObject brawler)
+    {
+        if (brawler == idManagerInstance.brawler1)
+        {
+            b1SouvenirUsage++;
+        }
+        else if (brawler == idManagerInstance.brawler2)
+        {
+            b2SouvenirUsage++;
         }
     }
 }

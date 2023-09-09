@@ -11,7 +11,6 @@ public class Throw : MonoBehaviour
     public GameObject ballLaunchPosition;
     public GameObject pickupIcon;
     GameObject gameManager;
-    IdManagear idManagerInstance;
     ResultStats resultStatsInstance;
     GameObject hudManager;
     HUDManager hudManagerInstance;

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Dodge : MonoBehaviour
 {
+    GameObject gameManager;
+    ResultStats resultStatsInstance;
     public GameObject combatManagear;
     Animator anim;
     Combat combatInstance;
@@ -15,6 +17,8 @@ public class Dodge : MonoBehaviour
 
     private void Awake()
     {
+        gameManager = GameObject.Find("Game Manager");
+        resultStatsInstance = gameManager.GetComponent<ResultStats>();
         combatManagear = GameObject.Find("Combat Manager");
         combatStatsInstance = combatManagear.GetComponent<CombatStats>();
         anim = GetComponent<Animator>();
@@ -91,6 +95,7 @@ public class Dodge : MonoBehaviour
             anim.SetInteger("State", 25);
             combatInstance.faceEnemy = true;
         }
+        resultStatsInstance.DodgesPerformed(gameObject);
 
         #region Coroutines
         if (tag == "Enemy")

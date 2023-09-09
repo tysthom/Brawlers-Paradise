@@ -719,6 +719,8 @@ public class Combat : MonoBehaviour
             isGuardBreaking = true;
             anim.SetInteger("State", 10);
 
+            resultStatsInstance.TechniqueUsage(gameObject);
+
             GetComponent<CoroutineManager>().CancelCoroutines(guardBreaker);
 
             //GetComponent<CoroutineManager>().CancelCoroutines(parry);
@@ -767,7 +769,8 @@ public class Combat : MonoBehaviour
         anim.SetBool("canTransition", false);
         canUseTechnique = false;
         isDiving = true;
-        //invinsible = true;
+
+        resultStatsInstance.TechniqueUsage(gameObject);
 
         if (tag == "Enemy")
         {
@@ -777,8 +780,7 @@ public class Combat : MonoBehaviour
         isDiving = false;
         invinsible = false;
 
-                afterAttack = StartCoroutine(AfterAttack());
-       
+        afterAttack = StartCoroutine(AfterAttack());
     }
 
     public void Dive()
@@ -831,6 +833,7 @@ public class Combat : MonoBehaviour
             ShouldNotMove();
             canUseTechnique = false;
             isStretching = true;
+            resultStatsInstance.TechniqueUsage(gameObject);
 
             if (tag == "Enemy")
             { 
@@ -840,7 +843,7 @@ public class Combat : MonoBehaviour
 
             anim.GetComponent<Animator>().SetInteger("Variation", Random.Range(1, 3));
             anim.SetInteger("State", 10);
-            Debug.Log("WROKS");
+            
             yield return new WaitForSeconds(fightStyleManager.GetComponent<TkdStats>().stretchParryWindow);
 
             isStretching = false;
@@ -879,6 +882,7 @@ public class Combat : MonoBehaviour
             canUseTechnique = false;
             isEyePoking = true;
             anim.SetInteger("State", 10);
+            resultStatsInstance.TechniqueUsage(gameObject);
 
             if (tag == "Player")
             {
@@ -921,6 +925,7 @@ public class Combat : MonoBehaviour
             canUseTechnique = false;
             isBearhugGrabbing = true;
             anim.SetInteger("State", 10);
+            resultStatsInstance.TechniqueUsage(gameObject);
 
             if (tag == "Player")
             {

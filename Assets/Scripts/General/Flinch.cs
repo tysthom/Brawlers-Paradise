@@ -9,8 +9,6 @@ public class Flinch : MonoBehaviour
     GameObject gameManager;
     GameObject combatManagear;
     IdManagear idManagerInstance;
-    ResultStats resultStatsInstance;
-    BrawlerStats brawlerStatsInstance;
     public GameObject divePosition;
     public GameObject bearhuggedPosition;
     public GameObject fightStyleManager;
@@ -50,8 +48,6 @@ public class Flinch : MonoBehaviour
         gameManager = GameObject.Find("Game Manager");
         combatManagear = GameObject.Find("Combat Manager");
         idManagerInstance = gameManager.GetComponent<IdManagear>();
-        resultStatsInstance = gameManager.GetComponent<ResultStats>();
-        brawlerStatsInstance = combatManagear.GetComponent<BrawlerStats>();
         fightStyleManager = GameObject.Find("Fight Style Manager");
         hudManager = GameObject.Find("HUD Manager");
         hudManager.GetComponent<HUDManager>().finisherPrompt = GameObject.Find("Finisher Prompt");

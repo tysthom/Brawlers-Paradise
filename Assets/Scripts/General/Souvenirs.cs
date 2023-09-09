@@ -10,6 +10,7 @@ public class Souvenirs : MonoBehaviour
     public Image souvenirFill;
     public Image souvenirIcon;
     GameObject gameManager;
+    ResultStats resultStatsInstance;
     GameObject souvenirsManager;
     SouvenirsManager souvenirsManagerInstance;
     GameObject hudManager;
@@ -36,6 +37,7 @@ public class Souvenirs : MonoBehaviour
     private void Awake()
     {
         gameManager = GameObject.Find("Game Manager");
+        resultStatsInstance = gameManager.GetComponent<ResultStats>();
         souvenirsManager = GameObject.Find("Souvenir Manager");
         souvenirsManagerInstance = souvenirsManager.GetComponent<SouvenirsManager>();
         hudManager = GameObject.Find("HUD Manager");
@@ -182,6 +184,8 @@ public class Souvenirs : MonoBehaviour
             {
                 StartCoroutine(Floaty());
             }
+
+            resultStatsInstance.SouvenirUsage(gameObject);
         }
     }
 
