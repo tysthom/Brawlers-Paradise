@@ -449,6 +449,21 @@ public class MenuManager : MonoBehaviour
         } 
         else if(currentMenu == "Fight Options Menu")
         {
+            #region Managing Souvenirs' Objects
+            if (fightOptionsMenu.GetComponent<FightOptionsMenu>().b1CurrentParticle != null)
+                Destroy(fightOptionsMenu.GetComponent<FightOptionsMenu>().b1CurrentParticle);
+
+            if (fightOptionsMenu.GetComponent<FightOptionsMenu>().b2CurrentParticle != null)
+                Destroy(fightOptionsMenu.GetComponent<FightOptionsMenu>().b2CurrentParticle);
+
+            if (fightOptionsMenu.GetComponent<FightOptionsMenu>().b1CurrentSuitCase != null)
+                Destroy(fightOptionsMenu.GetComponent<FightOptionsMenu>().b1CurrentSuitCase);
+
+            if (fightOptionsMenu.GetComponent<FightOptionsMenu>().b2CurrentSuitCase != null)
+                Destroy(fightOptionsMenu.GetComponent<FightOptionsMenu>().b2CurrentSuitCase);
+
+            #endregion
+
             fightOptionsMenu.SetActive(false);
             yield return new WaitForSeconds(.5f);
 
@@ -549,6 +564,8 @@ public class MenuManager : MonoBehaviour
         fightMenu.SetActive(false);
         yield return new WaitForSeconds(.75f);
         fightOptionsMenu.SetActive(true);
+        fightOptionsMenu.GetComponent<FightOptionsMenu>().b1SouvenirSelection = -1;
+        fightOptionsMenu.GetComponent<FightOptionsMenu>().b2SouvenirSelection = -1;
         eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(b1SouvenirSouvenirButton);
         b1Side = true;
         b2Side = false;

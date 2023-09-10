@@ -91,8 +91,25 @@ public class PostGame : MonoBehaviour
             minutes++;
         }
 
-        resultStatsInstance.b1BasicAttackPercentage = (int)((resultStatsInstance.b1BasicAttacksLanded / resultStatsInstance.b1TotalBasicAttacks) * 100);
-        resultStatsInstance.b2BasicAttackPercentage = (int)((resultStatsInstance.b2BasicAttacksLanded / resultStatsInstance.b2TotalBasicAttacks) * 100);
+        if(resultStatsInstance.b1TotalBasicAttacks != 0)
+        {
+            resultStatsInstance.b1BasicAttackPercentage = (int)((resultStatsInstance.b1BasicAttacksLanded / resultStatsInstance.b1TotalBasicAttacks) * 100);
+        }
+        else
+        {
+            resultStatsInstance.b1BasicAttackPercentage = 0;
+        }
+
+        if (resultStatsInstance.b2TotalBasicAttacks != 0)
+        {
+            resultStatsInstance.b2BasicAttackPercentage = (int)((resultStatsInstance.b2BasicAttacksLanded / resultStatsInstance.b2TotalBasicAttacks) * 100);
+        }
+        else
+        {
+            resultStatsInstance.b2BasicAttackPercentage = 0;
+        }
+
+       
 
         yield return new WaitForSeconds(.5f);
 
