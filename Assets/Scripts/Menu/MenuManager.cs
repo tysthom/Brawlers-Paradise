@@ -109,6 +109,18 @@ public class MenuManager : MonoBehaviour
     public Toggle throwableToggle;
     public bool throwableAllowed;
 
+    [Header("Options Menu")]
+    public GameObject optionsBackground;
+    public GameObject optionsMenu;
+    public GameObject howToPlayButton;
+    public GameObject[] optionsMenuParts = new GameObject[4];
+    //HOW TO PLAY
+    public GameObject htpMenu;
+    public GameObject controlsButton;
+    public GameObject[] htpMenuParts = new GameObject[7];
+        //HUD Colors
+    public GameObject hudColorMenu;
+
     private void Awake()
     {
         useMainMenu = StateNameController.useMainMenu;
@@ -469,6 +481,34 @@ public class MenuManager : MonoBehaviour
 
             StartCoroutine(FightMenuCoroutine(.25f));
         }
+        else if(currentMenu == "Options Menu")
+        {
+            for (int i = 0; i < optionsMenuParts.Length; i++)
+            {
+                optionsMenuParts[i].SetActive(false);
+            }
+
+            optionsMenu.SetActive(false);
+            yield return new WaitForSeconds(.5f);
+
+            MainMenu();
+        }
+        else if (currentMenu == "HTP Menu")
+        {
+            for (int i = 0; i < htpMenuParts.Length; i++)
+            {
+                htpMenuParts[i].SetActive(false);
+            }
+
+            OptionsMenu(); 
+        }
+        else if (currentMenu == "HUD Colors")
+        {
+            hudColorMenu.SetActive(false);
+            optionsBackground.SetActive(false);
+
+            StartCoroutine(HTPMenuCoroutine());
+        }
     }
 
     IEnumerator MainLogoTime(float t)
@@ -572,7 +612,6 @@ public class MenuManager : MonoBehaviour
         canSwitchSouvenir = true;
         canChangeMenu = true;
     }
-
 
     #region Fight Menu
     IEnumerator FightStyle(string dir)
@@ -1118,6 +1157,7 @@ public class MenuManager : MonoBehaviour
 
     #endregion
 
+    #region Fight Options Menu
     IEnumerator Souvenir(string dir)
     {
         canSwitchSouvenir = false;
@@ -1188,5 +1228,86 @@ public class MenuManager : MonoBehaviour
             b2SouvenirSelection = Random.Range(0, fightOptionsMenu.GetComponent<FightOptionsMenu>().souvniers.Length);
         }
     }
+    #endregion
 
+    public void OptionsMenu()
+    {
+        if (canChangeMenu)
+        {
+            StartCoroutine(OptionsMenuCoroutine());
+        }
+    }
+
+    IEnumerator OptionsMenuCoroutine()
+    {
+        currentMenu = "Options Menu";
+
+        canChangeMenu = false;
+        mainMenu.SetActive(false);
+        yield return new WaitForSeconds(.75f);
+        optionsMenu.SetActive(true);
+
+        for(int i = 0; i < optionsMenuParts.Length; i++)
+        {
+            optionsMenuParts[i].SetActive(true);
+        }
+
+        eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(howToPlayButton);
+        canChangeMenu = true;
+    }
+
+    public void HTPMenu()
+    {
+        if (canChangeMenu)
+        {
+            StartCoroutine(HTPMenuCoroutine());
+        }
+    }
+
+    IEnumerator HTPMenuCoroutine()
+    {
+        currentMenu = "HTP Menu";
+
+        canChangeMenu = false;
+        for (int i = 0; i < optionsMenuParts.Length; i++)
+        {
+            optionsMenuParts[i].SetActive(false);
+        }
+        yield return new WaitForSeconds(.75f);
+        htpMenu.SetActive(true);
+
+        for (int i = 0; i < htpMenuParts.Length; i++)
+        {
+            htpMenuParts[i].SetActive(true);
+        }
+
+        eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(controlsButton);
+        canChangeMenu = true;
+    }
+
+    public void HUDColors()
+    {
+        if (canChangeMenu)
+        {
+            StartCoroutine(HUDColorsCoroutine());
+        }
+    }
+
+    IEnumerator HUDColorsCoroutine()
+    {
+        currentMenu = "HUD Colors";
+
+        canChangeMenu = false;
+        for (int i = 0; i < htpMenuParts.Length; i++)
+        {
+            htpMenuParts[i].SetActive(false);
+        }
+        yield return new WaitForSeconds(.75f);
+
+        hudColorMenu.SetActive(true);
+        optionsBackground.SetActive(true);
+
+        eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(null);
+        canChangeMenu = true;
+    }
 }
