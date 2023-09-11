@@ -118,8 +118,10 @@ public class MenuManager : MonoBehaviour
     public GameObject htpMenu;
     public GameObject controlsButton;
     public GameObject[] htpMenuParts = new GameObject[7];
+        //Souvenirs
+    public GameObject souvenirsMenu;
         //HUD Colors
-    public GameObject hudColorMenu;
+    public GameObject hudColorsMenu;
 
     private void Awake()
     {
@@ -502,9 +504,16 @@ public class MenuManager : MonoBehaviour
 
             OptionsMenu(); 
         }
-        else if (currentMenu == "HUD Colors")
+        else if (currentMenu == "Souvenirs Menu")
         {
-            hudColorMenu.SetActive(false);
+            souvenirsMenu.SetActive(false);
+            optionsBackground.SetActive(false);
+
+            StartCoroutine(HTPMenuCoroutine()); 
+        }
+        else if (currentMenu == "HUDColors Menu")
+        {
+            hudColorsMenu.SetActive(false);
             optionsBackground.SetActive(false);
 
             StartCoroutine(HTPMenuCoroutine());
@@ -1285,6 +1294,32 @@ public class MenuManager : MonoBehaviour
         canChangeMenu = true;
     }
 
+    public void Souvenirs()
+    {
+        if (canChangeMenu)
+        {
+            StartCoroutine(SouvenirsCoroutine());
+        }
+    }
+
+    IEnumerator SouvenirsCoroutine()
+    {
+        currentMenu = "Souvenirs Menu";
+
+        canChangeMenu = false;
+        for (int i = 0; i < htpMenuParts.Length; i++)
+        {
+            htpMenuParts[i].SetActive(false);
+        }
+        yield return new WaitForSeconds(.75f);
+
+        souvenirsMenu.SetActive(true);
+        optionsBackground.SetActive(true);
+
+        eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(null);
+        canChangeMenu = true;
+    }
+
     public void HUDColors()
     {
         if (canChangeMenu)
@@ -1295,7 +1330,7 @@ public class MenuManager : MonoBehaviour
 
     IEnumerator HUDColorsCoroutine()
     {
-        currentMenu = "HUD Colors";
+        currentMenu = "HUDColors Menu";
 
         canChangeMenu = false;
         for (int i = 0; i < htpMenuParts.Length; i++)
@@ -1304,7 +1339,7 @@ public class MenuManager : MonoBehaviour
         }
         yield return new WaitForSeconds(.75f);
 
-        hudColorMenu.SetActive(true);
+        hudColorsMenu.SetActive(true);
         optionsBackground.SetActive(true);
 
         eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(null);
