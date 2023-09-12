@@ -693,3 +693,19 @@ InputManager:
     type: 2
     axis: 0
     joyNum: 4
+  - serializedVersion: 3
+    m_Name: Pause
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick button 7
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0
+    sensitivity: 1000
+    snap: 0
+    invert: 1
+    type: 2
+    axis: 0
+    joyNum: 0

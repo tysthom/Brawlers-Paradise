@@ -72,10 +72,9 @@ public class Movement : MonoBehaviour
 
         GetComponent<BoxCollider>().enabled = true;
 
-        if(!UniversalFight.fight) { return; }
+        if(!UniversalFight.fight || PauseMenu.gamePaused) { return; }
 
         if (GetComponent<Combat>().inCombat) { return; }
-        //if (GetComponent<Combat>().isCounterAttacking) { return; }
         if (GetComponent<Combat>().isAttacking) { return; }
         if (GetComponent<Flinch>().isParried) { return; }
         if (GetComponent<Combat>().isParrying) { return; }
@@ -89,7 +88,6 @@ public class Movement : MonoBehaviour
         if (GetComponent<Flinch>().isDove == true) { return; }
         if (GetComponent<Flinch>().isReacting == true) { return; }
         if (GetComponent<Dodge>().isDodging == true) { return; }
-        //if (GetComponent<Flinch>().isKnockedBack == true) { return; }
         if(GetComponent<Combat>().isDiving) { return; }
         if (GetComponent<Combat>().isGroundAttacking) { return; }
 

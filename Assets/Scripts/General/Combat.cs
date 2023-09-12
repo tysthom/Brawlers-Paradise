@@ -159,7 +159,7 @@ public class Combat : MonoBehaviour
 
     void Update()
     {
-        if (!UniversalFight.fight || winner) { return; }
+        if (!UniversalFight.fight || PauseMenu.gamePaused || winner) { return; }
 
         if (tag == "Tourist")
         {

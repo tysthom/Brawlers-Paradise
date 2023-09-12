@@ -143,6 +143,7 @@ public class PostGame : MonoBehaviour
 
     public void PlayAgain()
     {
+        Time.timeScale = 1;
         blackOut.GetComponent<Fade>().fadeIn = true;
         StartCoroutine(PlayAgainCoroutine());
     }
@@ -199,6 +200,7 @@ public class PostGame : MonoBehaviour
 
     public void MainMenu()
     {
+        Time.timeScale = 1;
         StartCoroutine(MainMenuCoroutine());
     }
 
