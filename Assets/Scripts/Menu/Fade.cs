@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Fade : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class Fade : MonoBehaviour
     {
         if (fadeIn)
         {
-            if(myUIGroup.alpha < 1)
+            if(myUIGroup != null && myUIGroup.alpha < 1)
             {
                 myUIGroup.alpha += Time.deltaTime;
                 if(myUIGroup.alpha >= 1)
@@ -35,10 +36,17 @@ public class Fade : MonoBehaviour
 
         if (fadeOut)
         {
-            if (myUIGroup.alpha >= 0)
+            if (myUIGroup != null && myUIGroup.alpha >= 0)
             {
                 myUIGroup.alpha -= Time.deltaTime;
                 if (myUIGroup.alpha == 0)
+                {
+                    fadeOut = false;
+                }
+            } else if(myUIGroup == null)
+            {
+                GetComponent<TextMeshProUGUI>().alpha -= Time.deltaTime * 2;
+                if (GetComponent<TextMeshProUGUI>().alpha == 0)
                 {
                     fadeOut = false;
                 }

@@ -151,6 +151,7 @@ public class PostGame : MonoBehaviour
     IEnumerator PlayAgainCoroutine()
     {
         yield return new WaitForSeconds(2);
+        UniversalFight.fight = false;
         SceneManager.LoadScene(Scene.Dojo.ToString());
     }
 
@@ -209,6 +210,7 @@ public class PostGame : MonoBehaviour
         StateNameController.useMainMenu = false;
         blackOut.GetComponent<Fade>().fadeIn = true;
         yield return new WaitForSeconds(3);
+        UniversalFight.fight = false;
         SceneManager.LoadScene(Scene.MainMenu.ToString());
     }
 }

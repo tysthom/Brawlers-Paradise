@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.AI;
 
 public class Combat : MonoBehaviour
 {
@@ -718,8 +716,11 @@ public class Combat : MonoBehaviour
             guardBreakerComplete = false;
             isGuardBreaking = true;
             anim.SetInteger("State", 10);
+            GetComponent<Flinch>().canBeCounterHit = true;
+            GetComponent<Flinch>().canBePunishHit = false;
 
             resultStatsInstance.TechniqueUsage(gameObject);
+
 
             GetComponent<CoroutineManager>().CancelCoroutines(guardBreaker);
 
@@ -769,6 +770,8 @@ public class Combat : MonoBehaviour
         anim.SetBool("canTransition", false);
         canUseTechnique = false;
         isDiving = true;
+        GetComponent<Flinch>().canBeCounterHit = true;
+        GetComponent<Flinch>().canBePunishHit = false;
 
         resultStatsInstance.TechniqueUsage(gameObject);
 
@@ -802,8 +805,10 @@ public class Combat : MonoBehaviour
         isGroundIdle = false;
         isGroundAttacking = true;
         invinsible = false;
+        GetComponent<Flinch>().canBeCounterHit = true;
+        GetComponent<Flinch>().canBePunishHit = false;
 
-        yield return new WaitForSeconds(.1f); //Allows Brawler to go ton Ground Idle animation before attacking
+        yield return new WaitForSeconds(.1f); //Allows Brawler to go to Ground Idle animation before attacking
 
         int i = Random.Range(1, 3);
         GetComponent<Stamina>().SubtractStamina(fightStyleManager.GetComponent<MMAStats>().mmaGroundAttackStaminaCost);
@@ -883,6 +888,8 @@ public class Combat : MonoBehaviour
             isEyePoking = true;
             anim.SetInteger("State", 10);
             resultStatsInstance.TechniqueUsage(gameObject);
+            GetComponent<Flinch>().canBeCounterHit = true;
+            GetComponent<Flinch>().canBePunishHit = false;
 
             if (tag == "Player")
             {
@@ -926,6 +933,8 @@ public class Combat : MonoBehaviour
             isBearhugGrabbing = true;
             anim.SetInteger("State", 10);
             resultStatsInstance.TechniqueUsage(gameObject);
+            GetComponent<Flinch>().canBeCounterHit = true;
+            GetComponent<Flinch>().canBePunishHit = false;
 
             if (tag == "Player")
             {
@@ -1010,6 +1019,8 @@ public class Combat : MonoBehaviour
             if (!GetComponent<Flinch>().isReacting && !isParrying)
             {
                 GetComponent<CoroutineManager>().CancelCoroutines(basicAttack);
+                GetComponent<Flinch>().canBeCounterHit = true;
+                GetComponent<Flinch>().canBePunishHit = false;
 
                 resultStatsInstance.BasicTotalAttacks(idManagerInstance.brawler1);
                 //canUseTechnique = false;
@@ -1025,6 +1036,7 @@ public class Combat : MonoBehaviour
                     { //If not, returns player to normal movement
                         isAttacking = false;
                         faceEnemy = false;
+                    GetComponent<Flinch>().canBePunishHit = false;
                     GetComponent<Movement>().PlayerMovement();
                     }
             }
@@ -1043,6 +1055,9 @@ public class Combat : MonoBehaviour
                     {
                         resultStatsInstance.BasicTotalAttacks(idManagerInstance.brawler2);
                     }
+
+                    GetComponent<Flinch>().canBeCounterHit = true;
+                    GetComponent<Flinch>().canBePunishHit = false;
                     anim.SetInteger("State", state);
                     isAttacking = true;
                     GetComponent<AiBehavior>().canGlideToEnemy = true;
@@ -1167,6 +1182,8 @@ public class Combat : MonoBehaviour
 
     public void ShouldHit(int a) //Causes their enemy to flinch
     {
+        GetComponent<Flinch>().canBeCounterHit = false;
+        GetComponent<Flinch>().canBePunishHit = true;
         if (tag == "Player" && GetDistanceToEnemy() && !GetComponent<Flinch>().isReacting && !enemy.GetComponent<Combat>().invinsible)
         {
             if (anim.GetInteger("State") == 10 && GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.boxing)
@@ -1258,7 +1275,7 @@ public class Combat : MonoBehaviour
                 }
                 else
                 {
-                        enemy.GetComponent<Health>().SubtractHealth(CalculateDamage());
+                        enemy.GetComponent<Health>().SubtractHealth(CalculateDamage()); //Subtracts armor
                 }
             }
         }
@@ -1475,6 +1492,7 @@ public class Combat : MonoBehaviour
     public IEnumerator AfterAttack() //Times that it takes for Ai to recover after attacking
     {
         GetComponent<CoroutineManager>().CancelCoroutines(afterAttack);
+        GetComponent<Flinch>().canBePunishHit = false;
         anim.SetBool("canTransition", true);
         int i = Random.Range(1, 11);
         ShouldNotMove();

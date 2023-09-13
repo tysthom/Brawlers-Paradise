@@ -31,6 +31,9 @@ public class Flinch : MonoBehaviour
     public bool isSurrendering;
     public bool isBeingFinished;
 
+    public bool canBeCounterHit;
+    public bool canBePunishHit;
+
     [Header("Coroutine")]
     public Coroutine reactionTime;
     public Coroutine blockedBack;
@@ -234,6 +237,18 @@ public class Flinch : MonoBehaviour
     {
         GetComponent<Combat>().canBlock = false;
         GetComponent<Health>().SubtractHealth(damage);
+        if (canBeCounterHit && state != 110)
+        {
+            combatManagear.GetComponent<AttackStatusManager>().CounterHit(GetComponent<Combat>().enemy);
+            canBeCounterHit = false;
+        } else if (canBePunishHit && state != 110)
+        {
+            combatManagear.GetComponent<AttackStatusManager>().PunishHit(GetComponent<Combat>().enemy);
+            canBePunishHit = false;
+        } else if (state == 110)
+        {
+            combatManagear.GetComponent<AttackStatusManager>().Knockdown(GetComponent<Combat>().enemy);
+        }
 
         anim.SetInteger("State", state);
 
@@ -375,7 +390,8 @@ public class Flinch : MonoBehaviour
         isStunned = true;
 
         GetComponent<CoroutineManager>().CancelCoroutines(stun);
-        Debug.Log("Stunned");
+
+        combatManagear.GetComponent<AttackStatusManager>().Stun(GetComponent<Combat>().enemy);
 
         if (GetComponent<Throw>().currentThrowable != null)
         {
@@ -489,6 +505,7 @@ public class Flinch : MonoBehaviour
         GetComponent<Throw>().isThrowing = false;
 
         GetComponent<CoroutineManager>().CancelCoroutines(parried);
+        combatManagear.GetComponent<AttackStatusManager>().Parry(GetComponent<Combat>().enemy);
 
         StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .5f));
         anim.SetInteger("State", 120);

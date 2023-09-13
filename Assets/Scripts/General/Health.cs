@@ -169,11 +169,11 @@ public class Health : MonoBehaviour
         }
         else
         {
-            SubtractShield(damageAmount);
+            SubtractArmor(damageAmount);
         }
     }
 
-    public void SubtractShield(float damageAmount)
+    public void SubtractArmor(float damageAmount)
     {
         armour -= damageAmount;
         if(armour < 0)
