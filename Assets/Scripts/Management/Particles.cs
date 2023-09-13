@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class Particles : MonoBehaviour
 {
+    GameObject gameManager;
+    IdManagear idManagerInstance;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        gameManager = GameObject.Find("Game Manager");
+        idManagerInstance = gameManager.GetComponent<IdManagear>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(idManagerInstance.brawler1.GetComponent<Death>().dead || idManagerInstance.brawler2.GetComponent<Death>().dead)
+        {
+            GetComponent<ParticleSystem>().Stop();
+        }
     }
 
     public IEnumerator ParticlesDeletion(GameObject brawler)
@@ -75,6 +82,8 @@ public class Particles : MonoBehaviour
         }
 
         yield return new WaitForSeconds(2);
-        Destroy(gameObject);
+
+        if(gameObject != null)
+            Destroy(gameObject);
     }
 }
