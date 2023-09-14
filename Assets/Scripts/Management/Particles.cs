@@ -10,16 +10,22 @@ public class Particles : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.Find("Game Manager");
-        idManagerInstance = gameManager.GetComponent<IdManagear>();
+        if (UniversalFight.fight)
+        {
+            gameManager = GameObject.Find("Game Manager");
+            idManagerInstance = gameManager.GetComponent<IdManagear>();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(idManagerInstance.brawler1.GetComponent<Death>().dead || idManagerInstance.brawler2.GetComponent<Death>().dead)
+        if (UniversalFight.fight)
         {
-            GetComponent<ParticleSystem>().Stop();
+            if (idManagerInstance.brawler1.GetComponent<Death>().dead || idManagerInstance.brawler2.GetComponent<Death>().dead)
+            {
+                GetComponent<ParticleSystem>().Stop();
+            }
         }
     }
 

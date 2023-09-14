@@ -118,6 +118,9 @@ public class MenuManager : MonoBehaviour
     public GameObject htpMenu;
     public GameObject controlsButton;
     public GameObject[] htpMenuParts = new GameObject[7];
+        //Fight Styles
+    public GameObject fightStylesMenu;
+    public GameObject karateFightStyleButton;
         //Souvenirs
     public GameObject souvenirsMenu;
         //HUD Colors
@@ -503,6 +506,13 @@ public class MenuManager : MonoBehaviour
             }
 
             OptionsMenu(); 
+        }
+        else if (currentMenu == "Fight Styles Menu")
+        {
+            fightStylesMenu.SetActive(false);
+            optionsBackground.SetActive(false);
+
+            StartCoroutine(HTPMenuCoroutine());
         }
         else if (currentMenu == "Souvenirs Menu")
         {
@@ -1294,6 +1304,60 @@ public class MenuManager : MonoBehaviour
         canChangeMenu = true;
     }
 
+    public void FightStyles()
+    {
+        if (canChangeMenu)
+        {
+            StartCoroutine(FightStyleCoroutine());
+        }
+    }
+
+    IEnumerator FightStyleCoroutine()
+    {
+        currentMenu = "Fight Styles Menu";
+
+        canChangeMenu = false;
+        for (int i = 0; i < htpMenuParts.Length; i++)
+        {
+            htpMenuParts[i].SetActive(false);
+        }
+        yield return new WaitForSeconds(.75f);
+
+        fightStylesMenu.SetActive(true);
+
+        eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(karateFightStyleButton);
+        canChangeMenu = true;
+    }
+
+    public void FightStyleSubMenu(string fightStyle)
+    {
+        if (canChangeMenu)
+        {
+            StartCoroutine(FightStyleSubMenuCoroutine(fightStyle));
+        }
+    }
+
+    IEnumerator FightStyleSubMenuCoroutine(string fs)
+    {
+        currentMenu = "Fight Styles Menu";
+
+        canChangeMenu = false;
+        for (int i = 0; i < htpMenuParts.Length; i++)
+        {
+            htpMenuParts[i].SetActive(false);
+        }
+        yield return new WaitForSeconds(.75f);
+
+        if(fs == "Karate")
+        {
+            //Do something
+        }
+        fightStylesMenu.SetActive(true);
+
+        eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(karateFightStyleButton);
+        canChangeMenu = true;
+    }
+
     public void Souvenirs()
     {
         if (canChangeMenu)
@@ -1301,6 +1365,7 @@ public class MenuManager : MonoBehaviour
             StartCoroutine(SouvenirsCoroutine());
         }
     }
+
 
     IEnumerator SouvenirsCoroutine()
     {
