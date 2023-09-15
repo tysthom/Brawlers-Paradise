@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ee5a2ad1ff4920a4ca1f75532db5c593
+guid: c1bf1bc730b23c44abbd2b082f630b5b
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Shirt
-    second: {fileID: 2100000, guid: f554c19f3c48d6e4d96cf7cc19376105, type: 2}
+      name: Text
+    second: {fileID: 2100000, guid: 45da34ea214ea614582abb21eb3f2e12, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

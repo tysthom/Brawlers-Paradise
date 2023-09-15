@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ee5a2ad1ff4920a4ca1f75532db5c593
+guid: 9b2a638cad0009148b39f5097a342d40
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Shirt
-    second: {fileID: 2100000, guid: f554c19f3c48d6e4d96cf7cc19376105, type: 2}
+      name: Storage Bin
+    second: {fileID: 2100000, guid: bbf8df66352dec240a34dbe316b0350d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

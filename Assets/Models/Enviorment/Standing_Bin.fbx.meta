@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ee5a2ad1ff4920a4ca1f75532db5c593
+guid: 9104bd6ad5bc75147ab37589e8362d42
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -7,8 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Shirt
-    second: {fileID: 2100000, guid: f554c19f3c48d6e4d96cf7cc19376105, type: 2}
+      name: Bin
+    second: {fileID: 2100000, guid: f2a46944427fd26489adf334f78d2b41, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bin2
+    second: {fileID: 2100000, guid: e249acd6e1bdcce43bdd667a05616087, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Handle
+    second: {fileID: 2100000, guid: c58375741c4cdc347a58c953cb2718dc, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
