@@ -118,13 +118,23 @@ public class MenuManager : MonoBehaviour
     public GameObject htpMenu;
     public GameObject controlsButton;
     public GameObject[] htpMenuParts = new GameObject[7];
+        //Controls
+    public GameObject controlsMenu;
+        //Combat
+    public GameObject combatMenu;
         //Fight Styles
     public GameObject fightStylesMenu;
     public GameObject karateFightStyleButton;
-        //Souvenirs
+    public GameObject[] fightStylesMenuParts = new GameObject[4];
+    public GameObject[] fightStylesIndividualMenus = new GameObject[6];
+    //Souvenirs
     public GameObject souvenirsMenu;
         //HUD Colors
     public GameObject hudColorsMenu;
+        //Throwables
+    public GameObject throwablesMenu;
+        //Finisher
+    public GameObject finisherMenu;
 
     private void Awake()
     {
@@ -507,12 +517,39 @@ public class MenuManager : MonoBehaviour
 
             OptionsMenu(); 
         }
-        else if (currentMenu == "Fight Styles Menu")
+        else if (currentMenu == "Controls Menu")
         {
-            fightStylesMenu.SetActive(false);
+            controlsMenu.SetActive(false);
             optionsBackground.SetActive(false);
 
             StartCoroutine(HTPMenuCoroutine());
+        }
+        else if (currentMenu == "Combat Menu")
+        {
+            combatMenu.SetActive(false);
+            optionsBackground.SetActive(false);
+
+            StartCoroutine(HTPMenuCoroutine());
+        }
+        else if (currentMenu == "Fight Styles Menu")
+        {
+            for (int i = 0; i < fightStylesMenuParts.Length; i++)
+            {
+                fightStylesMenuParts[i].SetActive(false);
+            }
+            optionsBackground.SetActive(false);
+
+            StartCoroutine(HTPMenuCoroutine());
+        }
+        else if (currentMenu == "Fight Styles Individual Menu")
+        {
+            for (int i = 0; i < fightStylesIndividualMenus.Length; i++)
+            {
+                fightStylesIndividualMenus[i].SetActive(false);
+            }
+            optionsBackground.SetActive(false);
+
+            StartCoroutine(FightStyleCoroutine());
         }
         else if (currentMenu == "Souvenirs Menu")
         {
@@ -524,6 +561,20 @@ public class MenuManager : MonoBehaviour
         else if (currentMenu == "HUDColors Menu")
         {
             hudColorsMenu.SetActive(false);
+            optionsBackground.SetActive(false);
+
+            StartCoroutine(HTPMenuCoroutine()); 
+        }
+        else if (currentMenu == "Throwables Menu")
+        {
+            throwablesMenu.SetActive(false);
+            optionsBackground.SetActive(false);
+
+            StartCoroutine(HTPMenuCoroutine()); 
+        }
+        else if (currentMenu == "Finisher Menu")
+        {
+            finisherMenu.SetActive(false);
             optionsBackground.SetActive(false);
 
             StartCoroutine(HTPMenuCoroutine());
@@ -1304,6 +1355,57 @@ public class MenuManager : MonoBehaviour
         canChangeMenu = true;
     }
 
+    public void Controls()
+    {
+        if (canChangeMenu)
+        {
+            StartCoroutine(ControlsCoroutine());
+        }
+    }
+
+    IEnumerator ControlsCoroutine()
+    {
+        currentMenu = "Controls Menu";
+
+        canChangeMenu = false;
+        for (int i = 0; i < htpMenuParts.Length; i++)
+        {
+            htpMenuParts[i].SetActive(false);
+        }
+        yield return new WaitForSeconds(.75f);
+
+        controlsMenu.SetActive(true);
+
+        eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(null);
+        canChangeMenu = true;
+    }
+
+    public void Combat()
+    {
+        if (canChangeMenu)
+        {
+            StartCoroutine(CombatCoroutine());
+        }
+    }
+
+    IEnumerator CombatCoroutine()
+    {
+        currentMenu = "Combat Menu";
+
+        canChangeMenu = false;
+        for (int i = 0; i < htpMenuParts.Length; i++)
+        {
+            htpMenuParts[i].SetActive(false);
+        }
+        yield return new WaitForSeconds(.75f);
+
+        combatMenu.SetActive(true);
+        optionsBackground.SetActive(true);
+
+        eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(null);
+        canChangeMenu = true;
+    }
+
     public void FightStyles()
     {
         if (canChangeMenu)
@@ -1323,7 +1425,10 @@ public class MenuManager : MonoBehaviour
         }
         yield return new WaitForSeconds(.75f);
 
-        fightStylesMenu.SetActive(true);
+        for (int i = 0; i < fightStylesMenuParts.Length; i++)
+        {
+            fightStylesMenuParts[i].SetActive(true);
+        }
 
         eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(karateFightStyleButton);
         canChangeMenu = true;
@@ -1339,20 +1444,42 @@ public class MenuManager : MonoBehaviour
 
     IEnumerator FightStyleSubMenuCoroutine(string fs)
     {
-        currentMenu = "Fight Styles Menu";
+        currentMenu = "Fight Styles Individual Menu";
 
         canChangeMenu = false;
-        for (int i = 0; i < htpMenuParts.Length; i++)
+        for (int i = 0; i < fightStylesMenuParts.Length; i++)
         {
-            htpMenuParts[i].SetActive(false);
+            fightStylesMenuParts[i].SetActive(false);
         }
         yield return new WaitForSeconds(.75f);
 
         if(fs == "Karate")
         {
-            //Do something
+            fightStylesIndividualMenus[0].SetActive(true);
         }
+        else if (fs == "Boxing")
+        {
+            fightStylesIndividualMenus[1].SetActive(true);
+        }
+        else if (fs == "MMA")
+        {
+            fightStylesIndividualMenus[2].SetActive(true);
+        }
+        else if (fs == "Taekwondo")
+        {
+            fightStylesIndividualMenus[3].SetActive(true);
+        }
+        else if (fs == "Kung Fu")
+        {
+            fightStylesIndividualMenus[4].SetActive(true);
+        }
+        else if (fs == "Wrestling")
+        {
+            fightStylesIndividualMenus[5].SetActive(true);
+        }
+
         fightStylesMenu.SetActive(true);
+        optionsBackground.SetActive(true);
 
         eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(karateFightStyleButton);
         canChangeMenu = true;
@@ -1405,6 +1532,58 @@ public class MenuManager : MonoBehaviour
         yield return new WaitForSeconds(.75f);
 
         hudColorsMenu.SetActive(true);
+        optionsBackground.SetActive(true);
+
+        eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(null);
+        canChangeMenu = true;
+    }
+
+    public void Throwables()
+    {
+        if (canChangeMenu)
+        {
+            StartCoroutine(ThrowablesCoroutine());
+        }
+    }
+
+    IEnumerator ThrowablesCoroutine()
+    {
+        currentMenu = "Throwables Menu";
+
+        canChangeMenu = false;
+        for (int i = 0; i < htpMenuParts.Length; i++)
+        {
+            htpMenuParts[i].SetActive(false);
+        }
+        yield return new WaitForSeconds(.75f);
+
+        throwablesMenu.SetActive(true);
+        optionsBackground.SetActive(true);
+
+        eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(null);
+        canChangeMenu = true;
+    }
+
+    public void Fisnisher()
+    {
+        if (canChangeMenu)
+        {
+            StartCoroutine(FisnisherCoroutine());
+        }
+    }
+
+    IEnumerator FisnisherCoroutine()
+    {
+        currentMenu = "Finisher Menu";
+
+        canChangeMenu = false;
+        for (int i = 0; i < htpMenuParts.Length; i++)
+        {
+            htpMenuParts[i].SetActive(false);
+        }
+        yield return new WaitForSeconds(.75f);
+
+        finisherMenu.SetActive(true);
         optionsBackground.SetActive(true);
 
         eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(null);

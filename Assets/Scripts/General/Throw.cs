@@ -46,7 +46,7 @@ public class Throw : MonoBehaviour
 
         if (tag == "Player")
         {
-            float DPady = Input.GetAxis("DPad Vertical");
+            bool equip = Input.GetButtonDown("Primary Special");
             throwablesInRange = Physics.OverlapSphere(transform.position, GetComponent<Movement>().pickUpRange);
             for (int i = 0; i < throwablesInRange.Length; i++)
             {
@@ -88,19 +88,14 @@ public class Throw : MonoBehaviour
                 if (!GetComponent<Combat>().isParrying && !GetComponent<Combat>().isAttacking && !GetComponent<Flinch>().isFlinching &&
                     !GetComponent<Flinch>().isStunned && !GetComponent<Combat>().isGuardBreaking)
                 {
-                    if (lastY != DPady)
-                        if (DPady == -1)
-                        {
-                            Equiping(!isEquipped);
-                        }
+                    if (equip)
+                        Equiping(!isEquipped);
                 }
             }
             else
             {
                 isEquipped = false;
             }
-
-            lastY = DPady;
         }
         else
         {
