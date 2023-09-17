@@ -26,6 +26,22 @@ public class HUDManager : MonoBehaviour
         brawler1 = gameManager.GetComponent<IdManagear>().brawler1;
         brawler2 = gameManager.GetComponent<IdManagear>().brawler2;
 
+        if (UniversalFight.usingMenuData)
+        {
+            if(StateNameController.hudSelection == 0)
+            {
+                hudType = hud.classic;
+            } 
+            else if(StateNameController.hudSelection == 1)
+            {
+                hudType = hud.minimalist;
+            }
+            else
+            {
+                hudType = hud.none;
+            }
+        }
+
         if(hudType == hud.classic)
         {
             #region Brawler1 Bars

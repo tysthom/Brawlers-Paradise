@@ -1097,6 +1097,8 @@ public class Combat : MonoBehaviour
 
     public void Finish()
     {
+        gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
+        gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.25f, .2f));
         StartCoroutine(enemy.GetComponent<Death>().Die());
     }
 
@@ -1188,26 +1190,31 @@ public class Combat : MonoBehaviour
         {
             if (anim.GetInteger("State") == 10 && GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.boxing)
             {
-                StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .25f));
+                gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
+                gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .25f));
                 enemy.GetComponent<Flinch>().stun = StartCoroutine(enemy.GetComponent<Combat>().GetComponent<Flinch>().Stun(a));
             } else if (anim.GetInteger("State") == 10 && GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.taekwondo)
             {
-                StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .25f));
+                gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
+                gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .25f));
                 enemy.GetComponent<Health>().SubtractHealth(CalculateDamage());
             } else if (anim.GetInteger("State") == 10 && GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.kungFu)
             {
-                StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .1f));
+                gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
+                gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .1f));
                 StartCoroutine(enemy.GetComponent<Health>().DamageOverTime(fightStyleManager.GetComponent<kungFuStats>().eyePokeDamage, 
                     fightStyleManager.GetComponent<kungFuStats>().eyePokeTickRepeats));
             } else if (anim.GetInteger("State") == 10 && GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.proWrestling)
             {
-                StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .3f));
+                gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
+                gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .3f));
 
                 enemy.GetComponent<Flinch>().bearHugged = StartCoroutine(enemy.GetComponent<Flinch>().Bearhugged(a));
                 bearhugging = StartCoroutine(Bearhugging());
             } else if(anim.GetInteger("State") == 13)
             {
-                StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .25f));
+                gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
+                gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .25f));
 
                 enemy.GetComponent<Flinch>().groundFlinch = StartCoroutine(enemy.GetComponent<Flinch>().GroundFlinch(CalculateDamage()));
             }
@@ -1253,14 +1260,16 @@ public class Combat : MonoBehaviour
                             //Block
                             enemy.GetComponent<Combat>().secondary = 1;
                             StartCoroutine(enemy.GetComponent<AiBehavior>().IncreaseDefenseFrequency());
-                            StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.2f, .5f));
+                            gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
+                            gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .5f));
                             enemy.GetComponent<Throw>().isEquipped = false;
                             enemy.GetComponent<Flinch>().ReactionInitiation(-20, CalculateDamage());
                         }
                     }
                     else
                     {
-                        StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.2f, .5f));
+                        gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
+                        gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.2f, .5f));
                         if (a == 100 || a == 101) //Perform a normal flinch
                         {  
                             enemy.GetComponent<Flinch>().ReactionInitiation(a, CalculateDamage());
@@ -1286,23 +1295,27 @@ public class Combat : MonoBehaviour
             {
                 if (anim.GetInteger("State") == 10 && GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.boxing)
                 {
-                    StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .25f));
+                    gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
+                    gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .25f));
                     enemy.GetComponent<Flinch>().stun = StartCoroutine(enemy.GetComponent<Combat>().GetComponent<Flinch>().Stun(a));
                 }
                 else if (anim.GetInteger("State") == 10 && GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.taekwondo)
                 {
-                    StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .25f));
+                    gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
+                    gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .25f));
                     enemy.GetComponent<Health>().SubtractHealth(CalculateDamage());
                 }
                 else if (anim.GetInteger("State") == 10 && GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.kungFu)
                 {
-                    StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .1f));
+                    gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
+                    gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .1f));
                     StartCoroutine(enemy.GetComponent<Health>().DamageOverTime(fightStyleManager.GetComponent<kungFuStats>().eyePokeDamage,
                         fightStyleManager.GetComponent<kungFuStats>().eyePokeTickRepeats));
                 }
                 else if (anim.GetInteger("State") == 10 && GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.proWrestling)
                 {
-                    StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .3f));
+                    gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
+                    gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .3f));
 
                     enemy.GetComponent<Flinch>().bearHugged = StartCoroutine(enemy.GetComponent<Flinch>().Bearhugged(a));
                     bearhugging = StartCoroutine(Bearhugging());
@@ -1352,7 +1365,8 @@ public class Combat : MonoBehaviour
 
                         //Attacks to player only
                         GetComponent<AiBehavior>().canGlideToEnemy = false;
-                        StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.2f, .5f));
+                        gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
+                        gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.2f, .5f));
 
                         if (a == 100 || a == 101) //Perform a normal flinch
                         {
@@ -1371,7 +1385,8 @@ public class Combat : MonoBehaviour
                         }
                         else if (anim.GetInteger("State") == 13) //MMA ground attack
                         {
-                            StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .25f));
+                            gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
+                            gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .25f));
 
                             enemy.GetComponent<Flinch>().groundFlinch = StartCoroutine(enemy.GetComponent<Flinch>().GroundFlinch(CalculateDamage()));
                         }

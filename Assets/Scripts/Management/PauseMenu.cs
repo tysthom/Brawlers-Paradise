@@ -41,6 +41,7 @@ public class PauseMenu : MonoBehaviour
 
     void PauseGame()
     {
+        GetComponent<Vibrations>().vIntensity = 0;
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
         eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(resumeButton);

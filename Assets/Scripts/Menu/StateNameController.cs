@@ -29,4 +29,9 @@ public class StateNameController : MonoBehaviour
     public static int gameModeSelection;
     public static int difficultySelection;
     public static int throwableSelection; //0 YES 1 NO
+
+    public static int hudSelection;
+    public static int controllerVibration; //0 YES 1 NO
+    public static float musicVolume;
+    public static float soundEffectsVolume;
 }

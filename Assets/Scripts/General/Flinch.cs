@@ -169,7 +169,8 @@ public class Flinch : MonoBehaviour
             if (tag == "Player")
             {
                 GetComponent<Combat>().faceEnemy = true;
-                StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .25f));
+                gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
+                gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .25f));
             }
             else if (tag == "Enemy")
             {
@@ -507,12 +508,14 @@ public class Flinch : MonoBehaviour
         GetComponent<CoroutineManager>().CancelCoroutines(parried);
         combatManagear.GetComponent<AttackStatusManager>().Parry(GetComponent<Combat>().enemy);
 
-        StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .5f));
+        gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
+        gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .5f));
         anim.SetInteger("State", 120);
 
         if (tag == "Enemy" && idManagerInstance.gameMode == IdManagear.mode.playerVsAi)
         {
-            StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, 0f));
+            gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
+            gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .2f));
         }
 
         yield return new WaitForSeconds(combatManagear.GetComponent<CombatStats>().parriedTime);

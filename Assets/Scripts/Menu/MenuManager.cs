@@ -135,6 +135,20 @@ public class MenuManager : MonoBehaviour
     public GameObject throwablesMenu;
         //Finisher
     public GameObject finisherMenu;
+    //SETTINGS
+    public GameObject settingsMenu;
+        //HUD Selection
+    public TMP_Dropdown hudSelectionDropdown;
+    public int hudSelection;
+        //Vibration
+    public Toggle vibrationToggle;
+    public bool vibrationAllowed;
+        //Music Volume
+    public Slider musicSlider;
+    public float musicSliderValue;
+        //Sound Effects Volume
+    public Slider soundEffectsSlider;
+    public float soundEffectsSliderValue;
 
     private void Awake()
     {
@@ -159,6 +173,7 @@ public class MenuManager : MonoBehaviour
         fightMenu.GetComponent<BrawlerUpdates>().brawler1.transform.position += new Vector3(0, 0, -10);
         fightMenu.GetComponent<BrawlerUpdates>().brawler2.transform.position += new Vector3(0, 0, -10);
         GetComponent<SaveData>().LoadBrawler();
+        GetComponent<SaveData>().LoadOptions();
     }
 
     // Start is called before the first frame update
@@ -462,6 +477,38 @@ public class MenuManager : MonoBehaviour
             StateNameController.gameModeSelection = gameModeSelection;
             StateNameController.difficultySelection = difficultySelection;
         }
+        else if(currentMenu == "Settings Menu")
+        {
+            hudSelection = hudSelectionDropdown.value;
+
+            if (vibrationToggle.isOn)
+            {
+                vibrationAllowed = true;
+            }
+            else
+            {
+                vibrationAllowed = false;
+            }
+
+            musicSliderValue = musicSlider.value;
+            soundEffectsSliderValue = soundEffectsSlider.value;
+
+
+            StateNameController.hudSelection = hudSelection;
+
+            if (vibrationAllowed)
+            {
+                StateNameController.controllerVibration = 0;
+            }
+            else
+            {
+                StateNameController.controllerVibration = 1;
+            }
+
+            StateNameController.musicVolume = musicSliderValue;
+
+            StateNameController.soundEffectsVolume = soundEffectsSliderValue;
+        }
     }
 
     IEnumerator Back()
@@ -578,6 +625,14 @@ public class MenuManager : MonoBehaviour
             optionsBackground.SetActive(false);
 
             StartCoroutine(HTPMenuCoroutine());
+        }
+        else if (currentMenu == "Settings Menu")
+        {
+            settingsMenu.SetActive(false);
+            optionsBackground.SetActive(false);
+
+            GetComponent<SaveData>().SaveOptions();
+            StartCoroutine(OptionsMenuCoroutine());
         }
     }
 
@@ -1300,6 +1355,7 @@ public class MenuManager : MonoBehaviour
     }
     #endregion
 
+    
     public void OptionsMenu()
     {
         if (canChangeMenu)
@@ -1326,6 +1382,7 @@ public class MenuManager : MonoBehaviour
         canChangeMenu = true;
     }
 
+    #region How To Play
     public void HTPMenu()
     {
         if (canChangeMenu)
@@ -1587,6 +1644,33 @@ public class MenuManager : MonoBehaviour
         optionsBackground.SetActive(true);
 
         eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(null);
+        canChangeMenu = true;
+    }
+    #endregion
+
+    public void SettingsMenu()
+    {
+        if (canChangeMenu)
+        {
+            StartCoroutine(SettingsMenuCoroutine());
+        }
+    }
+
+    IEnumerator SettingsMenuCoroutine()
+    {
+        currentMenu = "Settings Menu";
+
+        canChangeMenu = false;
+        GetComponent<SaveData>().LoadOptions();
+        for (int i = 0; i < optionsMenuParts.Length; i++)
+        {
+            optionsMenuParts[i].SetActive(false);
+        }
+        yield return new WaitForSeconds(.75f);
+        settingsMenu.SetActive(true);
+        optionsBackground.SetActive(true);
+
+        eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(hudSelectionDropdown.gameObject);
         canChangeMenu = true;
     }
 }

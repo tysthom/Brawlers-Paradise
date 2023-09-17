@@ -62,6 +62,33 @@ public class SaveData : MonoBehaviour
         GetComponent<MenuManager>().b2SkinColor = StateNameController.b2MainSkinColor;
         GetComponent<MenuManager>().b2NameSelection = StateNameController.b2MainNameSelection;
         GetComponent<MenuManager>().b2SouvenirSelection = StateNameController.b2MainSouvenirSelection;
+    }
 
+    public void SaveOptions()
+    {
+        PlayerPrefs.SetInt("HUD Selection", StateNameController.hudSelection);
+        PlayerPrefs.SetInt("Controller Vibration", StateNameController.controllerVibration);
+        PlayerPrefs.SetFloat("Music Value", StateNameController.musicVolume);
+        PlayerPrefs.SetFloat("Sound Effects Value", StateNameController.soundEffectsVolume);
+    }
+
+    public void LoadOptions()
+    {
+        StateNameController.hudSelection = PlayerPrefs.GetInt("HUD Selection");
+        StateNameController.controllerVibration = PlayerPrefs.GetInt("Controller Vibration");
+        StateNameController.musicVolume = PlayerPrefs.GetFloat("Music Value");
+        StateNameController.soundEffectsVolume = PlayerPrefs.GetFloat("Sound Effects Value");
+
+        GetComponent<MenuManager>().hudSelectionDropdown.value = StateNameController.hudSelection;
+        if(StateNameController.controllerVibration == 0)
+        {
+            GetComponent<MenuManager>().vibrationToggle.isOn = true;
+        }
+        else
+        {
+            GetComponent<MenuManager>().vibrationToggle.isOn = false;
+        }
+        GetComponent<MenuManager>().musicSlider.value = StateNameController.musicVolume;
+        GetComponent<MenuManager>().soundEffectsSlider.value = StateNameController.soundEffectsVolume;
     }
 }
