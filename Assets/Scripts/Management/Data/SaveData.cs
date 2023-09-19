@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SaveData : MonoBehaviour
 {
@@ -62,6 +63,170 @@ public class SaveData : MonoBehaviour
         GetComponent<MenuManager>().b2SkinColor = StateNameController.b2MainSkinColor;
         GetComponent<MenuManager>().b2NameSelection = StateNameController.b2MainNameSelection;
         GetComponent<MenuManager>().b2SouvenirSelection = StateNameController.b2MainSouvenirSelection;
+    }
+
+    public void SaveStats()
+    {
+        PlayerPrefs.SetInt("Total Fights", StateNameController.totalFights);
+        PlayerPrefs.SetInt("Total Wins", StateNameController.totalWins);
+        PlayerPrefs.SetFloat("Win Rate", StateNameController.winRate);
+        #region Fight Style Usage
+        PlayerPrefs.SetInt("Karate Count", StateNameController.fightStyleUsage[0]);
+        PlayerPrefs.SetInt("Boxing Count", StateNameController.fightStyleUsage[1]);
+        PlayerPrefs.SetInt("MMA Count", StateNameController.fightStyleUsage[2]);
+        PlayerPrefs.SetInt("TKD Count", StateNameController.fightStyleUsage[3]);
+        PlayerPrefs.SetInt("Kung Fu Count", StateNameController.fightStyleUsage[4]);
+        PlayerPrefs.SetInt("Wrestling Count", StateNameController.fightStyleUsage[5]);
+        #endregion
+        PlayerPrefs.SetFloat("Attack Connection", StateNameController.avgBasicAttackConnectionRate);
+        PlayerPrefs.SetFloat("Damage Inflicted", StateNameController.avgDamageInflicted);
+        PlayerPrefs.SetFloat("Health Recovered", StateNameController.avghealthRecovered);
+        PlayerPrefs.SetFloat("Stamina Used", StateNameController.avgStaminaUsed);
+        PlayerPrefs.SetFloat("Dodges Performed", StateNameController.avgDodgesPerformed);
+        #region Souvenir
+        PlayerPrefs.SetInt("Medicine Usage", StateNameController.souvenirUsage[0]);
+        PlayerPrefs.SetInt("Sunscreen Usage", StateNameController.souvenirUsage[1]);
+        PlayerPrefs.SetInt("Coffee Usage", StateNameController.souvenirUsage[2]);
+        PlayerPrefs.SetInt("Briefcase Usage", StateNameController.souvenirUsage[3]);
+        PlayerPrefs.SetInt("Life Jacket Usage", StateNameController.souvenirUsage[4]);
+        PlayerPrefs.SetInt("Rat Poison Usage", StateNameController.souvenirUsage[5]);
+        PlayerPrefs.SetInt("Tequila Usage", StateNameController.souvenirUsage[6]);
+        PlayerPrefs.SetInt("Floaty Usage", StateNameController.souvenirUsage[7]);
+        PlayerPrefs.SetInt("VIP Card Usage", StateNameController.souvenirUsage[8]);
+        #endregion
+    }
+
+    public void LoadStats()
+    {
+        StateNameController.totalFights = PlayerPrefs.GetInt("Total Fights");
+        StateNameController.winRate  = PlayerPrefs.GetFloat("Win Rate");
+        #region Fight Style Usage
+        StateNameController.fightStyleUsage[0] = PlayerPrefs.GetInt("Karate Count");
+        StateNameController.fightStyleUsage[1] = PlayerPrefs.GetInt("Boxing Count");
+        StateNameController.fightStyleUsage[2] = PlayerPrefs.GetInt("MMA Count");
+        StateNameController.fightStyleUsage[3] = PlayerPrefs.GetInt("TKD Count");
+        StateNameController.fightStyleUsage[4] = PlayerPrefs.GetInt("Kung Fu Count");
+        StateNameController.fightStyleUsage[5] = PlayerPrefs.GetInt("Wrestling Count");
+        #endregion
+        StateNameController.avgBasicAttackConnectionRate = PlayerPrefs.GetFloat("Attack Connection");
+        StateNameController.avgDamageInflicted = PlayerPrefs.GetFloat("Damage Inflicted");
+        StateNameController.avghealthRecovered = PlayerPrefs.GetFloat("Health Recovered");
+        StateNameController.avgStaminaUsed = PlayerPrefs.GetFloat("Stamina Used");
+        StateNameController.avgDodgesPerformed = PlayerPrefs.GetFloat("Dodges Performed");
+        #region Souvenir
+        StateNameController.souvenirUsage[0] = PlayerPrefs.GetInt("Medicine Usage");
+        StateNameController.souvenirUsage[1] = PlayerPrefs.GetInt("Sunscreen Usage");
+        StateNameController.souvenirUsage[2] = PlayerPrefs.GetInt("Coffee Usage");
+        StateNameController.souvenirUsage[3] = PlayerPrefs.GetInt("Briefcase Usage");
+        StateNameController.souvenirUsage[4] = PlayerPrefs.GetInt("Life Jacket Usage");
+        StateNameController.souvenirUsage[5] = PlayerPrefs.GetInt("Rat Poison Usage");
+        StateNameController.souvenirUsage[6] = PlayerPrefs.GetInt("Tequila Usage");
+        StateNameController.souvenirUsage[7] = PlayerPrefs.GetInt("Floaty Usage");
+        StateNameController.souvenirUsage[8] = PlayerPrefs.GetInt("VIP Card Usage");
+        #endregion
+
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            GetComponent<MenuManager>().totalFightsText.text = "" + StateNameController.totalFights;
+            GetComponent<MenuManager>().winRateText.text = StateNameController.winRate + "%";
+            int max = 0;
+            int index = -1;
+            #region Fight Style Display
+            for (int i = 0; i < StateNameController.fightStyleUsage.Length; i++)
+            {
+                if (max < StateNameController.fightStyleUsage[i])
+                {
+                    max = StateNameController.fightStyleUsage[i];
+                    index = i;
+                }
+            }
+            if (index == 0)
+            {
+                GetComponent<MenuManager>().fightStyleText.text = "Karate";
+            }
+            else if (index == 1)
+            {
+                GetComponent<MenuManager>().fightStyleText.text = "Boxing";
+            }
+            else if (index == 2)
+            {
+                GetComponent<MenuManager>().fightStyleText.text = "MMA";
+            }
+            else if (index == 3)
+            {
+                GetComponent<MenuManager>().fightStyleText.text = "Taekwondo";
+            }
+            else if (index == 4)
+            {
+                GetComponent<MenuManager>().fightStyleText.text = "Kung Fu";
+            }
+            else if (index == 5)
+            {
+                GetComponent<MenuManager>().fightStyleText.text = "Pro Wrestling";
+            }
+            else
+            {
+                GetComponent<MenuManager>().fightStyleText.text = "N/A";
+            }
+            #endregion
+            GetComponent<MenuManager>().basicAttackText.text = StateNameController.avgBasicAttackConnectionRate + "%";
+            GetComponent<MenuManager>().damageText.text = "" + StateNameController.avgDamageInflicted;
+            GetComponent<MenuManager>().healthText.text = "" + StateNameController.avghealthRecovered;
+            GetComponent<MenuManager>().staminaText.text = "" + StateNameController.avgStaminaUsed;
+            GetComponent<MenuManager>().dodgeText.text = "" + StateNameController.avgDodgesPerformed;
+            #region Souvenir Text
+            max = 0;
+            index = -1;
+            for (int i = 0; i < StateNameController.souvenirUsage.Length; i++)
+            {
+                if (max < StateNameController.souvenirUsage[i])
+                {
+                    max = StateNameController.souvenirUsage[i];
+                    index = i;
+                }
+            }
+            if (index == 0)
+            {
+                GetComponent<MenuManager>().souvenirText.text = "Medicine";
+            }
+            else if (index == 1)
+            {
+                GetComponent<MenuManager>().souvenirText.text = "Sunscreen";
+            }
+            else if (index == 2)
+            {
+                GetComponent<MenuManager>().souvenirText.text = "Coffee";
+            }
+            else if (index == 3)
+            {
+                GetComponent<MenuManager>().souvenirText.text = "Briefcase";
+            }
+            else if (index == 4)
+            {
+                GetComponent<MenuManager>().souvenirText.text = "Life Jacket";
+            }
+            else if (index == 5)
+            {
+                GetComponent<MenuManager>().souvenirText.text = "Rat Poison";
+            }
+            else if (index == 6)
+            {
+                GetComponent<MenuManager>().souvenirText.text = "Tequila";
+            }
+            else if (index == 7)
+            {
+                GetComponent<MenuManager>().souvenirText.text = "VIP Card";
+            }
+            else if (index == 8)
+            {
+                GetComponent<MenuManager>().souvenirText.text = "Floaty";
+            }
+            else
+            {
+                GetComponent<MenuManager>().souvenirText.text = "None";
+            }
+            #endregion
+        }
     }
 
     public void SaveOptions()

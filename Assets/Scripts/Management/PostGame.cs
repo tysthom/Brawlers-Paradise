@@ -139,6 +139,92 @@ public class PostGame : MonoBehaviour
 
         postGameMenu.SetActive(true);
         eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(playAgainButton);
+
+        if(GetComponent<IdManagear>().gameMode == IdManagear.mode.playerVsAi)
+        {
+            GetComponent<SaveData>().LoadStats();
+            StateNameController.totalFights++;
+            if(GetComponent<IdManagear>().brawler1.GetComponent<Health>().health > 0)
+            {
+                StateNameController.totalWins++;
+            }
+
+            StateNameController.winRate = (int)((StateNameController.totalWins / StateNameController.totalFights) * 100);
+
+            #region Fight Style
+            if (GetComponent<IdManagear>().brawler1.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.karate)
+            {
+                StateNameController.fightStyleUsage[0]++;
+            } 
+            else if (GetComponent<IdManagear>().brawler1.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.boxing)
+            {
+                StateNameController.fightStyleUsage[1]++;
+            }
+            else if (GetComponent<IdManagear>().brawler1.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.MMA)
+            {
+                StateNameController.fightStyleUsage[2]++;
+            }
+            else if (GetComponent<IdManagear>().brawler1.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.taekwondo)
+            {
+                StateNameController.fightStyleUsage[3]++;
+            }
+            else if (GetComponent<IdManagear>().brawler1.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.kungFu)
+            {
+                StateNameController.fightStyleUsage[4]++;
+            }
+            else if (GetComponent<IdManagear>().brawler1.GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.proWrestling)
+            {
+                StateNameController.fightStyleUsage[5]++;
+            }
+            #endregion
+
+            StateNameController.avgBasicAttackConnectionRate = (int)((resultStatsInstance.b1BasicAttackPercentage + StateNameController.avgBasicAttackConnectionRate) / StateNameController.totalFights);
+            StateNameController.avgDamageInflicted = (int)((resultStatsInstance.b1DamageInflicted + StateNameController.avgDamageInflicted) / StateNameController.totalFights);
+            StateNameController.avghealthRecovered = (int)((resultStatsInstance.b1HealthRecoverd + StateNameController.avghealthRecovered) / StateNameController.totalFights);
+            StateNameController.avgStaminaUsed = (int)((resultStatsInstance.b1StaminaUsed + StateNameController.avgStaminaUsed) / StateNameController.totalFights);
+            
+            StateNameController.avgDodgesPerformed = (int)((resultStatsInstance.b1DodgesPerformed + StateNameController.avgDodgesPerformed) / StateNameController.totalFights);
+            #region Souvenirs
+            if (GetComponent<IdManagear>().brawler1.GetComponent<Souvenirs>().souvenir == Souvenirs.souvenirs.medicine)
+            {
+                StateNameController.souvenirUsage[0]++;
+            }
+            else if (GetComponent<IdManagear>().brawler1.GetComponent<Souvenirs>().souvenir == Souvenirs.souvenirs.sunscreen)
+            {
+                StateNameController.souvenirUsage[1]++;
+            }
+            else if (GetComponent<IdManagear>().brawler1.GetComponent<Souvenirs>().souvenir == Souvenirs.souvenirs.coffee)
+            {
+                StateNameController.souvenirUsage[2]++;
+            }
+            else if (GetComponent<IdManagear>().brawler1.GetComponent<Souvenirs>().souvenir == Souvenirs.souvenirs.briefcase)
+            {
+                StateNameController.souvenirUsage[3]++;
+            }
+            else if (GetComponent<IdManagear>().brawler1.GetComponent<Souvenirs>().souvenir == Souvenirs.souvenirs.lifeJacket)
+            {
+                StateNameController.souvenirUsage[4]++;
+            }
+            else if (GetComponent<IdManagear>().brawler1.GetComponent<Souvenirs>().souvenir == Souvenirs.souvenirs.ratPoison)
+            {
+                StateNameController.souvenirUsage[5]++;
+            }
+            else if (GetComponent<IdManagear>().brawler1.GetComponent<Souvenirs>().souvenir == Souvenirs.souvenirs.tequila)
+            {
+                StateNameController.souvenirUsage[6]++;
+            }
+            else if (GetComponent<IdManagear>().brawler1.GetComponent<Souvenirs>().souvenir == Souvenirs.souvenirs.vipCard)
+            {
+                StateNameController.souvenirUsage[7]++;
+            }
+            else if (GetComponent<IdManagear>().brawler1.GetComponent<Souvenirs>().souvenir == Souvenirs.souvenirs.floaty)
+            {
+                StateNameController.souvenirUsage[8]++;
+            }
+            #endregion
+
+            GetComponent<SaveData>().SaveStats();
+        }
     }
 
     public void PlayAgain()

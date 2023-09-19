@@ -30,6 +30,19 @@ public class StateNameController : MonoBehaviour
     public static int difficultySelection;
     public static int throwableSelection; //0 YES 1 NO
 
+    public static int totalFights;
+    public static int totalWins;
+    public static float winRate;
+    public static int[] fightStyleUsage = new int[6];
+    //Karate, Boxing, MMA, TKD, Kung Fu, Wrestling
+    public static float avgBasicAttackConnectionRate;
+    public static float avgDamageInflicted;
+    public static float avghealthRecovered;
+    public static float avgStaminaUsed;
+    public static float avgDodgesPerformed;
+    public static int[] souvenirUsage = new int[9];
+    // Medicine, Sunscreen, Coffee, Briefcase, LifeJacket, RatPoison, Tequila, VIPCard, Floaty, None
+
     public static int hudSelection;
     public static int controllerVibration; //0 YES 1 NO
     public static float musicVolume;

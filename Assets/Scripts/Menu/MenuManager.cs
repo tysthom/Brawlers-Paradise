@@ -109,6 +109,18 @@ public class MenuManager : MonoBehaviour
     public Toggle throwableToggle;
     public bool throwableAllowed;
 
+    [Header("Stats")]
+    public GameObject statsMenu;
+    public TextMeshProUGUI totalFightsText;
+    public TextMeshProUGUI winRateText;
+    public TextMeshProUGUI fightStyleText;
+    public TextMeshProUGUI basicAttackText;
+    public TextMeshProUGUI damageText;
+    public TextMeshProUGUI healthText;
+    public TextMeshProUGUI staminaText;
+    public TextMeshProUGUI dodgeText;
+    public TextMeshProUGUI souvenirText;
+
     [Header("Options Menu")]
     public GameObject optionsBackground;
     public GameObject optionsMenu;
@@ -542,6 +554,13 @@ public class MenuManager : MonoBehaviour
             yield return new WaitForSeconds(.5f);
 
             StartCoroutine(FightMenuCoroutine(.25f));
+        }
+        else if (currentMenu == "Stats Menu")
+        {
+            statsMenu.SetActive(false);
+            yield return new WaitForSeconds(.5f);
+
+            MainMenu();
         }
         else if(currentMenu == "Options Menu")
         {
@@ -1355,7 +1374,29 @@ public class MenuManager : MonoBehaviour
     }
     #endregion
 
-    
+    public void StatsMenu()
+    {
+        if (canChangeMenu)
+        {
+            StartCoroutine(StatsMenuCoroutine());
+        }
+    }
+
+    IEnumerator StatsMenuCoroutine()
+    {
+        currentMenu = "Stats Menu";
+
+        canChangeMenu = false;
+        mainMenu.SetActive(false);
+        yield return new WaitForSeconds(.75f);
+
+        GetComponent<SaveData>().LoadStats();
+        statsMenu.SetActive(true);
+
+        eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(null);
+        canChangeMenu = true;
+    }
+
     public void OptionsMenu()
     {
         if (canChangeMenu)

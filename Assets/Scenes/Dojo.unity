@@ -5169,7 +5169,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502112829}
-  m_LocalRotation: {x: -0.0000000032552225, y: 0.99130005, z: -0.13162142, w: -0.000000024516542}
+  m_LocalRotation: {x: -0.000000008565174, y: 0.99130005, z: -0.13162142, w: -0.00000006450817}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -11618,6 +11618,7 @@ GameObject:
   - component: {fileID: 1209302673}
   - component: {fileID: 1209302672}
   - component: {fileID: 1209302674}
+  - component: {fileID: 1209302675}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -11806,6 +11807,18 @@ MonoBehaviour:
   eventSystem: {fileID: 1121977312}
   pauseMenu: {fileID: 580886431}
   resumeButton: {fileID: 1186543361}
+--- !u!114 &1209302675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209302665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4c1fb1c532542347b0f322e602e5d23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1211467494
 GameObject:
   m_ObjectHideFlags: 0
@@ -20448,7 +20461,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &1916185137
 Light:
   m_ObjectHideFlags: 0
@@ -20461,7 +20474,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.44
+  m_Intensity: 0.1
   m_Range: 100
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
