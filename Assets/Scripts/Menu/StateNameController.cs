@@ -32,7 +32,7 @@ public class StateNameController : MonoBehaviour
 
     public static int totalFights;
     public static int totalWins;
-    public static float winRate;
+    public static int winRate;
     public static int[] fightStyleUsage = new int[6];
     //Karate, Boxing, MMA, TKD, Kung Fu, Wrestling
     public static float avgBasicAttackConnectionRate;

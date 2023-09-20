@@ -69,7 +69,7 @@ public class SaveData : MonoBehaviour
     {
         PlayerPrefs.SetInt("Total Fights", StateNameController.totalFights);
         PlayerPrefs.SetInt("Total Wins", StateNameController.totalWins);
-        PlayerPrefs.SetFloat("Win Rate", StateNameController.winRate);
+        PlayerPrefs.SetInt("Win Rate", StateNameController.winRate);
         #region Fight Style Usage
         PlayerPrefs.SetInt("Karate Count", StateNameController.fightStyleUsage[0]);
         PlayerPrefs.SetInt("Boxing Count", StateNameController.fightStyleUsage[1]);
@@ -99,7 +99,8 @@ public class SaveData : MonoBehaviour
     public void LoadStats()
     {
         StateNameController.totalFights = PlayerPrefs.GetInt("Total Fights");
-        StateNameController.winRate  = PlayerPrefs.GetFloat("Win Rate");
+        StateNameController.totalWins = PlayerPrefs.GetInt("Total Wins");
+        StateNameController.winRate  = PlayerPrefs.GetInt("Win Rate");
         #region Fight Style Usage
         StateNameController.fightStyleUsage[0] = PlayerPrefs.GetInt("Karate Count");
         StateNameController.fightStyleUsage[1] = PlayerPrefs.GetInt("Boxing Count");

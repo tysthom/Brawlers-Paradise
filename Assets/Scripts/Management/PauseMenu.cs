@@ -20,8 +20,7 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        KeyCode pauseButton = KeyCode.Joystick1Button7;
-        bool pause =  Input.GetKeyDown(pauseButton);
+        bool pause = Input.GetKeyDown(KeyCode.JoystickButton7);
         bool back = Input.GetButtonDown("Dodge");
 
         if(UniversalFight.fight == false) { return; }

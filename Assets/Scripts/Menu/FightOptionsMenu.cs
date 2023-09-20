@@ -18,7 +18,7 @@ public class FightOptionsMenu : MonoBehaviour
     public TextMeshProUGUI b2SouvenirDescriptionText;
     public int b1SouvenirSelection;
     public int b2SouvenirSelection;
-    public string[] souvniers = { "Medicine", "Sunscreen", "Coffee", "Briefcase", "Rat Poison", "Life Jacket", "Tequila",
+    public string[] souvniers = { "Medicine", "Sunscreen", "Coffee", "Briefcase", "Life Jacket", "Rat Poison", "Tequila",
         "VIP Card", "Floaty", "None"};
     public GameObject b1CurrentParticle;
     public GameObject b2CurrentParticle;
@@ -94,13 +94,13 @@ public class FightOptionsMenu : MonoBehaviour
                 }
                 else if (menuManagerInstance.b1SouvenirSelection == 4)
                 {
-                    b1CurrentParticle = Instantiate(ratPoisonParticles, brawler1.transform.position, Quaternion.Euler(new Vector3(-76, 11, 80)));
-                    b1SouvenirDescriptionText.text = "Deal 75 damage over 5 sec. (30 sec cooldown)";
+                    b1CurrentParticle = Instantiate(lifeJacketParticles, brawler1.transform.position, Quaternion.Euler(new Vector3(-76, 11, 80)));
+                    b1SouvenirDescriptionText.text = "Become unkillable for 5 sec. (40 sec cooldown)";
                 }
                 else if (menuManagerInstance.b1SouvenirSelection == 5)
                 {
-                    b1CurrentParticle = Instantiate(lifeJacketParticles, brawler1.transform.position, Quaternion.Euler(new Vector3(-76, 11, 80)));
-                    b1SouvenirDescriptionText.text = "Become unkillable for 5 sec. (40 sec cooldown)";
+                    b1CurrentParticle = Instantiate(ratPoisonParticles, brawler1.transform.position, Quaternion.Euler(new Vector3(-76, 11, 80)));
+                    b1SouvenirDescriptionText.text = "Deal 75 damage over 5 sec. (30 sec cooldown)";
                 }
                 else if (menuManagerInstance.b1SouvenirSelection == 6)
                 {
@@ -164,13 +164,13 @@ public class FightOptionsMenu : MonoBehaviour
                 }
                 else if (menuManagerInstance.b2SouvenirSelection == 4)
                 {
-                    b2CurrentParticle = Instantiate(ratPoisonParticles, brawler2.transform.position, Quaternion.Euler(new Vector3(-76, 11, 80)));
-                    b2SouvenirDescriptionText.text = "Deal 75 damage over 5 sec. (30 sec cooldown)";
+                    b2CurrentParticle = Instantiate(lifeJacketParticles, brawler2.transform.position, Quaternion.Euler(new Vector3(-76, 11, 80)));
+                    b2SouvenirDescriptionText.text = "Become unkillable for 5 sec. (40 sec cooldown)";
                 }
                 else if (menuManagerInstance.b2SouvenirSelection == 5)
                 {
-                    b2CurrentParticle = Instantiate(lifeJacketParticles, brawler2.transform.position, Quaternion.Euler(new Vector3(-76, 11, 80)));
-                    b2SouvenirDescriptionText.text = "Become unkillable for 5 sec. (40 sec cooldown)";
+                    b2CurrentParticle = Instantiate(ratPoisonParticles, brawler2.transform.position, Quaternion.Euler(new Vector3(-76, 11, 80)));
+                    b2SouvenirDescriptionText.text = "Deal 75 damage over 5 sec. (30 sec cooldown)";
                 }
                 else if (menuManagerInstance.b2SouvenirSelection == 6)
                 {

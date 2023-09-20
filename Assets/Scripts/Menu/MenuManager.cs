@@ -120,6 +120,9 @@ public class MenuManager : MonoBehaviour
     public TextMeshProUGUI staminaText;
     public TextMeshProUGUI dodgeText;
     public TextMeshProUGUI souvenirText;
+    float resetAmount = 0;
+    public GameObject resetFill;
+    Coroutine resetCoroutine;
 
     [Header("Options Menu")]
     public GameObject optionsBackground;
@@ -202,7 +205,8 @@ public class MenuManager : MonoBehaviour
         bool aButton = Input.GetButton("Pick Up");
         bool switchB1Side = Input.GetButtonDown("Secondary Special");
         bool switchB2Side = Input.GetButtonDown("Primary Special");
-        bool xButton = Input.GetButtonDown("Attack");
+        bool xButtonRandomizer = Input.GetButtonDown("Attack");
+        bool xButtonReset = Input.GetButton("Attack");
         bool bButton = Input.GetButtonDown("Dodge");
 
         if (canChangeMenu)
@@ -308,7 +312,7 @@ public class MenuManager : MonoBehaviour
                 b1Side = false;
             }
 
-            if (xButton)
+            if (xButtonRandomizer)
             {
                 if(currentMenu == "Fight Menu")
                 {
@@ -488,6 +492,20 @@ public class MenuManager : MonoBehaviour
 
             StateNameController.gameModeSelection = gameModeSelection;
             StateNameController.difficultySelection = difficultySelection;
+        }
+        else if(currentMenu == "Stats Menu")
+        {
+            if (xButtonReset)
+            {
+                if(resetCoroutine == null)
+                    resetCoroutine = StartCoroutine(ResetStats());
+            }
+            else
+            {
+                resetAmount = 0;
+            }
+
+            resetFill.GetComponent<Image>().fillAmount = resetAmount / 1;
         }
         else if(currentMenu == "Settings Menu")
         {
@@ -1395,6 +1413,35 @@ public class MenuManager : MonoBehaviour
 
         eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(null);
         canChangeMenu = true;
+    }
+
+    IEnumerator ResetStats()
+    {
+        resetAmount += .02f;
+        yield return new WaitForSeconds(.1f);
+        if (resetAmount >= 1) {
+            StateNameController.totalFights = 0;
+            StateNameController.totalWins = 0;
+            StateNameController.winRate = 0;
+            for (int i = 0; i < StateNameController.fightStyleUsage.Length; i++)
+            {
+                StateNameController.fightStyleUsage[i] = 0;
+            }
+            StateNameController.avgBasicAttackConnectionRate = 0;
+            StateNameController.avgDamageInflicted = 0;
+            StateNameController.avghealthRecovered = 0;
+            StateNameController.avgStaminaUsed = 0;
+            StateNameController.avgDodgesPerformed = 0;
+            for (int i = 0; i < StateNameController.souvenirUsage.Length; i++)
+            {
+                StateNameController.souvenirUsage[i] = 0;
+            }
+
+            GetComponent<SaveData>().SaveStats();
+            GetComponent<SaveData>().LoadStats();
+        }
+
+        resetCoroutine = null;
     }
 
     public void OptionsMenu()
