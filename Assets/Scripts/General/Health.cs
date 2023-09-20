@@ -80,37 +80,40 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        
-        if (health > maxHealth)
-        {
-            health = maxHealth;
-        } 
-        if (health <= 0)
-        {
-            health = 0;
-            regenHealth = 0;
-        }
 
-        if (hudManagerInstance.hudType != HUDManager.hud.none && tag != "Tourist")
+        if (UniversalFight.fight)
         {
-            BarFiller();
-
-            if (GetComponent<Souvenirs>().hasArmour && canDeteriorate)
+            if (health > maxHealth)
             {
-                StartCoroutine(DeteriorateArmour());
+                health = maxHealth;
+            }
+            if (health <= 0)
+            {
+                health = 0;
+                regenHealth = 0;
             }
 
-            if (GetComponent<Flinch>().isPoisoned)
+            if (hudManagerInstance.hudType != HUDManager.hud.none && tag != "Tourist")
             {
-                healthBar.GetComponent<Image>().color = barColorInstance.poisonColor;
-            }
-            else if (GetComponent<Combat>().unkillable)
-            {
-                healthBar.GetComponent<Image>().color = barColorInstance.unkillableColor;
-            }
-            else
-            {
-                healthBar.GetComponent<Image>().color = barColorInstance.healthColor;
+                BarFiller();
+
+                if (GetComponent<Souvenirs>().hasArmour && canDeteriorate)
+                {
+                    StartCoroutine(DeteriorateArmour());
+                }
+
+                if (GetComponent<Flinch>().isPoisoned)
+                {
+                    healthBar.GetComponent<Image>().color = barColorInstance.poisonColor;
+                }
+                else if (GetComponent<Combat>().unkillable)
+                {
+                    healthBar.GetComponent<Image>().color = barColorInstance.unkillableColor;
+                }
+                else
+                {
+                    healthBar.GetComponent<Image>().color = barColorInstance.healthColor;
+                }
             }
         }
     }
@@ -195,6 +198,7 @@ public class Health : MonoBehaviour
                 if (health > 0)
                 {
                     health -= damageAmount;
+                    regenHealth = health;
                     gameManager.GetComponent<ResultStats>().DamageInflicted(gameObject, damageAmount);
                     if (health <= 0)
                     {
@@ -208,8 +212,6 @@ public class Health : MonoBehaviour
             }
             yield return new WaitForSeconds(1);
         }
-
-        regen = StartCoroutine(RegenHealth());
     }
 
     public void AddHealth(float amount)

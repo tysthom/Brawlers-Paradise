@@ -45,7 +45,6 @@ public class Combat : MonoBehaviour
     public bool isParrying; //True if is parrying
     public bool isBlocking;
     public bool isBlockBuffering;
-    bool blockTransitionCalled = false;
     public bool isParryBuffering;
     public float primary, secondary; //Trigger values
     bool secondaryLifted;
@@ -615,7 +614,6 @@ public class Combat : MonoBehaviour
     IEnumerator BlockTransitionTime()
     {
         anim.SetBool("canTransition", true);
-        blockTransitionCalled = true;
         yield return new WaitForSeconds(.3f);
         anim.SetBool("canTransition", false);
     }
@@ -625,7 +623,6 @@ public class Combat : MonoBehaviour
         isBlockBuffering = true;
         yield return new WaitForSeconds(.25f); //Prevents player from attacking immediaetly
         isBlockBuffering = false;
-        blockTransitionCalled = false;
     }
 
     IEnumerator Block()
@@ -1077,7 +1074,6 @@ public class Combat : MonoBehaviour
         isFinishing = true;
         //GetComponent<Throw>().Equiping(false);
         enemy.GetComponent<Flinch>().isBeingFinished = true;
-        Debug.Log("FINISH");
         if (tag == "Player")
         {
             hudManager.GetComponent<HUDManager>().finisherPrompt.SetActive(false);
@@ -1098,7 +1094,7 @@ public class Combat : MonoBehaviour
     public void Finish()
     {
         gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
-        gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.25f, .2f));
+        gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .2f));
         StartCoroutine(enemy.GetComponent<Death>().Die());
     }
 
@@ -1415,7 +1411,6 @@ public class Combat : MonoBehaviour
             }
             else
             {
-                Debug.Log("Fail");
                 StartCoroutine(DecreaseAttackFrequency());
             }
         }

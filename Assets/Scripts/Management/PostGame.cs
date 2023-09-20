@@ -142,14 +142,13 @@ public class PostGame : MonoBehaviour
 
         if(GetComponent<IdManagear>().gameMode == IdManagear.mode.playerVsAi)
         {
-            GetComponent<SaveData>().SaveStats();
+            //GetComponent<SaveData>().SaveStats();
             GetComponent<SaveData>().LoadStats();
             StateNameController.totalFights++;
             if(GetComponent<IdManagear>().brawler1.GetComponent<Health>().health > 0)
             {
                 StateNameController.totalWins++;
             }
-            Debug.Log(StateNameController.totalWins);
             StateNameController.winRate = (int)((StateNameController.totalWins * 100 / StateNameController.totalFights * 100) / 100);
 
             #region Fight Style

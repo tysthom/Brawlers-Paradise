@@ -31,7 +31,7 @@ public class Particles : MonoBehaviour
 
     public IEnumerator ParticlesDeletion(GameObject brawler)
     {
-
+        yield return new WaitForSeconds(.05f);
         if (name == "Attack Increase Lasting Particles(Clone)")
         {
             yield return new WaitUntil(() => brawler.GetComponent<Animator>().GetBool("isOffensiveStance") == false);

@@ -13,6 +13,22 @@ public class Technique : MonoBehaviour
         gameManager = GameObject.Find("Game Manager");
         resultStatsInstance = gameManager.GetComponent<ResultStats>();
         particleManager = GameObject.Find("Particle Manager");
+
+        StartCoroutine(InitialParticles());
+    }
+
+    IEnumerator InitialParticles()
+    {
+        yield return new WaitUntil(() => UniversalFight.fight);
+
+        if (GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.karate)
+        {
+            GetComponent<Animator>().SetBool("isOffensiveStance", true);
+            GetComponent<Animator>().SetBool("isDefensiveStance", false);
+            GetComponent<Animator>().SetBool("isPassiveStance", false);
+
+            particleManager.GetComponent<ParticleManager>().KarateOffensiveParticles(gameObject); //Switches stance from defensive to passive & activates particles
+        }
     }
 
     public void UseTechnique(GameObject brawler)

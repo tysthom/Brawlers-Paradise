@@ -6,7 +6,7 @@ using XInputDotNetPure;
 public class Vibrations : MonoBehaviour
 {
     PlayerIndex playerIndex;
-    public bool vibrateOn;
+    public bool canVibrate;
     public bool vibrating;
     public float vIntensity;
     public Coroutine vibrateCoroutine;
@@ -18,11 +18,11 @@ public class Vibrations : MonoBehaviour
         {
             if (StateNameController.controllerVibration == 0)
             {
-                vibrateOn = true;
+                canVibrate = true;
             }
             else
             {
-                vibrateOn = false;
+                canVibrate = false;
             }
         }
     }
@@ -30,18 +30,22 @@ public class Vibrations : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (vibrating == false)
+            vIntensity = 0;
+
        GamePad.SetVibration(playerIndex, vIntensity, vIntensity);
     }
 
     public IEnumerator Vibrate(float duration, float intensity)
     {
-        if (vibrateOn)
+        if (canVibrate)
         {
             vIntensity = intensity;
             vibrating = true;
-            yield return new WaitForSeconds(duration);
+            yield return new WaitForSeconds(intensity);
             vIntensity = 0;
             vibrating = false;
+            StopCoroutine(vibrateCoroutine);
         }
     }
 }

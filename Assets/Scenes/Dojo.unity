@@ -5169,7 +5169,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502112829}
-  m_LocalRotation: {x: -0.0000000032281426, y: 0.99130005, z: -0.13162142, w: -0.000000024312598}
+  m_LocalRotation: {x: -0.0000000032213134, y: 0.99130005, z: -0.13162142, w: -0.000000024261153}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -11672,7 +11672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7e8d4680bf41ab4c83118273ec5f827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vibrateOn: 0
+  canVibrate: 0
   vibrating: 0
   vIntensity: 0
 --- !u!114 &1209302669
@@ -13387,7 +13387,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1365660884}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69bd1f316dadde446a8fa8ae0421572e, type: 3}
   m_Name: 
@@ -13544,10 +13544,10 @@ MonoBehaviour:
   forthAttackV1Distance: 5
   forthAttackV2Distance: 10
   kungFuFightTypeStats: 0400000002000000030000000500000002000000
-  eyePokeTime: 1.5
+  eyePokeTime: 1
   eyePokeTickRepeats: 5
   eyePokeDamage: 12
-  aiEyePokeFrequency: 1
+  aiEyePokeFrequency: 2
 --- !u!114 &1365660894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23279,6 +23279,10 @@ PrefabInstance:
       propertyPath: combatManagear
       value: 
       objectReference: {fileID: 1891941792}
+    - target: {fileID: 3959081544076690106, guid: 79a2be79af02b1b44ba75873dc543b50, type: 3}
+      propertyPath: fightStyle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3959081544076690107, guid: 79a2be79af02b1b44ba75873dc543b50, type: 3}
       propertyPath: cam
       value: 
