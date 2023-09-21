@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class IdManagear : MonoBehaviour
 {
@@ -10,10 +11,11 @@ public class IdManagear : MonoBehaviour
 
     public GameObject playerPrefab;
     public GameObject aiPrefab;
-    GameObject[] player;
+    public GameObject[] player;
     GameObject[] ai;
     public GameObject brawler1, brawler2;
     public Camera playerCamera;
+    public GameObject liveCamera;
     public Camera spectatorCamera;
     public Camera winnerCamera;
     GameObject[] spawnPositions;
@@ -41,7 +43,9 @@ public class IdManagear : MonoBehaviour
 
         if (gameMode == mode.playerVsAi || gameMode == mode.training)
         {
-           GameObject ai1 = Instantiate(aiPrefab, spawnPositions[0].transform);
+            GameObject p = Instantiate(playerPrefab, spawnPositions[1].transform);
+            GameObject ai1 = Instantiate(aiPrefab, spawnPositions[0].transform);
+            p.name = "Player";
             ai1.name = "Enemy";
             if(gameMode == mode.training)
             {
@@ -67,6 +71,8 @@ public class IdManagear : MonoBehaviour
             brawler1 = player[0];
             brawler2 = ai[0];
 
+            PlayerInitializationVariables();
+
             brawler1.GetComponent<BrawlerId>().brawlerId = BrawlerId.Id.brawler1;
             brawler2.GetComponent<BrawlerId>().brawlerId = BrawlerId.Id.brawler2;
         } else if(gameMode == mode.AiVsAi)
@@ -87,5 +93,11 @@ public class IdManagear : MonoBehaviour
         characterManager.GetComponent<CharacterManager>().brawler2 = brawler2;
         particleManager.GetComponent<ParticleManager>().brawler1 = brawler1;
         particleManager.GetComponent<ParticleManager>().brawler2 = brawler2;
+    }
+
+    public void PlayerInitializationVariables()
+    {
+        liveCamera.GetComponent<CinemachineFreeLook>().Follow = player[0].transform;
+        liveCamera.GetComponent<CinemachineFreeLook>().LookAt = GameObject.Find("Look Point").transform;
     }
 }

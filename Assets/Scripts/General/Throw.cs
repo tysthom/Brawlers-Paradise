@@ -27,6 +27,7 @@ public class Throw : MonoBehaviour
     {
         anim = gameObject.GetComponent<Animator>();
         throwableHolder = GameObject.Find("Throwables");
+        pickupIcon = GameObject.Find("Throwable Pickup Prompt");
     }
 
     void Start()

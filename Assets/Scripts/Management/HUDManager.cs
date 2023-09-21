@@ -16,6 +16,8 @@ public class HUDManager : MonoBehaviour
     public Image brawler1Health, brawler1HealthFill, brawler1HealthRegen, brawler1ArmourFill, brawler1Stamina, brawler1StaminaFill,
         brawler2Health, brawler2HealthFill, brawler2HealthRegen, brawler2ArmourFill, brawler2Stamina, brawler2StaminaFill;
 
+    public TMP_Text brawler1Name, brawler2Name;
+
     public TMP_Text finisherText;
     public GameObject finisherPrompt;
 
@@ -31,6 +33,8 @@ public class HUDManager : MonoBehaviour
             if(StateNameController.hudSelection == 0)
             {
                 hudType = hud.classic;
+                brawler1Name.text = "" + StateNameController.b1Name;
+                brawler2Name.text = "" + StateNameController.b2Name;
             } 
             else if(StateNameController.hudSelection == 1)
             {
@@ -128,8 +132,6 @@ public class HUDManager : MonoBehaviour
                 }
             }
             #endregion
-
-            
         }
         else if(hudType == hud.minimalist)
         {

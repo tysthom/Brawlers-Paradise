@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class BearhugBreakOutUI : MonoBehaviour
 {
+    GameObject gameManager;
     GameObject hudManager;
     HUDManager hudManagerInstance;
     public GameObject bearhugBreakOutBar;
@@ -15,6 +16,7 @@ public class BearhugBreakOutUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("Game Manager");
         hudManager = GameObject.Find("HUD Manager");
         hudManagerInstance = hudManager.GetComponent<HUDManager>();
         bearhugBreakOutBar.SetActive(false);
@@ -25,7 +27,7 @@ public class BearhugBreakOutUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player != null && player.GetComponent<Flinch>().isBearhugged && hudManagerInstance.hudType != HUDManager.hud.none)
+        if (gameManager.GetComponent<IdManagear>().gameMode != IdManagear.mode.AiVsAi && player != null && player.GetComponent<Flinch>().isBearhugged && hudManagerInstance.hudType != HUDManager.hud.none)
         {
             bearhugBreakOutBar.SetActive(true);
             bearHugBreakOutPrompt.SetActive(true);

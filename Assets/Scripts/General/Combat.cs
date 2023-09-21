@@ -355,7 +355,7 @@ public class Combat : MonoBehaviour
             {
                 if (canBlock)
                 {
-                    if (tag == "Enemy") //Stops Ai from continuously parrying
+                    if (tag == "Enemy") //Stops Ai from continuously blocking
                     {
                         secondary = 0;
                         
@@ -364,11 +364,9 @@ public class Combat : MonoBehaviour
                     }
                     else
                     {
-                        //canBlock = false;
+
                         isBlocking = true;
                         anim.SetInteger("State", 20);
-                        //if(!blockTransitionCalled)
-                            //StartCoroutine(BlockTransitionTime());
                     }
                 }
             }
@@ -1002,8 +1000,8 @@ public class Combat : MonoBehaviour
                 GetComponent<CharacterController>().enabled = true;
             }
             GetComponent<Flinch>().isBearhugged = false;
-            GetComponent<Flinch>().parried = StartCoroutine(GetComponent<Flinch>().Parried());
-            enemy.GetComponent<Flinch>().parried = StartCoroutine(enemy.GetComponent<Flinch>().Parried());
+            GetComponent<Flinch>().parried = StartCoroutine(GetComponent<Flinch>().Parried(true));
+            enemy.GetComponent<Flinch>().parried = StartCoroutine(enemy.GetComponent<Flinch>().Parried(true));
         }
     }
 
@@ -1243,7 +1241,7 @@ public class Combat : MonoBehaviour
                             enemyTkdTech <= fightStyleManager.GetComponent<TkdStats>().aiStretchFrequency)
                         {
                             enemy.GetComponent<Combat>().stretch = StartCoroutine(enemy.GetComponent<Combat>().Stretch());
-                            GetComponent<Flinch>().parried = StartCoroutine(GetComponent<Flinch>().Parried());
+                            GetComponent<Flinch>().parried = StartCoroutine(GetComponent<Flinch>().Parried(false));
                         } 
                         else if (dodgeParry <= combatStatsInstance.aiBlockDodgeFrequency && enemy.GetComponent<AiBehavior>().isIdle && enemy.GetComponent<Dodge>().canDodge)
                         {
@@ -1372,7 +1370,7 @@ public class Combat : MonoBehaviour
                             }
                             else if (enemy.GetComponent<Combat>().isStretching)
                             {
-                                GetComponent<Flinch>().parried = StartCoroutine(GetComponent<Flinch>().Parried());
+                                GetComponent<Flinch>().parried = StartCoroutine(GetComponent<Flinch>().Parried(false));
                             } 
                             else
                             {
@@ -1394,7 +1392,7 @@ public class Combat : MonoBehaviour
                             }
                             else if (enemy.GetComponent<Combat>().isStretching)
                             {
-                                GetComponent<Flinch>().parried = StartCoroutine(GetComponent<Flinch>().Parried());
+                                GetComponent<Flinch>().parried = StartCoroutine(GetComponent<Flinch>().Parried(false));
                             }
                             else
                             {

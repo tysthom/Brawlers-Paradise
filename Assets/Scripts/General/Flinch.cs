@@ -450,26 +450,22 @@ public class Flinch : MonoBehaviour
 
     public IEnumerator Bearhugged(float damage)
     {
-        GetComponent<Combat>().canNextAttack = false;
-        GetComponent<Combat>().isAttacking = false;
-        GetComponent<Combat>().faceEnemy = false;
-        GetComponent<Combat>().isGuardBreaking = false;
-        GetComponent<Throw>().isAiming = false;
-        GetComponent<Throw>().isThrowing = false;
+        GetComponent<CoroutineManager>().CancelCoroutines(bearHugged);
+
+        yield return new WaitForSeconds(.05f);
+
         isBearhugged = true;
         if (tag == "Player")
         {
             GetComponent<CharacterController>().enabled = false;
         }
 
-        GetComponent<CoroutineManager>().CancelCoroutines(bearHugged);
-        
         anim.SetInteger("State", 109);
         
         yield return new WaitForSeconds(.1f);
-        anim.SetBool("canTransition", false);
+        anim.SetInteger("State", 109);
 
-        if(tag == "Enemy")
+        if (tag == "Enemy")
         {
             GetComponent<Combat>().bearhugBreakOut = StartCoroutine(GetComponent<Combat>().BearHugBreakOut());
         }
@@ -486,7 +482,7 @@ public class Flinch : MonoBehaviour
 
     }
 
-    public IEnumerator Parried()
+    public IEnumerator Parried(bool wasBearHugged)
     {
         isParried = true;
 
@@ -505,10 +501,13 @@ public class Flinch : MonoBehaviour
         GetComponent<Throw>().isAiming = false;
         GetComponent<Throw>().isThrowing = false;
 
-        GetComponent<CoroutineManager>().CancelCoroutines(parried);
-        combatManagear.GetComponent<AttackStatusManager>().Parry(GetComponent<Combat>().enemy);
+        if (!wasBearHugged)
+        {
+            GetComponent<CoroutineManager>().CancelCoroutines(parried);
+            combatManagear.GetComponent<AttackStatusManager>().Parry(GetComponent<Combat>().enemy);
+        }
 
-        gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
+            gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
         gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .5f));
         anim.SetInteger("State", 120);
 

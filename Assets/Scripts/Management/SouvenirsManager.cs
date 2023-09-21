@@ -81,9 +81,16 @@ public class SouvenirsManager : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(InitialSteps());
+        
+    }
+
+    IEnumerator InitialSteps()
+    {
+        yield return new WaitUntil(() => UniversalFight.fight);
         if (UniversalFight.usingMenuData)
         {
-            if(StateNameController.b1MainSouvenirSelection == 0)
+            if (StateNameController.b1MainSouvenirSelection == 0)
             {
                 idManagerInstance.brawler1.GetComponent<Souvenirs>().souvenir = Souvenirs.souvenirs.medicine;
             }
@@ -184,7 +191,6 @@ public class SouvenirsManager : MonoBehaviour
                 }
             }
         }
-        
     }
 
     void AssignRandomSouvenir(GameObject brawler)

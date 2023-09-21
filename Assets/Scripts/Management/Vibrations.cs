@@ -25,6 +25,11 @@ public class Vibrations : MonoBehaviour
                 canVibrate = false;
             }
         }
+
+        if(GetComponent<IdManagear>().gameMode != IdManagear.mode.AiVsAi)
+        {
+            canVibrate = false;
+        }
     }
 
     // Update is called once per frame
@@ -42,7 +47,7 @@ public class Vibrations : MonoBehaviour
         {
             vIntensity = intensity;
             vibrating = true;
-            yield return new WaitForSeconds(intensity);
+            yield return new WaitForSeconds(.1f);
             vIntensity = 0;
             vibrating = false;
             StopCoroutine(vibrateCoroutine);

@@ -55,6 +55,7 @@ public class Movement : MonoBehaviour
         idManagerInstance = gameManager.GetComponent<IdManagear>();
         souvenirManager = GameObject.Find("Souvenir Manager");
         fightStyleManager = GameObject.Find("Fight Style Manager");
+        cam = GameObject.Find("Player Camera").transform;
     }
 
     void Update()
