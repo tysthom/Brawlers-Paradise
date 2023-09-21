@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DiveAttackUI : MonoBehaviour
 {
+    GameObject gameManager;
     GameObject hudManager;
     HUDManager hudManagerInstance;
     public GameObject playerDiveAttackPrompt;
@@ -11,6 +12,7 @@ public class DiveAttackUI : MonoBehaviour
 
     private void Start()
     {
+        gameManager = GameObject.Find("Game Manager");
         hudManager = GameObject.Find("HUD Manager");
         hudManagerInstance = hudManager.GetComponent<HUDManager>();
         player = GameObject.Find("Player");
@@ -18,14 +20,16 @@ public class DiveAttackUI : MonoBehaviour
 
     private void Update()
     {
-        if (player != null && player.GetComponent<Combat>().isGroundIdle || player.GetComponent<Combat>().isGroundAttacking 
-                && hudManagerInstance.hudType != HUDManager.hud.none)
-        {
-            playerDiveAttackPrompt.SetActive(true);
-        }
-        else
-        {
-            playerDiveAttackPrompt.SetActive(false);
+        if (gameManager.GetComponent<IdManagear>().gameMode != IdManagear.mode.AiVsAi) {
+            if (player != null && player.GetComponent<Combat>().isGroundIdle || player.GetComponent<Combat>().isGroundAttacking
+                    && hudManagerInstance.hudType != HUDManager.hud.none)
+            {
+                playerDiveAttackPrompt.SetActive(true);
+            }
+            else
+            {
+                playerDiveAttackPrompt.SetActive(false);
+            }
         }
     }
 }

@@ -65,6 +65,31 @@ public class SaveData : MonoBehaviour
         GetComponent<MenuManager>().b2SouvenirSelection = StateNameController.b2MainSouvenirSelection;
     }
 
+    public void SaveFightOptions()
+    {
+        PlayerPrefs.SetInt("Game Mode Selection", StateNameController.gameModeSelection);
+        PlayerPrefs.SetInt("Difficulty Selection", StateNameController.difficultySelection);
+        PlayerPrefs.SetInt("Throwable Selection", StateNameController.throwableSelection);
+    }
+
+    public void LoadFightOptions()
+    {
+        StateNameController.gameModeSelection = PlayerPrefs.GetInt("Game Mode Selection");
+        StateNameController.difficultySelection = PlayerPrefs.GetInt("Difficulty Selection");
+        StateNameController.throwableSelection = PlayerPrefs.GetInt("Throwable Selection");
+
+        GetComponent<MenuManager>().gameModeDropDown.value = StateNameController.gameModeSelection;
+        GetComponent<MenuManager>().difficultyDropdown.value = StateNameController.difficultySelection;
+        if(StateNameController.throwableSelection == 0)
+        {
+            GetComponent<MenuManager>().throwableToggle.isOn = true;
+        }
+        else
+        {
+            GetComponent<MenuManager>().throwableToggle.isOn = false;
+        }
+    }
+
     public void SaveStats()
     {
         PlayerPrefs.SetInt("Total Fights", StateNameController.totalFights);

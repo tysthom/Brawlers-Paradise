@@ -26,7 +26,7 @@ public class Vibrations : MonoBehaviour
             }
         }
 
-        if(GetComponent<IdManagear>().gameMode != IdManagear.mode.AiVsAi)
+        if(GetComponent<IdManagear>().gameMode == IdManagear.mode.AiVsAi)
         {
             canVibrate = false;
         }

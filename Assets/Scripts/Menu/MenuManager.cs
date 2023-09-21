@@ -188,6 +188,7 @@ public class MenuManager : MonoBehaviour
         fightMenu.GetComponent<BrawlerUpdates>().brawler1.transform.position += new Vector3(0, 0, -10);
         fightMenu.GetComponent<BrawlerUpdates>().brawler2.transform.position += new Vector3(0, 0, -10);
         GetComponent<SaveData>().LoadBrawler();
+        GetComponent<SaveData>().LoadFightOptions();
         GetComponent<SaveData>().LoadOptions();
     }
 

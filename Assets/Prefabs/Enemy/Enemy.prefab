@@ -1895,6 +1895,7 @@ GameObject:
   - component: {fileID: 6702712412066992383}
   - component: {fileID: 1329285225641619745}
   - component: {fileID: 6088605030201720156}
+  - component: {fileID: 3393434001153755272}
   m_Layer: 5
   m_Name: Finisher Prompt
   m_TagString: Untagged
@@ -1959,6 +1960,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3393434001153755272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4152731610035408583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c7a5980c12f3f24891da603c27fc215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4332558965967843192
 GameObject:
   m_ObjectHideFlags: 0
@@ -4497,13 +4510,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3281367932919063535, guid: d7b68d6b8553c3e47a52806ddb6e620a, type: 3}
   m_PrefabInstance: {fileID: 6918065134761087084}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &7723307247278508199 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 805955851600746699, guid: d7b68d6b8553c3e47a52806ddb6e620a, type: 3}
-  m_PrefabInstance: {fileID: 6918065134761087084}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6217562477600607112 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3911622256469318628, guid: d7b68d6b8553c3e47a52806ddb6e620a, type: 3}
+  m_PrefabInstance: {fileID: 6918065134761087084}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7723307247278508199 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 805955851600746699, guid: d7b68d6b8553c3e47a52806ddb6e620a, type: 3}
   m_PrefabInstance: {fileID: 6918065134761087084}
   m_PrefabAsset: {fileID: 0}

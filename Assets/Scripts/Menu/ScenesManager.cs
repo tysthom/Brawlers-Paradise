@@ -22,6 +22,7 @@ public class ScenesManager : MonoBehaviour
     public void LoadDojo()
     {
         GameObject.Find("Menu Manager").GetComponent<SaveData>().SaveBrawler();
+        GameObject.Find("Menu Manager").GetComponent<SaveData>().SaveFightOptions();
         StartCoroutine(LoadingDojo());
     }
 
