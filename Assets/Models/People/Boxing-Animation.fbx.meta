@@ -255,6 +255,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 101
         messageOptions: 0
+      - time: 0.5769806
+        functionName: FootSteps
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: ac338488431a2594581a98c911c45acd, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -302,6 +309,13 @@ ModelImporter:
         functionName: ShouldNotMove
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.54559046
+        functionName: FootSteps
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: ac338488431a2594581a98c911c45acd, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -355,6 +369,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.64424515
+        functionName: FootSteps
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: ac338488431a2594581a98c911c45acd, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -402,6 +423,13 @@ ModelImporter:
         functionName: ShouldNotMove
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.568012
+        functionName: FootSteps
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: ac338488431a2594581a98c911c45acd, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -455,6 +483,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 101
         messageOptions: 0
+      - time: 0.7384156
+        functionName: FootSteps
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: ac338488431a2594581a98c911c45acd, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -502,6 +537,13 @@ ModelImporter:
         functionName: ShouldNotMove
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.6083707
+        functionName: FootSteps
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: ac338488431a2594581a98c911c45acd, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -891,6 +933,13 @@ ModelImporter:
         functionName: ShouldNotMove
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.8460389
+        functionName: FootSteps
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: ac338488431a2594581a98c911c45acd, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0

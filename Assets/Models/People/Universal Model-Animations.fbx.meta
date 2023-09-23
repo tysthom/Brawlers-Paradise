@@ -81,8 +81,8 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
       does not match position in animation file:\n\t'Index1.L' : position error =
-      7.879139 mm\n\t'Middle1.L' : position error = 2.849705 mm\n\t'Index1.R' : position
-      error = 7.879226 mm\n\t'Middle1.R' : position error = 2.849799 mm\n"
+      7.879144 mm\n\t'Middle1.L' : position error = 2.849709 mm\n\t'Index1.R' : position
+      error = 7.879178 mm\n\t'Middle1.R' : position error = 2.849754 mm\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Armature|Backwards Dodge' has import animation
       warnings that might lower retargeting quality:\nNote: Activate translation
@@ -168,7 +168,21 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.011958238
+        functionName: FootSteps
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: ac338488431a2594581a98c911c45acd, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.4962631
+        functionName: FootSteps
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: ac338488431a2594581a98c911c45acd, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -342,7 +356,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.80568016
+        functionName: BodyThud
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: ac338488431a2594581a98c911c45acd, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

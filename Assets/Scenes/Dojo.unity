@@ -5210,15 +5210,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenuMusic: {fileID: 0}
   buttonPress: {fileID: 0}
+  footSteps:
+  - {fileID: 8300000, guid: 2424bcf984269be45a3a16fb20604ff2, type: 3}
+  - {fileID: 8300000, guid: df440377bc20d3e4c85196517a03e8c2, type: 3}
+  - {fileID: 8300000, guid: 11c37d74d31f20f4dabd2762ba5e54fc, type: 3}
+  - {fileID: 8300000, guid: d2a03543567992e43b1cba4792ebe9dc, type: 3}
   attackConnections:
   - {fileID: 8300000, guid: bef48fbc5b27d6d4c8bd3a4020aefb78, type: 3}
   - {fileID: 8300000, guid: fe2f817d1bec4534b9320f65850bbe35, type: 3}
   - {fileID: 8300000, guid: 64dff63ed2f03894d97fb6a77dc18617, type: 3}
   - {fileID: 8300000, guid: 098e089c3b07db04fb6e40dd644da47c, type: 3}
-  - {fileID: 8300000, guid: 2d3f07bb3b78d2c4c878925080f7eff7, type: 3}
-  - {fileID: 8300000, guid: a2d8134b909442944958b1cc6bba894f, type: 3}
-  - {fileID: 8300000, guid: 102739de3cd5f7b4cae3e4167e7914ac, type: 3}
-  - {fileID: 8300000, guid: a77250fc1900929429981d7b9a5ebe74, type: 3}
+  - {fileID: 8300000, guid: 2d5bb125f4a79fd43b8a0697da58b126, type: 3}
+  - {fileID: 8300000, guid: ae8d6bf9e29c884419fd349efa43de18, type: 3}
+  - {fileID: 8300000, guid: 905a82c1f2ab8914d98353756be35aad, type: 3}
+  uppercut: {fileID: 8300000, guid: 9052ed67756b56c4a814c4f75843d109, type: 3}
+  bodyThud: {fileID: 8300000, guid: 7332d0b684cf0a24a98c7fd612559414, type: 3}
 --- !u!1001 &710435286
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -221,15 +221,5 @@ public class HUDManager : MonoBehaviour
 
             brawler1Health.gameObject.SetActive(true);
         }
-        else
-        {
-
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

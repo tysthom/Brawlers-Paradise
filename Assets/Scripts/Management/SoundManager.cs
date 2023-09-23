@@ -8,6 +8,9 @@ public class SoundManager : MonoBehaviour
     public AudioClip mainMenuMusic;
     public AudioClip buttonPress;
 
-    [Header("Fighting")]
+    [Header("Fighting Hits")]
+    public AudioClip[] footSteps;
     public AudioClip[] attackConnections;
+    public AudioClip uppercut;
+    public AudioClip bodyThud;
 }

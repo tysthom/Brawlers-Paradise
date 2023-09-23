@@ -90,7 +90,6 @@ public class Souvenirs : MonoBehaviour
                         souvenirFill = subchild;
                     }
                 }
-            souvenirsManagerInstance.AssignSouvenirIcon(gameObject);
         } 
         else if (hudManagerInstance.hudType == HUDManager.hud.minimalist)
         {
@@ -115,7 +114,6 @@ public class Souvenirs : MonoBehaviour
                     }
                 }
             }
-            souvenirsManagerInstance.AssignSouvenirIcon(gameObject);
         }
 
         if (souvenirFill != null)
@@ -124,11 +122,6 @@ public class Souvenirs : MonoBehaviour
 
     private void Update()
     {
-        if (GetComponent<Flinch>().isStunned)
-        {
-            //canUseSouvenir = false;
-        }
-
         if(souvenir == souvenirs.briefcase && GetComponent<Throw>().hasThrowable || GetComponent<Flinch>().isReacting || onCooldown) //Makes sure user doesn't already have a throwable
         {
             canUseSouvenir = false;

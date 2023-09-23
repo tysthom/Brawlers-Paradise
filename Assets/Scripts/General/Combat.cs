@@ -23,9 +23,7 @@ public class Combat : MonoBehaviour
     BrawlerStats brawlerStatsInstance;
     Difficulty difficultyInstance;
     GameObject particleManager;
-    GameObject soundManager;
-    SoundManager soundManagerInstance;
-    AudioSource soundEffectsAudioSource;
+    FightingSoundEffects fSEInstance;
 
     [Header("General Status")]
     public bool winner;
@@ -108,9 +106,7 @@ public class Combat : MonoBehaviour
         difficultyInstance = gameManager.GetComponent<Difficulty>();
         hudManager = GameObject.Find("HUD Manager");
         particleManager = GameObject.Find("Particle Manager");
-        soundManager = GameObject.Find("Sound Manager");
-        soundManagerInstance = soundManager.GetComponent<SoundManager>();
-        soundEffectsAudioSource = GameObject.Find("Sound Effects").GetComponent<AudioSource>();
+        fSEInstance = GetComponent<FightingSoundEffects>();
 
         if (tag == "Player") {
             controller = GetComponent<CharacterController>(); controller.enabled = true;
@@ -1192,6 +1188,7 @@ public class Combat : MonoBehaviour
             {
                 gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
                 gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .25f));
+                fSEInstance.Uppercut();
                 enemy.GetComponent<Flinch>().stun = StartCoroutine(enemy.GetComponent<Combat>().GetComponent<Flinch>().Stun(a));
             } else if (anim.GetInteger("State") == 10 && GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.taekwondo)
             {
@@ -1280,7 +1277,7 @@ public class Combat : MonoBehaviour
                         {
                             enemy.GetComponent<Flinch>().ReactionInitiation(a, CalculateDamage());
                         }
-                        BasicAttackConnectionSound();
+                        fSEInstance.BasicAttackConnectionSound();
                     }
                 }
                 else
@@ -1298,6 +1295,7 @@ public class Combat : MonoBehaviour
                 {
                     gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
                     gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .25f));
+                    fSEInstance.Uppercut();
                     enemy.GetComponent<Flinch>().stun = StartCoroutine(enemy.GetComponent<Combat>().GetComponent<Flinch>().Stun(a));
                 }
                 else if (anim.GetInteger("State") == 10 && GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.taekwondo)
@@ -1381,6 +1379,7 @@ public class Combat : MonoBehaviour
                             } 
                             else
                             {
+                                fSEInstance.BasicAttackConnectionSound();
                                 enemy.GetComponent<Flinch>().ReactionInitiation(a, CalculateDamage());
                             }       
                         }
@@ -1645,12 +1644,6 @@ public class Combat : MonoBehaviour
     public void ShowboatComplete()
     {
         StartCoroutine(gameManager.GetComponent<PostGame>().ShowboatCompleteCoroutine());
-    }
-
-    public void BasicAttackConnectionSound()
-    {
-        soundEffectsAudioSource.clip = soundManagerInstance.attackConnections[Random.RandomRange(0,4)];
-        soundEffectsAudioSource.PlayOneShot(soundEffectsAudioSource.clip);
     }
 
     void Emergency()
