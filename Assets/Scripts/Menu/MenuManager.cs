@@ -6,13 +6,15 @@ using UnityEngine.UI;
 using TMPro;
 
 public class MenuManager : MonoBehaviour
-{
-
+{ 
     public bool canChangeMenu;
     public string currentMenu = "";
     public GameObject eventSystem;
     public GameObject blackOut;
     bool useMainMenu;
+    public AudioSource musicAudioSource;
+    public AudioSource soundEffectsAudioSource;
+    SoundManager soundManagerInstance;
 
     [Header("Cameras")]
     public GameObject titleCamera;
@@ -168,6 +170,8 @@ public class MenuManager : MonoBehaviour
     private void Awake()
     {
         useMainMenu = StateNameController.useMainMenu;
+        musicAudioSource = GetComponent<AudioSource>();
+        soundManagerInstance = GetComponent<SoundManager>();
 
         if (useMainMenu)
         {
@@ -202,6 +206,8 @@ public class MenuManager : MonoBehaviour
     private void Update()
     {
         currentSelected = eventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().currentSelectedGameObject;
+
+        musicAudioSource.volume = StateNameController.musicVolume;
 
         bool aButton = Input.GetButton("Pick Up");
         bool switchB1Side = Input.GetButtonDown("Secondary Special");
@@ -676,6 +682,9 @@ public class MenuManager : MonoBehaviour
 
     IEnumerator MainLogoTime(float t)
     {
+        musicAudioSource.loop = true;
+        musicAudioSource.clip = soundManagerInstance.mainMenuMusic;
+        musicAudioSource.Play();
         yield return new WaitForSeconds(t);
         mainLogo.GetComponent<Fade>().fadeIn = true;
         yield return new WaitForSeconds(t);

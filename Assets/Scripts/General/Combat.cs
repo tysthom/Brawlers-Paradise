@@ -23,6 +23,9 @@ public class Combat : MonoBehaviour
     BrawlerStats brawlerStatsInstance;
     Difficulty difficultyInstance;
     GameObject particleManager;
+    GameObject soundManager;
+    SoundManager soundManagerInstance;
+    AudioSource soundEffectsAudioSource;
 
     [Header("General Status")]
     public bool winner;
@@ -105,6 +108,9 @@ public class Combat : MonoBehaviour
         difficultyInstance = gameManager.GetComponent<Difficulty>();
         hudManager = GameObject.Find("HUD Manager");
         particleManager = GameObject.Find("Particle Manager");
+        soundManager = GameObject.Find("Sound Manager");
+        soundManagerInstance = soundManager.GetComponent<SoundManager>();
+        soundEffectsAudioSource = GameObject.Find("Sound Effects").GetComponent<AudioSource>();
 
         if (tag == "Player") {
             controller = GetComponent<CharacterController>(); controller.enabled = true;
@@ -1274,6 +1280,7 @@ public class Combat : MonoBehaviour
                         {
                             enemy.GetComponent<Flinch>().ReactionInitiation(a, CalculateDamage());
                         }
+                        BasicAttackConnectionSound();
                     }
                 }
                 else
@@ -1640,6 +1647,12 @@ public class Combat : MonoBehaviour
         StartCoroutine(gameManager.GetComponent<PostGame>().ShowboatCompleteCoroutine());
     }
 
+    public void BasicAttackConnectionSound()
+    {
+        soundEffectsAudioSource.clip = soundManagerInstance.attackConnections[Random.RandomRange(0,4)];
+        soundEffectsAudioSource.PlayOneShot(soundEffectsAudioSource.clip);
+    }
+
     void Emergency()
     {
         if(isAttacking && anim.GetInteger("State") == 2)
@@ -1653,15 +1666,4 @@ public class Combat : MonoBehaviour
         }
 
     }
-
-    /*
-    void OnDrawGizmosSelected()
-    {
-        
-        Gizmos.color = Color.red;
-
-        Gizmos.DrawWireSphere(transform.position, GetComponent<Movement>().attackRange * brawlerStatsInstance.Range(gameObject));
-    
-    }
-    */
 }
