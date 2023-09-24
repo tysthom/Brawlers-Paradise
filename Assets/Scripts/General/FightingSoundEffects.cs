@@ -33,15 +33,39 @@ public class FightingSoundEffects : MonoBehaviour
         soundEffectsAudioSource.PlayOneShot(soundEffectsAudioSource.clip);
     }
 
+    public void Block()
+    {
+        soundEffectsAudioSource.clip = soundManagerInstance.block[Random.Range(0, soundManagerInstance.block.Length)];
+        soundEffectsAudioSource.PlayOneShot(soundEffectsAudioSource.clip);
+    }
+
+    public void Finisher()
+    {
+        GetComponent<AudioSource>().clip = soundManagerInstance.finisher;
+        GetComponent<AudioSource>().PlayOneShot(GetComponent<AudioSource>().clip);
+    }
+
     public void Uppercut()
     {
         GetComponent<AudioSource>().clip = soundManagerInstance.uppercut;
         GetComponent<AudioSource>().PlayOneShot(GetComponent<AudioSource>().clip);
     }
 
-    public void Dive()
+    public void DiveSound()
     {
         GetComponent<AudioSource>().clip = soundManagerInstance.dive;
+        GetComponent<AudioSource>().PlayOneShot(GetComponent<AudioSource>().clip);
+    }
+
+    public void EyePoke()
+    {
+        GetComponent<AudioSource>().clip = soundManagerInstance.eyePoke;
+        GetComponent<AudioSource>().PlayOneShot(GetComponent<AudioSource>().clip);
+    }
+
+    public void BearHug()
+    {
+        GetComponent<AudioSource>().clip = soundManagerInstance.bearHug;
         GetComponent<AudioSource>().PlayOneShot(GetComponent<AudioSource>().clip);
     }
 

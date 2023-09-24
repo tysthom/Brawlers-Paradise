@@ -552,7 +552,7 @@ public class Combat : MonoBehaviour
         {
             if (GetDistanceToDive() && !enemy.GetComponent<Combat>().invinsible) //Lands on enemy
             {
-                fSEInstance.Dive();
+                fSEInstance.DiveSound();
                 combatManagear.GetComponent<AttackStatusManager>().Dive(GetComponent<Combat>().gameObject);
                 isDiving = false;
                 if (tag == "Enemy")
@@ -799,6 +799,7 @@ public class Combat : MonoBehaviour
         isGroundIdle = false;
         isGroundAttacking = true;
         invinsible = false;
+        shouldDive = false;
         GetComponent<Flinch>().canBeCounterHit = true;
         GetComponent<Flinch>().canBePunishHit = false;
 
@@ -1092,6 +1093,7 @@ public class Combat : MonoBehaviour
     {
         gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
         gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .2f));
+        fSEInstance.Finisher();
         StartCoroutine(enemy.GetComponent<Death>().Die());
     }
 
@@ -1197,14 +1199,17 @@ public class Combat : MonoBehaviour
                 gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
                 gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .1f));
                 combatManagear.GetComponent<AttackStatusManager>().Poke(GetComponent<Combat>().gameObject);
+
+                fSEInstance.EyePoke();
                 StartCoroutine(enemy.GetComponent<Health>().DamageOverTime(fightStyleManager.GetComponent<kungFuStats>().eyePokeDamage, 
                     fightStyleManager.GetComponent<kungFuStats>().eyePokeTickRepeats));
             } else if (anim.GetInteger("State") == 10 && GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.proWrestling)
             {
                 gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
                 gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .3f));
-
                 combatManagear.GetComponent<AttackStatusManager>().BearHug(GetComponent<Combat>().gameObject);
+
+                fSEInstance.BearHug();
                 enemy.GetComponent<Flinch>().bearHugged = StartCoroutine(enemy.GetComponent<Flinch>().Bearhugged(a));
                 bearhugging = StartCoroutine(Bearhugging());
             } else if(anim.GetInteger("State") == 13)
@@ -1260,6 +1265,7 @@ public class Combat : MonoBehaviour
                             gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
                             gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .5f));
                             enemy.GetComponent<Throw>().isEquipped = false;
+                            fSEInstance.Block();
                             enemy.GetComponent<Flinch>().ReactionInitiation(-20, CalculateDamage());
                         }
                     }
@@ -1309,6 +1315,8 @@ public class Combat : MonoBehaviour
                     gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
                     gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .1f));
                     combatManagear.GetComponent<AttackStatusManager>().Poke(GetComponent<Combat>().gameObject);
+
+                    fSEInstance.EyePoke();
                     StartCoroutine(enemy.GetComponent<Health>().DamageOverTime(fightStyleManager.GetComponent<kungFuStats>().eyePokeDamage,
                         fightStyleManager.GetComponent<kungFuStats>().eyePokeTickRepeats));
                 }
@@ -1316,8 +1324,9 @@ public class Combat : MonoBehaviour
                 {
                     gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
                     gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .3f));
-
                     combatManagear.GetComponent<AttackStatusManager>().BearHug(GetComponent<Combat>().gameObject);
+
+                    fSEInstance.BearHug();
                     enemy.GetComponent<Flinch>().bearHugged = StartCoroutine(enemy.GetComponent<Flinch>().Bearhugged(a));
                     bearhugging = StartCoroutine(Bearhugging());
                 }
@@ -1373,6 +1382,7 @@ public class Combat : MonoBehaviour
                         {
                             if(enemy.GetComponent<Combat>().isBlocking)
                             {
+                                fSEInstance.Block();
                                 enemy.GetComponent<Flinch>().ReactionInitiation(-20, CalculateDamage()); //-20 = BlockedBack
                             }
                             else if (enemy.GetComponent<Combat>().isStretching)
@@ -1397,6 +1407,7 @@ public class Combat : MonoBehaviour
                         {
                             if (enemy.GetComponent<Combat>().isBlocking)
                             {
+                                fSEInstance.Block();
                                 enemy.GetComponent<Flinch>().ReactionInitiation(-20, CalculateDamage()); //-20 = BlockedBack
                             }
                             else if (enemy.GetComponent<Combat>().isStretching)
@@ -1405,6 +1416,7 @@ public class Combat : MonoBehaviour
                             }
                             else
                             {
+                                fSEInstance.BasicAttackConnectionSound();
                                 enemy.GetComponent<Flinch>().Knockback();
                             }                         
                         }
