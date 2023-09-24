@@ -250,7 +250,14 @@ public class PostGame : MonoBehaviour
 
         matchStatsMenu.SetActive(true);
 
-        matchTime.text = minutes + ":" + UniversalFight.matchTime;
+        if(UniversalFight.matchTime < 10)
+        {
+            matchTime.text = minutes + ":0" + UniversalFight.matchTime;
+        }
+        else
+        {
+            matchTime.text = minutes + ":" + UniversalFight.matchTime;
+        }
         if (b1Side)
         {
             if(UniversalFight.usingMenuData)

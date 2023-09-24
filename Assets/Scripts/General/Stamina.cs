@@ -60,31 +60,34 @@ public class Stamina : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (stamina > maxStamina)
+        if (UniversalFight.fight)
         {
-            stamina = maxStamina;
-        }
-        if (stamina < 0)
-        {
-            stamina = 0;
-        }
+            if (stamina > maxStamina)
+            {
+                stamina = maxStamina;
+            }
+            if (stamina < 0)
+            {
+                stamina = 0;
+            }
 
-        if(stamina < combatManager.GetComponent<CombatStats>().staminaMinAmount)
-        {
-            staminaBar.GetComponent<Image>().color = barColorInstance.lowStaminaColor;
-        }
-        else
-        {
-            staminaBar.GetComponent<Image>().color = barColorInstance.staminaColor;
-        }
+            if (hudManagerInstance.hudType != HUDManager.hud.none)
+            {
+                if (stamina < combatManager.GetComponent<CombatStats>().staminaMinAmount)
+                {
+                    staminaBar.GetComponent<Image>().color = barColorInstance.lowStaminaColor;
+                }
+                else
+                {
+                    staminaBar.GetComponent<Image>().color = barColorInstance.staminaColor;
+                }
 
-        if (hudManagerInstance.hudType != HUDManager.hud.none)
-        {
-            BarFiller();
+                BarFiller();
+            }
         }
     }
 
-    void BarFiller()
+        void BarFiller()
     {
         staminaBar.fillAmount = stamina / maxStamina;
     }

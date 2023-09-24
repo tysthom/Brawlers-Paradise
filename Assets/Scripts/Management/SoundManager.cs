@@ -12,5 +12,6 @@ public class SoundManager : MonoBehaviour
     public AudioClip[] footSteps;
     public AudioClip[] attackConnections;
     public AudioClip uppercut;
+    public AudioClip dive;
     public AudioClip bodyThud;
 }

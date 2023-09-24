@@ -371,6 +371,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 101
         messageOptions: 0
+      - time: 0.2630792
+        functionName: FootSteps
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: ac338488431a2594581a98c911c45acd, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -470,6 +477,13 @@ ModelImporter:
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
         intParameter: 100
+        messageOptions: 0
+      - time: 0.54110616
+        functionName: FootSteps
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: ac338488431a2594581a98c911c45acd, type: 3}
+        floatParameter: 0
+        intParameter: 0
         messageOptions: 0
       transformMask: []
       maskType: 3
@@ -773,6 +787,20 @@ ModelImporter:
         floatParameter: 0
         intParameter: 110
         messageOptions: 0
+      - time: 0.11061286
+        functionName: FootSteps
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: ac338488431a2594581a98c911c45acd, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.6576981
+        functionName: FootSteps
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: ac338488431a2594581a98c911c45acd, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -822,6 +850,13 @@ ModelImporter:
         objectReferenceParameter: {fileID: 11500000, guid: 0bf2c05974212aa4aa4f9a1e06c51d90, type: 3}
         floatParameter: 0
         intParameter: 110
+        messageOptions: 0
+      - time: 0.8729447
+        functionName: FootSteps
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: ac338488431a2594581a98c911c45acd, type: 3}
+        floatParameter: 0
+        intParameter: 0
         messageOptions: 0
       transformMask: []
       maskType: 3

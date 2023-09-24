@@ -10,7 +10,7 @@ public class AttackStatusManager : MonoBehaviour
 
     public TextMeshProUGUI b1AttackStatusDisplay, b2AttackStatusDisplay;
 
-    public Color counterHit, punishHit, knockdown, stun, parry;
+    public Color counterHit, punishHit, knockdown, stun, dive, parry, poke, bearHug;
 
     Coroutine b1Fade, b2Fade;
 
@@ -149,6 +149,36 @@ public class AttackStatusManager : MonoBehaviour
         }
     }
 
+    public void Dive(GameObject brawler)
+    {
+        if (brawler == idManagerInstance.brawler1)
+        {
+            b1AttackStatusDisplay.text = "DIVE";
+            b1AttackStatusDisplay.color = dive;
+
+            if (b1Fade != null)
+            {
+                StopCoroutine(b1Fade);
+            }
+            b1Fade = StartCoroutine(B1WaitToFade());
+        }
+        else if (brawler == idManagerInstance.brawler2)
+        {
+            b2AttackStatusDisplay.text = "DIVE";
+            b2AttackStatusDisplay.color = dive;
+
+            if (b2Fade != null)
+            {
+                StopCoroutine(b2Fade);
+            }
+            b2Fade = StartCoroutine(B2WaitToFade());
+        }
+        else
+        {
+            Debug.Log("Error");
+        }
+    }
+
     public void Parry(GameObject brawler)
     {
         if (brawler == idManagerInstance.brawler1)
@@ -166,6 +196,66 @@ public class AttackStatusManager : MonoBehaviour
         {
             b2AttackStatusDisplay.text = "PARRY";
             b2AttackStatusDisplay.color = parry;
+
+            if (b2Fade != null)
+            {
+                StopCoroutine(b2Fade);
+            }
+            b2Fade = StartCoroutine(B2WaitToFade());
+        }
+        else
+        {
+            Debug.Log("Error");
+        }
+    }
+
+    public void Poke(GameObject brawler)
+    {
+        if (brawler == idManagerInstance.brawler1)
+        {
+            b1AttackStatusDisplay.text = "POKE";
+            b1AttackStatusDisplay.color = poke;
+
+            if (b1Fade != null)
+            {
+                StopCoroutine(b1Fade);
+            }
+            b1Fade = StartCoroutine(B1WaitToFade());
+        }
+        else if (brawler == idManagerInstance.brawler2)
+        {
+            b2AttackStatusDisplay.text = "POKE";
+            b2AttackStatusDisplay.color = poke;
+
+            if (b2Fade != null)
+            {
+                StopCoroutine(b2Fade);
+            }
+            b2Fade = StartCoroutine(B2WaitToFade());
+        }
+        else
+        {
+            Debug.Log("Error");
+        }
+    }
+
+    public void BearHug(GameObject brawler)
+    {
+        if (brawler == idManagerInstance.brawler1)
+        {
+            b1AttackStatusDisplay.text = "BEAR HUG";
+            b1AttackStatusDisplay.color = bearHug;
+
+            if (b1Fade != null)
+            {
+                StopCoroutine(b1Fade);
+            }
+            b1Fade = StartCoroutine(B1WaitToFade());
+        }
+        else if (brawler == idManagerInstance.brawler2)
+        {
+            b2AttackStatusDisplay.text = "BEAR HUG";
+            b2AttackStatusDisplay.color = bearHug;
 
             if (b2Fade != null)
             {

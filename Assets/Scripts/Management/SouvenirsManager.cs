@@ -7,6 +7,8 @@ public class SouvenirsManager : MonoBehaviour
 {
     GameObject gameManager;
     IdManagear idManagerInstance;
+    GameObject hudManager;
+    HUDManager hudManagerInstance;
     public bool souvenirsAllowed;
 
     [Header("Medicine")]
@@ -77,6 +79,8 @@ public class SouvenirsManager : MonoBehaviour
     {
         gameManager = GameObject.Find("Game Manager");
         idManagerInstance = gameManager.GetComponent<IdManagear>();
+        hudManager = GameObject.Find("HUD Manager");
+        hudManagerInstance = hudManager.GetComponent<HUDManager>();
     }
 
     private void Start()
@@ -202,6 +206,11 @@ public class SouvenirsManager : MonoBehaviour
 
     public void AssignSouvenirIcon(GameObject brawler)
     {
+        if(hudManagerInstance.hudType == HUDManager.hud.none)
+        {
+            return;
+        }
+
         if (brawler == idManagerInstance.brawler1 && idManagerInstance.brawler1.GetComponent<Souvenirs>().souvenir != Souvenirs.souvenirs.none)
         {
             if (idManagerInstance.brawler1.GetComponent<Souvenirs>().souvenir == Souvenirs.souvenirs.medicine)

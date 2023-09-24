@@ -39,6 +39,12 @@ public class FightingSoundEffects : MonoBehaviour
         GetComponent<AudioSource>().PlayOneShot(GetComponent<AudioSource>().clip);
     }
 
+    public void Dive()
+    {
+        GetComponent<AudioSource>().clip = soundManagerInstance.dive;
+        GetComponent<AudioSource>().PlayOneShot(GetComponent<AudioSource>().clip);
+    }
+
     public void BodyThud()
     {
         GetComponent<AudioSource>().clip = soundManagerInstance.bodyThud;

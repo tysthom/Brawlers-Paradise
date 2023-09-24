@@ -5224,6 +5224,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ae8d6bf9e29c884419fd349efa43de18, type: 3}
   - {fileID: 8300000, guid: 905a82c1f2ab8914d98353756be35aad, type: 3}
   uppercut: {fileID: 8300000, guid: 9052ed67756b56c4a814c4f75843d109, type: 3}
+  dive: {fileID: 8300000, guid: cb8e61eb75bfb014d80438a7c895f4a6, type: 3}
   bodyThud: {fileID: 8300000, guid: 7332d0b684cf0a24a98c7fd612559414, type: 3}
 --- !u!1001 &710435286
 PrefabInstance:
@@ -15575,7 +15576,7 @@ MonoBehaviour:
   aiDefendFrequency: 5
   aiBlockDodgeFrequency: 4
   aiContinuedAttackFrequency: 10
-  aiThrowableFrequency: 1
+  aiThrowableFrequency: 2
 --- !u!4 &1891941794
 Transform:
   m_ObjectHideFlags: 0
@@ -15631,7 +15632,10 @@ MonoBehaviour:
   punishHit: {r: 1, g: 0, b: 0, a: 1}
   knockdown: {r: 0, g: 1, b: 0.26123405, a: 1}
   stun: {r: 1, g: 0.5444812, b: 0, a: 1}
+  dive: {r: 0, g: 1, b: 0.96875834, a: 1}
   parry: {r: 0.7324681, g: 0, b: 1, a: 1}
+  poke: {r: 0, g: 0.37598443, b: 1, a: 1}
+  bearHug: {r: 1, g: 0, b: 0.44133997, a: 1}
 --- !u!1 &1916185136
 GameObject:
   m_ObjectHideFlags: 0
