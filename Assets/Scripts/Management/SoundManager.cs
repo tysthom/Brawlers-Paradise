@@ -18,4 +18,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip eyePoke;
     public AudioClip bearHug;
     public AudioClip bodyThud;
+
+    [Header("Fighting Grunts")]
+    public AudioClip[] flinchGrunt;
+    public AudioClip dyingGrunt;
 }

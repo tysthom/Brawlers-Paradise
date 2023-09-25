@@ -5233,6 +5233,19 @@ MonoBehaviour:
   eyePoke: {fileID: 8300000, guid: ad9f6853547224348b7cf71c0b0a70d2, type: 3}
   bearHug: {fileID: 8300000, guid: f54849d48b447ba4c8774212fb23766c, type: 3}
   bodyThud: {fileID: 8300000, guid: 7332d0b684cf0a24a98c7fd612559414, type: 3}
+  flinchGrunt:
+  - {fileID: 8300000, guid: d6215add622aa2b4288c8e5f07d73d49, type: 3}
+  - {fileID: 8300000, guid: 39a83a45b8143924c8bb56e40f44f11d, type: 3}
+  - {fileID: 8300000, guid: 474f1d1a9e7a06049b4f4e5084d94104, type: 3}
+  - {fileID: 8300000, guid: 5f45a7b2b576eee4bb4c1be1b6f2bff2, type: 3}
+  - {fileID: 8300000, guid: 20a83f46826cddd499b04939d0b43c69, type: 3}
+  - {fileID: 8300000, guid: 606a79f84e3099f4f9cbc18e7d31c0ba, type: 3}
+  - {fileID: 8300000, guid: 29f4b35d00276314598f8192bd2d4b85, type: 3}
+  - {fileID: 8300000, guid: 7496865c297041145a681039028dd247, type: 3}
+  - {fileID: 8300000, guid: 2bd820534f6a21a43a485dc4e77c51ff, type: 3}
+  - {fileID: 8300000, guid: 8a9b3bbca5127c746b78da46dce7b410, type: 3}
+  - {fileID: 8300000, guid: c649001a20f53fc4ebbe6bf2f7ad4169, type: 3}
+  dyingGrunt: {fileID: 8300000, guid: 9537ac99cbfdb91428832803e33054a9, type: 3}
 --- !u!1001 &710435286
 PrefabInstance:
   m_ObjectHideFlags: 0

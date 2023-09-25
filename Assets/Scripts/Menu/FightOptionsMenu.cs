@@ -85,7 +85,7 @@ public class FightOptionsMenu : MonoBehaviour
                 else if (menuManagerInstance.b1SouvenirSelection == 1)
                 {
                     b1CurrentParticle = Instantiate(sunscreenParticles, brawler1.transform.position, Quaternion.Euler(new Vector3(-76,11,80)));
-                    b1SouvenirDescriptionText.text = "Ignore flinches & knockdowns while armor lasts. (30 sec cooldown)";
+                    b1SouvenirDescriptionText.text = "Ignore flinches & knockdowns from basic attacks while armor lasts. (30 sec cooldown)";
                 }
                 else if (menuManagerInstance.b1SouvenirSelection == 2)
                 {
@@ -120,7 +120,7 @@ public class FightOptionsMenu : MonoBehaviour
             }
             else if(menuManagerInstance.b1SouvenirSelection == 3)
             {
-                b1CurrentSuitCase = Instantiate(suitCaseThrowable, new Vector3(14.944f, -0.815f, -2.107f), Quaternion.Euler(new Vector3(-90, 0, 55.2f)));
+                b1CurrentSuitCase = Instantiate(suitCaseThrowable, new Vector3(14.944f, -0.902f, -2.107f), Quaternion.Euler(new Vector3(-90, 0, 55.2f)));
                 b1SouvenirDescriptionText.text = "Summon a thrwoable that deals 2x damage. (15 sec cooldown)";
             }
             else if(menuManagerInstance.b1SouvenirSelection == 9)
@@ -155,7 +155,7 @@ public class FightOptionsMenu : MonoBehaviour
                 else if (menuManagerInstance.b2SouvenirSelection == 1)
                 {
                     b2CurrentParticle = Instantiate(sunscreenParticles, brawler2.transform.position, Quaternion.Euler(new Vector3(-76, 11, 80)));
-                    b2SouvenirDescriptionText.text = "Ignore flinches & knockdowns while armor lasts. (30 sec cooldown)";
+                    b2SouvenirDescriptionText.text = "Ignore flinches & knockdowns from basic attacks while armor lasts. (30 sec cooldown)";
                 }
                 else if (menuManagerInstance.b2SouvenirSelection == 2)
                 {
@@ -190,7 +190,7 @@ public class FightOptionsMenu : MonoBehaviour
             }
             else if (menuManagerInstance.b2SouvenirSelection == 3)
             {
-                b2CurrentSuitCase = Instantiate(suitCaseThrowable, new Vector3(19.07f, -0.815f, -2.107f), Quaternion.Euler(new Vector3(-90, 0, -55.2f)));
+                b2CurrentSuitCase = Instantiate(suitCaseThrowable, new Vector3(19.07f, -0.912f, -2.107f), Quaternion.Euler(new Vector3(-90, 0, -55.2f)));
                 b2SouvenirDescriptionText.text = "Summon a thrwoable that deals 2x damage. (15 sec cooldown)";
             } 
             else if (menuManagerInstance.b2SouvenirSelection == 9)

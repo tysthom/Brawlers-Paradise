@@ -273,7 +273,7 @@ public class AttackStatusManager : MonoBehaviour
     {
         b1AttackStatusDisplay.alpha = 1;
         b1AttackStatusDisplay.gameObject.GetComponent<Fade>().fadeOut = false;
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.5f);
         b1AttackStatusDisplay.gameObject.GetComponent<Fade>().fadeOut = true;
     }
 
@@ -281,7 +281,7 @@ public class AttackStatusManager : MonoBehaviour
     {
         b2AttackStatusDisplay.alpha = 1;
         b2AttackStatusDisplay.gameObject.GetComponent<Fade>().fadeOut = false;
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.5f);
         b2AttackStatusDisplay.gameObject.GetComponent<Fade>().fadeOut = true;
     }
 }

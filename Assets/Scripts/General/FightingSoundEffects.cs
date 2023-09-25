@@ -74,4 +74,27 @@ public class FightingSoundEffects : MonoBehaviour
         GetComponent<AudioSource>().clip = soundManagerInstance.bodyThud;
         GetComponent<AudioSource>().PlayOneShot(GetComponent<AudioSource>().clip);
     }
+
+    public void FlinchGrunt()
+    {
+        soundEffectsAudioSource.clip = soundManagerInstance.flinchGrunt[Random.Range(0, soundManagerInstance.flinchGrunt.Length)];
+        soundEffectsAudioSource.PlayOneShot(soundEffectsAudioSource.clip);
+    }
+
+    public void DyingGrunt()
+    {
+        GetComponent<AudioSource>().clip = soundManagerInstance.dyingGrunt;
+        GetComponent<AudioSource>().PlayOneShot(GetComponent<AudioSource>().clip);
+    }
+
+    public IEnumerator BearHuggedGrunt(GameObject brawler)
+    {
+        while (brawler.GetComponent<Flinch>().isBearhugged)
+        {
+            soundEffectsAudioSource.clip = soundManagerInstance.flinchGrunt[Random.Range(0, soundManagerInstance.flinchGrunt.Length)];
+            soundEffectsAudioSource.PlayOneShot(soundEffectsAudioSource.clip);
+
+            yield return new WaitForSeconds(1.5f);
+        }
+    }
 }

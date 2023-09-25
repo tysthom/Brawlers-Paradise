@@ -66,6 +66,7 @@ public class Death : MonoBehaviour
             }
 
             anim.enabled = false;
+            GetComponent<FightingSoundEffects>().DyingGrunt();
             GetComponent<Health>().regenHealth = 0;
             gameObject.layer = 9;
             ChangeLayer();

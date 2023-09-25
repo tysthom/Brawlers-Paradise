@@ -14,6 +14,7 @@ public class Flinch : MonoBehaviour
     public GameObject fightStyleManager;
     public GameObject hudManager;
     public GameObject surrenderCanvas;
+    FightingSoundEffects fSEInstance;
 
     public bool isReacting;
     public bool isFlinching; //True if flinching (moving backwards & not animation flinching)
@@ -54,6 +55,7 @@ public class Flinch : MonoBehaviour
         fightStyleManager = GameObject.Find("Fight Style Manager");
         hudManager = GameObject.Find("HUD Manager");
         hudManager.GetComponent<HUDManager>().finisherPrompt = GameObject.Find("Finisher Prompt");
+        fSEInstance = GetComponent<FightingSoundEffects>();
     }
 
     private void Start()
@@ -251,6 +253,7 @@ public class Flinch : MonoBehaviour
             combatManagear.GetComponent<AttackStatusManager>().Knockdown(GetComponent<Combat>().enemy);
         }
 
+        fSEInstance.FlinchGrunt();
         anim.SetInteger("State", state);
 
         if (tag != "Tourist")
@@ -381,7 +384,6 @@ public class Flinch : MonoBehaviour
 
     public IEnumerator Stun(int s)
     {
-        
         GetComponent<Combat>().canNextAttack = false;
         GetComponent<Combat>().isAttacking = false;
         GetComponent<Combat>().faceEnemy = false;
@@ -399,11 +401,9 @@ public class Flinch : MonoBehaviour
             GetComponent<Throw>().Equiping(false);
         }
 
-        anim.SetBool("canTransition", true);
+        fSEInstance.FlinchGrunt();
         anim.SetInteger("State", s);
 
-        yield return new WaitForSeconds(.5f);
-        anim.SetBool("canTransition", false);
         yield return new WaitForSeconds(combatManagear.GetComponent<CombatStats>().stunDuration);
 
         isStunned = false;
@@ -443,6 +443,7 @@ public class Flinch : MonoBehaviour
     public IEnumerator GroundFlinch(float damage)
     {
         GetComponent<Health>().SubtractHealth(damage);
+        fSEInstance.FlinchGrunt();
         anim.SetInteger("State", 107);
         yield return new WaitForSeconds(.25f);
         anim.SetInteger("State", 115);
@@ -460,8 +461,8 @@ public class Flinch : MonoBehaviour
             GetComponent<CharacterController>().enabled = false;
         }
 
+        StartCoroutine(fSEInstance.BearHuggedGrunt(gameObject));
         anim.SetInteger("State", 109);
-        
         yield return new WaitForSeconds(.1f);
         anim.SetInteger("State", 109);
 
