@@ -306,4 +306,9 @@ public class PostGame : MonoBehaviour
         UniversalFight.fight = false;
         SceneManager.LoadScene(Scene.MainMenu.ToString());
     }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }

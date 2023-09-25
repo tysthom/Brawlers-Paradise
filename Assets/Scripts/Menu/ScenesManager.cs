@@ -37,4 +37,9 @@ public class ScenesManager : MonoBehaviour
     {
         SceneManager.LoadScene(Scene.MainMenu.ToString());
     }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }
