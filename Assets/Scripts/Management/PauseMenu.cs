@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 public class PauseMenu : MonoBehaviour
 {
     public static bool gamePaused = false;
-    bool canSwitchPause = true;
 
     public GameObject eventSystem;
     public GameObject pauseMenu;
@@ -25,7 +24,7 @@ public class PauseMenu : MonoBehaviour
 
         if(UniversalFight.fight == false) { return; }
 
-        if ((pause || (back && gamePaused) && canSwitchPause))
+        if (pause || (back && gamePaused))
         {
             if (gamePaused)
             {

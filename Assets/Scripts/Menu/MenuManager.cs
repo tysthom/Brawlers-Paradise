@@ -170,7 +170,7 @@ public class MenuManager : MonoBehaviour
     private void Awake()
     {
         useMainMenu = StateNameController.useMainMenu;
-        musicAudioSource = GetComponent<AudioSource>();
+        musicAudioSource = GameObject.Find("Music Audio").GetComponent<AudioSource>();
         soundManagerInstance = GetComponent<SoundManager>();
 
         if (useMainMenu)
@@ -207,7 +207,10 @@ public class MenuManager : MonoBehaviour
     {
         currentSelected = eventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().currentSelectedGameObject;
 
-        musicAudioSource.volume = StateNameController.musicVolume;
+        if (!GetComponent<Fade>().fadeOut)
+        {
+            musicAudioSource.volume = StateNameController.musicVolume;
+        }
 
         bool aButton = Input.GetButton("Pick Up");
         bool switchB1Side = Input.GetButtonDown("Secondary Special");

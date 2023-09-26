@@ -47,6 +47,7 @@ public class Throwable : MonoBehaviour
                         collision.gameObject.GetComponent<Flinch>().ReactionInitiation(100, combatManagear.GetComponent<CombatStats>().throwableDamage);
                     }
                 }
+                collision.gameObject.GetComponent<FightingSoundEffects>().ThrowableHit();
             }
             StartCoroutine(ResetThrowable(collision.gameObject));
         }

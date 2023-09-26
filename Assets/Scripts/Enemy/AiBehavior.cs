@@ -19,6 +19,7 @@ public class AiBehavior : MonoBehaviour
     GameObject fightStyleManager;
     Difficulty difficultyInstance;
     GameObject particleManager;
+    FightingSoundEffects fSEInstance;
 
     [Header("Stats")]
     float baseSpeed;
@@ -74,6 +75,7 @@ public class AiBehavior : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         baseSpeed = agent.speed;
         baseDefense = combatManagear.GetComponent<CombatStats>().aiDefendFrequency;
+        fSEInstance = GetComponent<FightingSoundEffects>();
     }
     void Start()
     {
@@ -444,6 +446,7 @@ public class AiBehavior : MonoBehaviour
                     }
                     anim.speed = 2 - brawlerStatsInstance.AttackSpeed(gameObject);
                     GetComponent<Combat>().basicAttack = StartCoroutine(GetComponent<Combat>().Attack(3, combatManagear.GetComponent<CombatStats>().brawler2FirstAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
+                    fSEInstance.AttackGrunt();
                 }
             }
         }

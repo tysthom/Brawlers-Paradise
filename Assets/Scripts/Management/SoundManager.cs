@@ -7,6 +7,10 @@ public class SoundManager : MonoBehaviour
     [Header("Main Menu Sounds")]
     public AudioClip mainMenuMusic;
     public AudioClip buttonPress;
+    public AudioClip[] clothesChange;
+
+    [Header("Fighting Ambiance")]
+    public AudioClip crowd;
 
     [Header("Fighting Hits")]
     public AudioClip[] footSteps;
@@ -20,6 +24,11 @@ public class SoundManager : MonoBehaviour
     public AudioClip bodyThud;
 
     [Header("Fighting Grunts")]
+    public AudioClip[] attackGrunt;
+    public AudioClip[] strainGrunt;
     public AudioClip[] flinchGrunt;
     public AudioClip dyingGrunt;
+
+    [Header("Throwable")]
+    public AudioClip throwableHit;
 }

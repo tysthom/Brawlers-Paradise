@@ -24,12 +24,26 @@ public class Fade : MonoBehaviour
     {
         if (fadeIn)
         {
-            if(myUIGroup != null && myUIGroup.alpha < 1)
+            if (myUIGroup != null)
             {
-                myUIGroup.alpha += Time.deltaTime;
-                if(myUIGroup.alpha >= 1)
+                if (myUIGroup != null && myUIGroup.alpha < 1)
                 {
-                    fadeIn = false;
+                    myUIGroup.alpha += Time.deltaTime;
+                    if (myUIGroup.alpha >= 1)
+                    {
+                        fadeIn = false;
+                    }
+                }
+            }
+            else
+            {
+                if(GetComponent<AudioSource>().volume < 1)
+                {
+                    GetComponent<AudioSource>().volume += Time.deltaTime;
+                    if (GetComponent<AudioSource>().volume >= 1)
+                    {
+                        fadeIn = false;
+                    }
                 }
             }
         }
@@ -45,10 +59,21 @@ public class Fade : MonoBehaviour
                 }
             } else if(myUIGroup == null)
             {
-                GetComponent<TextMeshProUGUI>().alpha -= Time.deltaTime * 2;
-                if (GetComponent<TextMeshProUGUI>().alpha == 0)
+                if (GetComponent<AudioSource>() == null)
                 {
-                    fadeOut = false;
+                    GetComponent<TextMeshProUGUI>().alpha -= Time.deltaTime * 2;
+                    if (GetComponent<TextMeshProUGUI>().alpha == 0)
+                    {
+                        fadeOut = false;
+                    }
+                }
+                else
+                {
+                    GameObject.Find("Music Audio").GetComponent<AudioSource>().volume -= Time.deltaTime * .75f;
+                    if (GetComponent<AudioSource>().volume <= 0)
+                    {
+                        fadeOut = false;
+                    }
                 }
             }
         }

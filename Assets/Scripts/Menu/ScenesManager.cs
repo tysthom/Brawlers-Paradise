@@ -29,6 +29,7 @@ public class ScenesManager : MonoBehaviour
     IEnumerator LoadingDojo()
     {
         blackOut.GetComponent<Fade>().fadeIn = true;
+        GameObject.Find("Menu Manager").GetComponent<Fade>().fadeOut = true;
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene(Scene.Dojo.ToString());
     }

@@ -7,18 +7,24 @@ public class FightingSoundEffects : MonoBehaviour
     GameObject soundManager;
     SoundManager soundManagerInstance;
     AudioSource soundEffectsAudioSource;
+    AudioSource crowdAudioSource;
+
+    int previousAttackGrunt = -1;
+    int previousFlinchGrunt = -1;
 
     void Start()
     {
         soundManager = GameObject.Find("Sound Manager");
         soundManagerInstance = soundManager.GetComponent<SoundManager>();
         soundEffectsAudioSource = GameObject.Find("Sound Effects").GetComponent<AudioSource>();
+        crowdAudioSource = GameObject.Find("Crowd").GetComponent<AudioSource>();
+        crowdAudioSource.volume = StateNameController.soundEffectsVolume;
     }
 
     private void Update()
     {
-        //if(UniversalFight.usingMenuData)
-            //soundEffectsAudioSource.volume = StateNameController.soundEffectsVolume;
+        if(UniversalFight.usingMenuData)
+            soundEffectsAudioSource.volume = StateNameController.soundEffectsVolume;
     }
 
     public void FootSteps()
@@ -75,10 +81,52 @@ public class FightingSoundEffects : MonoBehaviour
         GetComponent<AudioSource>().PlayOneShot(GetComponent<AudioSource>().clip);
     }
 
+    public void AttackGrunt()
+    {
+        int i = Random.Range(1, 10);
+        if (i <= 5)
+        {
+            int j = Random.Range(0, soundManagerInstance.attackGrunt.Length);
+            while (j == previousAttackGrunt)
+            {
+                j = Random.Range(0, soundManagerInstance.attackGrunt.Length);
+            }
+
+            soundEffectsAudioSource.clip = soundManagerInstance.attackGrunt[j];
+            soundEffectsAudioSource.PlayOneShot(soundEffectsAudioSource.clip);
+            previousAttackGrunt = j;
+        }
+    }
+
+    public void StrainGrunt()
+    {
+        if (GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.boxing)
+        {
+            soundEffectsAudioSource.clip = soundManagerInstance.strainGrunt[0];
+        }
+        else if (GetComponent<FightStyle>().fightStyle == FightStyle.fightStyles.kungFu)
+        {
+            soundEffectsAudioSource.clip = soundManagerInstance.strainGrunt[1];
+        }
+        
+        soundEffectsAudioSource.PlayOneShot(soundEffectsAudioSource.clip);
+    }
+
     public void FlinchGrunt()
     {
-        soundEffectsAudioSource.clip = soundManagerInstance.flinchGrunt[Random.Range(0, soundManagerInstance.flinchGrunt.Length)];
-        soundEffectsAudioSource.PlayOneShot(soundEffectsAudioSource.clip);
+        int i = Random.Range(1, 10);
+        if (i <= 5)
+        {
+            int j = Random.Range(0, soundManagerInstance.flinchGrunt.Length);
+            while (j == previousFlinchGrunt)
+            {
+                j = Random.Range(0, soundManagerInstance.flinchGrunt.Length);
+            }
+
+            soundEffectsAudioSource.clip = soundManagerInstance.flinchGrunt[Random.Range(0, soundManagerInstance.flinchGrunt.Length)];
+            soundEffectsAudioSource.PlayOneShot(soundEffectsAudioSource.clip);
+            previousFlinchGrunt = j;
+        }
     }
 
     public void DyingGrunt()
@@ -96,5 +144,11 @@ public class FightingSoundEffects : MonoBehaviour
 
             yield return new WaitForSeconds(1.5f);
         }
+    }
+
+    public void ThrowableHit()
+    {
+        GetComponent<AudioSource>().clip = soundManagerInstance.throwableHit;
+        GetComponent<AudioSource>().PlayOneShot(GetComponent<AudioSource>().clip);
     }
 }

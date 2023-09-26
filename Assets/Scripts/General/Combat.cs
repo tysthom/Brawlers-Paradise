@@ -158,7 +158,7 @@ public class Combat : MonoBehaviour
 
     void Update()
     {
-        if (!UniversalFight.fight || PauseMenu.gamePaused || winner) { return; }
+        if (!UniversalFight.fight || PauseMenu.gamePaused || BackMenu.gamePaused || winner) { return; }
 
         if (tag == "Tourist")
         {
@@ -306,7 +306,7 @@ public class Combat : MonoBehaviour
                             {
                                 basicAttack = StartCoroutine(Attack(9, combatStatsInstance.brawler1ForthAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
                             }
-
+                            fSEInstance.AttackGrunt();
                         }
                     }
                 } else
@@ -735,7 +735,9 @@ public class Combat : MonoBehaviour
             } */
             }
             anim.SetInteger("State", 10);
-            yield return new WaitForSeconds(combatStatsInstance.guardBreakerTime);
+            yield return new WaitForSeconds(.2f);
+            fSEInstance.StrainGrunt();
+            yield return new WaitForSeconds(combatStatsInstance.guardBreakerTime-.2f);
                 if (tag == "Player")
                 {
                     GetComponent<Movement>().PlayerMovement();
@@ -881,7 +883,7 @@ public class Combat : MonoBehaviour
             ShouldNotMove();
             canUseTechnique = false;
             isEyePoking = true;
-            anim.SetInteger("State", 10);
+            //anim.SetInteger("State", 10);
             resultStatsInstance.TechniqueUsage(gameObject);
             GetComponent<Flinch>().canBeCounterHit = true;
             GetComponent<Flinch>().canBePunishHit = false;
@@ -897,7 +899,9 @@ public class Combat : MonoBehaviour
             }
 
             anim.SetInteger("State", 10);
-            yield return new WaitForSeconds(fightStyleManager.GetComponent<kungFuStats>().eyePokeTime);
+            yield return new WaitForSeconds(.5f);
+            fSEInstance.StrainGrunt();
+            yield return new WaitForSeconds(fightStyleManager.GetComponent<kungFuStats>().eyePokeTime-.5f);
             if (tag == "Player")
             {
                 GetComponent<Movement>().PlayerMovement();
@@ -1567,6 +1571,7 @@ public class Combat : MonoBehaviour
                 anim.GetComponent<Animator>().SetInteger("Variation", Random.Range(1, 3));
                 basicAttack = StartCoroutine(Attack(variedAttack, combatStatsInstance.brawler2ForthAttackTime * brawlerStatsInstance.AttackSpeed(gameObject)));
             }
+            fSEInstance.AttackGrunt();
         }
         else
         {
