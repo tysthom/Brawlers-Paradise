@@ -12,6 +12,9 @@ public class SoundManager : MonoBehaviour
     [Header("Fighting Ambiance")]
     public AudioClip crowd;
 
+    [Header("Post Game")]
+    public AudioClip victory;
+
     [Header("Fighting Hits")]
     public AudioClip[] footSteps;
     public AudioClip[] attackConnections;

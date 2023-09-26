@@ -88,9 +88,9 @@ public class BrawlerUpdates : MonoBehaviour
             menuManagerInstance.b1OutfitVariation != b1OutfitVariation || menuManagerInstance.b2OutfitVariation != b2OutfitVariation)
         {
 
-            menuManager.GetComponent<AudioSource>().clip = menuManager.GetComponent<SoundManager>().clothesChange[Random.Range(0,
+            menuManager.GetComponent<MenuManager>().soundEffectsAudioSource.clip = menuManager.GetComponent<SoundManager>().clothesChange[Random.Range(0,
                 menuManager.GetComponent<SoundManager>().clothesChange.Length)];
-            menuManager.GetComponent<AudioSource>().Play();
+            menuManager.GetComponent<MenuManager>().soundEffectsAudioSource.Play();
 
             #region Brawler1 Outfit Selection
             for (int i = 0; i < holdBrawler1Outfit.Count; i++)

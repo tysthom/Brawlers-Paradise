@@ -69,7 +69,14 @@ public class Fade : MonoBehaviour
                 }
                 else
                 {
-                    GameObject.Find("Music Audio").GetComponent<AudioSource>().volume -= Time.deltaTime * .75f;
+                    if(GameObject.Find("Music Audio") != null)
+                    {
+                        GameObject.Find("Music Audio").GetComponent<AudioSource>().volume -= Time.deltaTime * .75f;
+                    }
+                    else
+                    {
+                        GetComponent<AudioSource>().volume -= Time.deltaTime * .75f;
+                    }
                     if (GetComponent<AudioSource>().volume <= 0)
                     {
                         fadeOut = false;

@@ -1649,6 +1649,8 @@ public class Combat : MonoBehaviour
         transform.position = GameObject.Find("Winner Position").transform.position;
         transform.rotation = Quaternion.Euler(0,0,0);
 
+        fSEInstance.Victory();
+
         yield return new WaitForSeconds(1);
 
         anim.SetInteger("State", 0);

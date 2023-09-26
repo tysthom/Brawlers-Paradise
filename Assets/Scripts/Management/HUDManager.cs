@@ -27,6 +27,8 @@ public class HUDManager : MonoBehaviour
 
         brawler1 = gameManager.GetComponent<IdManagear>().brawler1;
         brawler2 = gameManager.GetComponent<IdManagear>().brawler2;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         if (UniversalFight.usingMenuData)
         {

@@ -39,6 +39,7 @@ public class FightingSoundEffects : MonoBehaviour
         soundEffectsAudioSource.PlayOneShot(soundEffectsAudioSource.clip);
     }
 
+
     public void Block()
     {
         soundEffectsAudioSource.clip = soundManagerInstance.block[Random.Range(0, soundManagerInstance.block.Length)];
@@ -150,5 +151,10 @@ public class FightingSoundEffects : MonoBehaviour
     {
         GetComponent<AudioSource>().clip = soundManagerInstance.throwableHit;
         GetComponent<AudioSource>().PlayOneShot(GetComponent<AudioSource>().clip);
+    }
+
+    public void Victory()
+    {
+        GameObject.Find("Sound Effects").GetComponent<AudioSource>().PlayOneShot(soundManagerInstance.victory);
     }
 }

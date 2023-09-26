@@ -144,7 +144,7 @@ public class MenuManager : MonoBehaviour
     public GameObject karateFightStyleButton;
     public GameObject[] fightStylesMenuParts = new GameObject[4];
     public GameObject[] fightStylesIndividualMenus = new GameObject[6];
-    //Souvenirs
+        //Souvenirs
     public GameObject souvenirsMenu;
         //HUD Colors
     public GameObject hudColorsMenu;
@@ -166,12 +166,17 @@ public class MenuManager : MonoBehaviour
         //Sound Effects Volume
     public Slider soundEffectsSlider;
     public float soundEffectsSliderValue;
+    //CREDITS
+    public GameObject creditsMenu;
 
     private void Awake()
     {
         useMainMenu = StateNameController.useMainMenu;
         musicAudioSource = GameObject.Find("Music Audio").GetComponent<AudioSource>();
+        soundEffectsAudioSource = GameObject.Find("Sound Effects").GetComponent<AudioSource>();
         soundManagerInstance = GetComponent<SoundManager>();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         if (useMainMenu)
         {
@@ -211,6 +216,7 @@ public class MenuManager : MonoBehaviour
         {
             musicAudioSource.volume = StateNameController.musicVolume;
         }
+        soundEffectsAudioSource.volume = StateNameController.soundEffectsVolume;
 
         bool aButton = Input.GetButton("Pick Up");
         bool switchB1Side = Input.GetButtonDown("Secondary Special");
@@ -681,6 +687,12 @@ public class MenuManager : MonoBehaviour
             GetComponent<SaveData>().SaveOptions();
             StartCoroutine(OptionsMenuCoroutine());
         }
+        else if (currentMenu == "Credits Menu")
+        {
+            creditsMenu.SetActive(false);
+
+            StartCoroutine(OptionsMenuCoroutine());
+        }
     }
 
     IEnumerator MainLogoTime(float t)
@@ -724,6 +736,12 @@ public class MenuManager : MonoBehaviour
         canSwitchName = true;
     }
 
+    void ButtonPress()
+    {
+        soundEffectsAudioSource.clip = GetComponent<SoundManager>().buttonPress;
+        soundEffectsAudioSource.Play();
+    }
+
     public void MainMenu()
     {
         currentMenu = "Main Menu";
@@ -744,7 +762,8 @@ public class MenuManager : MonoBehaviour
     public IEnumerator FightMenuCoroutine(float time)
     {
         currentMenu = "Fight Menu";
-        
+
+        ButtonPress();
         canChangeMenu = false;
         mainMenu.SetActive(false);
         yield return new WaitForSeconds(time);
@@ -767,6 +786,7 @@ public class MenuManager : MonoBehaviour
     {
         if (canChangeMenu)
         {
+            ButtonPress();
             StartCoroutine(FightOptionsMenuCoroutine());
         }
     }
@@ -1409,6 +1429,7 @@ public class MenuManager : MonoBehaviour
     {
         if (canChangeMenu)
         {
+            ButtonPress();
             StartCoroutine(StatsMenuCoroutine());
         }
     }
@@ -1461,6 +1482,7 @@ public class MenuManager : MonoBehaviour
     {
         if (canChangeMenu)
         {
+            ButtonPress();
             StartCoroutine(OptionsMenuCoroutine());
         }
     }
@@ -1488,6 +1510,7 @@ public class MenuManager : MonoBehaviour
     {
         if (canChangeMenu)
         {
+            ButtonPress();
             StartCoroutine(HTPMenuCoroutine());
         }
     }
@@ -1517,6 +1540,7 @@ public class MenuManager : MonoBehaviour
     {
         if (canChangeMenu)
         {
+            ButtonPress();
             StartCoroutine(ControlsCoroutine());
         }
     }
@@ -1542,6 +1566,7 @@ public class MenuManager : MonoBehaviour
     {
         if (canChangeMenu)
         {
+            ButtonPress();
             StartCoroutine(CombatCoroutine());
         }
     }
@@ -1568,6 +1593,7 @@ public class MenuManager : MonoBehaviour
     {
         if (canChangeMenu)
         {
+            ButtonPress();
             StartCoroutine(FightStyleCoroutine());
         }
     }
@@ -1596,6 +1622,7 @@ public class MenuManager : MonoBehaviour
     {
         if (canChangeMenu)
         {
+            ButtonPress();
             StartCoroutine(FightStyleSubMenuCoroutine(fightStyle));
         }
     }
@@ -1647,6 +1674,7 @@ public class MenuManager : MonoBehaviour
     {
         if (canChangeMenu)
         {
+            ButtonPress();
             StartCoroutine(SouvenirsCoroutine());
         }
     }
@@ -1674,6 +1702,7 @@ public class MenuManager : MonoBehaviour
     {
         if (canChangeMenu)
         {
+            ButtonPress();
             StartCoroutine(HUDColorsCoroutine());
         }
     }
@@ -1700,6 +1729,7 @@ public class MenuManager : MonoBehaviour
     {
         if (canChangeMenu)
         {
+            ButtonPress();
             StartCoroutine(ThrowablesCoroutine());
         }
     }
@@ -1726,6 +1756,7 @@ public class MenuManager : MonoBehaviour
     {
         if (canChangeMenu)
         {
+            ButtonPress();
             StartCoroutine(FisnisherCoroutine());
         }
     }
@@ -1753,6 +1784,7 @@ public class MenuManager : MonoBehaviour
     {
         if (canChangeMenu)
         {
+            ButtonPress();
             StartCoroutine(SettingsMenuCoroutine());
         }
     }
@@ -1772,6 +1804,31 @@ public class MenuManager : MonoBehaviour
         optionsBackground.SetActive(true);
 
         eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(hudSelectionDropdown.gameObject);
+        canChangeMenu = true;
+    }
+
+    public void CreditsMenu()
+    {
+        if (canChangeMenu)
+        {
+            ButtonPress();
+            StartCoroutine(CreditsMenuCoroutine());
+        }
+    }
+
+    IEnumerator CreditsMenuCoroutine()
+    {
+        currentMenu = "Credits Menu";
+
+        canChangeMenu = false;
+        for (int i = 0; i < optionsMenuParts.Length; i++)
+        {
+            optionsMenuParts[i].SetActive(false);
+        }
+        yield return new WaitForSeconds(.75f);
+        creditsMenu.SetActive(true);
+
+        eventSystem.GetComponent<EventSystem>().SetSelectedGameObject(null);
         canChangeMenu = true;
     }
 }

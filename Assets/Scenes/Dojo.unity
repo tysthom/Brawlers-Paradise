@@ -5210,7 +5210,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenuMusic: {fileID: 0}
   buttonPress: {fileID: 0}
+  clothesChange: []
   crowd: {fileID: 0}
+  victory: {fileID: 8300000, guid: dfcade6f75e294a4184d306ba26b7506, type: 3}
   footSteps:
   - {fileID: 8300000, guid: 2424bcf984269be45a3a16fb20604ff2, type: 3}
   - {fileID: 8300000, guid: df440377bc20d3e4c85196517a03e8c2, type: 3}
@@ -7263,6 +7265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1028266754}
   - component: {fileID: 1028266755}
+  - component: {fileID: 1028266756}
   m_Layer: 0
   m_Name: Crowd
   m_TagString: Untagged
@@ -7380,6 +7383,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1028266756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028266753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 352c8ab512c70784e88f22222adce7c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myUIGroup: {fileID: 0}
+  fadeIn: 0
+  fadeOut: 0
 --- !u!1 &1029178369
 GameObject:
   m_ObjectHideFlags: 0
