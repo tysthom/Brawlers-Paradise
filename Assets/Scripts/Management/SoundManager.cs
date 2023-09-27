@@ -34,4 +34,7 @@ public class SoundManager : MonoBehaviour
 
     [Header("Throwable")]
     public AudioClip throwableHit;
+
+    [Header("Souvenirs")]
+    public AudioClip souvenir;
 }

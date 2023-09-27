@@ -136,6 +136,7 @@ public class Souvenirs : MonoBehaviour
     {
         if (souvenirsManager.GetComponent<SouvenirsManager>().souvenirsAllowed)
         {
+            GetComponent<FightingSoundEffects>().Souvenir();
             canUseSouvenir = false;
             if (souvenirFill != null)
                 souvenirFill.fillAmount = 0;

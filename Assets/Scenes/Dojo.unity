@@ -5261,6 +5261,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c649001a20f53fc4ebbe6bf2f7ad4169, type: 3}
   dyingGrunt: {fileID: 8300000, guid: 9537ac99cbfdb91428832803e33054a9, type: 3}
   throwableHit: {fileID: 8300000, guid: 4ab5c40a743cc5e4fb95e7df72edcf86, type: 3}
+  souvenir: {fileID: 8300000, guid: 0cfb462d916a3d4428590fef354a1167, type: 3}
 --- !u!1001 &710435286
 PrefabInstance:
   m_ObjectHideFlags: 0

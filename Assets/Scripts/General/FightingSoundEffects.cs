@@ -153,6 +153,12 @@ public class FightingSoundEffects : MonoBehaviour
         GetComponent<AudioSource>().PlayOneShot(GetComponent<AudioSource>().clip);
     }
 
+    public void Souvenir()
+    {
+        GetComponent<AudioSource>().clip = soundManagerInstance.souvenir;
+        GetComponent<AudioSource>().PlayOneShot(GetComponent<AudioSource>().clip);
+    }
+
     public void Victory()
     {
         GameObject.Find("Sound Effects").GetComponent<AudioSource>().PlayOneShot(soundManagerInstance.victory);

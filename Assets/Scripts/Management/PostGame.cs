@@ -38,6 +38,7 @@ public class PostGame : MonoBehaviour
 
     public enum Scene
     {
+        Intro,
         MainMenu,
         Dojo
     }

@@ -190,9 +190,14 @@ public class MenuManager : MonoBehaviour
             blackOut.GetComponent<CanvasGroup>().alpha = 1;
             blackOut.GetComponent<Fade>().fadeOut = true;
             canChangeMenu = true;
+            musicAudioSource.Play();
             StartCoroutine(SwitchCameras(0, titleCamera, menuCamera));
             MainMenu();
         }
+
+        musicAudioSource.loop = true;
+        musicAudioSource.clip = soundManagerInstance.mainMenuMusic;
+        musicAudioSource.Play();
 
         fightMenu.GetComponent<BrawlerUpdates>().brawler1.transform.position += new Vector3(0, 0, -10);
         fightMenu.GetComponent<BrawlerUpdates>().brawler2.transform.position += new Vector3(0, 0, -10);
@@ -697,9 +702,6 @@ public class MenuManager : MonoBehaviour
 
     IEnumerator MainLogoTime(float t)
     {
-        musicAudioSource.loop = true;
-        musicAudioSource.clip = soundManagerInstance.mainMenuMusic;
-        musicAudioSource.Play();
         yield return new WaitForSeconds(t);
         mainLogo.GetComponent<Fade>().fadeIn = true;
         yield return new WaitForSeconds(t);
