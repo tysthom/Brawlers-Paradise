@@ -19,7 +19,7 @@ public class BackMenu : MonoBehaviour
 
         if (UniversalFight.fight == false) { return; }
 
-        if (pause || (back && gamePaused))
+        if ((pause && !PauseMenu.gamePaused) || (back && gamePaused))
         {
             if (gamePaused)
             {

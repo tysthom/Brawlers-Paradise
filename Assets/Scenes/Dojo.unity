@@ -5209,7 +5209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuMusic: {fileID: 0}
-  buttonPress: {fileID: 0}
+  buttonPress: {fileID: 8300000, guid: 9bce6d115f85444418239da3824f0862, type: 3}
   clothesChange: []
   crowd: {fileID: 0}
   victory: {fileID: 8300000, guid: dfcade6f75e294a4184d306ba26b7506, type: 3}
@@ -9140,6 +9140,7 @@ MonoBehaviour:
   - {fileID: 1067452639}
   - {fileID: 1392480809}
   - {fileID: 1572837379}
+  soundEffectsAudioSource: {fileID: 0}
   matchStatsMenu: {fileID: 1297316059}
   brawlerName: {fileID: 1588706144}
   matchTime: {fileID: 2137217170}

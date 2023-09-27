@@ -24,7 +24,7 @@ public class PauseMenu : MonoBehaviour
 
         if(UniversalFight.fight == false) { return; }
 
-        if (pause || (back && gamePaused))
+        if ((pause && !BackMenu.gamePaused) || (back && gamePaused))
         {
             if (gamePaused)
             {

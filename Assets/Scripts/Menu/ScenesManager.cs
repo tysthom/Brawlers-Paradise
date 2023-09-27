@@ -7,10 +7,12 @@ public class ScenesManager : MonoBehaviour
 {
     public static ScenesManager Instance;
     public GameObject blackOut;
+    AudioSource soundEffectsAudioSource;
 
     private void Awake()
     {
         Instance = this;
+        soundEffectsAudioSource = GameObject.Find("Sound Effects").GetComponent<AudioSource>();
     }
 
     public enum Scene
@@ -41,6 +43,13 @@ public class ScenesManager : MonoBehaviour
 
     public void Exit()
     {
+        ButtonPress();
         Application.Quit();
+    }
+
+    void ButtonPress()
+    {
+        soundEffectsAudioSource.clip = GameObject.Find("Menu Manager").GetComponent<SoundManager>().buttonPress;
+        soundEffectsAudioSource.Play();
     }
 }

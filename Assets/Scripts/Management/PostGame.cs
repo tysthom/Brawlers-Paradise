@@ -16,6 +16,7 @@ public class PostGame : MonoBehaviour
     public GameObject postGameMenu;
     public GameObject playAgainButton;
     public GameObject[] postGameMenuParts = new GameObject[5];
+    public AudioSource soundEffectsAudioSource;
 
     [Header("Match Stats Menu")]
     bool b1Side = true;
@@ -47,6 +48,7 @@ public class PostGame : MonoBehaviour
     {
         winnerText.GetComponent<CanvasGroup>().alpha = 0;
         resultStatsInstance = GetComponent<ResultStats>();
+        soundEffectsAudioSource = GameObject.Find("Sound Effects").GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -230,6 +232,7 @@ public class PostGame : MonoBehaviour
 
     public void PlayAgain()
     {
+        ButtonPress();
         Time.timeScale = 1;
         blackOut.GetComponent<Fade>().fadeIn = true;
         StartCoroutine(PlayAgainCoroutine());
@@ -245,7 +248,8 @@ public class PostGame : MonoBehaviour
 
     public void MatchStats()
     {
-        for(int i = 0; i < postGameMenuParts.Length; i++)
+        ButtonPress();
+        for (int i = 0; i < postGameMenuParts.Length; i++)
         {
             postGameMenuParts[i].SetActive(false);
         }
@@ -296,6 +300,7 @@ public class PostGame : MonoBehaviour
 
     public void MainMenu()
     {
+        ButtonPress();
         Time.timeScale = 1;
         StartCoroutine(MainMenuCoroutine());
     }
@@ -312,6 +317,13 @@ public class PostGame : MonoBehaviour
 
     public void Exit()
     {
+        ButtonPress();
         Application.Quit();
+    }
+
+    void ButtonPress()
+    {
+        soundEffectsAudioSource.clip = GameObject.Find("Sound Manager").GetComponent<SoundManager>().buttonPress;
+        soundEffectsAudioSource.Play();
     }
 }
