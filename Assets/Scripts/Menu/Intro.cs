@@ -13,6 +13,7 @@ public class Intro : MonoBehaviour
 
     void Start()
     {
+        Application.targetFrameRate = -1;
         StartCoroutine(SwitchScene());
     }
 

@@ -6,7 +6,7 @@ public class StateNameController : MonoBehaviour
 {
     public static bool useMainMenu = true;
 
-    public static int b1MainFightStyleSelection;
+    public static int b1MainFightStyleSelection = 0;
     public static int b1MainOutfit;
     public static int b1MainOutfitVariation;
     public static int b1MainHairType;

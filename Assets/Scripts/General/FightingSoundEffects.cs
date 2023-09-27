@@ -17,8 +17,11 @@ public class FightingSoundEffects : MonoBehaviour
         soundManager = GameObject.Find("Sound Manager");
         soundManagerInstance = soundManager.GetComponent<SoundManager>();
         soundEffectsAudioSource = GameObject.Find("Sound Effects").GetComponent<AudioSource>();
+        soundEffectsAudioSource.volume = StateNameController.soundEffectsVolume;
         crowdAudioSource = GameObject.Find("Crowd").GetComponent<AudioSource>();
         crowdAudioSource.volume = StateNameController.soundEffectsVolume;
+
+        GetComponent<AudioSource>().volume = StateNameController.soundEffectsVolume;
     }
 
     private void Update()
