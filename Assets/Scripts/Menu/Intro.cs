@@ -14,6 +14,8 @@ public class Intro : MonoBehaviour
     void Start()
     {
         Application.targetFrameRate = -1;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         StartCoroutine(SwitchScene());
     }
 
