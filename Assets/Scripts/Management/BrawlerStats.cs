@@ -22,7 +22,6 @@ public class BrawlerStats : MonoBehaviour
     [Range(1, 5)] public int b2Health;
     [Range(1, 5)] public int b2Stamina;
 
-
     private void Awake()
     {
         gameManager = GameObject.Find("Game Manager");
@@ -108,5 +107,4 @@ public class BrawlerStats : MonoBehaviour
         }
         return 0;
     }
-
 }

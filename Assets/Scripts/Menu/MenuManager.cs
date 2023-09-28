@@ -6,7 +6,9 @@ using UnityEngine.UI;
 using TMPro;
 
 public class MenuManager : MonoBehaviour
-{ 
+{
+    int firstTime = 0;
+
     public bool canChangeMenu;
     public string currentMenu = "";
     public GameObject eventSystem;
@@ -183,7 +185,6 @@ public class MenuManager : MonoBehaviour
             mainLogo.GetComponent<CanvasGroup>().alpha = 0;
             startText.GetComponent<CanvasGroup>().alpha = 0;
             currentMenu = "Title Menu";
-            //GetComponent<SaveData>().SaveBrawler();
         }
         else
         {
@@ -206,7 +207,6 @@ public class MenuManager : MonoBehaviour
         GetComponent<SaveData>().LoadOptions();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         if(useMainMenu)
@@ -764,8 +764,11 @@ public class MenuManager : MonoBehaviour
     public IEnumerator FightMenuCoroutine(float time)
     {
         currentMenu = "Fight Menu";
-        if(StateNameController.b1MainFightStyleSelection == 0)
+
+        firstTime = PlayerPrefs.GetInt("SavedFirstRun");
+        if(firstTime == 0)
         {
+            PlayerPrefs.SetInt("SavedFirstRun", 1);
             InitialRandomizer();
         }
 

@@ -20,10 +20,6 @@ public class ResultStats : MonoBehaviour
     public float b1TechniqueUsage;
     public float b1SouvenirUsage;
 
-    //public float match time;
-
-    //wins, losses
-
     [Header("Brawler2")]
     public float b2TotalBasicAttacks;
     public float b2BasicAttacksLanded;

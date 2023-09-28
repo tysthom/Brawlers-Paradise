@@ -19,8 +19,6 @@ public class Intro : MonoBehaviour
         StartCoroutine(SwitchScene());
     }
 
-
-
     IEnumerator SwitchScene()
     {
         yield return new WaitForSeconds(6);

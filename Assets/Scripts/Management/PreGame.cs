@@ -8,7 +8,6 @@ public class PreGame : MonoBehaviour
     public GameObject blackOut;
     public TextMeshProUGUI countDownText;
 
-    // Start is called before the first frame update
     void Start()
     {
         blackOut.GetComponent<CanvasGroup>().alpha = 1;

@@ -7,11 +7,4 @@ public class BrawlerId : MonoBehaviour
     public enum Id { brawler1, brawler2, neither}
 
     public Id brawlerId;
-
-    
-
-    private void Awake()
-    {
-        
-    }
 }

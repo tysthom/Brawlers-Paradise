@@ -39,20 +39,20 @@ public class Combat : MonoBehaviour
     public bool isAttacking = false; //Determines if player is attacking
     public bool canNextAttack = false; //True if can perform next attack in attack combo
     public bool isCounterAttacking = false; //True if performing a counter attack after parrying
-    public bool isCounterAttackBuffering = false;
-    public bool canFinish;
-    public bool isFinishing;
+    public bool isCounterAttackBuffering = false; //True if is counter attacking
+    public bool canFinish; //True if can finish opponent
+    public bool isFinishing; //True if is finishing opponent
     public bool canBlock; //True if can block
     public bool isParrying; //True if is parrying
-    public bool isBlocking;
-    public bool isBlockBuffering;
-    public bool isParryBuffering;
+    public bool isBlocking; //True if is blocking
+    public bool isBlockBuffering; //True if buffering after finishing blocking
+    public bool isParryBuffering; //True if buffering after finishing parrying
     public float primary, secondary; //Trigger values
-    bool secondaryLifted;
+    bool secondaryLifted; //True if secondary is not pushed down
     public bool canUseTechnique; //True when Technique can be used
 
     [Header("Karate Status")]
-    public bool stanceCooldown;
+    public bool stanceCooldown; //True if can not switch stance after just switching
 
     [Header("Boxing Status")]
     public bool isGuardBreaking; //True if is performing guard break
@@ -61,20 +61,20 @@ public class Combat : MonoBehaviour
     [Header("MMA Status")]
     public bool shouldDive; //Determines if should be moving while diving
     public bool isDiving; //True if performing diving attack ONLY
-    public bool isGroundIdle;
+    public bool isGroundIdle; //True if Idle while on top of dove opponent
     public bool isGroundAttacking; //True if either groundIdle or performing ground attacks
 
     [Header("TKD Status")]
-    public bool isStretching;
-    public bool isStretchBuffering;
+    public bool isStretching; //True if currently stretching
+    public bool isStretchBuffering; //True if buffering just after finishing parrying
 
     [Header("Kung Fu Status")]
-    public bool isEyePoking;
+    public bool isEyePoking; //True if performing Eye Poke attack
 
     [Header("Pro Wrestling Status")]
-    public bool isBearhugGrabbing;
-    public bool isBearhugging;
-    public int bearhugBreakOutCount = 0;
+    public bool isBearhugGrabbing; //True if performing grabbing portion of Bear Hug attack
+    public bool isBearhugging; //True if hugging opponent
+    public int bearhugBreakOutCount = 0; //Current amount of break out meter
 
     [Header("Coroutine")]
     public Coroutine parry;
@@ -140,18 +140,21 @@ public class Combat : MonoBehaviour
         {
             if(difficultyInstance.difficultyMode == Difficulty.difficulty.easy)
             {
-                combatStatsInstance.aiContinuedAttackFrequency -= 2;
-                combatStatsInstance.aiThrowableFrequency -= 1;
-                combatStatsInstance.aiDefendFrequency -= 2;
+                combatStatsInstance.aiContinuedAttackFrequency = 7;
+                combatStatsInstance.aiThrowableFrequency = 2;
+                combatStatsInstance.aiDefendFrequency = 4;
             } 
             else if(difficultyInstance.difficultyMode == Difficulty.difficulty.medium)
             {
-                combatStatsInstance.aiContinuedAttackFrequency -= 1;
-                combatStatsInstance.aiDefendFrequency -= 1;
-            } 
-            else if(difficultyInstance.difficultyMode == Difficulty.difficulty.hard)
+                combatStatsInstance.aiContinuedAttackFrequency = 9;
+                combatStatsInstance.aiThrowableFrequency = 1;
+                combatStatsInstance.aiDefendFrequency = 5;
+            }
+            else if (difficultyInstance.difficultyMode == Difficulty.difficulty.hard)
             {
-
+                combatStatsInstance.aiContinuedAttackFrequency = 10;
+                combatStatsInstance.aiThrowableFrequency = 1;
+                combatStatsInstance.aiDefendFrequency = 6;
             }
         }
     }
@@ -328,23 +331,12 @@ public class Combat : MonoBehaviour
                 //agent.isStopped set to true in Update of AiBehavior script
                 return;
             }
-            /* if (isAttacking)
-            {
-                if (GetComponent<AiBehavior>().enemy.tag == "Player" && !attackBuffering)
-                {
-                    GetComponent<AiBehavior>().canGlideToEnemy = true;
-                }
-                else
-                {
-                    GetComponent<AiBehavior>().canGlideToEnemy = false;
-                }
-            } */
             if (GetComponent<AiBehavior>().canGlideToEnemy && Vector3.Distance(transform.position, enemy.transform.position) > GetComponent<AiBehavior>().attackRadius)
             {
-                    if (Vector3.Distance(transform.position, enemy.transform.position) > GetComponent<AiBehavior>().attackRange)
-                    {
-                        transform.position = Vector3.Lerp(transform.position, enemy.transform.position, GetComponent<AiBehavior>().glideAmount * Time.deltaTime);
-                    }
+                if (Vector3.Distance(transform.position, enemy.transform.position) > GetComponent<AiBehavior>().attackRange)
+                {
+                    transform.position = Vector3.Lerp(transform.position, enemy.transform.position, GetComponent<AiBehavior>().glideAmount * Time.deltaTime);
+                }
             }
         }
         //END OF AI SECTION
@@ -600,19 +592,11 @@ public class Combat : MonoBehaviour
                 }
                 else
                 {
-                    //canUseTechnique = true;
                     afterAttack = StartCoroutine(AfterAttack());
                 }
                enemy.GetComponent<Flinch>().recovery = StartCoroutine(enemy.GetComponent<Flinch>().Recovery());
             }
         }
-    }
-
-    IEnumerator BlockTransitionTime()
-    {
-        anim.SetBool("canTransition", true);
-        yield return new WaitForSeconds(.3f);
-        anim.SetBool("canTransition", false);
     }
 
     IEnumerator BlockBuffer()
@@ -624,8 +608,6 @@ public class Combat : MonoBehaviour
 
     IEnumerator Block()
     {
-        //GetComponent<CoroutineManager>().CancelCoroutines(block);
-
         isBlocking = true;
         faceEnemy = true;
         anim.SetInteger("State", 20);
@@ -635,47 +617,6 @@ public class Combat : MonoBehaviour
         isBlocking = false;
         if (tag == "Enemy") { GetComponent<AiBehavior>().canGlideToEnemy = false; 
             GetComponent<AiBehavior>().AssignIdle(); GetComponent<AiBehavior>().isChasingEnemy = true; }
-    }
-
-    IEnumerator Parry() 
-    {
-        yield return null; //MUST DELETE TO USE AGAIN
-        canAttack = false;
-        canNextAttack = false;
-        isAttacking = false;
-
-        GetComponent<CoroutineManager>().CancelCoroutines(parry);
-
-        GetComponent<Dodge>().canDodge = false;
-        isParrying = true;
-        canBlock = false;
-        anim.SetInteger("State", 20);
-        faceEnemy = true;
-        if(tag == "Enemy") 
-        { 
-            GetComponent<AiBehavior>().canGlideToEnemy = false;
-            if (GetComponent<AiBehavior>().waitToAttack != null)
-            {
-                StopCoroutine(GetComponent<AiBehavior>().waitToAttack);      
-            }
-        }
-        //yield return new WaitForSeconds(combatStatsInstance.parryTime);
-            isParrying = false;
-            isParryBuffering = true;
-            if (tag == "Player")
-            {
-                GetComponent<CharacterController>().enabled = true;
-                if(!isCounterAttacking)
-                anim.SetInteger("State", 0);
-                //yield return new WaitForSeconds(combatStatsInstance.parryBufferTime);
-            }
-            canAttack = true;
-            GetComponent<Dodge>().canDodge = true;
-            if (tag == "Enemy") { GetComponent<AiBehavior>().canGlideToEnemy = false; GetComponent<AiBehavior>().AssignIdle(); GetComponent<AiBehavior>().isChasingEnemy = true; }
-            //yield return new WaitForSeconds(combatStatsInstance.parryBufferTime);
-            isParryBuffering = false;
-            canBlock = true;
-        if(tag == "Enemy") { GetComponent<AiBehavior>().wTACalled = false; }
     }
 
     public IEnumerator CounterAttack()
@@ -699,7 +640,6 @@ public class Combat : MonoBehaviour
         GetComponent<Movement>().PlayerMovement();
         yield return new WaitForSeconds(.25f);
         isCounterAttackBuffering = false;
-        //canUseTechnique = true;
     }
 
     public IEnumerator GuardBreaker()
@@ -718,7 +658,6 @@ public class Combat : MonoBehaviour
 
             GetComponent<CoroutineManager>().CancelCoroutines(guardBreaker);
 
-            //GetComponent<CoroutineManager>().CancelCoroutines(parry);
             if (tag == "Player")
             {
                 faceEnemy = true;
@@ -727,12 +666,6 @@ public class Combat : MonoBehaviour
             {
                 faceEnemy = true;
                 GetComponent<AiBehavior>().agent.isStopped = true;
-                /*if (GetComponent<AiBehavior>().waitToAttack != null)
-            {
-                StopCoroutine(GetComponent<AiBehavior>().waitToAttack);     
-                GetComponent<AiBehavior>().isWaitingToAttack = false;
-                GetComponent<AiBehavior>().wTACalled = false;
-            } */
             }
             anim.SetInteger("State", 10);
             yield return new WaitForSeconds(.2f);
@@ -753,7 +686,6 @@ public class Combat : MonoBehaviour
                     }
             isGuardBreaking = false;
             guardBreakerComplete = true;
-            //canUseTechnique = true;
         }
     }
 
@@ -883,7 +815,6 @@ public class Combat : MonoBehaviour
             ShouldNotMove();
             canUseTechnique = false;
             isEyePoking = true;
-            //anim.SetInteger("State", 10);
             resultStatsInstance.TechniqueUsage(gameObject);
             GetComponent<Flinch>().canBeCounterHit = true;
             GetComponent<Flinch>().canBePunishHit = false;
@@ -923,8 +854,6 @@ public class Combat : MonoBehaviour
     {
         if (!inCombat && !GetComponent<Flinch>().isReacting && !enemy.GetComponent<Flinch>().isParried)
         {
-            //invulnerable = true;
-
             GetComponent<CoroutineManager>().CancelCoroutines(bearhugGrab);
 
             ShouldNotMove();
@@ -968,7 +897,6 @@ public class Combat : MonoBehaviour
     public IEnumerator Bearhugging()
     {
         GetComponent<CoroutineManager>().CancelCoroutines(bearhugging);
-        //invulnerable = true;
 
         isBearhugging = true;
         anim.SetInteger("State", 11);
@@ -980,8 +908,7 @@ public class Combat : MonoBehaviour
         if (tag == "Player")
         {
             bearhugBreakOutCount += Random.Range(fightStyleManager.GetComponent<ProWrestlingStats>().minBreakOutAmount,
-                fightStyleManager.GetComponent<ProWrestlingStats>().maxBreakOutAmount);
-            
+                fightStyleManager.GetComponent<ProWrestlingStats>().maxBreakOutAmount); 
         }
         else
         {
@@ -1022,7 +949,6 @@ public class Combat : MonoBehaviour
                 GetComponent<Flinch>().canBePunishHit = false;
 
                 resultStatsInstance.BasicTotalAttacks(idManagerInstance.brawler1);
-                //canUseTechnique = false;
                 anim.SetInteger("State", state);
                 isAttacking = true;
                 canNextAttack = false;
@@ -1074,7 +1000,6 @@ public class Combat : MonoBehaviour
     {
         GetComponent<CoroutineManager>().CancelCoroutines(finisher);
         isFinishing = true;
-        //GetComponent<Throw>().Equiping(false);
         enemy.GetComponent<Flinch>().isBeingFinished = true;
         if (tag == "Player")
         {
@@ -1084,9 +1009,7 @@ public class Combat : MonoBehaviour
         
         hudManager.GetComponent<HUDManager>().finisherText.text = "";
 
-
-        anim.SetInteger("State", 50);
-        
+        anim.SetInteger("State", 50);   
 
         yield return new WaitForSeconds(4);
 
@@ -1177,7 +1100,7 @@ public class Combat : MonoBehaviour
                 controller.Move(velocity * Time.deltaTime);
                 return;
             }
-                transform.position += transform.forward * dis * .8f * Time.deltaTime;
+            transform.position += transform.forward * dis * .8f * Time.deltaTime;
         }
     }
 
@@ -1620,7 +1543,6 @@ public class Combat : MonoBehaviour
                 faceEnemy = true;
                 faceHead = false;
                 isAttacking = false;
-                //canUseTechnique = true;
                 canAttack = true;
                 GetComponent<AiBehavior>().isChasingEnemy = true;
             } 
@@ -1672,6 +1594,5 @@ public class Combat : MonoBehaviour
         {
             GetComponent<AiBehavior>().canGlideToEnemy = false;
         }
-
     }
 }

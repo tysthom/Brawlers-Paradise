@@ -17,7 +17,6 @@ public class CombatStats : MonoBehaviour
     public kungFuStats kungFuStatsRefrence;
     public ProWrestlingStats proWrestlingStatsRefrence;
 
-
     [Header("Brawler 1 Combat")]
     public int brawler1AttackDamage = 50;
     public float brawler1FirstAttackTime = 1.12f;

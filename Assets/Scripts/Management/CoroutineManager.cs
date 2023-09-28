@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CoroutineManager : MonoBehaviour
 {
-
     public void CancelCoroutines(Coroutine ignore)
     {
         if (tag == "Enemy")
@@ -142,5 +141,4 @@ public class CoroutineManager : MonoBehaviour
             GetComponent<Flinch>().isSurrendering = false;
         }
     }
-
 }

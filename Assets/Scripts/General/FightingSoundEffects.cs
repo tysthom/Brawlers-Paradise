@@ -42,7 +42,6 @@ public class FightingSoundEffects : MonoBehaviour
         soundEffectsAudioSource.PlayOneShot(soundEffectsAudioSource.clip);
     }
 
-
     public void Block()
     {
         soundEffectsAudioSource.clip = soundManagerInstance.block[Random.Range(0, soundManagerInstance.block.Length)];

@@ -24,7 +24,6 @@ public class FreeRoamCamera : MonoBehaviour
         speed *= 500;
         sprintSpeed *= 500;
     }
-
     void LateUpdate()
     {
         primary = Input.GetAxis("Primary");

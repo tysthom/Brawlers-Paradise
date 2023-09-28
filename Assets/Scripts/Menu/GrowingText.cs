@@ -18,7 +18,6 @@ public class GrowingText : MonoBehaviour
         normalScaleSize = GetComponent<RectTransform>().localScale.x;
     }
 
-    // Update is called once per frame
     void Update()
     {
         currentSelected = eventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().currentSelectedGameObject;

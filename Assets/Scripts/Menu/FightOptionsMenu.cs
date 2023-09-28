@@ -43,14 +43,12 @@ public class FightOptionsMenu : MonoBehaviour
     [Header("Throwable")]
     public bool throwableAllowed;
 
-    // Start is called before the first frame update
     void Start()
     {
         menuManager = GameObject.Find("Menu Manager");
         menuManagerInstance = menuManager.GetComponent<MenuManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(eventSystem.GetComponent<EventSystem>().currentSelectedGameObject.name == "B1 SouvenirSelection" ||

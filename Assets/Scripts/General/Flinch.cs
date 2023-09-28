@@ -19,18 +19,18 @@ public class Flinch : MonoBehaviour
     public bool isReacting;
     public bool isFlinching; //True if flinching (moving backwards & not animation flinching)
     public bool isFlinchBuffering; //Prevents player from attacking while also allowing them to move around
-    public bool isDove;
-    public bool isRecovering;
-    public bool isBearhugged;
-    public bool isBlockedBack;
+    public bool isDove; //True if dove on floor
+    public bool isRecovering; //True if recovering after being knocked down
+    public bool isBearhugged; //True if being Bear Hugged
+    public bool isBlockedBack; //True if moving backwards after blocking an attack
     public bool isKnockedBack; //True if currently being knockedback
-    public bool isKnockedDown;
+    public bool isKnockedDown; //True if knocked on the floor
     public bool isStunned; //True if stunned
     public bool isParried; //True if parried
     public bool isParryBuffering; //Prevents player from attacking while also allowing them to move around
     public bool isPoisoned; //True if poisoned
-    public bool isSurrendering;
-    public bool isBeingFinished;
+    public bool isSurrendering; //True if surrendering
+    public bool isBeingFinished; //True if about to be finished
 
     public bool canBeCounterHit;
     public bool canBePunishHit;
@@ -101,15 +101,7 @@ public class Flinch : MonoBehaviour
         if (isBearhugged)
         {
             transform.position = GetComponent<Combat>().enemy.GetComponent<Flinch>().bearhuggedPosition.transform.position;
-            //GetComponent<Health>().SubtractHealth(1);
-            
-
         }
-
-        /*if(isDove && GetComponent<Combat>().enemy.GetComponent<Flinch>().isReacting)
-        {
-            recovery = StartCoroutine(Recovery());
-        } */
 
         if (tag == "Enemy")
         {
@@ -362,7 +354,6 @@ public class Flinch : MonoBehaviour
         GetComponent<Combat>().invinsible = true;
 
         anim.SetInteger("State", 115);
-
         
         yield return new WaitForSeconds(.5f);
         anim.SetInteger("State", 118);
@@ -508,7 +499,7 @@ public class Flinch : MonoBehaviour
             combatManagear.GetComponent<AttackStatusManager>().Parry(GetComponent<Combat>().enemy);
         }
 
-            gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
+        gameManager.GetComponent<Vibrations>().vibrateCoroutine = null;
         gameManager.GetComponent<Vibrations>().vibrateCoroutine = StartCoroutine(gameManager.GetComponent<Vibrations>().Vibrate(.1f, .5f));
         anim.SetInteger("State", 120);
 
@@ -547,7 +538,6 @@ public class Flinch : MonoBehaviour
 
     public IEnumerator Surrender()
     {
-        
         GetComponent<CoroutineManager>().CancelCoroutines(surrender);
 
         isSurrendering = true;
@@ -556,23 +546,6 @@ public class Flinch : MonoBehaviour
 
         if (tag == "Enemy" && idManagerInstance.gameMode != IdManagear.mode.AiVsAi)
         {
-           /* if (surrenderCanvas == null && idManagerInstance.gameMode != IdManagear.mode.AiVsAi)
-            {
-                for (int i = 0; i < transform.childCount; i++)
-                {
-                    /*if (transform.GetChild(i).gameObject.name == "Canvas")
-                    {
-                        surrenderCanvas = transform.GetChild(i).gameObject;
-                        surrenderCanvas.SetActive(true);
-                        surrenderCanvas.GetComponent<Billboard>().cam = GetComponent<Combat>().enemy.GetComponent<Movement>().cam;
-                        i = transform.childCount;
-
-                    } 
-
-                    
-                }
-            }  */
-            
             if(hudManager.GetComponent<HUDManager>().hudType != HUDManager.hud.none)
                 hudManager.GetComponent<HUDManager>().finisherPrompt.SetActive(true);
 
@@ -587,7 +560,6 @@ public class Flinch : MonoBehaviour
         if (!GetComponent<Combat>().enemy.GetComponent<Combat>().isFinishing)
         {
             hudManager.GetComponent<HUDManager>().finisherText.text = "";
-            //surrenderCanvas.SetActive(false);
             hudManager.GetComponent<HUDManager>().finisherPrompt.SetActive(false);
             GetComponent<Health>().AddHealth(200); //Adds health if failed to be finished
             GetComponent<Combat>().invulnerable = false;

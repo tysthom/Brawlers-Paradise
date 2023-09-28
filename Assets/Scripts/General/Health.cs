@@ -66,11 +66,7 @@ public class Health : MonoBehaviour
 
         StartCoroutine(KararteRegenHealth());
 
-        if (hudManagerInstance.hudType == HUDManager.hud.none || tag == "Tourist")
-        {
-            //return;
-        }
-        else
+        if (hudManagerInstance.hudType != HUDManager.hud.none && tag != "Tourist")
         {
             healthBar.GetComponent<Image>().color = barColorInstance.healthColor;
         }
@@ -80,7 +76,6 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-
         if (UniversalFight.fight)
         {
             if (health > maxHealth)
@@ -166,7 +161,6 @@ public class Health : MonoBehaviour
             regen = StartCoroutine(RegenHealth());
             if (GetComponent<Combat>().unkillable && health < maxHealth * souvenirsManager.GetComponent<SouvenirsManager>().ljMinHealthAmount)
             {
-
                 health = maxHealth * souvenirsManager.GetComponent<SouvenirsManager>().ljMinHealthAmount;
             }
         }

@@ -19,7 +19,6 @@ public class ClassicBars : MonoBehaviour
 
     void Start()
     {
-
         if(hudManagerInstance.hudType != HUDManager.hud.classic)
         {
             gameObject.SetActive(false);

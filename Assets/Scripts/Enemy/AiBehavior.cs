@@ -29,7 +29,6 @@ public class AiBehavior : MonoBehaviour
     public float glideAmount = 1; //How far Ai can glide when attacking;
     public float pickUpRange = 5; //Range where Ai will be able to pick up a throwable
     public float throwableSearchrange = 500; //Range where Ai can search for a throwable
-    int baseDefense = 0;
 
     [Header("Status")]   
     public bool isPunchingBag; //Idle
@@ -74,7 +73,6 @@ public class AiBehavior : MonoBehaviour
         particleManager = GameObject.Find("Particle Manager");
         agent = GetComponent<NavMeshAgent>();
         baseSpeed = agent.speed;
-        baseDefense = combatManagear.GetComponent<CombatStats>().aiDefendFrequency;
         fSEInstance = GetComponent<FightingSoundEffects>();
     }
     void Start()
@@ -99,9 +97,6 @@ public class AiBehavior : MonoBehaviour
             agent.stoppingDistance = attackRange;
             isChargingEnemy = true;
         }
-
-        
-
     }
 
     void Update()
@@ -162,7 +157,6 @@ public class AiBehavior : MonoBehaviour
 
             if (isWaitingToAttack && !wTACalled && !GetComponent<Combat>().inCombat) //Called once to initaiate attack wait time ONCE
             {
-                //AssignIdle();
                 waitToAttack = StartCoroutine(WaitToAttack());
             }
 
@@ -373,7 +367,6 @@ public class AiBehavior : MonoBehaviour
                 { //Error happens when Ai tries to attack while being downed, thus causing them to freeze
                     wTACalled = false;
                     waitToAttack = StartCoroutine(WaitToAttack());
-                    Debug.Log("Can't Delete");
                 }
             }
         }
@@ -449,10 +442,6 @@ public class AiBehavior : MonoBehaviour
                     fSEInstance.AttackGrunt();
                 }
             }
-        }
-        else
-        {
-            Debug.Log("Can't Attack!");
         }
     }
 

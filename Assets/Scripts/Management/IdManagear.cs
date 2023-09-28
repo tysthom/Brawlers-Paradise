@@ -61,7 +61,6 @@ public class IdManagear : MonoBehaviour
 
         player = GameObject.FindGameObjectsWithTag("Player");
         ai = GameObject.FindGameObjectsWithTag("Enemy");
-        //spectatorCamera = Camer GameObject.Find("Spectator Camera");
         winnerCamera.enabled = false;
 
         if (gameMode == mode.playerVsAi || gameMode == mode.training)

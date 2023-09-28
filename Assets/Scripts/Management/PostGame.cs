@@ -36,7 +36,6 @@ public class PostGame : MonoBehaviour
     public TextMeshProUGUI techniqueUsed;
     public TextMeshProUGUI souvenirUsed;
 
-
     public enum Scene
     {
         Intro,
@@ -112,8 +111,6 @@ public class PostGame : MonoBehaviour
             resultStatsInstance.b2BasicAttackPercentage = 0;
         }
 
-       
-
         yield return new WaitForSeconds(.5f);
 
         if (UniversalFight.usingMenuData)
@@ -145,7 +142,6 @@ public class PostGame : MonoBehaviour
 
         if(GetComponent<IdManagear>().gameMode == IdManagear.mode.playerVsAi)
         {
-            //GetComponent<SaveData>().SaveStats();
             GetComponent<SaveData>().LoadStats();
             StateNameController.totalFights++;
             if(GetComponent<IdManagear>().brawler1.GetComponent<Health>().health > 0)

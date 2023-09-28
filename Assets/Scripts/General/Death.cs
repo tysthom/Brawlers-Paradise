@@ -30,7 +30,6 @@ public class Death : MonoBehaviour
     {
         if(GetComponent<Health>().health <= 0 && !GetComponent<Flinch>().isSurrendering && !dead)
         {
-
             if (GetComponent<Flinch>().isDove || GetComponent<Flinch>().isBearhugged ||
                      GetComponent<Combat>().isDiving || GetComponent<Combat>().isGroundIdle)
             {
@@ -76,7 +75,6 @@ public class Death : MonoBehaviour
             if (tag != "Tourist")
                 GetComponent<Throw>().enabled = false;
 
-            //enemy.GetComponent<Combat>().enabled = false;
             GetComponent<Flinch>().isFlinching = false;
             GetComponent<CorrectRotation>().enabled = false;
             if (tag == "Player")
@@ -150,7 +148,6 @@ public class Death : MonoBehaviour
         anim.enabled = true;
         SetCollidersEnabled(false);
         SetRigidbodiesKinematic(true);
-        //anim.SetBool("canTransition", true);
         anim.SetInteger("State", 150);
         yield return new WaitForSeconds(.5f);
         anim.SetInteger("State", 0);

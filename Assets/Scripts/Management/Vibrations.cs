@@ -11,7 +11,6 @@ public class Vibrations : MonoBehaviour
     public float vIntensity;
     public Coroutine vibrateCoroutine;
 
-    // Start is called before the first frame update
     void Start()
     {
         if (UniversalFight.usingMenuData)
@@ -32,7 +31,6 @@ public class Vibrations : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (vibrating == false)

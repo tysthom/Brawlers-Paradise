@@ -12,13 +12,11 @@ public class SmoothDampCamera : MonoBehaviour
     Vector3 velocity = Vector3.zero;
     GameObject menuManager;
 
-    // Start is called before the first frame update
     void Start()
     {
         menuManager = GameObject.Find("Menu Manager");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (smoothDamp)

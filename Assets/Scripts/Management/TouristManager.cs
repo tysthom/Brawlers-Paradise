@@ -53,7 +53,6 @@ public class TouristManager : MonoBehaviour
             {
                 if (companions[i].tag == "Player" || companions[i].tag == "Enemy")
                 {
-                    //foundThrowable = true;
                     if (closestCompanion == null)
                     {
                         closestCompanion = companions[i].gameObject;
@@ -76,6 +75,5 @@ public class TouristManager : MonoBehaviour
     {
         Gizmos.color = new Color(0.7833475f, 0, 1, .5f);
         Gizmos.DrawCube(spawnCenter, spawnSize);
-
     }
 }

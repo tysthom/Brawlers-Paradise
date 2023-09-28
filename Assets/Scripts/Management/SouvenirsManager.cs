@@ -86,7 +86,6 @@ public class SouvenirsManager : MonoBehaviour
     private void Start()
     {
         StartCoroutine(InitialSteps());
-        
     }
 
     IEnumerator InitialSteps()
@@ -134,7 +133,6 @@ public class SouvenirsManager : MonoBehaviour
             {
                 idManagerInstance.brawler1.GetComponent<Souvenirs>().souvenir = Souvenirs.souvenirs.none;
             }
-
 
             if (StateNameController.b2MainSouvenirSelection == 0)
             {
@@ -186,7 +184,6 @@ public class SouvenirsManager : MonoBehaviour
             {
                 if (idManagerInstance.brawler1.GetComponent<Souvenirs>().souvenir == Souvenirs.souvenirs.none)
                 {
-                    //AssignRandomSouvenir(idManagerInstance.brawler1);
                     AssignSouvenirIcon(idManagerInstance.brawler1);
                 }
                 if (idManagerInstance.brawler2.GetComponent<Souvenirs>().souvenir == Souvenirs.souvenirs.none)

@@ -7,7 +7,6 @@ public class ParticleManager : MonoBehaviour
 {
     [Header("Refrences")]
     GameObject gameManager;
-    IdManagear idManagerInstance;
 
     public GameObject brawler1;
     public GameObject brawler2;
@@ -24,18 +23,9 @@ public class ParticleManager : MonoBehaviour
     public ParticleSystem lifeStealParticles;
     public ParticleSystem damageReductionParticles;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("Game Manager");
-        idManagerInstance = gameManager.GetComponent<IdManagear>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void KarateOffensiveParticles(GameObject brawler)

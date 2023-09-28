@@ -23,7 +23,6 @@ public class Movement : MonoBehaviour
     public float runSpeed = 14;
     public float attackRange = 5;
     public float pickUpRange = 5;
-    float isRunning;
 
     [Header("Ground")]
     public bool isGrounded;
@@ -92,16 +91,12 @@ public class Movement : MonoBehaviour
         if(GetComponent<Combat>().isDiving) { return; }
         if (GetComponent<Combat>().isGroundAttacking) { return; }
 
-
-
         if (!controller.enabled) { return; }
 
         if(idManagerInstance.gameMode == IdManagear.mode.AiVsAi)
         {
             return;
         }
-
-        
 
         velocity.y += -9.8f * Time.deltaTime; //Gravity
         if (GetComponent<Flinch>().isFlinching == false && GetComponent<Flinch>().isStunned == false)
@@ -127,14 +122,6 @@ public class Movement : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, angle, 0);
 
             Vector3 moveDir = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
-            if (Input.GetAxis("Secondary") == 0)
-            {
-                isRunning = Input.GetAxis("Primary"); //Causes player to run when secondary isn't down and primary is down
-            }
-            else
-            {
-                isRunning = 0;
-            }
             anim.speed = 1.1f;
             if (GetComponent<Souvenirs>().hasSpeedBoost)
             {
@@ -146,18 +133,6 @@ public class Movement : MonoBehaviour
                 controller.Move(moveDir.normalized * runSpeed * Time.deltaTime);
             }
             anim.SetInteger("State", 2);
-           /* if (isRunning == 0)
-            {
-                controller.Move(moveDir.normalized * jogSpeed * GetComponent<Combat>().movementSpeedMultiplier * Time.deltaTime);
-                anim.speed = GetComponent<Combat>().movementSpeedMultiplier;
-                anim.SetInteger("State", 1);
-            }
-            else
-            {
-                controller.Move(moveDir.normalized * runSpeed * GetComponent<Combat>().movementSpeedMultiplier * Time.deltaTime);
-                anim.speed = GetComponent<Combat>().movementSpeedMultiplier;
-                anim.SetInteger("State", 2);
-            } */
         }
         else
         {

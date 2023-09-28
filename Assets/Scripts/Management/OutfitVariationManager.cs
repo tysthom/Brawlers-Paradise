@@ -48,7 +48,6 @@ public class OutfitVariationManager : MonoBehaviour
                     }
                 }
             }
-
         }
         else if (f == FightStyle.fightStyles.boxing)
         {
@@ -175,8 +174,6 @@ public class OutfitVariationManager : MonoBehaviour
                 }
             }
         }
-
-
         return null;
     }
 }

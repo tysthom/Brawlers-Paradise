@@ -13,7 +13,6 @@ public class BearhugBreakOutUI : MonoBehaviour
     public GameObject bearHugBreakOutPrompt;
     GameObject player;
 
-    // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("Game Manager");
@@ -24,7 +23,6 @@ public class BearhugBreakOutUI : MonoBehaviour
         player = GameObject.Find("Player");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (gameManager.GetComponent<IdManagear>().gameMode != IdManagear.mode.AiVsAi && player != null && player.GetComponent<Flinch>().isBearhugged && hudManagerInstance.hudType != HUDManager.hud.none)

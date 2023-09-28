@@ -59,7 +59,6 @@ public class Tourist : MonoBehaviour
         if (isPunchingBag == false)
         {
             agent.stoppingDistance = attackRange;
-            //MoveToAttack(attackRange);
         }
     }
 
@@ -140,7 +139,7 @@ public class Tourist : MonoBehaviour
 
     public void AssignIdle()
     {
-            anim.SetInteger("State", 0);
+        anim.SetInteger("State", 0);
     }
 
     IEnumerator StartTimer()
@@ -156,20 +155,19 @@ public class Tourist : MonoBehaviour
 
     public IEnumerator WaitToAttack() //The time it takes the Ai to wait from a distance & charge towards player/throable
     { 
+        if (canAttack)
+        {
+            StartCoroutine(StartTimer());
 
-            if (canAttack)
+            if (!GetComponent<Flinch>().isFlinching && !GetComponent<Flinch>().isStunned)
             {
-                StartCoroutine(StartTimer());
-
-                if (!GetComponent<Flinch>().isFlinching && !GetComponent<Flinch>().isStunned)
-                {
-                        MoveToAttack(attackRange);
+                MoveToAttack(attackRange);
             }
             else
             {
                 yield return null;
             }
-            }
+        }
     }
 
     public void MoveToAttack(float dis) //Ai charges towards player and assigns attack variation

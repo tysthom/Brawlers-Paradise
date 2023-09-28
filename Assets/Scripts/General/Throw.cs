@@ -232,8 +232,6 @@ public class Throw : MonoBehaviour
             GetComponent<Souvenirs>().canUseSouvenir = true;
         }
 
-        Debug.Log("Throw");
         resultStatsInstance.ThrowablesUsed(gameObject);
-
     }
 }

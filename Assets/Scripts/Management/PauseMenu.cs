@@ -16,7 +16,6 @@ public class PauseMenu : MonoBehaviour
         gamePaused = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         bool pause = Input.GetKeyDown(KeyCode.JoystickButton7);

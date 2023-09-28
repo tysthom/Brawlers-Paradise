@@ -30,7 +30,6 @@ public class TkdStats : MonoBehaviour
     [Header("Ai Stretch Usage")]
     [Range(0, 10)] public int aiStretchFrequency;
 
-
     #region Animation
     /* 0 - Combat Idle
      * 2 - Run

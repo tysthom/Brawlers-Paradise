@@ -269,7 +269,6 @@ public class Souvenirs : MonoBehaviour
 
     public IEnumerator CooldownTime(float time)
     {
-
         float amount = 1 / time;
         for (int i = 0; i < time; i++) {
             onCooldown = true;
@@ -280,5 +279,4 @@ public class Souvenirs : MonoBehaviour
         onCooldown = false;
         canUseSouvenir = true;
     }
-
 }

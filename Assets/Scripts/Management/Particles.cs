@@ -7,7 +7,6 @@ public class Particles : MonoBehaviour
     GameObject gameManager;
     IdManagear idManagerInstance;
 
-    // Start is called before the first frame update
     void Start()
     {
         if (UniversalFight.fight)
@@ -17,7 +16,6 @@ public class Particles : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (UniversalFight.fight)

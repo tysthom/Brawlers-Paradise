@@ -23,12 +23,6 @@ public class AttackStatusManager : MonoBehaviour
         b2AttackStatusDisplay.text = "";
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void CounterHit(GameObject brawler)
     {
         if(brawler == idManagerInstance.brawler1)
@@ -52,10 +46,6 @@ public class AttackStatusManager : MonoBehaviour
                 StopCoroutine(b2Fade);
             }
             b2Fade = StartCoroutine(B2WaitToFade());
-        }
-        else
-        {
-            Debug.Log("Error");
         }
     }
 
@@ -83,10 +73,6 @@ public class AttackStatusManager : MonoBehaviour
             }
             b2Fade = StartCoroutine(B2WaitToFade());
         }
-        else
-        {
-            Debug.Log("Error");
-        }
     }
 
     public void Knockdown(GameObject brawler)
@@ -112,10 +98,6 @@ public class AttackStatusManager : MonoBehaviour
                 StopCoroutine(b2Fade);
             }
             b2Fade = StartCoroutine(B2WaitToFade());
-        }
-        else
-        {
-            Debug.Log("Error");
         }
     }
 
@@ -143,10 +125,6 @@ public class AttackStatusManager : MonoBehaviour
             }
             b2Fade = StartCoroutine(B2WaitToFade());
         }
-        else
-        {
-            Debug.Log("Error");
-        }
     }
 
     public void Dive(GameObject brawler)
@@ -172,10 +150,6 @@ public class AttackStatusManager : MonoBehaviour
                 StopCoroutine(b2Fade);
             }
             b2Fade = StartCoroutine(B2WaitToFade());
-        }
-        else
-        {
-            Debug.Log("Error");
         }
     }
 
@@ -203,10 +177,6 @@ public class AttackStatusManager : MonoBehaviour
             }
             b2Fade = StartCoroutine(B2WaitToFade());
         }
-        else
-        {
-            Debug.Log("Error");
-        }
     }
 
     public void Poke(GameObject brawler)
@@ -233,10 +203,6 @@ public class AttackStatusManager : MonoBehaviour
             }
             b2Fade = StartCoroutine(B2WaitToFade());
         }
-        else
-        {
-            Debug.Log("Error");
-        }
     }
 
     public void BearHug(GameObject brawler)
@@ -262,10 +228,6 @@ public class AttackStatusManager : MonoBehaviour
                 StopCoroutine(b2Fade);
             }
             b2Fade = StartCoroutine(B2WaitToFade());
-        }
-        else
-        {
-            Debug.Log("Error");
         }
     }
 

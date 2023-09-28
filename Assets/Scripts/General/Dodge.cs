@@ -161,7 +161,6 @@ public class Dodge : MonoBehaviour
         }
         #endregion
 
-        //combatInstance.invulnerable = true;
         if (tag == "Player") { GetComponent<CharacterController>().enabled = false; }
         
         

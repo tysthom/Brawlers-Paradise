@@ -50,17 +50,6 @@ public class CharacterManager : MonoBehaviour
     {
         if (assignCustomization)
         {
-           /* if (GetComponent<IdManagear>().gameMode == IdManagear.mode.playerVsAi || GetComponent<IdManagear>().gameMode == IdManagear.mode.training)
-            {
-                brawler1 = GetComponent<IdManagear>().brawler1;
-                brawler2 = GetComponent<IdManagear>().brawler2;
-            }
-            else if (GetComponent<IdManagear>().gameMode == IdManagear.mode.AiVsAi)
-            {
-                brawler1 = GetComponent<IdManagear>().brawler1;
-                brawler2 = GetComponent<IdManagear>().brawler2;
-            } */
-
             Transform[] brawler1Children = brawler1.GetComponentsInChildren<Transform>();
             foreach (Transform child in brawler1Children)
             {
@@ -78,8 +67,6 @@ public class CharacterManager : MonoBehaviour
                     brawler2HairHolder = child.gameObject;
                 }
             }
-
-
 
             for (int i = 0; i < brawler1.transform.childCount; i++)
             {
@@ -104,7 +91,6 @@ public class CharacterManager : MonoBehaviour
             brawler2TargetMesh = brawler2Skin.GetComponent<SkinnedMeshRenderer>();
 
             StartCoroutine(Assign());
-            //brawler1.GetComponent<Animator>().enabled = true;
         }
     }
 
@@ -241,7 +227,6 @@ public class CharacterManager : MonoBehaviour
 
         GetComponent<BlendShapeManager>().AssignBlendShape(brawler1TargetMesh, brawler1OutfitSelection, brawler1);
 
-
         SkinnedMeshRenderer[] setBrawler2Outfit = new SkinnedMeshRenderer[50];
         SkinnedMeshRenderer[] holdBrawler2Outfit = null;
 
@@ -297,7 +282,6 @@ public class CharacterManager : MonoBehaviour
             holdBrawler2Outfit = new SkinnedMeshRenderer[outfits[brawler2OutfitSelection].transform.childCount];
         }
 
-
         for (int i = 0; i < holdBrawler2Outfit.Length; i++)
         {
             setBrawler2Outfit[i] = brawler2Outfit.transform.GetChild(i).GetComponent<SkinnedMeshRenderer>();
@@ -351,6 +335,4 @@ public class CharacterManager : MonoBehaviour
         setTouristOutfit.bones = touristTargetMesh.bones;
         setTouristOutfit.rootBone = touristTargetMesh.rootBone;
     }
-
-    
 }

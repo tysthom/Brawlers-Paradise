@@ -87,7 +87,7 @@ public class Stamina : MonoBehaviour
         }
     }
 
-        void BarFiller()
+    void BarFiller()
     {
         staminaBar.fillAmount = stamina / maxStamina;
     }

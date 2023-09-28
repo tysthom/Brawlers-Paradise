@@ -10,8 +10,6 @@ public class FightStyle : MonoBehaviour
 
     GameObject combatManager;
 
-    
-
     private void Start()
     {
         if (!UniversalFight.usingMenuData)

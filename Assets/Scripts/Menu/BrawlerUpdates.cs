@@ -66,17 +66,14 @@ public class BrawlerUpdates : MonoBehaviour
     [Header("Names")]
     public string[] names;
 
-    // Start is called before the first frame update
     void Start()
     {
         menuManager = GameObject.Find("Menu Manager");
         menuManagerInstance = menuManager.GetComponent<MenuManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-
         if (menuManagerInstance.b1FightStyle != b1FightStyleSelection || menuManagerInstance.b2FightStyle != b2FightStyleSelection)
         {
             brawler1.GetComponent<Animator>().runtimeAnimatorController = fightingTypeAnimators[menuManagerInstance.b1FightStyle];
@@ -360,7 +357,6 @@ public class BrawlerUpdates : MonoBehaviour
 
             brawler2TargetMesh.GetComponent<SkinnedMeshRenderer>().material = skinColors[menuManagerInstance.b2SkinColor - 1];
         }
-
 
         b1FightStyleSelection = menuManagerInstance.b1FightStyle;
         b2FightStyleSelection = menuManagerInstance.b2FightStyle;

@@ -83,10 +83,6 @@ public class Technique : MonoBehaviour
 
             particleManager.GetComponent<ParticleManager>().KarateOffensiveParticles(gameObject); //Switches stance from defensive to passive & activates particles
         }
-        else
-        {
-            Debug.Log("Stance Issue!!");
-        }
 
         resultStatsInstance.TechniqueUsage(gameObject);
 

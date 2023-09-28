@@ -19,7 +19,6 @@ public class KarateStats : MonoBehaviour
     public float forthAttackV1Distance = 5;
     public float forthAttackV2Distance = 3;
 
-
     [Header("Offensive Stance")]
     public float karateDamageIncreaser = 1.25f;
 

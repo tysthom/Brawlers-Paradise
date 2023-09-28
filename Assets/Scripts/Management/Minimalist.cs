@@ -10,7 +10,6 @@ public class Minimalist : MonoBehaviour
 
     Vector3 scale;
 
-    // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("Game Manager");
@@ -25,7 +24,6 @@ public class Minimalist : MonoBehaviour
         scale = GetComponent<RectTransform>().localScale;
     }
 
-    // Update is called once per frame
     private void Update()
     {
         if (!UniversalFight.fight)
