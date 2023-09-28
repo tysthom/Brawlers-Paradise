@@ -6,4 +6,4 @@ From the precision and grace of a Kung Fu master to the fast and aggressive atta
 Whether you're aiming for a realistic fight to the death or prefer more chaos with environment interaction, "Brawler's Paradise" delivers endless excitement and possibilities for every fighting game enthusiast.
 
 # Getting Started
-Download the files and locate the folder that says "Brawler's Paradise Game". Once open, locate the "Brawler's Paradise" Application and launch it.
+Download the files, extract, and locate the folder that says "Brawlers-Paradise-main". Once open, locate the "Brawler's Paradise Game" folder and open it. Finally, launch the "Brawlers Paradise" Application to play. Controller required to play properly.
