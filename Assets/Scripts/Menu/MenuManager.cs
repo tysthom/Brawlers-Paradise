@@ -202,6 +202,14 @@ public class MenuManager : MonoBehaviour
 
         fightMenu.GetComponent<BrawlerUpdates>().brawler1.transform.position += new Vector3(0, 0, -10);
         fightMenu.GetComponent<BrawlerUpdates>().brawler2.transform.position += new Vector3(0, 0, -10);
+        InitialRandomizer();
+        musicSlider.value = 1;
+        soundEffectsSlider.value = 1;
+        musicSliderValue = 1;
+        soundEffectsSliderValue = 1;
+        StateNameController.musicVolume = 1;
+        StateNameController.soundEffectsVolume = 1;
+
         GetComponent<SaveData>().LoadBrawler();
         GetComponent<SaveData>().LoadFightOptions();
         GetComponent<SaveData>().LoadOptions();
