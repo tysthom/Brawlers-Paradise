@@ -202,13 +202,16 @@ public class MenuManager : MonoBehaviour
 
         fightMenu.GetComponent<BrawlerUpdates>().brawler1.transform.position += new Vector3(0, 0, -10);
         fightMenu.GetComponent<BrawlerUpdates>().brawler2.transform.position += new Vector3(0, 0, -10);
-        InitialRandomizer();
-        musicSlider.value = 1;
-        soundEffectsSlider.value = 1;
-        musicSliderValue = 1;
-        soundEffectsSliderValue = 1;
-        StateNameController.musicVolume = 1;
-        StateNameController.soundEffectsVolume = 1;
+
+        firstTime = PlayerPrefs.GetInt("SavedFirstRun");
+        if (firstTime == 0)
+        {
+            PlayerPrefs.SetInt("SavedFirstRun", 1);
+            InitialRandomizer();
+
+            PlayerPrefs.SetFloat("Music Value", 1);
+            PlayerPrefs.SetFloat("Sound Effects Value", 1);
+        }
 
         GetComponent<SaveData>().LoadBrawler();
         GetComponent<SaveData>().LoadFightOptions();
@@ -773,20 +776,6 @@ public class MenuManager : MonoBehaviour
     {
         currentMenu = "Fight Menu";
 
-        firstTime = PlayerPrefs.GetInt("SavedFirstRun");
-        if(firstTime == 0)
-        {
-            PlayerPrefs.SetInt("SavedFirstRun", 1);
-            InitialRandomizer();
-
-            musicSlider.value = 1;
-            soundEffectsSlider.value = 1;
-            musicSliderValue = 1;
-            soundEffectsSliderValue = 1;
-            StateNameController.musicVolume = 1;
-            StateNameController.soundEffectsVolume = 1;
-        }
-
         ButtonPress();
         canChangeMenu = false;
         mainMenu.SetActive(false);
@@ -1350,21 +1339,21 @@ public class MenuManager : MonoBehaviour
 
     void InitialRandomizer()
     {
-        b1FightStyle = Random.Range(0, fightMenu.GetComponent<BrawlerUpdates>().fightingTypeAnimators.Length);
-        b1OutfitSelection = Random.Range(1, 3);
-        b1OutfitVariation = Random.Range(1, fightMenu.GetComponent<BrawlerUpdates>().karateOutfit1Variations.Length + 1);
-        b1HairType = Random.Range(1, fightMenu.GetComponent<BrawlerUpdates>().hairStyles.Length + 1);
-        b1HairColor = Random.Range(1, fightMenu.GetComponent<BrawlerUpdates>().hairColors.Length + 1);
-        b1SkinColor = Random.Range(1, fightMenu.GetComponent<BrawlerUpdates>().skinColors.Length + 1);
-        b1NameSelection = Random.Range(0, fightMenu.GetComponent<BrawlerUpdates>().names.Length);
+        PlayerPrefs.SetInt("B1 FightStyle", Random.Range(0, fightMenu.GetComponent<BrawlerUpdates>().fightingTypeAnimators.Length));
+        PlayerPrefs.SetInt("B1 OutfitType", Random.Range(1, 3));
+        PlayerPrefs.SetInt("B1 OutfitVariation", Random.Range(1, fightMenu.GetComponent<BrawlerUpdates>().karateOutfit1Variations.Length + 1));
+        PlayerPrefs.SetInt("B1 HairType", Random.Range(1, fightMenu.GetComponent<BrawlerUpdates>().hairStyles.Length + 1));
+        PlayerPrefs.SetInt("B1 HairColor", Random.Range(1, fightMenu.GetComponent<BrawlerUpdates>().hairColors.Length + 1));
+        PlayerPrefs.SetInt("B1 SkinColor", Random.Range(1, fightMenu.GetComponent<BrawlerUpdates>().skinColors.Length + 1));
+        PlayerPrefs.SetInt("B1 NameSelection", Random.Range(0, fightMenu.GetComponent<BrawlerUpdates>().names.Length));
 
-        b2FightStyle = Random.Range(0, fightMenu.GetComponent<BrawlerUpdates>().fightingTypeAnimators.Length);
-        b2OutfitSelection = Random.Range(1, 3);
-        b2OutfitVariation = Random.Range(1, fightMenu.GetComponent<BrawlerUpdates>().karateOutfit1Variations.Length + 1);
-        b2HairType = Random.Range(1, fightMenu.GetComponent<BrawlerUpdates>().hairStyles.Length + 1);
-        b2HairColor = Random.Range(1, fightMenu.GetComponent<BrawlerUpdates>().hairColors.Length + 1);
-        b2SkinColor = Random.Range(1, fightMenu.GetComponent<BrawlerUpdates>().skinColors.Length + 1);
-        b2NameSelection = Random.Range(0, fightMenu.GetComponent<BrawlerUpdates>().names.Length);
+        PlayerPrefs.SetInt("B2 FightStyle", Random.Range(0, fightMenu.GetComponent<BrawlerUpdates>().fightingTypeAnimators.Length));
+        PlayerPrefs.SetInt("B2 OutfitType", Random.Range(1, 3));
+        PlayerPrefs.SetInt("B2 OutfitVariation", Random.Range(1, fightMenu.GetComponent<BrawlerUpdates>().karateOutfit1Variations.Length + 1));
+        PlayerPrefs.SetInt("B2 HairType", Random.Range(1, fightMenu.GetComponent<BrawlerUpdates>().hairStyles.Length + 1));
+        PlayerPrefs.SetInt("B2 HairColor", Random.Range(1, fightMenu.GetComponent<BrawlerUpdates>().hairColors.Length + 1));
+        PlayerPrefs.SetInt("B2 SkinColor", Random.Range(1, fightMenu.GetComponent<BrawlerUpdates>().skinColors.Length + 1));
+        PlayerPrefs.SetInt("B2 NameSelection", Random.Range(0, fightMenu.GetComponent<BrawlerUpdates>().names.Length));
     }
 
     void RandomizeBrawler()
