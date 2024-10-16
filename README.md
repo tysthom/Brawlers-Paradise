@@ -9,4 +9,4 @@ Whether you're aiming for a realistic fight to the death or prefer more chaos wi
 Download the files, extract, and locate the folder that says "Brawlers-Paradise-main". Once open, locate the "Brawler's Paradise Game" folder and open it. Finally, launch the "Brawlers Paradise" Application to play. Controller required to play properly.
 
 # Demo
-[View gameplay of the demo here](https://www.youtube.com/watch?v=_AAwwsjU18U).
+[View gameplay of the demo here](https://youtu.be/u9RCWbBteJY).
